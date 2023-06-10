@@ -1,0 +1,61 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.0.5'
+	id 'io.spring.dependency-management' version '1.1.0'
+	id "org.openapi.generator" version "6.2.0" 
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+
+ext {
+	// 出力先を設定
+	openApiOutputDir = "$rootDir/generated"
+}
+//　出力したソースをビルドパスに追加
+sourceSets.main.java.srcDirs += ["$openApiOutputDir/src/main/java"]
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	// 依存性を追加
+	implementation 'org.openapitools:jackson-databind-nullable:0.2.1'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	implementation group: 'org.springdoc', name: 'springdoc-openapi-ui', version: '1.6.9'
+	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.3.0'
+	runtimeOnly 'com.mysql:mysql-connector-j'
+	compileOnly 'io.swagger:swagger-annotations:1.6.2'
+	compileOnly 'org.projectlombok:lombok'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
+// openApiの設定を追加
+openApiGenerate {
+	generatorName = 'spring'
+    inputSpec = "$rootDir/openapi/shukanTalentJohoSearchBFF.yaml"
+	outputDir = "$openApiOutputDir"
+	apiPackage = 'com.api'
+	modelPackage = 'com.model'
+	invokerPackage = "org.openapi.example.invoker"
+	configOptions = [
+		dateLibrary: 'java8',
+		interfaceOnly: 'true',
+		skipDefaultInterface: 'true'
+	]
+}
