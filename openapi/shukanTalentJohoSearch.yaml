@@ -1,0 +1,63 @@
+openapi: 3.0.0
+info:
+  title: 週間タレント別情報検索
+  description: １週間においてのタレントごとの情報を検索する
+  version: 1.0.0
+servers:
+  - url: https://localhost:8080
+    description: 週間タレント別情報検索
+paths:
+  /shukanTalentJohoSearch:
+    get:
+      tags:
+        - shukanTalentJohoSearch
+      operationId: getShukanTalentJohoSearch
+      summary: １週間においてのタレントごとの情報を返す
+      description: １週間においてのタレントごとの情報を返す
+      parameters:
+        - in: query
+          name: targetNentsuki
+          required: true
+          schema:
+            type: integer
+            maximum : 210012
+            minimum : 199001
+        - in: query
+          name:  targetShu
+          required: true
+          schema:
+            type: integer
+            maximum : 5
+            minimum : 1
+        - in: query
+          name: talentName
+          required: false
+          schema:
+            type: string
+            maxLength: 30
+      responses:
+        '200':
+          description: １週間においてのタレントごとの情報を正常取得
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ShukanTalentJohoSearch'
+components:
+  schemas:
+    ShukanTalentJohoSearch:
+      description: 年月に対応する週の開始終了日付の情報
+      type: object
+      properties:
+        mNentsukiShuKanri:
+          description: タレントマスタDTO
+          type: array
+          $ref: "./Tables/mTalent.yaml#/components/schemas/mTalent"
+        tOnAirKanri:
+          description: オンエア管理テーブルDTO
+          type: array
+          $ref: "./Tables/tOnAirKanri.yaml#/components/schemas/tOnAirKanri"
+        mProgram:
+          description: 番組マスタDTO
+          type: array
+          $ref: "./Tables/mProgram.yaml#/components/schemas/mProgram"
+ 
