@@ -11,8 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.example.demo.entity.ShukanTalentJohoSearch;
-import com.model.ShukanTalentJoho;
+import com.model.ShukanTalentJohoSearch;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -27,7 +26,7 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-05-16T00:34:35.849478500+09:00[Asia/Tokyo]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-06-11T16:51:08.111744+09:00[Asia/Tokyo]")
 @Validated
 @Tag(name = "shukanTalentJohoSearch", description = "the shukanTalentJohoSearch API")
 @RequestMapping("api")
@@ -45,10 +44,10 @@ public interface ShukanTalentJohoSearchApi {
     @Operation(
         operationId = "getShukanTalentJohoSearch",
         summary = "１週間においてのタレントごとの情報を返す",
-        tags = { "shukanTalentJohoSearchBFF" },
+        tags = { "shukanTalentJohoSearch" },
         responses = {
             @ApiResponse(responseCode = "200", description = "１週間においてのタレントごとの情報を正常取得", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = ShukanTalentJoho.class))
+                @Content(mediaType = "application/json", schema = @Schema(implementation = ShukanTalentJohoSearch.class))
             })
         }
     )

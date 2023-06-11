@@ -1,6 +1,8 @@
 README.md
 pom.xml
 src/main/java/com/api/ApiUtil.java
-src/main/java/com/api/YearMonthWeekStartEndSearchApi.java
-src/main/java/com/model/MNentsukiShuKanri.java
-src/main/java/com/model/YearMonthWeekStartEndJoho.java
+src/main/java/com/api/ShukanTalentJohoSearchApi.java
+src/main/java/com/model/MProgram.java
+src/main/java/com/model/MTalent.java
+src/main/java/com/model/ShukanTalentJohoSearch.java
+src/main/java/com/model/TOnAirKanri.java

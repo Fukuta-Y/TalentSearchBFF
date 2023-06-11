@@ -7,13 +7,13 @@ servers:
   - url: https://localhost:8080
     description: 週間タレント別情報検索BFF
 paths:
-  /shukanTalentJohoSearch:
+  /shukanTalentJohoSearchBFF:
     get:
       tags:
         - shukanTalentJohoSearchBFF
-      operationId: getShukanTalentJohoSearch
-      summary: １週間においてのタレントごとの情報を返す
-      description: １週間においてのタレントごとの情報を返す
+      operationId: getShukanTalentJohoSearchBFF
+      summary: １週間においてのタレントごとの情報を返すBFF
+      description: １週間においてのタレントごとの情報を返すBFF
       parameters:
         - in: query
           name: targetNentsuki
@@ -41,10 +41,10 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/shukanTalentJoho'
+                $ref: '#/components/schemas/shukanTalentJohoSearchBFF'
 components:
   schemas:
-    shukanTalentJoho:
+    shukanTalentJohoSearchBFF:
       description: １週間においてのタレントごとの情報
       type: object
       properties:

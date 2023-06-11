@@ -43,7 +43,20 @@ components:
       description: 年月に対応する週の開始終了日付の情報
       type: object
       properties:
-        mNentsukiShuKanri:
-          description: 年月週管理マスタDTO
-          $ref: "./Tables/mNentsukiShuKanri.yaml#/components/schemas/mNentsukiShuKanri"
+         mProgram:
+          type: array
+          description: 番組マスタDTO
+          $ref: "./Tables/mProgram.yaml#/components/schemas/mProgram"
+         tOnAirKanri:
+          type: array
+          description: オンエア管理テーブルDTO
+          $ref: "./Tables/tOnAirKanri.yaml#/components/schemas/tOnAirKanri"
+         mTalent:
+          type: array
+          description: タレントマスタDTO
+          $ref: "./Tables/mTalent.yaml#/components/schemas/mTalent"
+          
+          
+          
+          
    

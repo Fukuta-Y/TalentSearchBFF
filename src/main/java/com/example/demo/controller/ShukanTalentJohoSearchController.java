@@ -5,8 +5,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 
 import com.api.ShukanTalentJohoSearchApi;
-import com.example.demo.entity.ShukanTalentJohoSearch;
 import com.example.demo.service.ShukanTalentJohoSearchService;
+import com.model.ShukanTalentJohoSearch;
 
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Max;
@@ -19,22 +19,24 @@ public class ShukanTalentJohoSearchController implements ShukanTalentJohoSearchA
 	
 	@Autowired(required = false)
 	public ShukanTalentJohoSearchService service;
-	
+
 	@Override
 	public ResponseEntity<ShukanTalentJohoSearch> getShukanTalentJohoSearch(
 			@NotNull @Min(199001) @Max(210012) @Valid Integer targetNentsuki,
 			@NotNull @Min(1) @Max(5) @Valid Integer targetShu, @Size(max = 30) @Valid String talentName) {
-
-		// Resonseの設定
-		ShukanTalentJohoSearch response = new ShukanTalentJohoSearch();
+		
+		ShukanTalentJohoSearch model = new ShukanTalentJohoSearch();
 		
 		// YearMonthWeekStartEndSearchServiceの取得
-		ShukanTalentJohoSearch shukanTalentJohoSearch = service.select(targetNentsuki, targetShu, talentName);
-
-		// responseへ設定
-		response = shukanTalentJohoSearch;
-		
-		return ResponseEntity.ok(response);
+		com.example.demo.entity.ShukanTalentJohoSearch search = service.select(targetNentsuki, targetShu, talentName);
+//		
+//		model.setmNentsukiShuKanri(search.get
+//		model.setmProgram(shukanTalentJohoSearch.());
+//		model.settOnAirKanri(shukanTalentJohoSearch.());
+		return ResponseEntity.ok(model);
 	}
+
+
+
 
 }
