@@ -5,7 +5,7 @@ import com.example.demo.dto.NentsukiShuKanriMasterDto;
 
 import lombok.Data;
 /**
- * 週間タレント別情報検索レスポンス
+ * 年月週の開始終了日付検索レスポンス
  */
 @Data
 public class YearMonthWeekStartEndSearch implements Serializable {

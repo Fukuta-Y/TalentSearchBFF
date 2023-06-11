@@ -31,14 +31,14 @@ public class ShukanTalentJohoSearchService {
 
     /**
      * 週間タレント別情報検索
-　　　* @param targetNentsuki リクエストデータ
-　　　* @param targetShu リクエストデータ
-　　　* @param talentName リクエストデータ
+　　　* @param targetNentsuki 対象年月
+　　　* @param targetShu 対象週
+　　　* @param talentName タレント名
      * @return 検索結果
      */
     public ShukanTalentJohoSearch select(Integer targetNentsuki, Integer targetShu, String talentName) {
     	
-    	// ユーザー情報検索のresponseを設定
+    	// 週間タレント別情報検索のresponseを設定
 		ShukanTalentJohoSearch response = new ShukanTalentJohoSearch();
     	
     	// タレントマスタ検索

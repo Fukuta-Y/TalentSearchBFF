@@ -24,8 +24,15 @@ public class ShukanTalentJohoSearchController implements ShukanTalentJohoSearchA
 	public ResponseEntity<ShukanTalentJohoSearch> getShukanTalentJohoSearch(
 			@NotNull @Min(199001) @Max(210012) @Valid Integer targetNentsuki,
 			@NotNull @Min(1) @Max(5) @Valid Integer targetShu, @Size(max = 30) @Valid String talentName) {
+
+		// Resonseの設定
+		ShukanTalentJohoSearch response = new ShukanTalentJohoSearch();
 		
-		ShukanTalentJohoSearch response = service.select(targetNentsuki, targetShu, talentName);
+		// YearMonthWeekStartEndSearchServiceの取得
+		ShukanTalentJohoSearch shukanTalentJohoSearch = service.select(targetNentsuki, targetShu, talentName);
+
+		// responseへ設定
+		response = shukanTalentJohoSearch;
 		
 		return ResponseEntity.ok(response);
 	}

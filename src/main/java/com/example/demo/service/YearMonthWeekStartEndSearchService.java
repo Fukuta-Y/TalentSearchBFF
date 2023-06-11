@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.dto.NentsukiShuKanriMasterDto;
 import com.example.demo.repository.mapper.generated.MNentsukiShuKanriMapper;
-
+import com.model.MNentsukiShuKanri;
 /**
  * 年月週の開始終了日付検索 Service
  */
@@ -23,9 +23,13 @@ public class YearMonthWeekStartEndSearchService {
      */
     public com.model.MNentsukiShuKanri select(Integer targetNentsuki, Integer targetShu) {
     	
-    	NentsukiShuKanriMasterDto nentsukiShuKanriMasterDto = mNentsukiShuKanriMapper.select(targetNentsuki, targetShu);
-    	com.model.MNentsukiShuKanri response = new com.model.MNentsukiShuKanri ();
+    	// 年月週の開始終了日付検索のresponseを設定
+    	MNentsukiShuKanri response = new MNentsukiShuKanri ();
     	
+    	// 年月週の開始終了日付検索
+    	NentsukiShuKanriMasterDto nentsukiShuKanriMasterDto = mNentsukiShuKanriMapper.select(targetNentsuki, targetShu);
+
+    	// 戻りの内容を設定【TODO:helperでマッピングさせる必要あり】
     	response.setNentsuki(nentsukiShuKanriMasterDto.getNentsuki());
     	response.setShu(nentsukiShuKanriMasterDto.getShu());
     	response.setShuFrom(nentsukiShuKanriMasterDto.getShuFrom().toString());
