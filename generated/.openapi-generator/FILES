@@ -1,6 +1,6 @@
-.openapi-generator-ignore
 README.md
 pom.xml
 src/main/java/com/api/ApiUtil.java
-src/main/java/com/api/ShukanTalentJohoSearchApi.java
-src/main/java/com/model/ShukanTalentJoho.java
+src/main/java/com/api/YearMonthWeekStartEndSearchApi.java
+src/main/java/com/model/MNentsukiShuKanri.java
+src/main/java/com/model/YearMonthWeekStartEndJoho.java

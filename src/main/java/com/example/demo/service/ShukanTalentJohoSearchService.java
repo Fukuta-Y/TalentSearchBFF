@@ -15,7 +15,7 @@ import com.example.demo.repository.mapper.generated.MTalentMapper;
 import com.example.demo.repository.mapper.generated.TOnairKanriMapper;
 
 /**
- * ユーザー情報 Service
+ * 週間タレント別情報検索 Service
  */
 @Service
 public class ShukanTalentJohoSearchService {
@@ -30,8 +30,10 @@ public class ShukanTalentJohoSearchService {
     public MProgramMapper mProgramMapper;
 
     /**
-     * ユーザー情報検索
-　　　* @param userSearchRequest リクエストデータ
+     * 週間タレント別情報検索
+　　　* @param targetNentsuki リクエストデータ
+　　　* @param targetShu リクエストデータ
+　　　* @param talentName リクエストデータ
      * @return 検索結果
      */
     public ShukanTalentJohoSearch select(Integer targetNentsuki, Integer targetShu, String talentName) {

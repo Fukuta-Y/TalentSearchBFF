@@ -1,0 +1,49 @@
+openapi: 3.0.0
+info:
+  title: 年月週の開始終了日付検索
+  description: 年月に対応する週の開始終了日付を検索する
+  version: 1.0.0
+servers:
+  - url: https://localhost:8080
+    description: 年月週の開始終了日付検索
+paths:
+  /yearMonthWeekStartEndSearch:
+    get:
+      tags:
+        - yearMonthWeekStartEndSearch
+      operationId: getYearMonthWeekStartEndSearch
+      summary: 年月に対応する週の開始終了日付の情報を返す
+      description: 年月に対応する週の開始終了日付の情報を返す
+      parameters:
+        - in: query
+          name: targetNentsuki
+          required: true
+          schema:
+            type: integer
+            maximum : 210012
+            minimum : 199001
+        - in: query
+          name:  targetShu
+          required: true
+          schema:
+            type: integer
+            maximum : 5
+            minimum : 1
+      responses:
+        '200':
+          description: 年月に対応する週の開始終了日付の情報を正常取得
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/yearMonthWeekStartEndJoho'
+   
+components:
+  schemas:
+    yearMonthWeekStartEndJoho:
+      description: 年月に対応する週の開始終了日付の情報
+      type: object
+      properties:
+        mNentsukiShuKanri:
+          description: 年月週管理マスタDTO
+          $ref: "./Tables/mNentsukiShuKanri.yaml#/components/schemas/mNentsukiShuKanri"
+   
