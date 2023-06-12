@@ -48,7 +48,7 @@ components:
       description: 年月に対応する週の開始終了日付の情報
       type: object
       properties:
-        mNentsukiShuKanri:
+        mTalent:
           description: タレントマスタDTO
           type: array
           $ref: "./Tables/mTalent.yaml#/components/schemas/mTalent"

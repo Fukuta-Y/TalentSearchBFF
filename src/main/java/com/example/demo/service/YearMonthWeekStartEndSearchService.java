@@ -47,6 +47,6 @@ public class YearMonthWeekStartEndSearchService {
 //    	response.setTorokuDay(nentsukiShuKanriMasterDto.getTorokuDay().toString());
     	
 		// responseの返却
-        return null;
+        return requestModel;
     }
 }

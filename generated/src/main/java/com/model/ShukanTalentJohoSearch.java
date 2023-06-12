@@ -13,11 +13,11 @@ import jakarta.validation.Valid;
  */
 
 @Schema(name = "ShukanTalentJohoSearch", description = "年月に対応する週の開始終了日付の情報")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-06-11T16:51:08.111744+09:00[Asia/Tokyo]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-06-12T21:30:49.581521+09:00[Asia/Tokyo]")
 public class ShukanTalentJohoSearch {
 
-  @JsonProperty("mNentsukiShuKanri")
-  private MTalent mNentsukiShuKanri;
+  @JsonProperty("mTalent")
+  private MTalent mTalent;
 
   @JsonProperty("tOnAirKanri")
   private TOnAirKanri tOnAirKanri;
@@ -25,23 +25,23 @@ public class ShukanTalentJohoSearch {
   @JsonProperty("mProgram")
   private MProgram mProgram;
 
-  public ShukanTalentJohoSearch mNentsukiShuKanri(MTalent mNentsukiShuKanri) {
-    this.mNentsukiShuKanri = mNentsukiShuKanri;
+  public ShukanTalentJohoSearch mTalent(MTalent mTalent) {
+    this.mTalent = mTalent;
     return this;
   }
 
   /**
-   * Get mNentsukiShuKanri
-   * @return mNentsukiShuKanri
+   * Get mTalent
+   * @return mTalent
   */
   @Valid 
-  @Schema(name = "mNentsukiShuKanri", required = false)
-  public MTalent getmNentsukiShuKanri() {
-    return mNentsukiShuKanri;
+  @Schema(name = "mTalent", required = false)
+  public MTalent getmTalent() {
+    return mTalent;
   }
 
-  public void setmNentsukiShuKanri(MTalent mNentsukiShuKanri) {
-    this.mNentsukiShuKanri = mNentsukiShuKanri;
+  public void setmTalent(MTalent mTalent) {
+    this.mTalent = mTalent;
   }
 
   public ShukanTalentJohoSearch tOnAirKanri(TOnAirKanri tOnAirKanri) {
@@ -91,21 +91,21 @@ public class ShukanTalentJohoSearch {
       return false;
     }
     ShukanTalentJohoSearch shukanTalentJohoSearch = (ShukanTalentJohoSearch) o;
-    return Objects.equals(this.mNentsukiShuKanri, shukanTalentJohoSearch.mNentsukiShuKanri) &&
+    return Objects.equals(this.mTalent, shukanTalentJohoSearch.mTalent) &&
         Objects.equals(this.tOnAirKanri, shukanTalentJohoSearch.tOnAirKanri) &&
         Objects.equals(this.mProgram, shukanTalentJohoSearch.mProgram);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(mNentsukiShuKanri, tOnAirKanri, mProgram);
+    return Objects.hash(mTalent, tOnAirKanri, mProgram);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ShukanTalentJohoSearch {\n");
-    sb.append("    mNentsukiShuKanri: ").append(toIndentedString(mNentsukiShuKanri)).append("\n");
+    sb.append("    mTalent: ").append(toIndentedString(mTalent)).append("\n");
     sb.append("    tOnAirKanri: ").append(toIndentedString(tOnAirKanri)).append("\n");
     sb.append("    mProgram: ").append(toIndentedString(mProgram)).append("\n");
     sb.append("}");

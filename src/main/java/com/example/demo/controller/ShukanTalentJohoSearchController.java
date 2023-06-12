@@ -30,13 +30,10 @@ public class ShukanTalentJohoSearchController implements ShukanTalentJohoSearchA
 		// YearMonthWeekStartEndSearchServiceの取得
 		com.example.demo.entity.ShukanTalentJohoSearch search = service.select(targetNentsuki, targetShu, talentName);
 //		
-//		model.setmNentsukiShuKanri(search.get
-//		model.setmProgram(shukanTalentJohoSearch.());
-//		model.settOnAirKanri(shukanTalentJohoSearch.());
+//		model.setmProgram(search.getProgramMasterDto());
+//		model.setmTalent(search.getTalentMasterDto());
+//		model.settOnAirKanri(search.getOnAirKanriTableDto());
+//		
 		return ResponseEntity.ok(model);
 	}
-
-
-
-
 }
