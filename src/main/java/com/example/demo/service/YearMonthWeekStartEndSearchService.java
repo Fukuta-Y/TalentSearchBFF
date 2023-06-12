@@ -5,7 +5,9 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.dto.NentsukiShuKanriMasterDto;
 import com.example.demo.repository.mapper.generated.MNentsukiShuKanriMapper;
+import com.example.demo.service.helper.MNentsukiShuKanriHelper;
 import com.model.MNentsukiShuKanri;
+
 /**
  * 年月週の開始終了日付検索 Service
  */
@@ -14,6 +16,9 @@ public class YearMonthWeekStartEndSearchService {
 
     @Autowired(required = false)
     public MNentsukiShuKanriMapper mNentsukiShuKanriMapper;
+    
+    @Autowired(required = false)
+    public MNentsukiShuKanriHelper mapper;
 
     /**
      * 年月週の開始終了日付検索
@@ -21,23 +26,27 @@ public class YearMonthWeekStartEndSearchService {
 　　　* @param targetShu 対象週
      * @return 検索結果
      */
-    public com.model.MNentsukiShuKanri select(Integer targetNentsuki, Integer targetShu) {
-    	
-    	// 年月週の開始終了日付検索のresponseを設定
-    	MNentsukiShuKanri response = new MNentsukiShuKanri ();
-    	
+    public MNentsukiShuKanri select(Integer targetNentsuki, Integer targetShu) {
+ 
     	// 年月週の開始終了日付検索
     	NentsukiShuKanriMasterDto nentsukiShuKanriMasterDto = mNentsukiShuKanriMapper.select(targetNentsuki, targetShu);
 
+    	System.out.println("nentsukiShuKanriMasterDto:" + nentsukiShuKanriMasterDto);
+    	
+    	// 戻りの内容を設定
+    	MNentsukiShuKanri requestModel = mapper.toModel(nentsukiShuKanriMasterDto);	
+    	
+    	System.out.println("MNentsukiShuKanri:" + requestModel);
+    	
     	// 戻りの内容を設定【TODO:helperでマッピングさせる必要あり】
-    	response.setNentsuki(nentsukiShuKanriMasterDto.getNentsuki());
-    	response.setShu(nentsukiShuKanriMasterDto.getShu());
-    	response.setShuFrom(nentsukiShuKanriMasterDto.getShuFrom().toString());
-    	response.setShuTo(nentsukiShuKanriMasterDto.getShuTo().toString());
-    	response.setKoushinDay(nentsukiShuKanriMasterDto.getKoushinDay().toString());
-    	response.setTorokuDay(nentsukiShuKanriMasterDto.getTorokuDay().toString());
+//    	response.setNentsuki(nentsukiShuKanriMasterDto.getNentsuki());
+//    	response.setShu(nentsukiShuKanriMasterDto.getShu());
+//    	response.setShuFrom(nentsukiShuKanriMasterDto.getShuFrom().toString());
+//    	response.setShuTo(nentsukiShuKanriMasterDto.getShuTo().toString());
+//    	response.setKoushinDay(nentsukiShuKanriMasterDto.getKoushinDay().toString());
+//    	response.setTorokuDay(nentsukiShuKanriMasterDto.getTorokuDay().toString());
     	
 		// responseの返却
-        return response;
+        return null;
     }
 }
