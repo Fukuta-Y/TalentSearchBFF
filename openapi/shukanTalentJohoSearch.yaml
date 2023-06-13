@@ -51,13 +51,16 @@ components:
         mTalent:
           description: タレントマスタDTO
           type: array
-          $ref: "./Tables/mTalent.yaml#/components/schemas/mTalent"
+          items:
+            $ref: "./Tables/mTalent.yaml#/components/schemas/mTalent"
         tOnAirKanri:
           description: オンエア管理テーブルDTO
           type: array
-          $ref: "./Tables/tOnAirKanri.yaml#/components/schemas/tOnAirKanri"
+          items:
+            $ref: "./Tables/tOnAirKanri.yaml#/components/schemas/tOnAirKanri"
         mProgram:
           description: 番組マスタDTO
           type: array
-          $ref: "./Tables/mProgram.yaml#/components/schemas/mProgram"
+          items:
+            $ref: "./Tables/mProgram.yaml#/components/schemas/mProgram"
  
