@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import com.example.demo.dto.OnAirKanriTableDto;
 import com.example.demo.dto.ProgramMasterDto;
 import com.example.demo.dto.TalentMasterDto;
-import com.example.demo.entity.ShukanTalentJohoSearch;
+import com.example.demo.entity.ShukanTalentJohoSearchEntity;
 import com.example.demo.repository.mapper.generated.MProgramMapper;
 import com.example.demo.repository.mapper.generated.MTalentMapper;
 import com.example.demo.repository.mapper.generated.TOnairKanriMapper;
@@ -36,10 +36,10 @@ public class ShukanTalentJohoSearchService {
 　　　* @param talentName タレント名
      * @return 検索結果
      */
-    public ShukanTalentJohoSearch select(Integer targetNentsuki, Integer targetShu, String talentName) {
+    public ShukanTalentJohoSearchEntity select(Integer targetNentsuki, Integer targetShu, String talentName) {
     	
     	// 週間タレント別情報検索のresponseを設定
-		ShukanTalentJohoSearch response = new ShukanTalentJohoSearch();
+    	ShukanTalentJohoSearchEntity response = new ShukanTalentJohoSearchEntity();
     	
     	// タレントマスタ検索
 		List<TalentMasterDto> talentMasterDto = mTalentMapper.select(talentName);

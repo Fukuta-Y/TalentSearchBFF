@@ -5,6 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 
 import com.api.ShukanTalentJohoSearchApi;
+import com.example.demo.entity.ShukanTalentJohoSearchEntity;
 import com.example.demo.service.ShukanTalentJohoSearchService;
 import com.model.ShukanTalentJohoSearch;
 
@@ -19,6 +20,9 @@ public class ShukanTalentJohoSearchController implements ShukanTalentJohoSearchA
 	
 	@Autowired(required = false)
 	public ShukanTalentJohoSearchService service;
+	
+	//@Autowired(required = false)
+	//public ShukanTalentJohoSearchHelper helper;
 
 	@Override
 	public ResponseEntity<ShukanTalentJohoSearch> getShukanTalentJohoSearch(
@@ -28,12 +32,13 @@ public class ShukanTalentJohoSearchController implements ShukanTalentJohoSearchA
 		ShukanTalentJohoSearch model = new ShukanTalentJohoSearch();
 		
 		// YearMonthWeekStartEndSearchServiceの取得
-		com.example.demo.entity.ShukanTalentJohoSearch search = service.select(targetNentsuki, targetShu, talentName);
-//		
-//		model.setmProgram(search.getProgramMasterDto());
-//		model.setmTalent(search.getTalentMasterDto());
-//		model.settOnAirKanri(search.getOnAirKanriTableDto());
-//		
+		ShukanTalentJohoSearchEntity entity = service.select(targetNentsuki, targetShu, talentName);
+		
+		// TODO:MapStructの不備
+		//model.setmProgram(helper.toProgramModel(entity.getProgramMasterDto()));
+		//model.setmTalent(helper.toTalentModel(entity.getTalentMasterDto()));
+		//model.settOnAirKanri(helper.toOnAirKanriTableModel(entity.getOnAirKanriTableDto()));
+	
 		return ResponseEntity.ok(model);
 	}
 }
