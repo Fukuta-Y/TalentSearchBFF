@@ -21,7 +21,6 @@ public class WebClientSetting {
                 .retrieve()
                 .bodyToMono(ShukanTalentJohoSearch.class).block();
     }
-    
     // BE「年月週の開始終了日付検索」へ接続の設定
 
 }
