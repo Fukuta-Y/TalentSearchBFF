@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.setting.WebClientSetting;
 import com.model.ShukanTalentJohoSearch;
+import com.model.ShukanTalentJohoSearchBFF;
 
 import lombok.RequiredArgsConstructor;
 
@@ -23,10 +24,10 @@ public class ShukanTalentJohoSearchBFFService {
 　　　* @param talentName タレント名
      * @return 検索結果
      */
-    public ShukanTalentJohoSearch select(Integer targetNentsuki, Integer targetShu, String talentName) {
+    public ShukanTalentJohoSearchBFF select(Integer targetNentsuki, Integer targetShu, String talentName) {
     	
     	// BE「週間タレント別情報検索より取得処理
-    	ShukanTalentJohoSearch data = this.webClient.getFirstDataByWebClient(targetNentsuki, targetShu, talentName);
+    	ShukanTalentJohoSearch model = this.webClient.getFirstDataByWebClient(targetNentsuki, targetShu, talentName);
     	
     	// BE「週間タレント別情報検索より取得処理
     	
@@ -56,8 +57,10 @@ public class ShukanTalentJohoSearchBFFService {
     	// ・対象週(TO)へ、年月週管理マスタDTO .週の終了日（土曜日）を設定
 
     	// (6) (4) + (5)を組み合わせて、レスポンスの形にする。
+    	ShukanTalentJohoSearchBFF response = new ShukanTalentJohoSearchBFF();
+    	response.setTalentId(model.getmTalent().get(0).getTalentId());
     	
-		// dataの返却
-        return data;
+		// responseの返却
+        return response;
     }
 }
