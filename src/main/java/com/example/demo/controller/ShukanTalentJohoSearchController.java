@@ -48,13 +48,12 @@ public class ShukanTalentJohoSearchController implements ShukanTalentJohoSearchA
 		ProgramMasterDto dto = programDto.get(0);
 		
 		com.model.MProgram  program = new com.model.MProgram();
-		program.setChanelId(dto.getChanelId());
+		program.setProgramId(dto.getProgramId());
 		
 		List<com.model.MProgram>  listM = new ArrayList<com.model.MProgram>();
 		listM.add(program);
 		
 		model.setmProgram(listM);
-		
 		
 		return ResponseEntity.ok(model);
 	}
