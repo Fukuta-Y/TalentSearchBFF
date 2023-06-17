@@ -1,5 +1,7 @@
 package com.model;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -13,72 +15,99 @@ import jakarta.validation.Valid;
  */
 
 @Schema(name = "ShukanTalentJohoSearch", description = "年月に対応する週の開始終了日付の情報")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-06-12T21:30:49.581521+09:00[Asia/Tokyo]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-06-13T16:01:11.890061+09:00[Asia/Tokyo]")
 public class ShukanTalentJohoSearch {
 
   @JsonProperty("mTalent")
-  private MTalent mTalent;
+  @Valid
+  private List<MTalent> mTalent = null;
 
   @JsonProperty("tOnAirKanri")
-  private TOnAirKanri tOnAirKanri;
+  @Valid
+  private List<TOnAirKanri> tOnAirKanri = null;
 
   @JsonProperty("mProgram")
-  private MProgram mProgram;
+  @Valid
+  private List<MProgram> mProgram = null;
 
-  public ShukanTalentJohoSearch mTalent(MTalent mTalent) {
+  public ShukanTalentJohoSearch mTalent(List<MTalent> mTalent) {
     this.mTalent = mTalent;
     return this;
   }
 
+  public ShukanTalentJohoSearch addMTalentItem(MTalent mTalentItem) {
+    if (this.mTalent == null) {
+      this.mTalent = new ArrayList<>();
+    }
+    this.mTalent.add(mTalentItem);
+    return this;
+  }
+
   /**
-   * Get mTalent
+   * タレントマスタDTO
    * @return mTalent
   */
   @Valid 
-  @Schema(name = "mTalent", required = false)
-  public MTalent getmTalent() {
+  @Schema(name = "mTalent", description = "タレントマスタDTO", required = false)
+  public List<MTalent> getmTalent() {
     return mTalent;
   }
 
-  public void setmTalent(MTalent mTalent) {
+  public void setmTalent(List<MTalent> mTalent) {
     this.mTalent = mTalent;
   }
 
-  public ShukanTalentJohoSearch tOnAirKanri(TOnAirKanri tOnAirKanri) {
+  public ShukanTalentJohoSearch tOnAirKanri(List<TOnAirKanri> tOnAirKanri) {
     this.tOnAirKanri = tOnAirKanri;
     return this;
   }
 
+  public ShukanTalentJohoSearch addTOnAirKanriItem(TOnAirKanri tOnAirKanriItem) {
+    if (this.tOnAirKanri == null) {
+      this.tOnAirKanri = new ArrayList<>();
+    }
+    this.tOnAirKanri.add(tOnAirKanriItem);
+    return this;
+  }
+
   /**
-   * Get tOnAirKanri
+   * オンエア管理テーブルDTO
    * @return tOnAirKanri
   */
   @Valid 
-  @Schema(name = "tOnAirKanri", required = false)
-  public TOnAirKanri gettOnAirKanri() {
+  @Schema(name = "tOnAirKanri", description = "オンエア管理テーブルDTO", required = false)
+  public List<TOnAirKanri> gettOnAirKanri() {
     return tOnAirKanri;
   }
 
-  public void settOnAirKanri(TOnAirKanri tOnAirKanri) {
+  public void settOnAirKanri(List<TOnAirKanri> tOnAirKanri) {
     this.tOnAirKanri = tOnAirKanri;
   }
 
-  public ShukanTalentJohoSearch mProgram(MProgram mProgram) {
+  public ShukanTalentJohoSearch mProgram(List<MProgram> mProgram) {
     this.mProgram = mProgram;
     return this;
   }
 
+  public ShukanTalentJohoSearch addMProgramItem(MProgram mProgramItem) {
+    if (this.mProgram == null) {
+      this.mProgram = new ArrayList<>();
+    }
+    this.mProgram.add(mProgramItem);
+    return this;
+  }
+
   /**
-   * Get mProgram
+   * 番組マスタDTO
    * @return mProgram
   */
   @Valid 
-  @Schema(name = "mProgram", required = false)
-  public MProgram getmProgram() {
+  @Schema(name = "mProgram", description = "番組マスタDTO", required = false)
+  public List<MProgram> getmProgram() {
     return mProgram;
   }
 
-  public void setmProgram(MProgram mProgram) {
+  public void setmProgram(List<MProgram> mProgram) {
     this.mProgram = mProgram;
   }
 
