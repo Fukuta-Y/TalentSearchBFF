@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.example.demo.controller.helper.ShukanTalentJohoSearchHelper;
 import com.example.demo.dto.OnAirKanriTableDto;
 import com.example.demo.dto.ProgramMasterDto;
 import com.example.demo.dto.TalentMasterDto;
@@ -12,6 +13,7 @@ import com.example.demo.entity.ShukanTalentJohoSearchEntity;
 import com.example.demo.repository.mapper.generated.MProgramMapper;
 import com.example.demo.repository.mapper.generated.MTalentMapper;
 import com.example.demo.repository.mapper.generated.TOnairKanriMapper;
+import com.model.ShukanTalentJohoSearch;
 
 import lombok.RequiredArgsConstructor;
 
@@ -23,10 +25,9 @@ import lombok.RequiredArgsConstructor;
 public class ShukanTalentJohoSearchService {
 
     private final MTalentMapper mTalentMapper;
-    
     private final TOnairKanriMapper tOnairKanriMapper;
-    
     private final MProgramMapper mProgramMapper;
+    private final ShukanTalentJohoSearchHelper helper;
 
     /**
      * 週間タレント別情報検索
@@ -35,18 +36,21 @@ public class ShukanTalentJohoSearchService {
 　　　* @param talentName タレント名
      * @return 検索結果
      */
-    public ShukanTalentJohoSearchEntity select(Integer targetNentsuki, Integer targetShu, String talentName) {
+    public ShukanTalentJohoSearch select(Integer targetNentsuki, Integer targetShu, String talentName) {
     	
-    	// 週間タレント別情報検索のresponseを設定
-    	ShukanTalentJohoSearchEntity response = new ShukanTalentJohoSearchEntity();
+    	// ShukanTalentJohoSearchEntityを設定
+    	ShukanTalentJohoSearchEntity entity = new ShukanTalentJohoSearchEntity();
+    	
+    	// ShukanTalentJohoSearchをResponseに設定
+    	ShukanTalentJohoSearch response = new ShukanTalentJohoSearch();
     	
     	// タレントマスタ検索
 		List<TalentMasterDto> talentMasterDto = mTalentMapper.select(talentName);
-		response.setTalentMasterDto(talentMasterDto);
+		entity.setTalentMasterDto(talentMasterDto);
     	
     	// オンエア管理テーブル検索
 		List<OnAirKanriTableDto> onAirKanriTableDto = tOnairKanriMapper.select(targetNentsuki, targetShu);
-		response.setOnAirKanriTableDto(onAirKanriTableDto);
+		entity.setOnAirKanriTableDto(onAirKanriTableDto);
 
     	// 番組マスタ検索（オンエア管理テーブル検索が存在する場合のみ実施）
 		if (onAirKanriTableDto != null) {
@@ -55,9 +59,18 @@ public class ShukanTalentJohoSearchService {
 				idList.add(s.getProgramId())
 			); 
 			List<ProgramMasterDto> programMasterDto = mProgramMapper.select(idList);
-			response.setProgramMasterDto(programMasterDto);
+			entity.setProgramMasterDto(programMasterDto);
 		}
 		
+		List<ProgramMasterDto>  programDto = entity.getProgramMasterDto();
+		response.setmProgram(helper.toProgramModel(programDto));
+		
+		List<OnAirKanriTableDto>  onairKanriDto = entity.getOnAirKanriTableDto();
+		response.settOnAirKanri(helper.toOnAirKanriTableModel(onairKanriDto));
+
+		List<TalentMasterDto>  talnetDto = entity.getTalentMasterDto();
+		response.setmTalent(helper.toTalentModel(talnetDto));
+
 		// responseの返却
         return response;
     }

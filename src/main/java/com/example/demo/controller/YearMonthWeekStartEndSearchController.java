@@ -1,41 +1,31 @@
 package com.example.demo.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 
 import com.api.YearMonthWeekStartEndSearchApi;
 import com.example.demo.service.YearMonthWeekStartEndSearchService;
-import com.model.MNentsukiShuKanri;
 import com.model.YearMonthWeekStartEndJoho;
 
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
+import lombok.RequiredArgsConstructor;
 
 @Controller
+@RequiredArgsConstructor
 public class YearMonthWeekStartEndSearchController implements YearMonthWeekStartEndSearchApi{
 
-	@Autowired(required = false)
-	public YearMonthWeekStartEndSearchService service;
+    private final YearMonthWeekStartEndSearchService service;
 	
 	@Override
 	public ResponseEntity<YearMonthWeekStartEndJoho> getYearMonthWeekStartEndSearch(
 			@NotNull @Min(199001) @Max(210012) @Valid Integer targetNentsuki,
 			@NotNull @Min(1) @Max(5) @Valid Integer targetShu) {
 
-		// Resonseの設定
-		YearMonthWeekStartEndJoho response = new YearMonthWeekStartEndJoho();
-		
 		// YearMonthWeekStartEndSearchServiceの取得
-		MNentsukiShuKanri model = service.select(targetNentsuki, targetShu);
-		model.setNentsuki(model.getNentsuki());
-
-		// responseへ設定
-		response.setmNentsukiShuKanri(model);
-		
+		YearMonthWeekStartEndJoho response = service.select(targetNentsuki, targetShu);
 		return ResponseEntity.ok(response);
 	}
-
 }

@@ -9,7 +9,7 @@ import lombok.Data;
 @Data
 public class OnAirKanriTableDto implements Serializable {
    private String id;
-   private Date onairDay;
+   private String onairDay;
    private String programId;
    private String talentId;
    private Integer targetNentsuki;

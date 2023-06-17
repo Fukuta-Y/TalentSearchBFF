@@ -14,7 +14,10 @@ import com.model.TOnAirKanri;
 
 @Mapper(config = ConfigMapper.class)
 public interface ShukanTalentJohoSearchHelper {
+
 	List<TOnAirKanri> toOnAirKanriTableModel(List<OnAirKanriTableDto> model);
+
 	List<MProgram> toProgramModel(List<ProgramMasterDto> model);
+
 	List<MTalent> toTalentModel(List<TalentMasterDto> model);
  }
