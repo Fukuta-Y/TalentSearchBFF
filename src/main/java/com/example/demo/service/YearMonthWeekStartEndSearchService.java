@@ -1,6 +1,5 @@
 package com.example.demo.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.dto.NentsukiShuKanriMasterDto;
@@ -8,17 +7,17 @@ import com.example.demo.repository.mapper.generated.MNentsukiShuKanriMapper;
 import com.example.demo.service.helper.MNentsukiShuKanriHelper;
 import com.model.MNentsukiShuKanri;
 
+import lombok.RequiredArgsConstructor;
+
 /**
  * 年月週の開始終了日付検索 Service
  */
 @Service
+@RequiredArgsConstructor
 public class YearMonthWeekStartEndSearchService {
 
-    @Autowired(required = false)
-    public MNentsukiShuKanriMapper mapper;
-    
-    @Autowired(required = false)
-    public MNentsukiShuKanriHelper helper;
+    private final MNentsukiShuKanriMapper mapper;
+    private final MNentsukiShuKanriHelper helper;
 
     /**
      * 年月週の開始終了日付検索

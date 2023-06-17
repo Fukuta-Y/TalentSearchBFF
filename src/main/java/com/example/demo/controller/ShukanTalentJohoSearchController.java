@@ -1,6 +1,5 @@
 package com.example.demo.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +7,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 
 import com.api.ShukanTalentJohoSearchApi;
+import com.example.demo.controller.helper.ShukanTalentJohoSearchHelper;
+import com.example.demo.dto.OnAirKanriTableDto;
 import com.example.demo.dto.ProgramMasterDto;
+import com.example.demo.dto.TalentMasterDto;
 import com.example.demo.entity.ShukanTalentJohoSearchEntity;
 import com.example.demo.service.ShukanTalentJohoSearchService;
 import com.model.ShukanTalentJohoSearch;
@@ -22,11 +24,11 @@ import jakarta.validation.constraints.Size;
 @Controller
 public class ShukanTalentJohoSearchController implements ShukanTalentJohoSearchApi{
 	
-	@Autowired(required = false)
+	@Autowired
 	public ShukanTalentJohoSearchService service;
 	
-	//@Autowired(required = false)
-	//public ShukanTalentJohoSearchHelper helper;
+	@Autowired
+	public ShukanTalentJohoSearchHelper helper;
 
 	@Override
 	public ResponseEntity<ShukanTalentJohoSearch> getShukanTalentJohoSearch(
@@ -37,23 +39,15 @@ public class ShukanTalentJohoSearchController implements ShukanTalentJohoSearchA
 		
 		// YearMonthWeekStartEndSearchServiceの取得
 		ShukanTalentJohoSearchEntity entity = service.select(targetNentsuki, targetShu, talentName);
-		
-		// TODO:MapStructの不備
-//		model.setmProgram(helper.toProgramModel(entity.getProgramMasterDto()));
-//		model.setmTalent(helper.toTalentModel(entity.getTalentMasterDto()));
-//		model.settOnAirKanri(helper.toOnAirKanriTableModel(entity.getOnAirKanriTableDto()));
-		
+
 		List<ProgramMasterDto>  programDto = entity.getProgramMasterDto();
-	
-		ProgramMasterDto dto = programDto.get(0);
+		model.setmProgram(helper.toProgramModel(programDto));
 		
-		com.model.MProgram  program = new com.model.MProgram();
-		program.setProgramId(dto.getProgramId());
-		
-		List<com.model.MProgram>  listM = new ArrayList<com.model.MProgram>();
-		listM.add(program);
-		
-		model.setmProgram(listM);
+		List<OnAirKanriTableDto>  onairKanriDto = entity.getOnAirKanriTableDto();
+		model.settOnAirKanri(helper.toOnAirKanriTableModel(onairKanriDto));
+
+		List<TalentMasterDto>  talnetDto = entity.getTalentMasterDto();
+		model.setmTalent(helper.toTalentModel(talnetDto));
 		
 		return ResponseEntity.ok(model);
 	}

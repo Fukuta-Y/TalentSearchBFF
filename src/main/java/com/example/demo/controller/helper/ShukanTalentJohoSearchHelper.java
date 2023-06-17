@@ -2,22 +2,19 @@ package com.example.demo.controller.helper;
 
 import java.util.List;
 
-import org.apache.ibatis.annotations.Mapper;
-import org.mapstruct.Mapping;
+import org.mapstruct.Mapper;
 
 import com.example.demo.dto.OnAirKanriTableDto;
 import com.example.demo.dto.ProgramMasterDto;
 import com.example.demo.dto.TalentMasterDto;
+import com.example.demo.setting.ConfigMapper;
 import com.model.MProgram;
 import com.model.MTalent;
 import com.model.TOnAirKanri;
 
-@Mapper
+@Mapper(config = ConfigMapper.class)
 public interface ShukanTalentJohoSearchHelper {
-	@Mapping(source = "id", target = "id")
 	List<TOnAirKanri> toOnAirKanriTableModel(List<OnAirKanriTableDto> model);
-	@Mapping(source = "programId", target = "programId")
 	List<MProgram> toProgramModel(List<ProgramMasterDto> model);
-	@Mapping(source = "talentId", target = "talentId")
 	List<MTalent> toTalentModel(List<TalentMasterDto> model);
  }

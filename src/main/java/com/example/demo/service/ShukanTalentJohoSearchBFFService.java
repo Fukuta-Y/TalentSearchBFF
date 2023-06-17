@@ -23,11 +23,10 @@ public class ShukanTalentJohoSearchBFFService {
      */
     public ShukanTalentJohoSearch select(Integer targetNentsuki, Integer targetShu, String talentName) {
     	
-    	// // BE「週間タレント別情報検索より取得処理
+    	// BE「週間タレント別情報検索より取得処理
     	ShukanTalentJohoSearch data = this.webClient.getFirstDataByWebClient(targetNentsuki, targetShu, talentName);
     	
-    	// // BE「週間タレント別情報検索より取得処理
-    	
+    	// BE「週間タレント別情報検索より取得処理
     	
     	// 【業務処理】
 

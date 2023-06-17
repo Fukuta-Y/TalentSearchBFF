@@ -3,7 +3,6 @@ package com.example.demo.service;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.dto.OnAirKanriTableDto;
@@ -14,20 +13,20 @@ import com.example.demo.repository.mapper.generated.MProgramMapper;
 import com.example.demo.repository.mapper.generated.MTalentMapper;
 import com.example.demo.repository.mapper.generated.TOnairKanriMapper;
 
+import lombok.RequiredArgsConstructor;
+
 /**
  * 週間タレント別情報検索 Service
  */
 @Service
+@RequiredArgsConstructor
 public class ShukanTalentJohoSearchService {
 
-    @Autowired(required = false)
-    public MTalentMapper mTalentMapper;
+    private final MTalentMapper mTalentMapper;
     
-    @Autowired(required = false)
-    public TOnairKanriMapper tOnairKanriMapper;
+    private final TOnairKanriMapper tOnairKanriMapper;
     
-    @Autowired(required = false)
-    public MProgramMapper mProgramMapper;
+    private final MProgramMapper mProgramMapper;
 
     /**
      * 週間タレント別情報検索
