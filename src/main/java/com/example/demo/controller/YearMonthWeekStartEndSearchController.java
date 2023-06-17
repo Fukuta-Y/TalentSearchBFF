@@ -1,6 +1,5 @@
 package com.example.demo.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 
@@ -13,12 +12,13 @@ import jakarta.validation.Valid;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
+import lombok.RequiredArgsConstructor;
 
 @Controller
+@RequiredArgsConstructor
 public class YearMonthWeekStartEndSearchController implements YearMonthWeekStartEndSearchApi{
 
-	@Autowired(required = false)
-	public YearMonthWeekStartEndSearchService service;
+    private final YearMonthWeekStartEndSearchService service;
 	
 	@Override
 	public ResponseEntity<YearMonthWeekStartEndJoho> getYearMonthWeekStartEndSearch(

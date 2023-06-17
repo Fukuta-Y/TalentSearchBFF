@@ -3,6 +3,7 @@ package com.example.demo.repository.mapper.generated;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.example.demo.repository.model.generated.MKbnGenre;
+
 @Mapper
 public interface MKbnGenreMapper {
     /**

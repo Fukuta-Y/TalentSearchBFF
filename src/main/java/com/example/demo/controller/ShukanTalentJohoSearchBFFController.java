@@ -1,7 +1,6 @@
 package com.example.demo.controller;
 
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 
@@ -15,12 +14,13 @@ import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import lombok.RequiredArgsConstructor;
 
 @Controller
+@RequiredArgsConstructor
 public class ShukanTalentJohoSearchBFFController implements ShukanTalentJohoSearchBFFApi{
 
-	@Autowired(required = false)
-	public ShukanTalentJohoSearchBFFService service;
+    private final ShukanTalentJohoSearchBFFService service;
 	
 	@Override
 	public ResponseEntity<ShukanTalentJohoSearchBFF> getShukanTalentJohoSearchBFF(

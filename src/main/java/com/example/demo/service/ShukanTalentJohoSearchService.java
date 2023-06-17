@@ -23,9 +23,7 @@ import lombok.RequiredArgsConstructor;
 public class ShukanTalentJohoSearchService {
 
     private final MTalentMapper mTalentMapper;
-    
     private final TOnairKanriMapper tOnairKanriMapper;
-    
     private final MProgramMapper mProgramMapper;
 
     /**

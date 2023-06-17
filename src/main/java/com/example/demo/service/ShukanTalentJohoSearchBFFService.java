@@ -1,19 +1,21 @@
 package com.example.demo.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.setting.WebClientSetting;
 import com.model.ShukanTalentJohoSearch;
 
+import lombok.RequiredArgsConstructor;
+
 /**
  * 週間タレント別情報検索 Service
  */
 @Service
+@RequiredArgsConstructor
 public class ShukanTalentJohoSearchBFFService {
 
-    @Autowired(required = false)
-    public WebClientSetting webClient;
+    private final WebClientSetting webClient;
+    
     /**
      * 週間タレント別情報検索
 　　　* @param targetNentsuki 対象年月
