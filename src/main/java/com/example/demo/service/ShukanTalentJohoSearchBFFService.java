@@ -40,20 +40,13 @@ public class ShukanTalentJohoSearchBFFService {
 　　　* @param talentName タレント名
      * @return 検索結果
      */
-    public ShukanTalentJohoSearchBFF select(Integer targetNentsuki, Integer targetShu, String talentName) {
+    public List<ShukanTalentJohoSearchBFF> select(Integer targetNentsuki, Integer targetShu, String talentName) {
     	
     	// BE「週間タレント別情報検索より取得処理
     	ShukanTalentJohoSearch model = this.webClient.getShukanTalentJohoSearch(targetNentsuki, targetShu, talentName);
     	
-    	// BE「週間タレント別情報検索より取得処理
-    	
-    	// 【業務処理】
-
     	// (1) BE「週間タレント別情報検索」より取得したレスポンスで以下の条件でデータを絞る。
     	// （別シート_タレント出演情報検索の結合イメージ　参照）
-
-    	// 【取得条件】
-    	// 「オンエア管理テーブルDTO」を軸として、キーを突き合わせる。
 
       	List<TOnAirKanri> tOnAirKanriList = model.gettOnAirKanri();
       	
@@ -67,7 +60,8 @@ public class ShukanTalentJohoSearchBFFService {
       	List<MTalent> mTalent2 = new ArrayList<MTalent>();
       	
       	List<MProgram> Mprogram2 = new ArrayList<MProgram>();
-      	
+    	// 【取得条件】
+    	// 「オンエア管理テーブルDTO」を軸として、キーを突き合わせる。
       	// 全量のオンエア管理テーブルDTOを使用
       	for(TOnAirKanri e: tOnAirKanriList) {
       		// ① オンエア管理テーブルDTO.タレントID =タレントマスタDTO. タレントID
@@ -211,9 +205,20 @@ public class ShukanTalentJohoSearchBFFService {
 	   YearMonthWeekStartEndJoho yyyymmModel = this.webClient.getYearMonthWeekStartEndSearch(targetNentsuki, targetShu);
 
     	// (6) (4) + (5)を組み合わせて、レスポンスの形にする。
-    	ShukanTalentJohoSearchBFF response = new ShukanTalentJohoSearchBFF();
-    	response.setTalentId(model.getmTalent().get(0).getTalentId());
+    	List<ShukanTalentJohoSearchBFF> response = new ArrayList<ShukanTalentJohoSearchBFF>();
+    	ShukanTalentJohoSearchBFF bffModel = new ShukanTalentJohoSearchBFF();
     	
+    	 for(GroupClassDto4 k:dto4List) {
+    		 bffModel = new ShukanTalentJohoSearchBFF();
+    		 bffModel.setTalentId(k.getTalentId());
+    		 bffModel.setTalentName(k.getTalentName());
+    		 bffModel.setShukanShutsuenProgramHonsu(Math.toIntExact(k.getShukanShutsuenHonsu()));
+    		 bffModel.setShutsuenProgramChokin(k.getProgramName());
+    		 bffModel.setOnAirDayChokin(k.getOnairDay());
+    		 bffModel.setShuFrom(yyyymmModel.getmNentsukiShuKanri().getShuFrom());
+    		 bffModel.setShuTo(yyyymmModel.getmNentsukiShuKanri().getShuTo());
+    		 response.add(bffModel);
+    	 }
 		// responseの返却
         return response;
     }
