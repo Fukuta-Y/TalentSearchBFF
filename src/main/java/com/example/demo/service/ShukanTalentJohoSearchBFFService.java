@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.dto.GroupClassDto1;
 import com.example.demo.dto.GroupClassDto2;
+import com.example.demo.dto.GroupClassDto3;
 import com.example.demo.setting.WebClientSetting;
 import com.model.MProgram;
 import com.model.MTalent;
@@ -84,11 +85,6 @@ public class ShukanTalentJohoSearchBFFService {
 	  		}
       	}
 
-  
-	    //System.out.println("tOnAirKanri1:" + tOnAirKanri1);
-	    //System.out.println("mTalent2:" + mTalent2);
-	    //System.out.println("Mprogram2:" + Mprogram2);
-
     	// 上記で突き合わせた場合、タレント名、番号名をレスポンスに設定する。
     	// 突き合わせができなかった、「オンエア管理テーブルDTO」の行については名称系を未設定とする。
     	List<GroupClassDto1> listDto1 = new ArrayList<GroupClassDto1>();
@@ -103,7 +99,7 @@ public class ShukanTalentJohoSearchBFFService {
 	    	
 	    	String programNm= "";
 	    	for(MProgram p: mProgramList) {
-	    		if(p.getProgramName().equals(e.getTalentId())) {
+	    		if(p.getProgramId().equals(e.getProgramId())) {
 	    			programNm = p.getProgramName();
 	    		}
 	    	}	
@@ -119,9 +115,6 @@ public class ShukanTalentJohoSearchBFFService {
 	     	dto1.setTargetShu(e.getTargetShu());
 	     	listDto1.add(dto1);
 	    }
-      	
-	    // System.out.println("listDto1:" + listDto1);
-
 
     	// (2) 絞った結果をタレントID、タレント名で集約化する。集約時に、タレントID,タレント名、週間出演番組本数のレコードの形にする。
     	// （レスポンスのベース）
@@ -139,8 +132,6 @@ public class ShukanTalentJohoSearchBFFService {
 		    // 設定
 		    dto2List.add(dto2);
 	    }
-	    //System.out.println("dto2List:" + dto2List);
-	    
 	    Map<GroupClassDto2, Long> countMap = dto2List.stream().collect(
 	    	    Collectors.groupingBy(
 	    	        Function.identity(),
@@ -158,13 +149,40 @@ public class ShukanTalentJohoSearchBFFService {
 	    	dto2List2.add(dtoHonsu);
 	    });
 	    
-	    System.out.println("dto2List2:" + dto2List2);
-	    
     	// (3)　(1)よりタレントIDをキーとして取得して、オンエア日でソートして、最も近いオンエア日の日付の行だけを取得する。
     	// 取得後、タレントID、出演番組（直近）【番組名】、オンエア日（直近）【オンエア日】のレコードの形にする。
-	    
-	    
-	    
+	   List<String> talentList = new ArrayList<String>();
+	   // タレントIDの一覧のリスト
+	   for(GroupClassDto2 e:dto2List2) {
+	    	talentList.add(e.getTalentId());
+	    }
+	   List<GroupClassDto3> dto3List = new ArrayList<GroupClassDto3>();
+	   List<GroupClassDto1> dto1List = new ArrayList<GroupClassDto1>();
+	   for(String talentID:talentList) {
+		   dto1List = new ArrayList<GroupClassDto1>();
+		   for(GroupClassDto1 e:listDto1) {
+			   if(e.getTalentId().equals(talentID)) {
+				   dto1List.add(e);
+			   }
+		    }
+		   // 
+		   if(dto1List != null) {
+			   //TODO:オンエア日でソート
+			   
+			   // 最終的に表示するものだけ追加
+			   GroupClassDto1 dto1tmp = dto1List.get(0);
+			   GroupClassDto3 dto3 = new GroupClassDto3();
+			   dto3.setOnairDay(dto1tmp.getOnairDay());
+			   dto3.setProgramName(dto1tmp.getProgramName());
+			   dto3.setTalentId(dto1tmp.getTalentId());
+			   dto3.setTalentName(dto1tmp.getTalentName());
+			   dto3List.add(dto3);
+		   }
+	   }
+	   
+	   System.out.println("dto3List:" + dto3List);
+	   
+	   
 
     	// (4) (2)に対して、(3)を組み合わせて、レスポンスの形にする。
 
