@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
@@ -11,12 +12,15 @@ import org.springframework.stereotype.Service;
 import com.example.demo.dto.GroupClassDto1;
 import com.example.demo.dto.GroupClassDto2;
 import com.example.demo.dto.GroupClassDto3;
+import com.example.demo.dto.GroupClassDto4;
+import com.example.demo.setting.OnAirComparator;
 import com.example.demo.setting.WebClientSetting;
 import com.model.MProgram;
 import com.model.MTalent;
 import com.model.ShukanTalentJohoSearch;
 import com.model.ShukanTalentJohoSearchBFF;
 import com.model.TOnAirKanri;
+import com.model.YearMonthWeekStartEndJoho;
 
 import lombok.RequiredArgsConstructor;
 
@@ -39,7 +43,7 @@ public class ShukanTalentJohoSearchBFFService {
     public ShukanTalentJohoSearchBFF select(Integer targetNentsuki, Integer targetShu, String talentName) {
     	
     	// BE「週間タレント別情報検索より取得処理
-    	ShukanTalentJohoSearch model = this.webClient.getFirstDataByWebClient(targetNentsuki, targetShu, talentName);
+    	ShukanTalentJohoSearch model = this.webClient.getShukanTalentJohoSearch(targetNentsuki, targetShu, talentName);
     	
     	// BE「週間タレント別情報検索より取得処理
     	
@@ -167,8 +171,9 @@ public class ShukanTalentJohoSearchBFFService {
 		    }
 		   // 
 		   if(dto1List != null) {
-			   //TODO:オンエア日でソート
-			   
+			   //オンエア日でソート
+			   Collections.sort(dto1List, new OnAirComparator());
+   
 			   // 最終的に表示するものだけ追加
 			   GroupClassDto1 dto1tmp = dto1List.get(0);
 			   GroupClassDto3 dto3 = new GroupClassDto3();
@@ -180,15 +185,30 @@ public class ShukanTalentJohoSearchBFFService {
 		   }
 	   }
 	   
-	   System.out.println("dto3List:" + dto3List);
-	   
-	   
-
     	// (4) (2)に対して、(3)を組み合わせて、レスポンスの形にする。
+	    GroupClassDto4 dto4 = new GroupClassDto4();
+	    List<GroupClassDto4> dto4List = new ArrayList<GroupClassDto4>();
+	   
+	   // dto2List2とdto3Listをマージ
+	   for(GroupClassDto2 k:dto2List2) {
+		   for(GroupClassDto3 v:dto3List) {
+		    	if(k.getTalentId().equals(v.getTalentId())) {
+		 		   dto4 = new GroupClassDto4();
+		 		   dto4.setTalentId(k.getTalentId());
+		 		   dto4.setTalentName(k.getTalentName());
+		 		   dto4.setShukanShutsuenHonsu(k.getShukanShutsuenHonsu());
+		 		   dto4.setProgramName(v.getProgramName());
+		 		   dto4.setOnairDay(v.getOnairDay());
+		 		   dto4List.add(dto4);
+		 		   break;
+		    	}
+		    }
+	    }
 
     	// (5)BE「年月週の開始終了日付検索」より取得したレスポンスを以下のように設定する。
     	// ・対象週(FROM)へ、年月週管理マスタDTO .週の開始日（日曜日）を設定
     	// ・対象週(TO)へ、年月週管理マスタDTO .週の終了日（土曜日）を設定
+	   YearMonthWeekStartEndJoho yyyymmModel = this.webClient.getYearMonthWeekStartEndSearch(targetNentsuki, targetShu);
 
     	// (6) (4) + (5)を組み合わせて、レスポンスの形にする。
     	ShukanTalentJohoSearchBFF response = new ShukanTalentJohoSearchBFF();
