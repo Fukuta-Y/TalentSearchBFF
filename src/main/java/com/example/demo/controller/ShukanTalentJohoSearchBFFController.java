@@ -1,5 +1,7 @@
 package com.example.demo.controller;
 
+import java.util.List;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 
@@ -21,12 +23,12 @@ public class ShukanTalentJohoSearchBFFController implements ShukanTalentJohoSear
     private final ShukanTalentJohoSearchBFFService service;
 	
 	@Override
-	public ResponseEntity<ShukanTalentJohoSearchBFF> getShukanTalentJohoSearchBFF(
+	public ResponseEntity<List<ShukanTalentJohoSearchBFF>> getShukanTalentJohoSearchBFF(
 			@NotNull @Min(199001) @Max(210012) @Valid Integer targetNentsuki,
 			@NotNull @Min(1) @Max(5) @Valid Integer targetShu, @Size(max = 30) @Valid String talentName) {
 		
 		// ShukanTalentJohoSearchBFFServiceより取得
-		ShukanTalentJohoSearchBFF response  = service.select(targetNentsuki, targetShu, talentName);
+		List<ShukanTalentJohoSearchBFF> response  = service.select(targetNentsuki, targetShu, talentName);
 		
 		return ResponseEntity.ok(response);
 	}

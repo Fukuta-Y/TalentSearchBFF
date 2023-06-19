@@ -5,6 +5,8 @@
  */
 package com.api;
 
+import java.util.List;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -52,7 +54,7 @@ public interface ShukanTalentJohoSearchBFFApi {
         }
     )
     @GetMapping("/shukanTalentJohoSearchBFF")
-    ResponseEntity<ShukanTalentJohoSearchBFF> getShukanTalentJohoSearchBFF(
+    ResponseEntity<List<ShukanTalentJohoSearchBFF>> getShukanTalentJohoSearchBFF(
         @NotNull @Min(199001) @Max(210012) @Parameter(name = "targetNentsuki", description = "", required = true) @Valid @RequestParam(value = "targetNentsuki", required = true) Integer targetNentsuki,
         @NotNull @Min(1) @Max(5) @Parameter(name = "targetShu", description = "", required = true) @Valid @RequestParam(value = "targetShu", required = true) Integer targetShu,
         @Size(max = 30) @Parameter(name = "talentName", description = "") @Valid @RequestParam(value = "talentName", required = false) String talentName
