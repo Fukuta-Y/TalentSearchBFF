@@ -1,17 +1,17 @@
 openapi: 3.0.0
 info:
-  title: 週間タレント別情報検索BFF
-  description: １週間においてのタレントごとの情報を検索するBFF
+  title: 週間タレント別情報BFF
+  description: １週間においてのタレントごとの情報をするBFF
   version: 1.0.0
 servers:
   - url: https://localhost:8080
-    description: 週間タレント別情報検索BFF
+    description: 週間タレント別情報BFF
 paths:
-  /shukanTalentJohoSearchBFF:
+  /shukanTalentJohoBFF:
     get:
       tags:
-        - shukanTalentJohoSearchBFF
-      operationId: getShukanTalentJohoSearchBFF
+        - shukanTalentJohoBFF
+      operationId: getshukanTalentJohoBFF
       summary: １週間においてのタレントごとの情報を返すBFF
       description: １週間においてのタレントごとの情報を返すBFF
       parameters:
@@ -41,10 +41,10 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/shukanTalentJohoSearchBFF'
+                $ref: '#/components/schemas/shukanTalentJohoBFF'
 components:
   schemas:
-    shukanTalentJohoSearchBFF:
+    shukanTalentJohoBFF:
       description: １週間においてのタレントごとの情報
       type: object
       properties:

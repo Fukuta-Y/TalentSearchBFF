@@ -1,17 +1,17 @@
 openapi: 3.0.0
 info:
-  title: 年月週の開始終了日付検索
-  description: 年月に対応する週の開始終了日付を検索する
+  title: 年月週の開始終了日付
+  description: 年月に対応する週の開始終了日付をする
   version: 1.0.0
 servers:
   - url: https://localhost:8080
-    description: 年月週の開始終了日付検索
+    description: 年月週の開始終了日付
 paths:
-  /yearMonthWeekStartEndSearch:
+  /yearMonthWeekStartEnd:
     get:
       tags:
-        - yearMonthWeekStartEndSearch
-      operationId: getYearMonthWeekStartEndSearch
+        - yearMonthWeekStartEnd
+      operationId: getyearMonthWeekStartEnd
       summary: 年月に対応する週の開始終了日付の情報を返す
       description: 年月に対応する週の開始終了日付の情報を返す
       parameters:

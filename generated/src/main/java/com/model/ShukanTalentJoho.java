@@ -14,9 +14,9 @@ import jakarta.validation.Valid;
  * 年月に対応する週の開始終了日付の情報
  */
 
-@Schema(name = "ShukanTalentJohoSearch", description = "年月に対応する週の開始終了日付の情報")
+@Schema(name = "ShukanTalentJoho", description = "年月に対応する週の開始終了日付の情報")
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-06-13T16:01:11.890061+09:00[Asia/Tokyo]")
-public class ShukanTalentJohoSearch {
+public class ShukanTalentJoho {
 
   @JsonProperty("mTalent")
   @Valid
@@ -30,12 +30,12 @@ public class ShukanTalentJohoSearch {
   @Valid
   private List<MProgram> mProgram = null;
 
-  public ShukanTalentJohoSearch mTalent(List<MTalent> mTalent) {
+  public ShukanTalentJoho mTalent(List<MTalent> mTalent) {
     this.mTalent = mTalent;
     return this;
   }
 
-  public ShukanTalentJohoSearch addMTalentItem(MTalent mTalentItem) {
+  public ShukanTalentJoho addMTalentItem(MTalent mTalentItem) {
     if (this.mTalent == null) {
       this.mTalent = new ArrayList<>();
     }
@@ -57,12 +57,12 @@ public class ShukanTalentJohoSearch {
     this.mTalent = mTalent;
   }
 
-  public ShukanTalentJohoSearch tOnAirKanri(List<TOnAirKanri> tOnAirKanri) {
+  public ShukanTalentJoho tOnAirKanri(List<TOnAirKanri> tOnAirKanri) {
     this.tOnAirKanri = tOnAirKanri;
     return this;
   }
 
-  public ShukanTalentJohoSearch addTOnAirKanriItem(TOnAirKanri tOnAirKanriItem) {
+  public ShukanTalentJoho addTOnAirKanriItem(TOnAirKanri tOnAirKanriItem) {
     if (this.tOnAirKanri == null) {
       this.tOnAirKanri = new ArrayList<>();
     }
@@ -84,12 +84,12 @@ public class ShukanTalentJohoSearch {
     this.tOnAirKanri = tOnAirKanri;
   }
 
-  public ShukanTalentJohoSearch mProgram(List<MProgram> mProgram) {
+  public ShukanTalentJoho mProgram(List<MProgram> mProgram) {
     this.mProgram = mProgram;
     return this;
   }
 
-  public ShukanTalentJohoSearch addMProgramItem(MProgram mProgramItem) {
+  public ShukanTalentJoho addMProgramItem(MProgram mProgramItem) {
     if (this.mProgram == null) {
       this.mProgram = new ArrayList<>();
     }
@@ -119,10 +119,10 @@ public class ShukanTalentJohoSearch {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ShukanTalentJohoSearch shukanTalentJohoSearch = (ShukanTalentJohoSearch) o;
-    return Objects.equals(this.mTalent, shukanTalentJohoSearch.mTalent) &&
-        Objects.equals(this.tOnAirKanri, shukanTalentJohoSearch.tOnAirKanri) &&
-        Objects.equals(this.mProgram, shukanTalentJohoSearch.mProgram);
+    ShukanTalentJoho ShukanTalentJoho = (ShukanTalentJoho) o;
+    return Objects.equals(this.mTalent, ShukanTalentJoho.mTalent) &&
+        Objects.equals(this.tOnAirKanri, ShukanTalentJoho.tOnAirKanri) &&
+        Objects.equals(this.mProgram, ShukanTalentJoho.mProgram);
   }
 
   @Override
@@ -133,7 +133,7 @@ public class ShukanTalentJohoSearch {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ShukanTalentJohoSearch {\n");
+    sb.append("class ShukanTalentJoho {\n");
     sb.append("    mTalent: ").append(toIndentedString(mTalent)).append("\n");
     sb.append("    tOnAirKanri: ").append(toIndentedString(tOnAirKanri)).append("\n");
     sb.append("    mProgram: ").append(toIndentedString(mProgram)).append("\n");

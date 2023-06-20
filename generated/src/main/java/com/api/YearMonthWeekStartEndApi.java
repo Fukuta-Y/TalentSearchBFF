@@ -27,12 +27,12 @@ import jakarta.validation.constraints.NotNull;
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-06-11T12:06:20.247335+09:00[Asia/Tokyo]")
 @Validated
-@Tag(name = "yearMonthWeekStartEndSearch", description = "the yearMonthWeekStartEndSearch API")
+@Tag(name = "yearMonthWeekStartEnd", description = "the yearMonthWeekStartEnd API")
 @RequestMapping("api")
-public interface YearMonthWeekStartEndSearchApi {
+public interface YearMonthWeekStartEndApi {
 
     /**
-     * GET /yearMonthWeekStartEndSearch : 年月に対応する週の開始終了日付の情報を返す
+     * GET /yearMonthWeekStartEnd : 年月に対応する週の開始終了日付の情報を返す
      * 年月に対応する週の開始終了日付の情報を返す
      *
      * @param targetNentsuki  (required)
@@ -40,9 +40,9 @@ public interface YearMonthWeekStartEndSearchApi {
      * @return 年月に対応する週の開始終了日付の情報を正常取得 (status code 200)
      */
     @Operation(
-        operationId = "getYearMonthWeekStartEndSearch",
+        operationId = "getYearMonthWeekStartEnd",
         summary = "年月に対応する週の開始終了日付の情報を返す",
-        tags = { "yearMonthWeekStartEndSearch" },
+        tags = { "yearMonthWeekStartEnd" },
         responses = {
             @ApiResponse(responseCode = "200", description = "年月に対応する週の開始終了日付の情報を正常取得", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = YearMonthWeekStartEndJoho.class))
@@ -50,8 +50,8 @@ public interface YearMonthWeekStartEndSearchApi {
         }
     )
 
-    @GetMapping("/yearMonthWeekStartEndSearch")
-    ResponseEntity<YearMonthWeekStartEndJoho> getYearMonthWeekStartEndSearch(
+    @GetMapping("/yearMonthWeekStartEnd")
+    ResponseEntity<YearMonthWeekStartEndJoho> getYearMonthWeekStartEnd(
         @NotNull @Min(199001) @Max(210012) @Parameter(name = "targetNentsuki", description = "", required = true) @Valid @RequestParam(value = "targetNentsuki", required = true) Integer targetNentsuki,
         @NotNull @Min(1) @Max(5) @Parameter(name = "targetShu", description = "", required = true) @Valid @RequestParam(value = "targetShu", required = true) Integer targetShu
     );

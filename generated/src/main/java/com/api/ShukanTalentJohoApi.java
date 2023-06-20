@@ -5,15 +5,13 @@
  */
 package com.api;
 
-import java.util.List;
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.model.ShukanTalentJohoSearchBFF;
+import com.model.ShukanTalentJoho;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -28,15 +26,15 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-06-11T16:02:48.702321+09:00[Asia/Tokyo]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-06-12T21:30:49.581521+09:00[Asia/Tokyo]")
 @Validated
-@Tag(name = "shukanTalentJohoSearchBFF", description = "the shukanTalentJohoSearchBFF API")
+@Tag(name = "shukanTalentJoho", description = "the shukanTalentJoho API")
 @RequestMapping("api")
-public interface ShukanTalentJohoSearchBFFApi {
+public interface ShukanTalentJohoApi {
 
     /**
-     * GET /shukanTalentJohoSearchBFF : １週間においてのタレントごとの情報を返すBFF
-     * １週間においてのタレントごとの情報を返すBFF
+     * GET /shukanTalentJoho : １週間においてのタレントごとの情報を返す
+     * １週間においてのタレントごとの情報を返す
      *
      * @param targetNentsuki  (required)
      * @param targetShu  (required)
@@ -44,17 +42,17 @@ public interface ShukanTalentJohoSearchBFFApi {
      * @return １週間においてのタレントごとの情報を正常取得 (status code 200)
      */
     @Operation(
-        operationId = "getShukanTalentJohoSearchBFF",
-        summary = "１週間においてのタレントごとの情報を返すBFF",
-        tags = { "shukanTalentJohoSearchBFF" },
+        operationId = "getShukanTalentJoho",
+        summary = "１週間においてのタレントごとの情報を返す",
+        tags = { "shukanTalentJoho" },
         responses = {
             @ApiResponse(responseCode = "200", description = "１週間においてのタレントごとの情報を正常取得", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = ShukanTalentJohoSearchBFF.class))
+                @Content(mediaType = "application/json", schema = @Schema(implementation = ShukanTalentJoho.class))
             })
         }
     )
-    @GetMapping("/shukanTalentJohoSearchBFF")
-    ResponseEntity<List<ShukanTalentJohoSearchBFF>> getShukanTalentJohoSearchBFF(
+    @GetMapping("/shukanTalentJoho")
+    ResponseEntity<ShukanTalentJoho> getShukanTalentJoho(
         @NotNull @Min(199001) @Max(210012) @Parameter(name = "targetNentsuki", description = "", required = true) @Valid @RequestParam(value = "targetNentsuki", required = true) Integer targetNentsuki,
         @NotNull @Min(1) @Max(5) @Parameter(name = "targetShu", description = "", required = true) @Valid @RequestParam(value = "targetShu", required = true) Integer targetShu,
         @Size(max = 30) @Parameter(name = "talentName", description = "") @Valid @RequestParam(value = "talentName", required = false) String talentName

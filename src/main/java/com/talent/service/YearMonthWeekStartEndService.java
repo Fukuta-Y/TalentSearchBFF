@@ -14,7 +14,7 @@ import lombok.RequiredArgsConstructor;
  */
 @Service
 @RequiredArgsConstructor
-public class YearMonthWeekStartEndSearchService {
+public class YearMonthWeekStartEndService {
 
     private final MNentsukiShuKanriMapper mapper;
     private final MNentsukiShuKanriHelper helper;

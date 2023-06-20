@@ -1,17 +1,17 @@
 openapi: 3.0.0
 info:
-  title: 週間タレント別情報検索
-  description: １週間においてのタレントごとの情報を検索する
+  title: 週間タレント別情報
+  description: １週間においてのタレントごとの情報をする
   version: 1.0.0
 servers:
   - url: https://localhost:8080
-    description: 週間タレント別情報検索
+    description: 週間タレント別情報
 paths:
-  /shukanTalentJohoSearch:
+  /ShukanTalentJoho:
     get:
       tags:
-        - shukanTalentJohoSearch
-      operationId: getShukanTalentJohoSearch
+        - ShukanTalentJoho
+      operationId: getShukanTalentJoho
       summary: １週間においてのタレントごとの情報を返す
       description: １週間においてのタレントごとの情報を返す
       parameters:
@@ -41,10 +41,10 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ShukanTalentJohoSearch'
+                $ref: '#/components/schemas/ShukanTalentJoho'
 components:
   schemas:
-    ShukanTalentJohoSearch:
+    ShukanTalentJoho:
       description: 年月に対応する週の開始終了日付の情報
       type: object
       properties:

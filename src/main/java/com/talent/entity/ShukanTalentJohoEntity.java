@@ -11,7 +11,7 @@ import lombok.Data;
  * 週間タレント別情報検索レスポンス
  */
 @Data
-public class ShukanTalentJohoSearchEntity implements Serializable {
+public class ShukanTalentJohoEntity implements Serializable {
     private List<OnAirKanriTableDto> onAirKanriTableDto;
     private List<ProgramMasterDto> programMasterDto;
     private List<TalentMasterDto> talentMasterDto;

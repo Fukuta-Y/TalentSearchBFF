@@ -5,12 +5,12 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.model.ShukanTalentJohoSearch;
-import com.talent.controller.helper.ShukanTalentJohoSearchHelper;
+import com.model.ShukanTalentJoho;
+import com.talent.controller.helper.ShukanTalentJohoHelper;
 import com.talent.dto.OnAirKanriTableDto;
 import com.talent.dto.ProgramMasterDto;
 import com.talent.dto.TalentMasterDto;
-import com.talent.entity.ShukanTalentJohoSearchEntity;
+import com.talent.entity.ShukanTalentJohoEntity;
 import com.talent.repository.mapper.generated.MProgramMapper;
 import com.talent.repository.mapper.generated.MTalentMapper;
 import com.talent.repository.mapper.generated.TOnairKanriMapper;
@@ -22,12 +22,12 @@ import lombok.RequiredArgsConstructor;
  */
 @Service
 @RequiredArgsConstructor
-public class ShukanTalentJohoSearchService {
+public class ShukanTalentJohoService {
 
     private final MTalentMapper mTalentMapper;
     private final TOnairKanriMapper tOnairKanriMapper;
     private final MProgramMapper mProgramMapper;
-    private final ShukanTalentJohoSearchHelper helper;
+    private final ShukanTalentJohoHelper helper;
 
     /**
      * 週間タレント別情報検索
@@ -36,13 +36,13 @@ public class ShukanTalentJohoSearchService {
 　　　* @param talentName タレント名
      * @return 検索結果
      */
-    public ShukanTalentJohoSearch select(Integer targetNentsuki, Integer targetShu, String talentName) {
+    public ShukanTalentJoho select(Integer targetNentsuki, Integer targetShu, String talentName) {
     	
-    	// ShukanTalentJohoSearchEntityを設定
-    	ShukanTalentJohoSearchEntity entity = new ShukanTalentJohoSearchEntity();
+    	// ShukanTalentJohoEntityを設定
+    	ShukanTalentJohoEntity entity = new ShukanTalentJohoEntity();
     	
-    	// ShukanTalentJohoSearchをResponseに設定
-    	ShukanTalentJohoSearch response = new ShukanTalentJohoSearch();
+    	// ShukanTalentJohoをResponseに設定
+    	ShukanTalentJoho response = new ShukanTalentJoho();
     	
     	// タレントマスタ検索
 		List<TalentMasterDto> talentMasterDto = mTalentMapper.select(talentName);

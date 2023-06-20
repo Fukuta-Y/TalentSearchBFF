@@ -4,7 +4,7 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
 import com.model.MNentsukiShuKanri;
-import com.model.ShukanTalentJohoSearchBFF;
+import com.model.ShukanTalentJohoBFF;
 import com.model.TOnAirKanri;
 import com.talent.dto.GroupClassDto1;
 import com.talent.dto.GroupClassDto2;
@@ -13,7 +13,7 @@ import com.talent.dto.GroupClassDto4;
 import com.talent.setting.ConfigMapper;
 
 @Mapper(config = ConfigMapper.class)
-public interface ShukanTalentJohoSearchBffHelper {
+public interface ShukanTalentJohoBffHelper {
 
 	@Mapping(source = "talentNm", target = "talentName")
 	@Mapping(source = "programNm", target = "programName")
@@ -35,6 +35,6 @@ public interface ShukanTalentJohoSearchBffHelper {
 	@Mapping(source = "dto4.onairDay", target = "onAirDayChokin")
 	@Mapping(source = "joho.shuFrom", target = "shuFrom")
 	@Mapping(source = "joho.shuTo", target = "shuTo")
-	ShukanTalentJohoSearchBFF toResponse(GroupClassDto4 dto4, Integer honsu, MNentsukiShuKanri joho);
+	ShukanTalentJohoBFF toResponse(GroupClassDto4 dto4, Integer honsu, MNentsukiShuKanri joho);
 	
  }

@@ -3,7 +3,7 @@ package com.talent.setting;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
-import com.model.ShukanTalentJohoSearch;
+import com.model.ShukanTalentJoho;
 import com.model.YearMonthWeekStartEndJoho;
 
 @Service
@@ -16,16 +16,16 @@ public class WebClientSetting {
     }
     
 	// BE「週間タレント別情報検索」へ接続の設定
-    public ShukanTalentJohoSearch getShukanTalentJohoSearch(Integer targetNentsuki, Integer targetShu, String talentName) {
+    public ShukanTalentJoho getShukanTalentJoho(Integer targetNentsuki, Integer targetShu, String talentName) {
         return this.webClient.get()
-                .uri(String.format("/api/shukanTalentJohoSearch?targetNentsuki=%d&targetShu=%d&talentName=%s",targetNentsuki, targetShu, talentName))
+                .uri(String.format("/api/shukanTalentJoho?targetNentsuki=%d&targetShu=%d&talentName=%s",targetNentsuki, targetShu, talentName))
                 .retrieve()
-                .bodyToMono(ShukanTalentJohoSearch.class).block();
+                .bodyToMono(ShukanTalentJoho.class).block();
     }
     // BE「年月週の開始終了日付検索」へ接続の設定
-    public YearMonthWeekStartEndJoho getYearMonthWeekStartEndSearch(Integer targetNentsuki, Integer targetShu) {
+    public YearMonthWeekStartEndJoho getYearMonthWeekStartEnd(Integer targetNentsuki, Integer targetShu) {
         return this.webClient.get()
-                .uri(String.format("/api/yearMonthWeekStartEndSearch?targetNentsuki=%d&targetShu=%d",targetNentsuki, targetShu))
+                .uri(String.format("/api/yearMonthWeekStartEnd?targetNentsuki=%d&targetShu=%d",targetNentsuki, targetShu))
                 .retrieve()
                 .bodyToMono(YearMonthWeekStartEndJoho.class).block();
     }
