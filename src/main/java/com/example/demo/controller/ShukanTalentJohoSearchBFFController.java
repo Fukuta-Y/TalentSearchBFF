@@ -29,7 +29,6 @@ public class ShukanTalentJohoSearchBFFController implements ShukanTalentJohoSear
 		
 		// ShukanTalentJohoSearchBFFServiceより取得
 		List<ShukanTalentJohoSearchBFF> response  = service.select(targetNentsuki, targetShu, talentName);
-		
 		return ResponseEntity.ok(response);
 	}
 }

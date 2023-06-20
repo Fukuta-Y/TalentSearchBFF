@@ -31,10 +31,10 @@ public class YearMonthWeekStartEndSearchService {
     	YearMonthWeekStartEndJoho response = new YearMonthWeekStartEndJoho();
 
     	// 年月週の開始終了日付検索
-    	NentsukiShuKanriMasterDto nentsukiShuKanriMasterDto = mapper.select(targetNentsuki, targetShu);
+    	NentsukiShuKanriMasterDto dto = mapper.select(targetNentsuki, targetShu);
 
     	// 戻りの内容を設定
-    	response.setmNentsukiShuKanri(helper.toModel(nentsukiShuKanriMasterDto));
+    	response.setmNentsukiShuKanri(helper.toModel(dto));
     	
 		// responseの返却
         return response;
