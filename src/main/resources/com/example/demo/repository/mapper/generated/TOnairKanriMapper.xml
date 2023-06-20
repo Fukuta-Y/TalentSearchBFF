@@ -28,6 +28,12 @@
        where 
        	TARGET_NENTSUKI =#{targetNentsuki}
        	and TARGET_SHU =#{targetShu}
+       <if test="talentIdList != null"> 
+        and TALENT_ID IN
+       	<foreach item="item" collection="talentIdList" open="(" separator="," close=")">
+           #{item}
+       	</foreach>
+       </if>
        	and DELETE_FLG = "0"
   </select>
   <insert id="insert" parameterType="com.example.demo.repository.model.generated.TOnairKanri">

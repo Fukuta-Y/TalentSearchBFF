@@ -8,5 +8,5 @@ import com.example.demo.dto.OnAirKanriTableDto;
 
 @Mapper
 public interface TOnairKanriMapper {
-	List<OnAirKanriTableDto> select(Integer targetNentsuki, Integer targetShu);
+	List<OnAirKanriTableDto> select(Integer targetNentsuki, Integer targetShu, List<String> talentIdList);
 }

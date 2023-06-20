@@ -46,18 +46,28 @@ public class ShukanTalentJohoSearchService {
     	
     	// タレントマスタ検索
 		List<TalentMasterDto> talentMasterDto = mTalentMapper.select(talentName);
-		entity.setTalentMasterDto(talentMasterDto);
-    	
-    	// オンエア管理テーブル検索
-		List<OnAirKanriTableDto> onAirKanriTableDto = tOnairKanriMapper.select(targetNentsuki, targetShu);
-		entity.setOnAirKanriTableDto(onAirKanriTableDto);
+		List<String> talentIdList = null;
+		if (talentMasterDto.size() == 0) entity.setTalentMasterDto(null);
+		else {
+			talentIdList = new ArrayList<String>();
+			//　名称検索の結果のIDをリスト化する
+			for(TalentMasterDto dto:talentMasterDto) talentIdList.add(dto.getTalentId());
+			entity.setTalentMasterDto(talentMasterDto);
+		}
 
+    	// オンエア管理テーブル検索
+		List<OnAirKanriTableDto> onAirKanriTableDto = tOnairKanriMapper.select(targetNentsuki, targetShu, talentIdList);
+		if (onAirKanriTableDto.size() == 0) {
+			entity.setOnAirKanriTableDto(null);
+			entity.setTalentMasterDto(null); //　オンエア日がそもそも無かった場合はタレントも空で返す
+		} else {
+			entity.setOnAirKanriTableDto(onAirKanriTableDto);
+		}
+		
     	// 番組マスタ検索（オンエア管理テーブル検索が存在する場合のみ実施）
-		if (onAirKanriTableDto != null) {
+		if (onAirKanriTableDto.size() > 0) {
 			List<String> idList = new ArrayList<String>();
-			onAirKanriTableDto.forEach(s -> 
-				idList.add(s.getProgramId())
-			); 
+			onAirKanriTableDto.forEach(s -> idList.add(s.getProgramId())); 
 			List<ProgramMasterDto> programMasterDto = mProgramMapper.select(idList);
 			entity.setProgramMasterDto(programMasterDto);
 		}
