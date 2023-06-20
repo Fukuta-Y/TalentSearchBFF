@@ -7,12 +7,12 @@ import com.model.ShukanTalentJoho;
 import com.model.YearMonthWeekStartEndJoho;
 
 @Service
-public class WebClientSetting {
+public class WebClientInfo {
 
     public WebClient webClient;
     
-    public WebClientSetting(WebClient.Builder webClientBuilder) {
-    	 this.webClient = webClientBuilder.baseUrl("http://localhost:8080").build();
+    public WebClientInfo(WebClient.Builder webClientBuilder) {
+    	 this.webClient = webClientBuilder.baseUrl("http://localhost:8081").build();
     }
     
 	// BE「週間タレント別情報検索」へ接続の設定
