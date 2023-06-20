@@ -47,19 +47,26 @@ public class ShukanTalentJohoSearchBFFService {
     	
     	// (1) BE「週間タレント別情報検索」より取得したレスポンスで以下の条件でデータを絞る。
     	// （別シート_タレント出演情報検索の結合イメージ　参照）
-
       	List<TOnAirKanri> tOnAirKanriList = model.gettOnAirKanri();
       	
       	List<MTalent> mTalentList = model.getmTalent();
       	
       	List<MProgram> mProgramList = model.getmProgram();
-    	
 
       	List<TOnAirKanri> tOnAirKanri1 = new ArrayList<TOnAirKanri>();
       	
       	List<MTalent> mTalent2 = new ArrayList<MTalent>();
       	
       	List<MProgram> Mprogram2 = new ArrayList<MProgram>();
+      	
+      	// 以下はオンエア管理が設定されている場合のみ対応
+      	if (tOnAirKanriList == null) {
+        	List<ShukanTalentJohoSearchBFF> response = new ArrayList<ShukanTalentJohoSearchBFF>();
+        	ShukanTalentJohoSearchBFF bffModel = new ShukanTalentJohoSearchBFF();
+            response.add(bffModel);
+            return response;
+      	}
+      	
     	// 【取得条件】
     	// 「オンエア管理テーブルDTO」を軸として、キーを突き合わせる。
       	// 全量のオンエア管理テーブルDTOを使用
