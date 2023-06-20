@@ -7,9 +7,9 @@ import org.mapstruct.Mapper;
 import com.model.MProgram;
 import com.model.MTalent;
 import com.model.TOnAirKanri;
-import com.talent.dto.OnAirKanriTableDto;
-import com.talent.dto.ProgramMasterDto;
-import com.talent.dto.TalentMasterDto;
+import com.talent.infrastructure.dto.OnAirKanriTableDto;
+import com.talent.infrastructure.dto.ProgramMasterDto;
+import com.talent.infrastructure.dto.TalentMasterDto;
 import com.talent.setting.ConfigMapper;
 
 @Mapper(config = ConfigMapper.class)

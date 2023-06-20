@@ -16,10 +16,10 @@ import com.model.ShukanTalentJohoBFF;
 import com.model.TOnAirKanri;
 import com.model.YearMonthWeekStartEndJoho;
 import com.talent.controller.helper.ShukanTalentJohoBffHelper;
-import com.talent.dto.GroupClassDto1;
-import com.talent.dto.GroupClassDto2;
-import com.talent.dto.GroupClassDto3;
-import com.talent.dto.GroupClassDto4;
+import com.talent.service.dto.GroupClassDto1;
+import com.talent.service.dto.GroupClassDto2;
+import com.talent.service.dto.GroupClassDto3;
+import com.talent.service.dto.GroupClassDto4;
 import com.talent.setting.OnAirComparator;
 import com.talent.setting.WebClientSetting;
 

@@ -14,18 +14,18 @@
     </jdbcConnection>
  
     <!-- Select結果がマッピングされる、Javaモデルの出力設定 -->
-    <javaModelGenerator targetPackage="com.talent.repository.model.generated" targetProject="TalentSearch/src/main/java">
+    <javaModelGenerator targetPackage="com.talent.infrastructure.repository.model.generated" targetProject="TalentSearch/src/main/java">
       <property name="enableSubPackages" value="true" />
       <property name="trimStrings" value="true" />
     </javaModelGenerator>
       
     <!-- SQLを定義したXMLファイルの出力設定 -->
-    <sqlMapGenerator targetPackage="com.talent.repository.mapper.generated"  targetProject="TalentSearch/src/main/resources">
+    <sqlMapGenerator targetPackage="com.talent.infrastructure.repository.mapper.generated"  targetProject="TalentSearch/src/main/resources">
       <property name="enableSubPackages" value="true" />
     </sqlMapGenerator>
     
     <!-- Mapperインターフェースの出力設定 -->
-    <javaClientGenerator type="XMLMAPPER" targetPackage="com.talent.repository.mapper.generated"  targetProject="TalentSearch/src/main/java"> 
+    <javaClientGenerator type="XMLMAPPER" targetPackage="com.talent.infrastructure.repository.mapper.generated"  targetProject="TalentSearch/src/main/java"> 
       <property name="enableSubPackages" value="true" />
     </javaClientGenerator>
     

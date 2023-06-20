@@ -5,7 +5,8 @@ import java.text.SimpleDateFormat;
 import java.util.Comparator;
 import java.util.Date;
 
-import com.talent.dto.GroupClassDto1;
+import com.talent.service.dto.GroupClassDto1;
+
 
 public class OnAirComparator implements Comparator<GroupClassDto1> {
 
