@@ -7,11 +7,11 @@ import com.model.ShukanTalentJoho;
 import com.model.YearMonthWeekStartEndJoho;
 
 @Service
-public class WebClientSetting {
+public class WebClientInfo {
 
     public WebClient webClient;
     
-    public WebClientSetting(WebClient.Builder webClientBuilder) {
+    public WebClientInfo(WebClient.Builder webClientBuilder) {
     	 this.webClient = webClientBuilder.baseUrl("http://localhost:8080").build();
     }
     

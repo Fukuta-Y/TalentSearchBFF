@@ -21,7 +21,7 @@ import com.talent.service.dto.GroupClassDto2;
 import com.talent.service.dto.GroupClassDto3;
 import com.talent.service.dto.GroupClassDto4;
 import com.talent.setting.OnAirComparator;
-import com.talent.setting.WebClientSetting;
+import com.talent.setting.WebClientInfo;
 
 import lombok.RequiredArgsConstructor;
 
@@ -32,7 +32,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class ShukanTalentJohoBFFService {
 
-    private final WebClientSetting webClient;
+    private final WebClientInfo webClient;
     private final ShukanTalentJohoBffHelper helper;
     
     /**
