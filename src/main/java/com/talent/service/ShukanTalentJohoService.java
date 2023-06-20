@@ -7,9 +7,9 @@ import org.springframework.stereotype.Service;
 
 import com.model.ShukanTalentJoho;
 import com.talent.controller.helper.ShukanTalentJohoHelper;
-import com.talent.dto.OnAirKanriTableDto;
-import com.talent.dto.ProgramMasterDto;
-import com.talent.dto.TalentMasterDto;
+import com.talent.infrastructure.dto.OnAirKanriTableDto;
+import com.talent.infrastructure.dto.ProgramMasterDto;
+import com.talent.infrastructure.dto.TalentMasterDto;
 import com.talent.repository.mapper.generated.MProgramMapper;
 import com.talent.repository.mapper.generated.MTalentMapper;
 import com.talent.repository.mapper.generated.TOnairKanriMapper;

@@ -4,7 +4,8 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.talent.dto.TalentMasterDto;
+import com.talent.infrastructure.dto.TalentMasterDto;
+
 
 @Mapper
 public interface MTalentMapper {

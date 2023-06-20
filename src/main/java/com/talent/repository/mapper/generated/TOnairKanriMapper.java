@@ -4,7 +4,8 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.talent.dto.OnAirKanriTableDto;
+import com.talent.infrastructure.dto.OnAirKanriTableDto;
+
 
 @Mapper
 public interface TOnairKanriMapper {

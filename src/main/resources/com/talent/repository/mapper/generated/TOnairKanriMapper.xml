@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.talent.repository.mapper.generated.TOnairKanriMapper">
-  <resultMap id="BaseResultMap"  type="com.talent.dto.OnAirKanriTableDto" autoMapping="true">
+  <resultMap id="BaseResultMap"  type="com.talent.infrastructure.dto.OnAirKanriTableDto" autoMapping="true">
     <result column="ID" jdbcType="VARCHAR" property="id" />
     <result column="ONAIR_DAY" jdbcType="TIMESTAMP" property="onairDay" />
     <result column="PROGRAM_ID" jdbcType="VARCHAR" property="programId" />

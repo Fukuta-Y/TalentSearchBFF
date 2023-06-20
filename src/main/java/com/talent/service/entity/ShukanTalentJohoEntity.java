@@ -2,9 +2,9 @@ package com.talent.service.entity;
 import java.io.Serializable;
 import java.util.List;
 
-import com.talent.dto.OnAirKanriTableDto;
-import com.talent.dto.ProgramMasterDto;
-import com.talent.dto.TalentMasterDto;
+import com.talent.infrastructure.dto.OnAirKanriTableDto;
+import com.talent.infrastructure.dto.ProgramMasterDto;
+import com.talent.infrastructure.dto.TalentMasterDto;
 
 import lombok.Data;
 /**

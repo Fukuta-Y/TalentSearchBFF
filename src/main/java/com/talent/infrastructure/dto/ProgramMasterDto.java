@@ -1,4 +1,4 @@
-package com.talent.dto;
+package com.talent.infrastructure.dto;
 import java.io.Serializable;
 import java.util.Date;
 
