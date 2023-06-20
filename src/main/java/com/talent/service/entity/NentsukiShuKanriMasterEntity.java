@@ -1,7 +1,7 @@
-package com.talent.entity;
+package com.talent.service.entity;
 import lombok.Data;
 /**
- * 年月週管理マスタDTO
+ * 年月週管理マスタエンティティ
  */
 @Data
 public class NentsukiShuKanriMasterEntity{

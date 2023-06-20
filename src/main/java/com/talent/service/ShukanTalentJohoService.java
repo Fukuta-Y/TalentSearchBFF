@@ -10,10 +10,10 @@ import com.talent.controller.helper.ShukanTalentJohoHelper;
 import com.talent.dto.OnAirKanriTableDto;
 import com.talent.dto.ProgramMasterDto;
 import com.talent.dto.TalentMasterDto;
-import com.talent.entity.ShukanTalentJohoEntity;
 import com.talent.repository.mapper.generated.MProgramMapper;
 import com.talent.repository.mapper.generated.MTalentMapper;
 import com.talent.repository.mapper.generated.TOnairKanriMapper;
+import com.talent.service.entity.ShukanTalentJohoEntity;
 
 import lombok.RequiredArgsConstructor;
 
