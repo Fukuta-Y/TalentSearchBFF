@@ -3,8 +3,8 @@ package com.talent.service;
 import org.springframework.stereotype.Service;
 
 import com.model.YearMonthWeekStartEndJoho;
-import com.talent.dto.NentsukiShuKanriMasterDto;
 import com.talent.repository.mapper.generated.MNentsukiShuKanriMapper;
+import com.talent.service.dto.NentsukiShuKanriMasterDto;
 import com.talent.service.helper.MNentsukiShuKanriHelper;
 
 import lombok.RequiredArgsConstructor;

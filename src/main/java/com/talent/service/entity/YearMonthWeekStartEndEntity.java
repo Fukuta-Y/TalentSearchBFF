@@ -1,7 +1,7 @@
 package com.talent.service.entity;
 import java.io.Serializable;
 
-import com.talent.dto.NentsukiShuKanriMasterDto;
+import com.talent.service.dto.NentsukiShuKanriMasterDto;
 
 import lombok.Data;
 /**

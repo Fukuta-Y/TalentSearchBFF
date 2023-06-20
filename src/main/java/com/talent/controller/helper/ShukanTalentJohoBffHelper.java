@@ -6,10 +6,10 @@ import org.mapstruct.Mapping;
 import com.model.MNentsukiShuKanri;
 import com.model.ShukanTalentJohoBFF;
 import com.model.TOnAirKanri;
-import com.talent.dto.GroupClassDto1;
-import com.talent.dto.GroupClassDto2;
-import com.talent.dto.GroupClassDto3;
-import com.talent.dto.GroupClassDto4;
+import com.talent.service.dto.GroupClassDto1;
+import com.talent.service.dto.GroupClassDto2;
+import com.talent.service.dto.GroupClassDto3;
+import com.talent.service.dto.GroupClassDto4;
 import com.talent.setting.ConfigMapper;
 
 @Mapper(config = ConfigMapper.class)

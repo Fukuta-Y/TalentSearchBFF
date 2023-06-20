@@ -1,4 +1,4 @@
-package com.talent.dto;
+package com.talent.service.dto;
 import java.io.Serializable;
 
 import lombok.Data;

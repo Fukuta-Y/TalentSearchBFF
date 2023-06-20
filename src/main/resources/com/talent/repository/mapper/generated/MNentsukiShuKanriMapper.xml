@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.talent.repository.mapper.generated.MNentsukiShuKanriMapper">
-  <resultMap id="BaseResultMap"  type="com.talent.dto.NentsukiShuKanriMasterDto" autoMapping="true">
+  <resultMap id="BaseResultMap"  type="com.talent.service.dto.NentsukiShuKanriMasterDto" autoMapping="true">
     <result column="NENTSUKI" jdbcType="INTEGER" property="nentsuki" />
     <result column="SHU" jdbcType="INTEGER" property="shu" />
     <result column="SHU_FROM" jdbcType="DATE" property="shuFrom" />
