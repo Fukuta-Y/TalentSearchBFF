@@ -154,7 +154,7 @@ public class ShukanTalentJohoBFFService {
 		   if(dto1List != null) {
 			   //オンエア日でソート
 			   Collections.sort(dto1List, new OnAirComparator());
-			   // 最終的に表示するものだけ追加
+		    	// GroupClassDto3へ変換して設定
 			   dto3List.add(helper.toDto3(dto1List.get(0))); 
 		   }
 	   }
