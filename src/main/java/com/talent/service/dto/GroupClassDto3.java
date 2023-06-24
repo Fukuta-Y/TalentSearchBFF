@@ -7,8 +7,8 @@ import lombok.Data;
  */
 @Data
 public class GroupClassDto3 implements Serializable {
-	   private String talentId;
-	   private String talentName;
-	   private String programName;
-	   private String onairDay;
+   private String talentId;
+   private String talentName;
+   private String programName;
+   private String onairDay;
 }
