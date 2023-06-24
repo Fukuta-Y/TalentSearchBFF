@@ -148,6 +148,4 @@ public class ShukanTalentJohoBFFService {
 		// responseの返却
 		return response;
     }
-    
-
 }
