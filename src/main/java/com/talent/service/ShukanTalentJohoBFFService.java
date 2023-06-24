@@ -4,9 +4,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
 import com.model.MProgram;
@@ -21,6 +23,7 @@ import com.talent.service.dto.GroupClassDto2;
 import com.talent.service.dto.GroupClassDto3;
 import com.talent.service.dto.GroupClassDto4;
 import com.talent.setting.OnAirComparator;
+import com.talent.setting.TalentIdComparator;
 import com.talent.setting.WebClientInfo;
 
 import lombok.RequiredArgsConstructor;
@@ -52,20 +55,17 @@ public class ShukanTalentJohoBFFService {
     	
     	// (1) BE「週間タレント別情報検索」より取得したレスポンスで以下の条件でデータを絞る。
     	// （別シート_タレント出演情報検索の結合イメージ　参照）
-      	List<TOnAirKanri> tOnAirKanriList = model.gettOnAirKanri();
-      	
-      	List<MTalent> mTalentList = model.getmTalent();
-      	
-      	List<MProgram> mProgramList = model.getmProgram();
+      	List<TOnAirKanri> modelOnAirKanri = model.gettOnAirKanri();
+      	List<MTalent> modelTalentList = model.getmTalent();
+      	List<MProgram> modelProgramList = model.getmProgram();
 
-      	List<TOnAirKanri> tOnAirKanri1 = new ArrayList<TOnAirKanri>();
-      	
-      	List<MTalent> mTalent2 = new ArrayList<MTalent>();
-      	
-      	List<MProgram> Mprogram2 = new ArrayList<MProgram>();
+      	// 集約時のリストのテーブル
+      	List<TOnAirKanri> tOnAirKanri= new ArrayList<TOnAirKanri>();
+      	List<MTalent> mTalent = new ArrayList<MTalent>();
+      	List<MProgram> Mprogram = new ArrayList<MProgram>();
       	
       	// 以下はオンエア管理が設定されている場合のみ対応
-      	if (tOnAirKanriList == null) {
+      	if (Objects.isNull(modelOnAirKanri)) {
             response.add(bffModel);
             return response;
       	}
@@ -73,22 +73,19 @@ public class ShukanTalentJohoBFFService {
     	// 【取得条件】
     	// 「オンエア管理テーブルDTO」を軸として、キーを突き合わせる。
       	// 全量のオンエア管理テーブルDTOを使用
-      	for(TOnAirKanri kanri: tOnAirKanriList) {
+      	for(TOnAirKanri kanri: modelOnAirKanri) {
       		// ① オンエア管理テーブルDTO.タレントID =タレントマスタDTO. タレントID
-      		for(MTalent talent: mTalentList) {
-	      		if(kanri.getTalentId().equals(talent.getTalentId())) {
-	      			mTalent2.add(talent);
-		      		tOnAirKanri1.add(kanri);
+      		for(MTalent talent: modelTalentList) {
+	      		if(StringUtils.equals(talent.getTalentId(), kanri.getTalentId())){
+	      			mTalent.add(talent);
+	      			tOnAirKanri.add(kanri);
 	      		}
       		}
-      	}
-      	
-      	// タレントで絞ったオンエア管理テーブルDTOを使用
-    	// ② オンエア管理テーブルDTO.番組ID =番組マスタDTO.番組ID
-      	for(TOnAirKanri kanri: tOnAirKanri1) {
-	  		for(MProgram pgm: mProgramList) {
-	      		if(kanri.getProgramId().equals(pgm.getProgramId())) {
-	      			Mprogram2.add(pgm);
+          	// タレントで絞ったオンエア管理テーブルDTOを使用
+        	// ② オンエア管理テーブルDTO.番組ID =番組マスタDTO.番組ID
+	  		for(MProgram pgm: modelProgramList) {
+	      		if(StringUtils.equals(pgm.getProgramId(), kanri.getProgramId())) {
+	      			Mprogram.add(pgm);
 	      		}
 	  		}
       	}
@@ -96,31 +93,32 @@ public class ShukanTalentJohoBFFService {
     	// 上記で突き合わせた場合、タレント名、番号名をレスポンスに設定する。
     	// 突き合わせができなかった、「オンエア管理テーブルDTO」の行については名称系を未設定とする。
     	List<GroupClassDto1> listDto1 = new ArrayList<GroupClassDto1>();
-	    for(TOnAirKanri kanri: tOnAirKanri1) {
-	    	
-	    	String talentNm = "";
-	    	for(MTalent talent: mTalentList) {
-	    		if(talent.getTalentId().equals(kanri.getTalentId())) {
+    	String talentNm = StringUtils.EMPTY;
+    	String programNm = StringUtils.EMPTY;
+	    for(TOnAirKanri kanri: tOnAirKanri) {
+	    	for(MTalent talent: modelTalentList) {
+	      		if(StringUtils.equals(talent.getTalentId(), kanri.getTalentId())) {
 	    			talentNm = talent.getTalentName();
 	    		}
 	    	}
-	    	
-	    	String programNm= "";
-	    	for(MProgram pgm: mProgramList) {
-	    		if(pgm.getProgramId().equals(kanri.getProgramId())) {
+	    	for(MProgram pgm: modelProgramList) {
+	      		if(StringUtils.equals(pgm.getProgramId(), kanri.getProgramId())) {
 	    			programNm = pgm.getProgramName();
 	    		}
-	    	}	
-	    	
+	    	}
 	    	// GroupClassDto1へ変換して設定
 	     	listDto1.add(helper.toDto1(kanri, talentNm, programNm));
+	     	talentNm = StringUtils.EMPTY;
+	     	programNm = StringUtils.EMPTY;
 	    }
+	    
+	    
+	    System.out.println("listDto1:" + listDto1);
 
     	// (2) 絞った結果をタレントID、タレント名で集約化する。集約時に、タレントID,タレント名、週間出演番組本数のレコードの形にする。
     	// （レスポンスのベース）
 	    List<GroupClassDto2> dto2List = new ArrayList<GroupClassDto2>();
-
-	    for(GroupClassDto1 dto1:listDto1) {
+	    for(GroupClassDto1 dto1: listDto1) {
 	    	// GroupClassDto2へ変換して設定
 		    dto2List.add(helper.toDto2(dto1));
 	    }
@@ -165,7 +163,7 @@ public class ShukanTalentJohoBFFService {
 	   // dto2List2とdto3Listをマージ
 	   for(GroupClassDto2 dto2:dto2List2) {
 		   for(GroupClassDto3 dto3:dto3List) {
-		    	if(dto2.getTalentId().equals(dto3.getTalentId())) {
+	      		if(StringUtils.equals(dto2.getTalentId(), dto3.getTalentId())) {
 		 		   dto4List.add(helper.toDto4(dto2, dto3));
 		 		   break;
 		    	}
@@ -181,6 +179,9 @@ public class ShukanTalentJohoBFFService {
 	   for(GroupClassDto4 dto4:dto4List) {
 	       response.add(helper.toResponse(dto4, Math.toIntExact(dto4.getShukanShutsuenHonsu()), joho.getmNentsukiShuKanri()));
 		}
+	   
+	   // ReponseをIDの順にソート
+	   Collections.sort(response, new TalentIdComparator());
 
 		// responseの返却
 		return response;
