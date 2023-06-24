@@ -22,6 +22,7 @@ import com.talent.service.dto.GroupClassDto1;
 import com.talent.service.dto.GroupClassDto2;
 import com.talent.service.dto.GroupClassDto3;
 import com.talent.service.dto.GroupClassDto4;
+import com.talent.setting.CommonShori;
 import com.talent.setting.OnAirComparator;
 import com.talent.setting.TalentIdComparator;
 import com.talent.setting.WebClientInfo;
@@ -36,8 +37,9 @@ import lombok.RequiredArgsConstructor;
 public class ShukanTalentJohoBFFService {
 
     private final WebClientInfo webClient;
-    private final ShukanTalentJohoBffHelper helper;
+    private final CommonShori common;
     
+    private final ShukanTalentJohoBffHelper helper;
     /**
      * 週間タレント別情報検索
 　　　* @param targetNentsuki 対象年月
@@ -59,62 +61,21 @@ public class ShukanTalentJohoBFFService {
       	List<MTalent> modelTalentList = model.getmTalent();
       	List<MProgram> modelProgramList = model.getmProgram();
 
-      	// 集約時のリストのテーブル
-      	List<TOnAirKanri> tOnAirKanri= new ArrayList<TOnAirKanri>();
-      	List<MTalent> mTalent = new ArrayList<MTalent>();
-      	List<MProgram> Mprogram = new ArrayList<MProgram>();
-      	
       	// 以下はオンエア管理が設定されている場合のみ対応
       	if (Objects.isNull(modelOnAirKanri)) {
             response.add(bffModel);
             return response;
       	}
       	
-    	// 【取得条件】
-    	// 「オンエア管理テーブルDTO」を軸として、キーを突き合わせる。
-      	// 全量のオンエア管理テーブルDTOを使用
-      	for(TOnAirKanri kanri: modelOnAirKanri) {
-      		// ① オンエア管理テーブルDTO.タレントID =タレントマスタDTO. タレントID
-      		for(MTalent talent: modelTalentList) {
-	      		if(StringUtils.equals(talent.getTalentId(), kanri.getTalentId())){
-	      			mTalent.add(talent);
-	      			tOnAirKanri.add(kanri);
-	      		}
-      		}
-          	// タレントで絞ったオンエア管理テーブルDTOを使用
-        	// ② オンエア管理テーブルDTO.番組ID =番組マスタDTO.番組ID
-	  		for(MProgram pgm: modelProgramList) {
-	      		if(StringUtils.equals(pgm.getProgramId(), kanri.getProgramId())) {
-	      			Mprogram.add(pgm);
-	      		}
-	  		}
-      	}
-
-    	// 上記で突き合わせた場合、タレント名、番号名をレスポンスに設定する。
+    	// タレント名、番号名をレスポンスに設定する。
     	// 突き合わせができなかった、「オンエア管理テーブルDTO」の行については名称系を未設定とする。
     	List<GroupClassDto1> listDto1 = new ArrayList<GroupClassDto1>();
-    	String talentNm = StringUtils.EMPTY;
-    	String programNm = StringUtils.EMPTY;
-	    for(TOnAirKanri kanri: tOnAirKanri) {
-	    	for(MTalent talent: modelTalentList) {
-	      		if(StringUtils.equals(talent.getTalentId(), kanri.getTalentId())) {
-	    			talentNm = talent.getTalentName();
-	    		}
-	    	}
-	    	for(MProgram pgm: modelProgramList) {
-	      		if(StringUtils.equals(pgm.getProgramId(), kanri.getProgramId())) {
-	    			programNm = pgm.getProgramName();
-	    		}
-	    	}
+	    for(TOnAirKanri kanri: modelOnAirKanri) {
 	    	// GroupClassDto1へ変換して設定
-	     	listDto1.add(helper.toDto1(kanri, talentNm, programNm));
-	     	talentNm = StringUtils.EMPTY;
-	     	programNm = StringUtils.EMPTY;
+	     	listDto1.add(helper.toDto1(kanri, 
+	     			common.checkTalentName(kanri, modelTalentList), 
+	     			common.checkProgramName(kanri, modelProgramList)));
 	    }
-	    
-	    
-	    System.out.println("listDto1:" + listDto1);
-
     	// (2) 絞った結果をタレントID、タレント名で集約化する。集約時に、タレントID,タレント名、週間出演番組本数のレコードの形にする。
     	// （レスポンスのベース）
 	    List<GroupClassDto2> dto2List = new ArrayList<GroupClassDto2>();
@@ -144,12 +105,11 @@ public class ShukanTalentJohoBFFService {
 	   for(String talentID:talentList) {
 		   dto1List = new ArrayList<GroupClassDto1>();
 		   for(GroupClassDto1 dto1:listDto1) {
-			   if(dto1.getTalentId().equals(talentID)) {
+				if(StringUtils.equals(dto1.getTalentId(), talentID)) {
 				   dto1List.add(dto1);
 			   }
 		    }
-		   // 
-		   if(dto1List != null) {
+		   if (Objects.nonNull(dto1List)) {
 			   //オンエア日でソート
 			   Collections.sort(dto1List, new OnAirComparator());
 		    	// GroupClassDto3へ変換して設定
@@ -159,7 +119,6 @@ public class ShukanTalentJohoBFFService {
 	   
     	// (4) (2)に対して、(3)を組み合わせて、レスポンスの形にする。
 	    List<GroupClassDto4> dto4List = new ArrayList<GroupClassDto4>();
-	   
 	   // dto2List2とdto3Listをマージ
 	   for(GroupClassDto2 dto2:dto2List2) {
 		   for(GroupClassDto3 dto3:dto3List) {
@@ -173,11 +132,11 @@ public class ShukanTalentJohoBFFService {
     	// (5)BE「年月週の開始終了日付検索」より取得したレスポンスを以下のように設定する。
     	// ・対象週(FROM)へ、年月週管理マスタDTO .週の開始日（日曜日）を設定
     	// ・対象週(TO)へ、年月週管理マスタDTO .週の終了日（土曜日）を設定
-	   YearMonthWeekStartEndJoho joho = this.webClient.getYearMonthWeekStartEnd(targetNentsuki, targetShu);
+	   YearMonthWeekStartEndJoho nentsukiJoho = this.webClient.getYearMonthWeekStartEnd(targetNentsuki, targetShu);
 
     	// (6) (4) + (5)を組み合わせて、レスポンスの形にする。
 	   for(GroupClassDto4 dto4:dto4List) {
-	       response.add(helper.toResponse(dto4, Math.toIntExact(dto4.getShukanShutsuenHonsu()), joho.getmNentsukiShuKanri()));
+	       response.add(helper.toResponse(dto4, Math.toIntExact(dto4.getShukanShutsuenHonsu()), nentsukiJoho.getmNentsukiShuKanri()));
 		}
 	   
 	   // ReponseをIDの順にソート
@@ -186,4 +145,6 @@ public class ShukanTalentJohoBFFService {
 		// responseの返却
 		return response;
     }
+    
+
 }
