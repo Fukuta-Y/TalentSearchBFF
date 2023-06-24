@@ -1,4 +1,4 @@
-package com.talent.controller.helper;
+package com.talent.service.helper;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;

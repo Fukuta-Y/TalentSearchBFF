@@ -17,11 +17,11 @@ import com.model.ShukanTalentJoho;
 import com.model.ShukanTalentJohoBFF;
 import com.model.TOnAirKanri;
 import com.model.YearMonthWeekStartEndJoho;
-import com.talent.controller.helper.ShukanTalentJohoBffHelper;
 import com.talent.service.dto.GroupClassDto1;
 import com.talent.service.dto.GroupClassDto2;
 import com.talent.service.dto.GroupClassDto3;
 import com.talent.service.dto.GroupClassDto4;
+import com.talent.service.helper.ShukanTalentJohoBffHelper;
 import com.talent.setting.CommonShori;
 import com.talent.setting.OnAirComparator;
 import com.talent.setting.TalentIdComparator;
@@ -85,7 +85,8 @@ public class ShukanTalentJohoBFFService {
 	    }
 
 	    // クラス単位での件数を取得
-	    Map<GroupClassDto2, Long> countMap = dto2List.stream().collect(Collectors.groupingBy(Function.identity(),Collectors.counting()));
+	    Map<GroupClassDto2, Long> countMap = 
+	    		dto2List.stream().collect(Collectors.groupingBy(Function.identity(),Collectors.counting()));
 	    
 	    List<GroupClassDto2> dto2List2 = new ArrayList<GroupClassDto2>();
 	    countMap.forEach((dto2, honsu) -> {
@@ -100,9 +101,11 @@ public class ShukanTalentJohoBFFService {
 	   for(GroupClassDto2 e:dto2List2) {
 	    	talentList.add(e.getTalentId());
 	    }
+
 	   List<GroupClassDto3> dto3List = new ArrayList<GroupClassDto3>();
-	   List<GroupClassDto1> dto1List = new ArrayList<GroupClassDto1>();
-	   for(String talentID:talentList) {
+	   List<GroupClassDto1> dto1List = new ArrayList<GroupClassDto1>();  
+	   
+	   for(String talentID: talentList) {
 		   dto1List = new ArrayList<GroupClassDto1>();
 		   for(GroupClassDto1 dto1:listDto1) {
 				if(StringUtils.equals(dto1.getTalentId(), talentID)) {
