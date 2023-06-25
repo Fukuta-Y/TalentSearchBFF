@@ -29,4 +29,15 @@ public class WebClientInfo {
                 .retrieve()
                 .bodyToMono(YearMonthWeekStartEndJoho.class).block();
     }
+    // REVIEW: queryParams をどんどん繋げていくと可読性下がるので、下記のuriBuilderを利用する方針をとったほうがいいかな・・
+//    public YearMonthWeekStartEndJoho getYearMonthWeekStartEnd2(Integer targetNentsuki, Integer targetShu) {
+//        return this.webClient.get()
+//                .uri(uriBuilder -> uriBuilder
+//                        .path("/yearMonthWeekStartEnd")
+//                        .queryParam("targetNentsuki", targetNentsuki)
+//                        .queryParam("targetShu", targetShu)
+//                        .build())
+//                .retrieve()
+//                .bodyToMono(YearMonthWeekStartEndJoho.class).block();
+//    }
 }

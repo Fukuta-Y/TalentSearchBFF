@@ -29,6 +29,10 @@ import com.talent.setting.WebClientInfo;
 
 import lombok.RequiredArgsConstructor;
 
+
+
+// REVIEW: DTOの命名の付け方は変更した方がいい。。DTOの用途が分かりずらいかな。
+//　状態によって使い分けるイメージですが、例えばこれをDomainにまとめて集約DTOに詰める方が適切かな・・例えばTalentId, TalentNameはTalentClassにするとか
 /**
  * 週間タレント別情報検索 Service
  */

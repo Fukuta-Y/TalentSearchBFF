@@ -10,6 +10,8 @@ import com.model.MProgram;
 import com.model.MTalent;
 import com.model.TOnAirKanri;
 
+// REVIEW: ここは変数名を変更した方がJAVA的には嬉しいかも
+// - checkを接頭辞とした場合、booleanが返却されるのが一般的にであるため。(fetchなどの取得を意味する言葉の方が適切？)
 @Service
 public class CommonShori {
     // 対象のオンエア管理とタレントIDが合致するかどうか

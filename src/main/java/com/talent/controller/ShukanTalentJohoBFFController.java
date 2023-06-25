@@ -20,7 +20,9 @@ import lombok.RequiredArgsConstructor;
 public class ShukanTalentJohoBFFController implements ShukanTalentJohoBFFApi{
 
     private final ShukanTalentJohoBFFService service;
-	
+
+	// REVIEW: TARGETという接頭辞はあまり適切ではないかと思います。
+	// URL自体がリソースを示しPathに付属するパラメータはそのパラメータと関連していることが明確なため。
 	@Override
 	public ResponseEntity<List<ShukanTalentJohoBFF>> getShukanTalentJohoBFF(
 			@NotNull @Min(199001) @Max(210012) @Valid Integer targetNentsuki,
