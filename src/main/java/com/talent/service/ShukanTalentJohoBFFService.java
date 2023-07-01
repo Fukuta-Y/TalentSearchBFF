@@ -23,7 +23,6 @@ import com.talent.service.dto.GroupClassDto2;
 import com.talent.service.dto.GroupClassDto3;
 import com.talent.service.dto.GroupClassDto4;
 import com.talent.service.helper.ShukanTalentJohoBffHelper;
-import com.talent.setting.CommonShori;
 import com.talent.setting.OnAirComparator;
 import com.talent.setting.TalentIdComparator;
 import com.talent.setting.WebClientInfo;

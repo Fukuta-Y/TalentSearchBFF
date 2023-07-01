@@ -41,7 +41,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/shukanTalentJohoBFF'
+                type: array
+                items:
+                  $ref: '#/components/schemas/shukanTalentJohoBFF'
 components:
   schemas:
     shukanTalentJohoBFF:
