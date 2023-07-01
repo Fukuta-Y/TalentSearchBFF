@@ -12,7 +12,7 @@ public class WebClientInfo {
     public WebClient webClient;
     
     public WebClientInfo(WebClient.Builder webClientBuilder) {
-    	 this.webClient = webClientBuilder.baseUrl("http://localhost:8081").build();
+    	 this.webClient = webClientBuilder.baseUrl("http://localhost:8082").build();
     }
     
 	// BE「週間タレント別情報検索」へ接続の設定
