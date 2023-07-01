@@ -1,5 +1,8 @@
 package com.talent.service.dto;
+
 import java.io.Serializable;
+import com.talent.service.dto.entity.Talent;
+import com.talent.service.dto.entity.TvProgram;
 
 import lombok.Data;
 /**
@@ -7,9 +10,7 @@ import lombok.Data;
  */
 @Data
 public class GroupClassDto4 implements Serializable {
-   private String talentId;
-   private String talentName;
+   private Talent talent;
+   private TvProgram tvProgram;
    private Long shukanShutsuenHonsu;
-   private String programName;
-   private String onairDay;
 }
