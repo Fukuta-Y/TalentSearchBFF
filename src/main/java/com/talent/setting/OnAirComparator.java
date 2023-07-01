@@ -17,8 +17,8 @@ public class OnAirComparator implements Comparator<GroupClassDto1> {
         Date date1 = null;
         Date date2 = null;
 		try {
-			date1 = sdFormat.parse(data1.getOnairDay());
-			date2 = sdFormat.parse(data2.getOnairDay());
+			date1 = sdFormat.parse(data1.getProgram().getOnairDay());
+			date2 = sdFormat.parse(data2.getProgram().getOnairDay());
 		} catch (ParseException e) {
 			// TODO 自動生成された catch ブロック
 			e.printStackTrace();

@@ -8,6 +8,7 @@ import java.util.Objects;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+import com.talent.setting.Utils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
@@ -37,7 +38,7 @@ import lombok.RequiredArgsConstructor;
 public class ShukanTalentJohoBFFService {
 
     private final WebClientInfo webClient;
-    private final CommonShori common;
+    private final Utils common;
     
     private final ShukanTalentJohoBffHelper helper;
     /**
@@ -99,7 +100,7 @@ public class ShukanTalentJohoBFFService {
 	   List<String> talentList = new ArrayList<String>();
 	   // タレントIDの一覧のリスト
 	   for(GroupClassDto2 e:dto2List2) {
-	    	talentList.add(e.getTalentId());
+	    	talentList.add(e.getTalent().getId());
 	    }
 
 	   List<GroupClassDto3> dto3List = new ArrayList<GroupClassDto3>();
@@ -108,13 +109,13 @@ public class ShukanTalentJohoBFFService {
 	   for(String talentID: talentList) {
 		   dto1List = new ArrayList<GroupClassDto1>();
 		   for(GroupClassDto1 dto1:listDto1) {
-				if(StringUtils.equals(dto1.getTalentId(), talentID)) {
+				if(StringUtils.equals(dto1.getTalent().getId(), talentID)) {
 				   dto1List.add(dto1);
 			   }
 		    }
 		   if (Objects.nonNull(dto1List)) {
 			   //オンエア日でソート
-			   Collections.sort(dto1List, new OnAirComparator());
+			   dto1List.sort(new OnAirComparator());
 		    	// GroupClassDto3へ変換して設定
 			   dto3List.add(helper.toDto3(dto1List.get(0))); 
 		   }
@@ -143,7 +144,7 @@ public class ShukanTalentJohoBFFService {
 		}
 	   
 	   // ReponseをIDの順にソート
-	   Collections.sort(response, new TalentIdComparator());
+	   response.sort(new TalentIdComparator());
 
 		// responseの返却
 		return response;
