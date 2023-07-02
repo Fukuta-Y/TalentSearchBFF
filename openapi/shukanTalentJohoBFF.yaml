@@ -11,24 +11,24 @@ paths:
     get:
       tags:
         - shukanTalentJohoBFF
-      operationId: getshukanTalentJohoBFF
+      operationId: getShukanTalentJohoBFF
       summary: １週間においてのタレントごとの情報を返すBFF
       description: １週間においてのタレントごとの情報を返すBFF
       parameters:
         - in: query
-          name: targetNentsuki
+          name: nentsuki
           required: true
           schema:
             type: integer
-            maximum : 210012
-            minimum : 199001
+            maximum: 210012
+            minimum: 199001
         - in: query
-          name:  targetShu
+          name: shu
           required: true
           schema:
             type: integer
-            maximum : 5
-            minimum : 1
+            maximum: 5
+            minimum: 1
         - in: query
           name: talentName
           required: false
@@ -41,7 +41,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/shukanTalentJohoBFF'
+                type: array
+                items:
+                  $ref: '#/components/schemas/shukanTalentJohoBFF'
 components:
   schemas:
     shukanTalentJohoBFF:

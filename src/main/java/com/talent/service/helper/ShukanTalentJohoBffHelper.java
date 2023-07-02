@@ -1,40 +1,49 @@
 package com.talent.service.helper;
 
-import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
-
 import com.model.MNentsukiShuKanri;
 import com.model.ShukanTalentJohoBFF;
 import com.model.TOnAirKanri;
-import com.talent.service.dto.GroupClassDto1;
-import com.talent.service.dto.GroupClassDto2;
-import com.talent.service.dto.GroupClassDto3;
-import com.talent.service.dto.GroupClassDto4;
+import com.talent.service.dto.OnairKanriInfoDto;
+import com.talent.service.dto.TalentInfoDto;
+import com.talent.service.dto.TalentOnairChokinInfoDto;
+import com.talent.service.dto.TalentShutsuenHonsuDto;
 import com.talent.setting.ConfigMapper;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 
 @Mapper(config = ConfigMapper.class)
 public interface ShukanTalentJohoBffHelper {
 
-	@Mapping(source = "talentNm", target = "talentName")
-	@Mapping(source = "programNm", target = "programName")
-	GroupClassDto1 toDto1(TOnAirKanri model, String talentNm, String programNm);
-	
-	GroupClassDto2 toDto2(GroupClassDto1 dto1);
-	
-	@Mapping(source = "count", target = "shukanShutsuenHonsu")
-	GroupClassDto2 toHonsuDto2(GroupClassDto2 dto2, Long count);
+    @Mapping(source = "model.talentId", target = "talent.id")
+    @Mapping(source = "talentNm", target = "talent.name")
+    @Mapping(source = "model.programId", target = "tvProgram.id")
+    @Mapping(source = "programNm", target = "tvProgram.name")
+    @Mapping(source = "model.onairDay", target = "tvProgram.onairDay")
+    OnairKanriInfoDto toOnairKanriInfoDto(TOnAirKanri model, String talentNm, String programNm);
 
-	GroupClassDto3 toDto3(GroupClassDto1 dto1);
-	
-	@Mapping(source = "dto2.talentId", target = "talentId")
-	@Mapping(source = "dto2.talentName", target = "talentName")
-	GroupClassDto4 toDto4(GroupClassDto2 dto2, GroupClassDto3 dto3);
-	
-	@Mapping(source = "honsu", target = "shukanShutsuenProgramHonsu")
-	@Mapping(source = "dto4.programName", target = "shutsuenProgramChokin")
-	@Mapping(source = "dto4.onairDay", target = "onAirDayChokin")
-	@Mapping(source = "joho.shuFrom", target = "shuFrom")
-	@Mapping(source = "joho.shuTo", target = "shuTo")
-	ShukanTalentJohoBFF toResponse(GroupClassDto4 dto4, Integer honsu, MNentsukiShuKanri joho);
-	
- }
+    TalentShutsuenHonsuDto toTalentShutsuenHonsuDto(OnairKanriInfoDto onairDto);
+
+    @Mapping(source = "count", target = "shukanShutsuenHonsu")
+    TalentShutsuenHonsuDto toTalentShutsuenHonsuDto(TalentShutsuenHonsuDto talentDto, Long count);
+
+    @Mapping(source = "talent.id", target = "talent.id")
+    @Mapping(source = "talent.name", target = "talent.name")
+    @Mapping(source = "tvProgram.id", target = "tvProgram.id")
+    @Mapping(source = "tvProgram.name", target = "tvProgram.name")
+    @Mapping(source = "tvProgram.onairDay", target = "tvProgram.onairDay")
+    TalentOnairChokinInfoDto toTalentOnairChokinInfoDto(OnairKanriInfoDto dto1);
+
+    @Mapping(source = "talentDto.talent.id", target = "talent.id")
+    @Mapping(source = "talentDto.talent.name", target = "talent.name")
+    TalentInfoDto toTalentInfoDto(TalentShutsuenHonsuDto talentDto, TalentOnairChokinInfoDto onairDto);
+
+    @Mapping(source = "talentInfoDto.talent.id", target = "talentId")
+    @Mapping(source = "talentInfoDto.talent.name", target = "talentName")
+    @Mapping(source = "honsu", target = "shukanShutsuenProgramHonsu")
+    @Mapping(source = "talentInfoDto.tvProgram.name", target = "shutsuenProgramChokin")
+    @Mapping(source = "talentInfoDto.tvProgram.onairDay", target = "onAirDayChokin")
+    @Mapping(source = "netsuki.shuFrom", target = "shuFrom")
+    @Mapping(source = "netsuki.shuTo", target = "shuTo")
+    ShukanTalentJohoBFF toShukanTalentJohoBFF(TalentInfoDto talentInfoDto, Integer honsu, MNentsukiShuKanri netsuki);
+
+}
