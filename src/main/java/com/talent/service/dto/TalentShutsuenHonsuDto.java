@@ -9,7 +9,7 @@ import java.io.Serializable;
  * BFF集約処理2
  */
 @Data
-public class GroupClassDto2 implements Serializable {
+public class TalentShutsuenHonsuDto implements Serializable {
     private Talent talent;
     private Long shukanShutsuenHonsu;
     private Integer nentsuki;

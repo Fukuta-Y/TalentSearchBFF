@@ -7,13 +7,11 @@ import lombok.Data;
 import java.io.Serializable;
 
 /**
- * BFF集約処理１
+ * BFF集約処理4
  */
 @Data
-public class GroupClassDto1 implements Serializable {
-    private String id;
+public class TalentInfoDto implements Serializable {
     private Talent talent;
     private TvProgram tvProgram;
-    private Integer nentsuki;
-    private Integer shu;
+    private Long shukanShutsuenHonsu;
 }
