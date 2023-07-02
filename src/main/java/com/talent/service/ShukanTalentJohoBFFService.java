@@ -1,14 +1,12 @@
 package com.talent.service;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-import com.talent.setting.Utils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
@@ -25,6 +23,7 @@ import com.talent.service.dto.GroupClassDto4;
 import com.talent.service.helper.ShukanTalentJohoBffHelper;
 import com.talent.setting.OnAirComparator;
 import com.talent.setting.TalentIdComparator;
+import com.talent.setting.Utils;
 import com.talent.setting.WebClientInfo;
 
 import lombok.RequiredArgsConstructor;
@@ -125,7 +124,7 @@ public class ShukanTalentJohoBFFService {
 	   // dto2List2とdto3Listをマージ
 	   for(GroupClassDto2 dto2:dto2List2) {
 		   for(GroupClassDto3 dto3:dto3List) {
-	      		if(StringUtils.equals(dto2.getTalentId(), dto3.getTalentId())) {
+	      		if(StringUtils.equals(dto2.getTalent().getId(), dto3.getTalent().getId())) {
 		 		   dto4List.add(helper.toDto4(dto2, dto3));
 		 		   break;
 		    	}

@@ -17,7 +17,7 @@ import jakarta.validation.constraints.Size;
 
 @Schema(name = "shukanTalentJohoBFF", description = "１週間においてのタレントごとの情報")
 @JsonTypeName("shukanTalentJohoBFF")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-06-11T16:02:48.702321+09:00[Asia/Tokyo]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-07-02T11:51:40.206221+09:00[Asia/Tokyo]")
 public class ShukanTalentJohoBFF {
 
   @JsonProperty("talentId")
@@ -202,7 +202,7 @@ public class ShukanTalentJohoBFF {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class shukanTalentJohoBFF {\n");
+    sb.append("class ShukanTalentJohoBFF {\n");
     sb.append("    talentId: ").append(toIndentedString(talentId)).append("\n");
     sb.append("    talentName: ").append(toIndentedString(talentName)).append("\n");
     sb.append("    shukanShutsuenProgramHonsu: ").append(toIndentedString(shukanShutsuenProgramHonsu)).append("\n");

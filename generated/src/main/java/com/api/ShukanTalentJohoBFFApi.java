@@ -28,7 +28,7 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-06-11T16:02:48.702321+09:00[Asia/Tokyo]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-07-02T11:51:40.206221+09:00[Asia/Tokyo]")
 @Validated
 @Tag(name = "shukanTalentJohoBFF", description = "the shukanTalentJohoBFF API")
 @RequestMapping("api")
@@ -38,8 +38,8 @@ public interface ShukanTalentJohoBFFApi {
      * GET /shukanTalentJohoBFF : １週間においてのタレントごとの情報を返すBFF
      * １週間においてのタレントごとの情報を返すBFF
      *
-     * @param targetNentsuki  (required)
-     * @param targetShu  (required)
+     * @param nentsuki  (required)
+     * @param shu  (required)
      * @param talentName  (optional)
      * @return １週間においてのタレントごとの情報を正常取得 (status code 200)
      */
@@ -55,8 +55,8 @@ public interface ShukanTalentJohoBFFApi {
     )
     @GetMapping("/shukanTalentJohoBFF")
     ResponseEntity<List<ShukanTalentJohoBFF>> getShukanTalentJohoBFF(
-        @NotNull @Min(199001) @Max(210012) @Parameter(name = "targetNentsuki", description = "", required = true) @Valid @RequestParam(value = "targetNentsuki", required = true) Integer targetNentsuki,
-        @NotNull @Min(1) @Max(5) @Parameter(name = "targetShu", description = "", required = true) @Valid @RequestParam(value = "targetShu", required = true) Integer targetShu,
+        @NotNull @Min(199001) @Max(210012) @Parameter(name = "nentsuki", description = "", required = true) @Valid @RequestParam(value = "nentsuki", required = true) Integer nentsuki,
+        @NotNull @Min(1) @Max(5) @Parameter(name = "shu", description = "", required = true) @Valid @RequestParam(value = "shu", required = true) Integer shu,
         @Size(max = 30) @Parameter(name = "talentName", description = "") @Valid @RequestParam(value = "talentName", required = false) String talentName
     );
 
