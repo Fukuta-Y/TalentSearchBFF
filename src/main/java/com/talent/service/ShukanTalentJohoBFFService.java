@@ -61,64 +61,64 @@ public class ShukanTalentJohoBFFService {
         // タレント名、番号名をレスポンスに設定する。
         // 突き合わせができなかった、「オンエア管理テーブルDTO」の行については名称系を未設定とする。
         List<OnairKanriInfoDto> OnairKanriInfoList = new ArrayList<OnairKanriInfoDto>();
-        for (TOnAirKanri kanri : modelOnAirKanriList) {
+        for (TOnAirKanri e : modelOnAirKanriList) {
             // GroupClassDto1へ変換して設定
-            OnairKanriInfoList.add(helper.toDto1(kanri,
-                    utils.fetchTalentName(kanri, modelTalentList),
-                    utils.fetchProgramName(kanri, modelProgramList)));
+            OnairKanriInfoList.add(helper.toOnairKanriInfoDto(e,
+                    utils.fetchTalentName(e, modelTalentList),
+                    utils.fetchProgramName(e, modelProgramList)));
         }
 
         // (2) 絞った結果をタレントID、タレント名で集約化する。集約時に、タレントID,タレント名、週間出演番組本数のレコードの形にする。
         // （レスポンスのベース）
         List<TalentShutsuenHonsuDto> TalentShutsuenHonsuList = new ArrayList<TalentShutsuenHonsuDto>();
-        for (OnairKanriInfoDto dto1 : OnairKanriInfoList) {
-            // GroupClassDto2へ変換して設定
-            TalentShutsuenHonsuList.add(helper.toDto2(dto1));
+        for (OnairKanriInfoDto e : OnairKanriInfoList) {
+            // TalentShutsuenHonsuDtoへ変換して設定
+            TalentShutsuenHonsuList.add(helper.toTalentShutsuenHonsuDto(e));
         }
 
         // クラス単位での件数を取得
-        Map<TalentShutsuenHonsuDto, Long> countMap =
+        Map<TalentShutsuenHonsuDto, Long> dtoCount =
                 TalentShutsuenHonsuList.stream().collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 
-        List<TalentShutsuenHonsuDto> TalentShutsuenHonsuList2 = new ArrayList<TalentShutsuenHonsuDto>();
-        countMap.forEach((dto2, count) -> {
-            // GroupClassDto2の本数へ変換して設定
-            TalentShutsuenHonsuList2.add(helper.toHonsuDto2(dto2, count));
+        List<TalentShutsuenHonsuDto> TalentShutsuenHonsuCountList = new ArrayList<TalentShutsuenHonsuDto>();
+        dtoCount.forEach((k, v) -> {
+            // TalentShutsuenHonsuListのTalentShutsuenHonsuDtoごとの本数をTalentShutsuenHonsuCountListへ設定
+            TalentShutsuenHonsuCountList.add(helper.toTalentShutsuenHonsuDto(k, v));
         });
 
         // (3)　(1)よりタレントIDをキーとして取得して、オンエア日でソートして、最も近いオンエア日の日付の行だけを取得する。
         // 取得後、タレントID、出演番組（直近）【番組名】、オンエア日（直近）【オンエア日】のレコードの形にする。
         List<String> talentList = new ArrayList<String>();
         // タレントIDの一覧のリスト
-        for (TalentShutsuenHonsuDto e : TalentShutsuenHonsuList2) {
+        for (TalentShutsuenHonsuDto e : TalentShutsuenHonsuCountList) {
             talentList.add(e.getTalent().getId());
         }
 
-        List<TalentOnairChokinInfoDto> dto3List = new ArrayList<TalentOnairChokinInfoDto>();
-        List<OnairKanriInfoDto> dto1List = new ArrayList<OnairKanriInfoDto>();
+        List<TalentOnairChokinInfoDto> talentOnairChokinInfoDtoList = new ArrayList<TalentOnairChokinInfoDto>();
+        List<OnairKanriInfoDto> OnairKanriInfosDto = new ArrayList<OnairKanriInfoDto>();
 
         for (String talentID : talentList) {
-            dto1List = new ArrayList<OnairKanriInfoDto>();
-            for (OnairKanriInfoDto dto1 : OnairKanriInfoList) {
-                if (StringUtils.equals(dto1.getTalent().getId(), talentID)) {
-                    dto1List.add(dto1);
+            OnairKanriInfosDto = new ArrayList<OnairKanriInfoDto>();
+            for (OnairKanriInfoDto e : OnairKanriInfoList) {
+                if (StringUtils.equals(e.getTalent().getId(), talentID)) {
+                    OnairKanriInfosDto.add(e);
                 }
             }
-            if (CollectionUtils.isNotEmpty(dto1List)) {
+            if (CollectionUtils.isNotEmpty(OnairKanriInfosDto)) {
                 //オンエア日でソート
-                dto1List.sort(new OnAirComparator());
-                // GroupClassDto3へ変換して設定
-                dto3List.add(helper.toDto3(dto1List.get(0)));
+                OnairKanriInfosDto.sort(new OnAirComparator());
+                // TalentOnairChokinInfoDtoへ変換して設定
+                talentOnairChokinInfoDtoList.add(helper.toTalentOnairChokinInfoDto(OnairKanriInfosDto.get(0)));
             }
         }
 
         // (4) (2)に対して、(3)を組み合わせて、レスポンスの形にする。
-        List<TalentInfoDto> dto4List = new ArrayList<TalentInfoDto>();
-        // TalentShutsuenHonsuList2とdto3Listをマージ
-        for (TalentShutsuenHonsuDto dto2 : TalentShutsuenHonsuList2) {
-            for (TalentOnairChokinInfoDto dto3 : dto3List) {
-                if (StringUtils.equals(dto2.getTalent().getId(), dto3.getTalent().getId())) {
-                    dto4List.add(helper.toDto4(dto2, dto3));
+        List<TalentInfoDto> TalentInfoDtoList = new ArrayList<TalentInfoDto>();
+        // TalentShutsuenHonsuCountListとtalentOnairChokinInfoDtoListをマージ
+        for (TalentShutsuenHonsuDto k : TalentShutsuenHonsuCountList) {
+            for (TalentOnairChokinInfoDto v : talentOnairChokinInfoDtoList) {
+                if (StringUtils.equals(k.getTalent().getId(), v.getTalent().getId())) {
+                    TalentInfoDtoList.add(helper.toTalentInfoDto(k, v));
                     break;
                 }
             }
@@ -130,8 +130,8 @@ public class ShukanTalentJohoBFFService {
         YearMonthWeekStartEndJoho yearMonthJoho = this.webClient.getYearMonthWeekStartEnd(nentsuki, shu);
 
         // (6) (4) + (5)を組み合わせて、レスポンスの形にする。
-        for (TalentInfoDto dto4 : dto4List) {
-            response.add(helper.toResponse(dto4, Math.toIntExact(dto4.getShukanShutsuenHonsu()), yearMonthJoho.getmNentsukiShuKanri()));
+        for (TalentInfoDto e : TalentInfoDtoList) {
+            response.add(helper.toShukanTalentJohoBFF(e, Math.toIntExact(e.getShukanShutsuenHonsu()), yearMonthJoho.getmNentsukiShuKanri()));
         }
 
         // responseをIDの順にソート
