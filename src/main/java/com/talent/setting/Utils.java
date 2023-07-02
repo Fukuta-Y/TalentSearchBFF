@@ -17,7 +17,7 @@ public class Utils {
     public String fetchTalentName(TOnAirKanri kanri, List<MTalent> modelTalentList) {
         if (CollectionUtils.isNotEmpty(modelTalentList)) {
             return modelTalentList.stream()
-                    .filter(e -> Objects.equals(e.getTalentId(), kanri.getProgramId()))
+                    .filter(e -> Objects.equals(e.getTalentId(), kanri.getTalentId()))
                     .findFirst()
                     .map(MTalent::getTalentName)
                     .orElse(StringUtils.EMPTY);

@@ -54,13 +54,11 @@ public class ShukanTalentJohoBFFService {
         List<TOnAirKanri> modelOnAirKanri = talentJoho.gettOnAirKanri();
         List<MTalent> modelTalentList = talentJoho.getmTalent();
         List<MProgram> modelProgramList = talentJoho.getmProgram();
-
         // 以下はオンエア管理が設定されている場合のみ対応
-        if (CollectionUtils.isNotEmpty(modelOnAirKanri)) {
+        if (CollectionUtils.isEmpty(modelOnAirKanri)) {
             response.add(bffModel);
             return response;
         }
-
         // タレント名、番号名をレスポンスに設定する。
         // 突き合わせができなかった、「オンエア管理テーブルDTO」の行については名称系を未設定とする。
         List<GroupClassDto1> listDto1 = new ArrayList<GroupClassDto1>();
@@ -70,6 +68,7 @@ public class ShukanTalentJohoBFFService {
                     common.fetchTalentName(kanri, modelTalentList),
                     common.fetchProgramName(kanri, modelProgramList)));
         }
+
         // (2) 絞った結果をタレントID、タレント名で集約化する。集約時に、タレントID,タレント名、週間出演番組本数のレコードの形にする。
         // （レスポンスのベース）
         List<GroupClassDto2> dto2List = new ArrayList<GroupClassDto2>();
