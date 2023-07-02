@@ -17,9 +17,9 @@ public class ShukanTalentJohoBFFController implements ShukanTalentJohoBFFApi{
     private final ShukanTalentJohoBFFService service;
 	
 	@Override
-	public ResponseEntity<List<ShukanTalentJohoBFF>> getShukanTalentJohoBFF(Integer targetNentsuki, Integer targetShu, String talentName) {
+	public ResponseEntity<List<ShukanTalentJohoBFF>> getShukanTalentJohoBFF(Integer nentsuki, Integer shu, String talentName) {
 		// ShukanTalentJohoSearchBFFServiceより取得
-		List<ShukanTalentJohoBFF> response  = service.select(targetNentsuki, targetShu, talentName);
+		List<ShukanTalentJohoBFF> response  = service.select(nentsuki, shu, talentName);
 		return ResponseEntity.ok(response);
 	}
 }

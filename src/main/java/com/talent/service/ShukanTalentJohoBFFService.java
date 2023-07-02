@@ -41,18 +41,18 @@ public class ShukanTalentJohoBFFService {
     private final ShukanTalentJohoBffHelper helper;
     /**
      * 週間タレント別情報検索
-　　　* @param targetNentsuki 対象年月
-　　　* @param targetShu 対象週
+　　　* @param nentsuki 対象年月
+　　　* @param shu 対象週
 　　　* @param talentName タレント名
      * @return 検索結果
      */
-    public List<ShukanTalentJohoBFF> select(Integer targetNentsuki, Integer targetShu, String talentName) {
+    public List<ShukanTalentJohoBFF> select(Integer nentsuki, Integer shu, String talentName) {
     	
     	List<ShukanTalentJohoBFF> response = new ArrayList<ShukanTalentJohoBFF>();
     	ShukanTalentJohoBFF bffModel = new ShukanTalentJohoBFF();
     	
     	// BE「週間タレント別情報検索より取得処理
-    	ShukanTalentJoho model = this.webClient.getShukanTalentJoho(targetNentsuki, targetShu, talentName);
+    	ShukanTalentJoho model = this.webClient.getShukanTalentJoho(nentsuki, shu, talentName);
     	
     	// (1) BE「週間タレント別情報検索」より取得したレスポンスで以下の条件でデータを絞る。
     	// （別シート_タレント出演情報検索の結合イメージ　参照）
@@ -134,7 +134,7 @@ public class ShukanTalentJohoBFFService {
     	// (5)BE「年月週の開始終了日付検索」より取得したレスポンスを以下のように設定する。
     	// ・対象週(FROM)へ、年月週管理マスタDTO .週の開始日（日曜日）を設定
     	// ・対象週(TO)へ、年月週管理マスタDTO .週の終了日（土曜日）を設定
-	   YearMonthWeekStartEndJoho nentsukiJoho = this.webClient.getYearMonthWeekStartEnd(targetNentsuki, targetShu);
+	   YearMonthWeekStartEndJoho nentsukiJoho = this.webClient.getYearMonthWeekStartEnd(nentsuki, shu);
 
     	// (6) (4) + (5)を組み合わせて、レスポンスの形にする。
 	   for(GroupClassDto4 dto4:dto4List) {
