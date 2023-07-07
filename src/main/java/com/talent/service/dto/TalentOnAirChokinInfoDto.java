@@ -10,7 +10,7 @@ import java.io.Serializable;
  * BFF集約処理3
  */
 @Data
-public class TalentOnairChokinInfoDto implements Serializable {
+public class TalentOnAirChokinInfoDto implements Serializable {
     private Talent talent;
     private TvProgram tvProgram;
 }

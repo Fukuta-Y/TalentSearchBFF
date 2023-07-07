@@ -5,7 +5,7 @@ import com.model.ShukanTalentJohoBFF;
 import com.model.TOnAirKanri;
 import com.talent.service.dto.OnairKanriInfoDto;
 import com.talent.service.dto.TalentInfoDto;
-import com.talent.service.dto.TalentOnairChokinInfoDto;
+import com.talent.service.dto.TalentOnAirChokinInfoDto;
 import com.talent.service.dto.TalentShutsuenHonsuDto;
 import com.talent.setting.ConfigMapper;
 import org.mapstruct.Mapper;
@@ -31,11 +31,11 @@ public interface ShukanTalentJohoBffHelper {
     @Mapping(source = "tvProgram.id", target = "tvProgram.id")
     @Mapping(source = "tvProgram.name", target = "tvProgram.name")
     @Mapping(source = "tvProgram.onairDay", target = "tvProgram.onairDay")
-    TalentOnairChokinInfoDto toTalentOnairChokinInfoDto(OnairKanriInfoDto dto1);
+    TalentOnAirChokinInfoDto toTalentOnairChokinInfoDto(OnairKanriInfoDto dto1);
 
     @Mapping(source = "talentDto.talent.id", target = "talent.id")
     @Mapping(source = "talentDto.talent.name", target = "talent.name")
-    TalentInfoDto toTalentInfoDto(TalentShutsuenHonsuDto talentDto, TalentOnairChokinInfoDto onairDto);
+    TalentInfoDto toTalentInfoDto(TalentShutsuenHonsuDto talentDto, TalentOnAirChokinInfoDto onairDto);
 
     @Mapping(source = "talentInfoDto.talent.id", target = "talentId")
     @Mapping(source = "talentInfoDto.talent.name", target = "talentName")
