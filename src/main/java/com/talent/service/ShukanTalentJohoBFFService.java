@@ -1,7 +1,7 @@
 package com.talent.service;
 
 import com.model.*;
-import com.talent.service.dto.OnairKanriInfoDto;
+import com.talent.service.dto.OnAirKanriInfoDto;
 import com.talent.service.dto.TalentInfoDto;
 import com.talent.service.dto.TalentOnAirChokinInfoDto;
 import com.talent.service.dto.TalentShutsuenHonsuDto;
@@ -57,7 +57,7 @@ public class ShukanTalentJohoBFFService {
             response.add(bffModel);
             return response;
         }
-        List<OnairKanriInfoDto> OnairKanriInfoList = groupShori.setOnairKanriInfoList(modelTalentList, modelProgramList, modelOnAirKanriList);
+        List<OnAirKanriInfoDto> OnairKanriInfoList = groupShori.setOnairKanriInfoList(modelTalentList, modelProgramList, modelOnAirKanriList);
 
         // (2) 絞った結果をタレントID、タレント名で集約化する。集約時に、タレントID,タレント名、週間出演番組本数のレコードの形にする。
         // （レスポンスのベース）
@@ -73,11 +73,11 @@ public class ShukanTalentJohoBFFService {
         }
 
         List<TalentOnAirChokinInfoDto> talentOnairChokinInfoDtoList = new ArrayList<TalentOnAirChokinInfoDto>();
-        List<OnairKanriInfoDto> OnairKanriInfosDto = new ArrayList<OnairKanriInfoDto>();
+        List<OnAirKanriInfoDto> OnairKanriInfosDto = new ArrayList<OnAirKanriInfoDto>();
 
         for (String talentID : talentList) {
-            OnairKanriInfosDto = new ArrayList<OnairKanriInfoDto>();
-            for (OnairKanriInfoDto e : OnairKanriInfoList) {
+            OnairKanriInfosDto = new ArrayList<OnAirKanriInfoDto>();
+            for (OnAirKanriInfoDto e : OnairKanriInfoList) {
                 if (StringUtils.equals(e.getTalent().getId(), talentID)) {
                     OnairKanriInfosDto.add(e);
                 }

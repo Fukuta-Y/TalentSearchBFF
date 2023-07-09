@@ -3,7 +3,7 @@ package com.talent.service.helper;
 import com.model.MNentsukiShuKanri;
 import com.model.ShukanTalentJohoBFF;
 import com.model.TOnAirKanri;
-import com.talent.service.dto.OnairKanriInfoDto;
+import com.talent.service.dto.OnAirKanriInfoDto;
 import com.talent.service.dto.TalentInfoDto;
 import com.talent.service.dto.TalentOnAirChokinInfoDto;
 import com.talent.service.dto.TalentShutsuenHonsuDto;
@@ -19,9 +19,9 @@ public interface ShukanTalentJohoBffHelper {
     @Mapping(source = "model.programId", target = "tvProgram.id")
     @Mapping(source = "programNm", target = "tvProgram.name")
     @Mapping(source = "model.onairDay", target = "tvProgram.onairDay")
-    OnairKanriInfoDto toOnairKanriInfoDto(TOnAirKanri model, String talentNm, String programNm);
+    OnAirKanriInfoDto toOnairKanriInfoDto(TOnAirKanri model, String talentNm, String programNm);
 
-    TalentShutsuenHonsuDto toTalentShutsuenHonsuDto(OnairKanriInfoDto onairDto);
+    TalentShutsuenHonsuDto toTalentShutsuenHonsuDto(OnAirKanriInfoDto onairDto);
 
     @Mapping(source = "count", target = "shukanShutsuenHonsu")
     TalentShutsuenHonsuDto toTalentShutsuenHonsuDto(TalentShutsuenHonsuDto talentDto, Long count);
@@ -31,7 +31,7 @@ public interface ShukanTalentJohoBffHelper {
     @Mapping(source = "tvProgram.id", target = "tvProgram.id")
     @Mapping(source = "tvProgram.name", target = "tvProgram.name")
     @Mapping(source = "tvProgram.onairDay", target = "tvProgram.onairDay")
-    TalentOnAirChokinInfoDto toTalentOnairChokinInfoDto(OnairKanriInfoDto dto1);
+    TalentOnAirChokinInfoDto toTalentOnairChokinInfoDto(OnAirKanriInfoDto dto1);
 
     @Mapping(source = "talentDto.talent.id", target = "talent.id")
     @Mapping(source = "talentDto.talent.name", target = "talent.name")

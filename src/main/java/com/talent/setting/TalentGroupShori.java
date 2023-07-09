@@ -3,7 +3,7 @@ package com.talent.setting;
 import com.model.MProgram;
 import com.model.MTalent;
 import com.model.TOnAirKanri;
-import com.talent.service.dto.OnairKanriInfoDto;
+import com.talent.service.dto.OnAirKanriInfoDto;
 import com.talent.service.dto.TalentShutsuenHonsuDto;
 import com.talent.service.helper.ShukanTalentJohoBffHelper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,11 +23,12 @@ public class TalentGroupShori {
     @Autowired
     private ShukanTalentJohoBffHelper helper;
 
-    public List<OnairKanriInfoDto> setOnairKanriInfoList(List<MTalent> modelTalentList, List<MProgram> modelProgramList, List<TOnAirKanri> OnAionarKanriInfoList) {
+    public List<OnAirKanriInfoDto> setOnairKanriInfoList(
+            List<MTalent> modelTalentList, List<MProgram> modelProgramList, List<TOnAirKanri> OnAionarKanriInfoList) {
 
         // タレント名、番号名をレスポンスに設定する。
         // 突き合わせができなかった、「オンエア管理テーブルDTO」の行については名称系を未設定とする。
-        List<OnairKanriInfoDto> response = new ArrayList<OnairKanriInfoDto>();
+        List<OnAirKanriInfoDto> response = new ArrayList<OnAirKanriInfoDto>();
         for (TOnAirKanri e : OnAionarKanriInfoList) {
             // OnairKanriInfoDtoへ変換して設定
             response.add(helper.toOnairKanriInfoDto(e,
@@ -37,9 +38,9 @@ public class TalentGroupShori {
         return response;
     }
 
-    public List<TalentShutsuenHonsuDto> setTalentShutsuenHonsuList(List<OnairKanriInfoDto> OnairKanriInfoList) {
+    public List<TalentShutsuenHonsuDto> setTalentShutsuenHonsuList(List<OnAirKanriInfoDto> OnairKanriInfoList) {
         List<TalentShutsuenHonsuDto> TalentShutsuenHonsuList = new ArrayList<TalentShutsuenHonsuDto>();
-        for (OnairKanriInfoDto e : OnairKanriInfoList) {
+        for (OnAirKanriInfoDto e : OnairKanriInfoList) {
             // TalentShutsuenHonsuDtoへ変換して設定
             TalentShutsuenHonsuList.add(helper.toTalentShutsuenHonsuDto(e));
         }
