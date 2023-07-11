@@ -1,0 +1,90 @@
+openapi: 3.0.0
+info:
+  title: タレント週間出演情報検索BFF
+  description: タレントにおいての１週間ごとの情報をする
+  version: 1.0.0
+servers:
+  - url: https://localhost:8080
+    description: タレント週間出演情報検索BFF
+paths:
+  /talentShukanShutsuenJohoBFF:
+    get:
+      tags:
+        - talentShukanShutsuenJohoBFF
+      operationId: getTalentShukanShutsuenJohoBFF
+      summary: タレントにおいての１週間ごとの情報を返すBFF
+      description: タレントにおいての１週間ごとの情報を返すBFF
+      parameters:
+        - in: query
+          name: nentsuki
+          required: true
+          schema:
+            type: integer
+            maximum: 210012
+            minimum: 199001
+        - in: query
+          name: shu
+          required: true
+          schema:
+            type: integer
+            maximum: 5
+            minimum: 1
+        - in: query
+          name: talentId
+          required: true
+          schema:
+            type: string
+            maxLength: 8
+      responses:
+        '200':
+          description: タレントにおいての１週間ごとの情報を正常取得
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/talentShukanShutsuenJohoBFF'
+components:
+  schemas:
+    talentShukanShutsuenJohoBFF:
+      description: タレントにおいての１週間ごとの情報
+      type: object
+      properties:
+        talentName:
+          type: string
+          maxLength: 30
+          description: タレント名
+        shutsuenshaGenre:
+          type: string
+          maxLength: 30
+          description: 出演者ジャンル
+        programId:
+          type: string
+          maxLength: 8
+          description: 番組ID
+        shutsuenProgram:
+          type: string
+          maxLength: 30
+          description: 出演番組
+        hosokyokuChannel:
+          type: string
+          maxLength: 30
+          description: 放送局（チャンネル）
+        onAirDay:
+          type: string
+          format: yyyy/MM/dd
+          description: オンエア日
+        onAirTime:
+          type: string
+          format: date-time
+          description: 放送時間
+        programGenre:
+          type: string
+          maxLength: 30
+          description: 番組ジャンル
+        shuFrom:
+          type: string
+          format: yyyy/MM/dd
+          description: 対象週(FROM)
+        shuTo:
+          type: string
+          format: yyyy/MM/dd
+          description: 対象週(TO)
