@@ -21,13 +21,11 @@ paths:
           schema:
             type: string
             maxLength: 8
-            description: 番組ID
         - in: query
           name: onairDay
           required: true
           schema:
             type: string
-            description: オンエア日
         - in: query
           name: nentsuki
           required: true
@@ -35,7 +33,6 @@ paths:
             type: integer
             maximum: 210012
             minimum: 199001
-            description: 対象年月
         - in: query
           name: shu
           required: true
@@ -43,7 +40,6 @@ paths:
             type: integer
             maximum: 5
             minimum: 1
-            description: 対象週
       responses:
         '200':
           description: 番組においての対象週の出演者を情報を正常取得   
