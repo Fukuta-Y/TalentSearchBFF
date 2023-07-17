@@ -37,11 +37,13 @@ paths:
             maxLength: 8
       responses:
         '200':
-          description: タレントにおいての１週間ごとの情報を正常取得
+          description: タレントにおいての１週間ごとの情報を正常取得   
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/talentShukanShutsuenJohoBFF'
+                type: array
+                items:
+                  $ref: '#/components/schemas/talentShukanShutsuenJohoBFF'      
 components:
   schemas:
     talentShukanShutsuenJohoBFF:
