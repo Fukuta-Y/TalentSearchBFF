@@ -41,10 +41,13 @@ public class TalentShukanShutsuenJohoBFFService {
         // (1) BE「タレント週間出演情報検索」より取得したレスポンスで以下の条件でデータを絞る。
         // 取得項目：
         // オンエア管理テーブルDTO.オンエア日 → YYYY/MM/DDの形式で【レスポンス.オンエア日】
-        bffModel.setOnAirDay(talentJoho.gettOnAirKanri().get(0).getonairDay());
+        String onAirDayTime = talentJoho.gettOnAirKanri().get(0).getonairDay();
+        String onAirDay = onAirDayTime.substring(0, 10);
+        bffModel.setOnAirDay(onAirDay);
 
         // オンエア管理テーブルDTO.オンエア日 →  HH:SSの形式で【レスポンス.放送時間】
-        //bffModel.onAirTime(talentJoho.gettOnAirKanri().get(0).getonairDay());
+        String onAirTime = onAirDayTime.replace(onAirDay, "").trim();
+        bffModel.setOnAirTime(onAirTime);
       
         // タレントマスタDTO. タレント名 → 【レスポンス.タレント】
         bffModel.setTalentName(talentJoho.getmTalent().get(0).getTalentName());
@@ -95,7 +98,6 @@ public class TalentShukanShutsuenJohoBFFService {
         bffModel.setProgramId("");
         bffModel.setHosokyokuChannel(null);
 
-        bffModel.setOnAirTime(null);
         bffModel.setProgramGenre("");
         bffModel.setShuFrom("");
         bffModel.setShuTo("");
