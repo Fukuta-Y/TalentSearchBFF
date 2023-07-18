@@ -1,0 +1,72 @@
+openapi: 3.0.0
+info:
+  title: 番組出演者検索BFF
+  description: 番組においての対象週の出演者を情報を返す
+  version: 1.0.0
+servers:
+  - url: https://localhost:8081
+    description: 番組出演者検索BFF
+paths:
+  /programShutsuenBFF:
+    get:
+      tags:
+        - programShutsuenBFF
+      operationId: getProgramShutsuenBFF
+      summary: 番組においての対象週の出演者を情報を返すBFF
+      description: 番組においての対象週の出演者を情報を返すBFF
+      parameters:
+        - in: query
+          name: programId
+          required: true
+          schema:
+            type: string
+            maxLength: 8
+        - in: query
+          name: onairDay
+          required: true
+          schema:
+            type: string
+        - in: query
+          name: nentsuki
+          required: true
+          schema:
+            type: integer
+            maximum: 210012
+            minimum: 199001
+        - in: query
+          name: shu
+          required: true
+          schema:
+            type: integer
+            maximum: 5
+            minimum: 1
+      responses:
+        '200':
+          description: 番組においての対象週の出演者を情報を正常取得   
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/programShutsuenBFF'      
+components:
+  schemas:
+    programShutsuenBFF:
+      description: 番組においての対象週の出演者を情報
+      type: object
+      properties:
+        talentId:
+          type: string
+          maxLength: 8
+          description: タレントID
+        talentName:
+          type: string
+          maxLength: 30
+          description: タレント名
+        shuFrom:
+          type: string
+          format: yyyy/MM/dd
+          description: 対象週(FROM)
+        shuTo:
+          type: string
+          format: yyyy/MM/dd
+          description: 対象週(TO)

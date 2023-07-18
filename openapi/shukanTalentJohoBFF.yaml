@@ -4,7 +4,7 @@ info:
   description: １週間においてのタレントごとの情報をするBFF
   version: 1.0.0
 servers:
-  - url: https://localhost:8080
+  - url: https://localhost:8081
     description: 週間タレント別情報BFF
 paths:
   /shukanTalentJohoBFF:

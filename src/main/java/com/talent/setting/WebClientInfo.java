@@ -3,6 +3,7 @@ package com.talent.setting;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
+import com.model.ProgramShutsuenList;
 import com.model.ShukanTalentJoho;
 import com.model.TalentShukanShutsuenJoho;
 import com.model.YearMonthWeekStartEndJoho;
@@ -52,5 +53,17 @@ public class WebClientInfo {
                         .build())
                 .retrieve()
                 .bodyToMono(YearMonthWeekStartEndJoho.class).block();
+    }
+    
+    // BE「番組出演者検索」へ接続の設定
+    public ProgramShutsuenList getProgramShutsuen(String programId, String onairDay) {
+        return this.webClient.get()
+                .uri(uriBuilder -> uriBuilder
+                        .path("/programShutsuen")
+                        .queryParam("programId", programId)
+                        .queryParam("onairDay", onairDay)
+                        .build())
+                .retrieve()
+                .bodyToMono(ProgramShutsuenList.class).block();
     }
 }

@@ -4,7 +4,7 @@ info:
   description: タレントにおいての１週間ごとの情報をする
   version: 1.0.0
 servers:
-  - url: https://localhost:8080
+  - url: https://localhost:8081
     description: タレント週間出演情報検索BFF
 paths:
   /talentShukanShutsuenJohoBFF:
