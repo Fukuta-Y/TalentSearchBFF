@@ -40,25 +40,19 @@ public class TalentGroupShori {
     }
 
     public List<TalentShutsuenHonsuDto> setTalentShutsuenHonsuList(List<OnAirKanriInfoDto> OnairKanriInfoList) {
-		System.out.print("c");
         List<TalentShutsuenHonsuDto> countList = new ArrayList<TalentShutsuenHonsuDto>();
         for (OnAirKanriInfoDto e : OnairKanriInfoList) {
             // TalentShutsuenHonsuDtoへ変換して設定
-        	System.out.print("a");
         	countList.add(helper.toTalentShutsuenHonsuDto(e));
         }
         return countList;
     }
 
     public List<TalentShutsuenHonsuDto> setTalentShutsuenHonsuCountList(List<TalentShutsuenHonsuDto> TalentShutsuenHonsuList) {
-		System.out.print("d");
     	Map<TalentShutsuenHonsuDto, Long> dtoCount =
                 TalentShutsuenHonsuList.stream().collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
-
         List<TalentShutsuenHonsuDto> countShutsuenList = new ArrayList<TalentShutsuenHonsuDto>();
-    	System.out.print("b");
         dtoCount.forEach((k, v) -> {
-        	System.out.print("c");
             // TalentShutsuenHonsuListのTalentShutsuenHonsuDtoごとの本数をcountShutsuenListへ設定
         	countShutsuenList.add(helper.toTalentShutsuenHonsuDto(k, v));
         });
