@@ -46,7 +46,9 @@ public class ShukanTalentJohoBFFService {
      */
     public List<ShukanTalentJohoBFF> select(Integer nentsuki, Integer shu, String talentName) {
 
+    	// reponseを宣言
         List<ShukanTalentJohoBFF> response = new ArrayList<ShukanTalentJohoBFF>();
+        // Listに設定するModelの宣言
         ShukanTalentJohoBFF bffModel = new ShukanTalentJohoBFF();
 
         // BE「週間タレント別情報検索より取得処理
@@ -119,7 +121,7 @@ public class ShukanTalentJohoBFFService {
         // responseをIDの順にソート
         response.sort(new TalentIdComparator());
 
-        // responseの返却
+        // Responseへ設定
         return response;
     }
 }

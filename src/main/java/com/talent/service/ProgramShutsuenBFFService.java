@@ -55,7 +55,7 @@ public class ProgramShutsuenBFFService {
 	    	model.setTalentName(e.getTalentName());
 	        response.add(model);
         }
-        // responseの返却
+        // Responseへ設定
         return response;
     }
 }
