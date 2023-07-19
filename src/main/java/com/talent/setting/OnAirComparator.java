@@ -12,7 +12,6 @@ public class OnAirComparator implements Comparator<OnAirKanriInfoDto> {
 
     //比較メソッド（データクラスを比較して-1, 0, 1を返すように記述する）
     public int compare(OnAirKanriInfoDto data1, OnAirKanriInfoDto data2) {
-    	System.out.println("aaaa");
         SimpleDateFormat sdFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
         Date date1 = null;
         Date date2 = null;

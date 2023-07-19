@@ -76,7 +76,6 @@ components:
           description: オンエア日
         onAirTime:
           type: string
-          format: date-time
           description: 放送時間
         programGenre:
           type: string

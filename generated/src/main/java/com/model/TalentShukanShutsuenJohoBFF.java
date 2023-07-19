@@ -1,16 +1,12 @@
 package com.model;
 
-import java.time.OffsetDateTime;
 import java.util.Objects;
-
-import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.annotation.Generated;
-import jakarta.validation.Valid;
 import jakarta.validation.constraints.Size;
 
 /**
@@ -19,7 +15,7 @@ import jakarta.validation.constraints.Size;
 
 @Schema(name = "talentShukanShutsuenJohoBFF", description = "タレントにおいての１週間ごとの情報")
 @JsonTypeName("talentShukanShutsuenJohoBFF")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-07-11T23:56:39.892747+09:00[Asia/Tokyo]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-07-18T23:25:05.092800+09:00[Asia/Tokyo]")
 public class TalentShukanShutsuenJohoBFF {
 
   @JsonProperty("talentName")
@@ -41,8 +37,7 @@ public class TalentShukanShutsuenJohoBFF {
   private String onAirDay;
 
   @JsonProperty("onAirTime")
-  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-  private OffsetDateTime onAirTime;
+  private String onAirTime;
 
   @JsonProperty("programGenre")
   private String programGenre;
@@ -167,7 +162,7 @@ public class TalentShukanShutsuenJohoBFF {
     this.onAirDay = onAirDay;
   }
 
-  public TalentShukanShutsuenJohoBFF onAirTime(OffsetDateTime onAirTime) {
+  public TalentShukanShutsuenJohoBFF onAirTime(String onAirTime) {
     this.onAirTime = onAirTime;
     return this;
   }
@@ -176,13 +171,13 @@ public class TalentShukanShutsuenJohoBFF {
    * 放送時間
    * @return onAirTime
   */
-  @Valid 
+  
   @Schema(name = "onAirTime", description = "放送時間", required = false)
-  public OffsetDateTime getOnAirTime() {
+  public String getOnAirTime() {
     return onAirTime;
   }
 
-  public void setOnAirTime(OffsetDateTime onAirTime) {
+  public void setOnAirTime(String onAirTime) {
     this.onAirTime = onAirTime;
   }
 
