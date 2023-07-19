@@ -36,31 +36,29 @@ public class TalentShukanShutsuenJohoBFFService {
      * @return List<TalentShukanShutsuenJohoBFF>
      */
     public List<TalentShukanShutsuenJohoBFF> select(Integer nentsuki, Integer shu, String talentId) {
-
+    	
+    	// reponseを宣言
         List<TalentShukanShutsuenJohoBFF> response = new ArrayList<TalentShukanShutsuenJohoBFF>();
+        // Listに設定するModelの宣言
+        TalentShukanShutsuenJohoBFF bffModel = new TalentShukanShutsuenJohoBFF();
         
         // BE「タレント週間出演情報検索」より取得処理
         TalentShukanShutsuenJoho talentJoho = this.webClient.getTalentShukanShutsuenJoho(nentsuki, shu, talentId);
-
+        // 各テーブルごとの内容を取得
         List<TOnAirKanri> onAirList = talentJoho.gettOnAirKanri();
         List<MTalent> mTalentList = talentJoho.getmTalent();
         List<MProgram> mProgramList = talentJoho.getmProgram();
         List<MChanelKyoku> mChanelKyokuList = talentJoho.getmChanelKyoku();
         List<MKbnGenre>  mKbnGenreList = talentJoho.getmKbnGenre();
-        
-        // Listに設定するModelの宣言
-        TalentShukanShutsuenJohoBFF bffModel = new TalentShukanShutsuenJohoBFF();
-        
+
         // BE「年月週の開始終了日付検索」より取得したレスポンスを以下のように設定する。
         YearMonthWeekStartEndJoho yearMonthJoho = this.webClient.getYearMonthWeekStartEnd(nentsuki, shu);
         
         // レスポンスのオンエア管理テーブルDTOがNULLの場合、(4)の日付設定だけ行う。
         if(onAirList.size() != 0) {
-        
 			// 「オンエア管理テーブルDTO」を軸として、キーを突き合わせる。
 			// オンエア管理テーブルを繰り返し
 			for (TOnAirKanri onAir : onAirList) {
-				
 				 // Modelを初期化
 				 bffModel = new TalentShukanShutsuenJohoBFF();
 				 // 一時保存用の変数を初期化
@@ -105,7 +103,6 @@ public class TalentShukanShutsuenJohoBFFService {
 						break;
 					}
 				}
-	            
 	       		// チャンネル局マスタDTOを繰り返し
 	            // (2) (1)で取得した番組マスタDTO.チェンネルIDを軸として、キーを突き合わせる。
 	    		//   取得項目：
@@ -118,10 +115,8 @@ public class TalentShukanShutsuenJohoBFFService {
 						break;
 					}
 	            }
-	            
 	    		// 区分ジャンルマスタDTOを繰り返し
 	            for (MKbnGenre kbnGenre :mKbnGenreList) {
-	            	
 	                // (3) (1)で取得したタレントマスタDTO. ジャンルID、番組マスタDTO. ジャンルID、
 	                //     (2)で取得したチャンネル局マスタDTO. チャンネル局IDを元に、
 	        		//     区分ジャンルマスタDTO.ジャンルIDはそれぞれ固定で、区分ジャンルマスタDTO.順序と結合し、ジャンルを取得する。
@@ -146,20 +141,19 @@ public class TalentShukanShutsuenJohoBFFService {
 	    		// 対象週(TO)へ、年月週管理マスタDTO .週の終了日（土曜日）を設定
 	            bffModel.setShuFrom(yearMonthJoho.getmNentsukiShuKanri().getShuFrom());
 	            bffModel.setShuTo(yearMonthJoho.getmNentsukiShuKanri().getShuTo());
-	
+	            // responseへ追加
 			    response.add(bffModel);
 			}
         } else {
-
 			// 対象週(FROM)へ、年月週管理マスタDTO .週の開始日（日曜日）を設定
 			// 対象週(TO)へ、年月週管理マスタDTO .週の終了日（土曜日）を設定
 	        bffModel.setShuFrom(yearMonthJoho.getmNentsukiShuKanri().getShuFrom());
 	        bffModel.setShuTo(yearMonthJoho.getmNentsukiShuKanri().getShuTo());
-	
+	        // responseへ追加
 	        response.add(bffModel);
         }
         
-        // responseの返却
+        // Responseへ設定
         return response;
     }
 }
