@@ -15,14 +15,58 @@ import jakarta.validation.constraints.Size;
 
 @Schema(name = "programShutsuen", description = "番組においての対象週の出演者を情報")
 @JsonTypeName("programShutsuen")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-07-18T14:05:39.271554+09:00[Asia/Tokyo]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-07-21T15:41:44.612033+09:00[Asia/Tokyo]")
 public class ProgramShutsuen {
+
+  @JsonProperty("programName")
+  private String programName;
+
+  @JsonProperty("programGenre")
+  private String programGenre;
 
   @JsonProperty("talentId")
   private String talentId;
 
   @JsonProperty("talentName")
   private String talentName;
+
+  public ProgramShutsuen programName(String programName) {
+    this.programName = programName;
+    return this;
+  }
+
+  /**
+   * 番組名
+   * @return programName
+  */
+  @Size(max = 30) 
+  @Schema(name = "programName", description = "番組名", required = false)
+  public String getProgramName() {
+    return programName;
+  }
+
+  public void setProgramName(String programName) {
+    this.programName = programName;
+  }
+
+  public ProgramShutsuen programGenre(String programGenre) {
+    this.programGenre = programGenre;
+    return this;
+  }
+
+  /**
+   * 番組ジャンル
+   * @return programGenre
+  */
+  @Size(max = 30) 
+  @Schema(name = "programGenre", description = "番組ジャンル", required = false)
+  public String getProgramGenre() {
+    return programGenre;
+  }
+
+  public void setProgramGenre(String programGenre) {
+    this.programGenre = programGenre;
+  }
 
   public ProgramShutsuen talentId(String talentId) {
     this.talentId = talentId;
@@ -71,19 +115,23 @@ public class ProgramShutsuen {
       return false;
     }
     ProgramShutsuen programShutsuen = (ProgramShutsuen) o;
-    return Objects.equals(this.talentId, programShutsuen.talentId) &&
+    return Objects.equals(this.programName, programShutsuen.programName) &&
+        Objects.equals(this.programGenre, programShutsuen.programGenre) &&
+        Objects.equals(this.talentId, programShutsuen.talentId) &&
         Objects.equals(this.talentName, programShutsuen.talentName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(talentId, talentName);
+    return Objects.hash(programName, programGenre, talentId, talentName);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ProgramShutsuen {\n");
+    sb.append("    programName: ").append(toIndentedString(programName)).append("\n");
+    sb.append("    programGenre: ").append(toIndentedString(programGenre)).append("\n");
     sb.append("    talentId: ").append(toIndentedString(talentId)).append("\n");
     sb.append("    talentName: ").append(toIndentedString(talentName)).append("\n");
     sb.append("}");

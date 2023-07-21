@@ -49,8 +49,12 @@ public class ProgramShutsuenBFFService {
 	    	model.setShuFrom(yearMonthJoho.getmNentsukiShuKanri().getShuFrom());
 	    	model.setShuTo(yearMonthJoho.getmNentsukiShuKanri().getShuTo());
 			// (2)で取得したレスポンスを以下のように設定する。
+			// ・番組名⇒　レスポンス.番組名
+			// ・番組ジャンル名 ⇒　レスポンス.番組ジャンル名 
 			// ・タレントID⇒　レスポンス.タレントID
 			// ・タレント名⇒　レスポンス.タレント名
+	    	model.setProgramName(e.getProgramName());
+	    	model.setProgramGenre(e.getProgramGenre());
 	    	model.setTalentId(e.getTalentId());
 	    	model.setTalentName(e.getTalentName());
 	        response.add(model);
