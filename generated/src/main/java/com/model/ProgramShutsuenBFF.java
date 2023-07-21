@@ -15,7 +15,7 @@ import jakarta.validation.constraints.Size;
 
 @Schema(name = "programShutsuenBFF", description = "番組においての対象週の出演者を情報")
 @JsonTypeName("programShutsuenBFF")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-07-21T15:39:02.144277+09:00[Asia/Tokyo]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-07-21T16:09:37.990858+09:00[Asia/Tokyo]")
 public class ProgramShutsuenBFF {
 
   @JsonProperty("programName")
@@ -29,12 +29,6 @@ public class ProgramShutsuenBFF {
 
   @JsonProperty("talentName")
   private String talentName;
-
-  @JsonProperty("shuFrom")
-  private String shuFrom;
-
-  @JsonProperty("shuTo")
-  private String shuTo;
 
   public ProgramShutsuenBFF programName(String programName) {
     this.programName = programName;
@@ -112,44 +106,6 @@ public class ProgramShutsuenBFF {
     this.talentName = talentName;
   }
 
-  public ProgramShutsuenBFF shuFrom(String shuFrom) {
-    this.shuFrom = shuFrom;
-    return this;
-  }
-
-  /**
-   * 対象週(FROM)
-   * @return shuFrom
-  */
-  
-  @Schema(name = "shuFrom", description = "対象週(FROM)", required = false)
-  public String getShuFrom() {
-    return shuFrom;
-  }
-
-  public void setShuFrom(String shuFrom) {
-    this.shuFrom = shuFrom;
-  }
-
-  public ProgramShutsuenBFF shuTo(String shuTo) {
-    this.shuTo = shuTo;
-    return this;
-  }
-
-  /**
-   * 対象週(TO)
-   * @return shuTo
-  */
-  
-  @Schema(name = "shuTo", description = "対象週(TO)", required = false)
-  public String getShuTo() {
-    return shuTo;
-  }
-
-  public void setShuTo(String shuTo) {
-    this.shuTo = shuTo;
-  }
-
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -162,14 +118,12 @@ public class ProgramShutsuenBFF {
     return Objects.equals(this.programName, programShutsuenBFF.programName) &&
         Objects.equals(this.programGenre, programShutsuenBFF.programGenre) &&
         Objects.equals(this.talentId, programShutsuenBFF.talentId) &&
-        Objects.equals(this.talentName, programShutsuenBFF.talentName) &&
-        Objects.equals(this.shuFrom, programShutsuenBFF.shuFrom) &&
-        Objects.equals(this.shuTo, programShutsuenBFF.shuTo);
+        Objects.equals(this.talentName, programShutsuenBFF.talentName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(programName, programGenre, talentId, talentName, shuFrom, shuTo);
+    return Objects.hash(programName, programGenre, talentId, talentName);
   }
 
   @Override
@@ -180,8 +134,6 @@ public class ProgramShutsuenBFF {
     sb.append("    programGenre: ").append(toIndentedString(programGenre)).append("\n");
     sb.append("    talentId: ").append(toIndentedString(talentId)).append("\n");
     sb.append("    talentName: ").append(toIndentedString(talentName)).append("\n");
-    sb.append("    shuFrom: ").append(toIndentedString(shuFrom)).append("\n");
-    sb.append("    shuTo: ").append(toIndentedString(shuTo)).append("\n");
     sb.append("}");
     return sb.toString();
   }

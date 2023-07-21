@@ -70,11 +70,3 @@ components:
           type: string
           maxLength: 30
           description: タレント名
-        shuFrom:
-          type: string
-          format: yyyy/MM/dd
-          description: 対象週(FROM)
-        shuTo:
-          type: string
-          format: yyyy/MM/dd
-          description: 対象週(TO)
