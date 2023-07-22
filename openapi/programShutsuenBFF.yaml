@@ -54,6 +54,14 @@ components:
       description: 番組においての対象週の出演者を情報
       type: object
       properties:
+        programName:
+          type: string
+          maxLength: 30
+          description: 番組名
+        programGenre:
+          type: string
+          maxLength: 30
+          description: 番組ジャンル
         talentId:
           type: string
           maxLength: 8
@@ -62,11 +70,3 @@ components:
           type: string
           maxLength: 30
           description: タレント名
-        shuFrom:
-          type: string
-          format: yyyy/MM/dd
-          description: 対象週(FROM)
-        shuTo:
-          type: string
-          format: yyyy/MM/dd
-          description: 対象週(TO)
