@@ -7,10 +7,17 @@ import java.util.Date;
 
 import com.talent.service.dto.OnAirKanriInfoDto;
 
-
+/**
+ * 値の比較用クラス
+ */
 public class OnAirComparator implements Comparator<OnAirKanriInfoDto> {
-
-    //比較メソッド（データクラスを比較して-1, 0, 1を返すように記述する）
+    /**
+     * オンエア日を取得し、比較して返す
+     *
+     * @param OnAirKanriInfoDto　data1　オンエア管理情報クラス１
+     * @param OnAirKanriInfoDto  data2　オンエア管理情報クラス２
+     * @return 比較結果（-1:以下、0:同値、1:以上）
+     */
     public int compare(OnAirKanriInfoDto data1, OnAirKanriInfoDto data2) {
         SimpleDateFormat sdFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
         Date date1 = null;
@@ -22,6 +29,7 @@ public class OnAirComparator implements Comparator<OnAirKanriInfoDto> {
             // TODO 自動生成された catch ブロック
             e.printStackTrace();
         }
+        // 比較して結果を返す
         return date1.compareTo(date2);
     }
 }

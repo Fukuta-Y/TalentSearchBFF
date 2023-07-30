@@ -1,4 +1,5 @@
 package com.talent.service.dto.value;
-//バリデーションチェック
+
+//TODO:バリデーションチェック
 public record YearMonth (int yearMonth) {
 }

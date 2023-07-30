@@ -14,8 +14,17 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class TalentShukanShutsuenJohoBFFController implements TalentShukanShutsuenJohoBFFApi{
 	
+	// TalentShukanShutsuenJohoBFFServiceを宣言
     private final TalentShukanShutsuenJohoBFFService service;
-	
+    
+    /**
+     * タレント週間出演情報検索Controller
+     *
+     * @param nentsuki  年月
+     * @param shu       週
+     * @param talentId タレントID
+     * @return ResponseEntity<List<TalentShukanShutsuenJohoBFF>>
+     */
 	@Override
 	public ResponseEntity<List<TalentShukanShutsuenJohoBFF>> getTalentShukanShutsuenJohoBFF(Integer nentsuki, Integer shu,String talentId) {
 		// TalentShukanShutsuenJohoBFFServiceより取得

@@ -25,10 +25,11 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class TalentShukanShutsuenJohoBFFService {
 
+	// WebClientInfoを宣言
     private final WebClientInfo webClient;
 
     /**
-     * タレント週間出演情報検索
+     * タレント週間出演情報検索Service
      *
      * @param nentsuki  年月
      * @param shu       週
@@ -39,6 +40,7 @@ public class TalentShukanShutsuenJohoBFFService {
     	
     	// reponseを宣言
         List<TalentShukanShutsuenJohoBFF> response = new ArrayList<TalentShukanShutsuenJohoBFF>();
+
         // Listに設定するModelの宣言
         TalentShukanShutsuenJohoBFF bffModel = new TalentShukanShutsuenJohoBFF();
         

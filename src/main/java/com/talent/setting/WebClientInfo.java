@@ -17,7 +17,14 @@ public class WebClientInfo {
         this.webClient = webClientBuilder.baseUrl("http://localhost:8082").build();
     }
 
-    // BE「週間タレント別情報検索」へ接続の設定
+    /**
+     * BE「週間タレント別情報検索」へ接続の設定
+     *
+     * @param nentsuki　年月
+     * @param shu　週
+     * @param talentName　タレント名
+     * @return　遷移情報を設定したWebClientの内容を返す
+     */
     public ShukanTalentJoho getShukanTalentJoho(Integer nentsuki, Integer shu, String talentName) {
         return this.webClient.get()
                 .uri(uriBuilder -> uriBuilder
@@ -30,7 +37,14 @@ public class WebClientInfo {
                 .bodyToMono(ShukanTalentJoho.class).block();
     }
 
-    // BE「タレント週間出演情報検索」へ接続の設定
+    /**
+     * BE「タレント週間出演情報検索」へ接続の設定
+     *
+     * @param nentsuki　年月
+     * @param shu　週
+     * @param talentId　タレントID
+     * @return　遷移情報を設定したWebClientの内容を返す
+     */
     public TalentShukanShutsuenJoho getTalentShukanShutsuenJoho(Integer nentsuki, Integer shu, String talentId) {
         return this.webClient.get()
                 .uri(uriBuilder -> uriBuilder
@@ -42,8 +56,14 @@ public class WebClientInfo {
                 .retrieve()
                 .bodyToMono(TalentShukanShutsuenJoho.class).block();
     }
-    
-    // BE「年月週の開始終了日付検索」へ接続の設定
+
+    /**
+     * BE「年月週の開始終了日付検索」へ接続の設定
+     *
+     * @param nentsuki　年月
+     * @param shu　週
+     * @return　遷移情報を設定したWebClientの内容を返す
+     */
     public YearMonthWeekStartEndJoho getYearMonthWeekStartEnd(Integer nentsuki, Integer shu) {
         return this.webClient.get()
                 .uri(uriBuilder -> uriBuilder
@@ -54,8 +74,14 @@ public class WebClientInfo {
                 .retrieve()
                 .bodyToMono(YearMonthWeekStartEndJoho.class).block();
     }
-    
-    // BE「番組出演者検索」へ接続の設定
+
+    /**
+     * BE「番組出演者検索」へ接続の設定
+     *
+     * @param programId　プログラムID
+     * @param onairDay　オンエア日
+     * @return　遷移情報を設定したWebClientの内容を返す
+     */
     public ProgramShutsuenList getProgramShutsuen(String programId, String onairDay) {
         return this.webClient.get()
                 .uri(uriBuilder -> uriBuilder
