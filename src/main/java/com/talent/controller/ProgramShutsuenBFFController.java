@@ -14,8 +14,18 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class ProgramShutsuenBFFController implements ProgramShutsuenBFFApi{
 
+	// ProgramShutsuenBFFServiceを宣言
     private final ProgramShutsuenBFFService service;
-
+    
+    /**
+     * 番組出演者検索BFFController
+     *
+     * @param programId 番組ID
+     * @param onairDay  オンエア日
+     * @param nentsuki  年月
+     * @param shu     　週
+     * @return ResponseEntity<List<ProgramShutsuenBFF>> 
+     */
 	@Override
 	public ResponseEntity<List<ProgramShutsuenBFF>> getProgramShutsuenBFF(String programId, String onairDay, Integer nentsuki, Integer shu) {
 		// ProgramShutsuenBFFServiceより取得

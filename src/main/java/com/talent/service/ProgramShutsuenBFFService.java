@@ -19,10 +19,11 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class ProgramShutsuenBFFService {
 
+	// WebClientInfoを宣言
     private final WebClientInfo webClient;
 
     /**
-     * 番組出演者検索BFF
+     * 番組出演者検索BFFService
      *
      * @param programId 番組ID
      * @param onairDay  オンエア日

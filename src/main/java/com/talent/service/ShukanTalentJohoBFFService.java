@@ -32,12 +32,17 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class ShukanTalentJohoBFFService {
 
+	// WebClientInfoを宣言
     private final WebClientInfo webClient;
+    
+	// ShukanTalentJohoBffHelperを宣言
     private final ShukanTalentJohoBffHelper helper;
+    
+	// TalentGroupShoriを宣言
     private final TalentGroupShori groupShori;
 
     /**
-     * 週間タレント別情報検索
+     * 週間タレント別情報検索Service
      *
      * @param nentsuki   年月
      * @param shu        週

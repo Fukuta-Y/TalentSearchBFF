@@ -1,12 +1,13 @@
 package com.talent.service.dto;
 
-import com.talent.service.dto.entity.Talent;
-import lombok.Data;
-
 import java.io.Serializable;
 
+import com.talent.service.dto.entity.Talent;
+
+import lombok.Data;
+
 /**
- * BFF集約処理2
+ * タレント出演本数DTO
  */
 @Data
 public class TalentShutsuenHonsuDto implements Serializable {
