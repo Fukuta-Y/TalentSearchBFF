@@ -1,0 +1,43 @@
+openapi: 3.0.0
+info:
+  title: 区分マスタBFF
+  description: 区分マスタ情報を取得するBFF
+  version: 1.0.0
+servers:
+  - url: https://localhost:8081
+    description: 区分マスタBFF
+paths:
+  /kbnMasterBFF/{genreId}:
+    get:
+      tags:
+        - kbnMasterBFF
+      operationId: getKbnMasterBFF
+      summary: 区分マスタ情報を取得するBFF
+      description: 区分マスタ情報を取得するBFF
+      parameters:
+        - in: path
+          name: genreId
+          required: true
+          schema:
+            type: string
+            maxLength: 1
+      responses:
+        '200':
+          description: 区分マスタ情報を正常取得
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  $ref: '#/components/schemas/kbnMasterInfo'      
+components:
+  schemas:
+    kbnMasterInfo:
+      description: 区分マスタ情報
+      type: object
+      properties:
+        mKbnGenre:
+          description: 区分マスタDTO
+          type: array
+          items:
+            $ref: "../../TalentSearchCommon/Tables/mKbnGenre.yaml#/components/schemas/mKbnGenre"

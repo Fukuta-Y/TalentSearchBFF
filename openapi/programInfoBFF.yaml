@@ -1,0 +1,64 @@
+openapi: 3.0.0
+info:
+  title: 番組情報BFF
+  description: 番組IDによって番組情報を返すBFF
+  version: 1.0.0
+servers:
+  - url: https://localhost:8081
+    description: 番組情報BFF
+paths:
+  /programInfoBFF/{programId}:
+    get:
+      tags:
+        - programInfoBFF
+      operationId: getProgramInfoBFF
+      summary: 番組情報を番組IDによって取得するBFF
+      description: 番組情報を番組IDによって取得するBFF
+      parameters:
+        - in: path
+          name: programId
+          required: true
+          schema:
+            type: string
+            maxLength: 8
+      responses:
+        '200':
+          description: 番組情報を正常取得
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  $ref: '#/components/schemas/programInfo'      
+components:
+  schemas:
+    programInfo:
+      description: 番組情報を正常取得
+      type: object
+      properties:
+        programId:
+          type: string
+          maxLength: 8
+          description: 番組ID
+        programName:
+          type: string
+          maxLength: 30
+          description: 番組名
+        chanelId:
+          type: integer
+          maximum : 9
+          minimum : 0
+          description: チャンネルID
+        chanelName:
+          type: string
+          maxLength: 30
+          description: チャンネル名
+        genreId:
+          type: integer
+          maximum : 000
+          minimum : 999
+          description: ジャンルID
+        genre:
+          type: string
+          maxLength: 30
+          description: ジャンル名

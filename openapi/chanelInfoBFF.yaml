@@ -1,0 +1,40 @@
+openapi: 3.0.0
+info:
+  title: チャンネル情報BFF
+  description: チャンネル情報を取得するBFF
+  version: 1.0.0
+servers:
+  - url: https://localhost:8081
+    description: チャンネル情報BFF
+paths:
+  /chanelInfoBFF:
+    get:
+      tags:
+        - chanelInfoBFF
+      operationId: getChanelInfoBFF
+      summary: チャンネル情報を取得するBFF
+      description: チャンネル情報を取得するBFF
+      responses:
+        '200':
+          description: チャンネル情報を正常取得
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  $ref: '#/components/schemas/chanelInfo'      
+components:
+  schemas:
+    chanelInfo:
+      description: チャンネル情報
+      type: array
+      properties:
+        chanelId:
+          type: integer
+          maximum : 9
+          minimum : 0
+          description: チャンネルID
+        chanelName:
+          type: string
+          maxLength: 30
+          description: チャンネル名
