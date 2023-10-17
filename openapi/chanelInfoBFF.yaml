@@ -20,14 +20,14 @@ paths:
           content:
             application/json:
               schema:
-                type: object
+                type: array
                 items:
                   $ref: '#/components/schemas/chanelInfo'      
 components:
   schemas:
     chanelInfo:
       description: チャンネル情報
-      type: array
+      type: object
       properties:
         chanelId:
           type: integer
