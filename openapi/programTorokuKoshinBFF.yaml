@@ -36,6 +36,5 @@ components:
       properties:
         mProgram:
           description: 番組マスタDTO
-          type: object
           items:
             $ref: "../../TalentSearchCommon/Tables/mProgram.yaml#/components/schemas/mProgram"
