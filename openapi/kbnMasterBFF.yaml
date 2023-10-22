@@ -7,7 +7,7 @@ servers:
   - url: https://localhost:8081
     description: 区分マスタBFF
 paths:
-  /kbnMasterBFF/{genreId}:
+  /kbnMasterBFF/{genreIds}:
     get:
       tags:
         - kbnMasterBFF
@@ -16,11 +16,11 @@ paths:
       description: 区分マスタ情報を取得するBFF
       parameters:
         - in: path
-          name: genreId
+          name: genreIds
           required: true
           schema:
             type: string
-            maxLength: 1
+            maxLength: 8
       responses:
         '200':
           description: 区分マスタ情報を正常取得
