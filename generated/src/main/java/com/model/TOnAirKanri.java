@@ -1,6 +1,9 @@
 package com.model;
 
+import java.time.OffsetDateTime;
 import java.util.Objects;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -19,14 +22,15 @@ import jakarta.validation.constraints.Size;
 
 @Schema(name = "tOnAirKanri", description = "オンエア管理テーブル情報（全列）")
 @JsonTypeName("tOnAirKanri")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-06-12T21:30:49.581521+09:00[Asia/Tokyo]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-22T19:49:56.617209+09:00[Asia/Tokyo]")
 public class TOnAirKanri {
 
   @JsonProperty("id")
   private String id;
 
-  @JsonProperty("onairDay")
-  private String onairDay;
+  @JsonProperty("onAirDay")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+  private OffsetDateTime onAirDay;
 
   @JsonProperty("programId")
   private String programId;
@@ -68,23 +72,23 @@ public class TOnAirKanri {
     this.id = id;
   }
 
-  public TOnAirKanri onairDay(String onairDay) {
-    this.onairDay = onairDay;
+  public TOnAirKanri onAirDay(OffsetDateTime onAirDay) {
+    this.onAirDay = onAirDay;
     return this;
   }
 
   /**
    * オンエア日
-   * @return onairDay
+   * @return onAirDay
   */
   @Valid 
-  @Schema(name = "onairDay", description = "オンエア日", required = false)
-  public String getonairDay() {
-    return onairDay;
+  @Schema(name = "onAirDay", description = "オンエア日", required = false)
+  public OffsetDateTime getOnAirDay() {
+    return onAirDay;
   }
 
-  public void setonairDay(String onairDay) {
-    this.onairDay = onairDay;
+  public void setOnAirDay(OffsetDateTime onAirDay) {
+    this.onAirDay = onAirDay;
   }
 
   public TOnAirKanri programId(String programId) {
@@ -236,7 +240,7 @@ public class TOnAirKanri {
     }
     TOnAirKanri tOnAirKanri = (TOnAirKanri) o;
     return Objects.equals(this.id, tOnAirKanri.id) &&
-        Objects.equals(this.onairDay, tOnAirKanri.onairDay) &&
+        Objects.equals(this.onAirDay, tOnAirKanri.onAirDay) &&
         Objects.equals(this.programId, tOnAirKanri.programId) &&
         Objects.equals(this.talentId, tOnAirKanri.talentId) &&
         Objects.equals(this.targetNentsuki, tOnAirKanri.targetNentsuki) &&
@@ -248,7 +252,7 @@ public class TOnAirKanri {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, onairDay, programId, talentId, targetNentsuki, targetShu, deleteFlg, torokuDay, koushinDay);
+    return Objects.hash(id, onAirDay, programId, talentId, targetNentsuki, targetShu, deleteFlg, torokuDay, koushinDay);
   }
 
   @Override
@@ -256,7 +260,7 @@ public class TOnAirKanri {
     StringBuilder sb = new StringBuilder();
     sb.append("class TOnAirKanri {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    onairDay: ").append(toIndentedString(onairDay)).append("\n");
+    sb.append("    onAirDay: ").append(toIndentedString(onAirDay)).append("\n");
     sb.append("    programId: ").append(toIndentedString(programId)).append("\n");
     sb.append("    talentId: ").append(toIndentedString(talentId)).append("\n");
     sb.append("    targetNentsuki: ").append(toIndentedString(targetNentsuki)).append("\n");
