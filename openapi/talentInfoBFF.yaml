@@ -1,0 +1,55 @@
+openapi: 3.0.0
+info:
+  title: タレント情報BFF
+  description: タレントIDによってタレント情報を返すBFF
+  version: 1.0.0
+servers:
+  - url: https://localhost:8081
+    description: タレント情報BFF
+paths:
+  /talentInfoBFF/{talentId}:
+    get:
+      tags:
+        - talentInfoBFF
+      operationId: getTalentInfoBFF
+      summary: タレント情報をタレントIDによって取得するBFF
+      description: タレント情報をタレントIDによって取得するBFF
+      parameters:
+        - in: path
+          name: talentId
+          required: true
+          schema:
+            type: string
+            maxLength: 8
+      responses:
+        '200':
+          description: タレント情報を正常取得
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  $ref: '#/components/schemas/talentInfo'      
+components:
+  schemas:
+    talentInfo:
+      description: タレント情報を正常取得
+      type: object
+      properties:
+        talentId:
+          type: string
+          maxLength: 8
+          description: タレントID
+        talentName:
+          type: string
+          maxLength: 30
+          description: タレント名
+        genreId:
+          type: integer
+          maximum : 000
+          minimum : 999
+          description: ジャンルID
+        genre:
+          type: string
+          maxLength: 30
+          description: ジャンル名
