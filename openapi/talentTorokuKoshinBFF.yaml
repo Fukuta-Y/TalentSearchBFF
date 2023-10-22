@@ -1,0 +1,38 @@
+openapi: 3.0.0
+info:
+  title: タレント登録・更新BFF
+  description: タレント情報を登録または更新する
+  version: 1.0.0
+servers:
+  - url: https://localhost:8081
+    description: タレント登録・更新BFF
+paths:
+  /talentTorokuKoshinBFF:
+    post:
+      tags:
+        - talentTorokuKoshinBFF
+      operationId: posttalentTorokuKoshinBFF
+      summary: タレント情報を登録または更新するBFF
+      description: タレント情報を登録または更新するBFF
+      requestBody:
+        description: タレント情報を登録または更新するBFF
+        content:
+          application/json:
+            schema:
+              $ref: "../../TalentSearchCommon/Tables/mTalent.yaml#/components/schemas/mTalent"
+      responses:
+        '200':
+          description: 登録または更新したタレントマスタ情報
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/talentTorokuKoshinBFF'      
+components:
+  schemas:
+    talentTorokuKoshinBFF:
+      description: 登録または更新したタレントマスタ情報
+      type: object
+      properties:
+          items:
+            $ref: "../../TalentSearchCommon/Tables/mTalent.yaml#/components/schemas/mTalent"
