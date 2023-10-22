@@ -1,0 +1,43 @@
+openapi: 3.0.0
+info:
+  title: オンエア管理情報BFF
+  description: IDによってオンエア管理情報を返すBFF
+  version: 1.0.0
+servers:
+  - url: https://localhost:8081
+    description: 番組情報BFF
+paths:
+  /onAirKanriInfoBFF/{id}:
+    get:
+      tags:
+        - programInfoBFF
+      operationId: getProgramInfoBFF
+      summary: 番組情報を番組IDによって取得するBFF
+      description: 番組情報を番組IDによって取得するBFF
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+            maxLength: 8
+      responses:
+        '200':
+          description: 番組情報を正常取得
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  $ref: '#/components/schemas/tOnAirKanriInfo'      
+components:
+  schemas:
+    tOnAirKanriInfo:
+      description: オンエア管理テーブル情報
+      type: object
+      properties:
+        tOnAirKanri:
+          description: オンエア管理テーブルDTO
+          type: object
+          items:
+            $ref: "../../TalentSearchCommon/Tables/tOnAirKanri.yaml#/components/schemas/tOnAirKanri"
