@@ -10,18 +10,18 @@ import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 
 /**
- * 登録または更新した番組マスタ情報
+ * オンエア管理テーブル情報
  */
 
-@Schema(name = "programTorokuKoshinBFF", description = "登録または更新した番組マスタ情報")
-@JsonTypeName("programTorokuKoshinBFF")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-22T19:26:05.280387+09:00[Asia/Tokyo]")
-public class ProgramTorokuKoshinBFF {
+@Schema(name = "tOnAirKanriInfo", description = "オンエア管理テーブル情報")
+@JsonTypeName("tOnAirKanriInfo")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-22T19:49:56.617209+09:00[Asia/Tokyo]")
+public class TOnAirKanriInfo {
 
   @JsonProperty("items")
-  private MProgram items;
+  private TOnAirKanri items;
 
-  public ProgramTorokuKoshinBFF items(MProgram items) {
+  public TOnAirKanriInfo items(TOnAirKanri items) {
     this.items = items;
     return this;
   }
@@ -32,11 +32,11 @@ public class ProgramTorokuKoshinBFF {
   */
   @Valid 
   @Schema(name = "items", required = false)
-  public MProgram getItems() {
+  public TOnAirKanri getItems() {
     return items;
   }
 
-  public void setItems(MProgram items) {
+  public void setItems(TOnAirKanri items) {
     this.items = items;
   }
 
@@ -48,8 +48,8 @@ public class ProgramTorokuKoshinBFF {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ProgramTorokuKoshinBFF programTorokuKoshinBFF = (ProgramTorokuKoshinBFF) o;
-    return Objects.equals(this.items, programTorokuKoshinBFF.items);
+    TOnAirKanriInfo tOnAirKanriInfo = (TOnAirKanriInfo) o;
+    return Objects.equals(this.items, tOnAirKanriInfo.items);
   }
 
   @Override
@@ -60,7 +60,7 @@ public class ProgramTorokuKoshinBFF {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ProgramTorokuKoshinBFF {\n");
+    sb.append("class TOnAirKanriInfo {\n");
     sb.append("    items: ").append(toIndentedString(items)).append("\n");
     sb.append("}");
     return sb.toString();

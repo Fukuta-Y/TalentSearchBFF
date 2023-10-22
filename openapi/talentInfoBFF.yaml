@@ -29,7 +29,28 @@ paths:
               schema:
                 type: object
                 items:
-                  $ref: '#/components/schemas/talentInfo'      
+                  $ref: '#/components/schemas/talentInfo'
+  /talentTorokuKoshinBFF:
+    post:
+      tags:
+        - talentTorokuKoshinBFF
+      operationId: postTalentTorokuKoshinBFF
+      summary: タレント情報を登録または更新するBFF
+      description: タレント情報を登録または更新するBFF
+      requestBody:
+        description: タレント情報を登録または更新するBFF
+        content:
+          application/json:
+            schema:
+              $ref: "../../TalentSearchCommon/Tables/mTalent.yaml#/components/schemas/mTalent"
+      responses:
+        '200':
+          description: 登録または更新したタレントマスタ情報
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/talentTorokuKoshinBFF'
 components:
   schemas:
     talentInfo:
@@ -53,3 +74,9 @@ components:
           type: string
           maxLength: 30
           description: ジャンル名
+    talentTorokuKoshinBFF:
+      description: 登録または更新したタレントマスタ情報
+      type: object
+      properties:
+        items:
+          $ref: "../../TalentSearchCommon/Tables/mTalent.yaml#/components/schemas/mTalent"

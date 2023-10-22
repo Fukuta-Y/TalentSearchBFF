@@ -29,7 +29,28 @@ paths:
               schema:
                 type: object
                 items:
-                  $ref: '#/components/schemas/programInfo'      
+                  $ref: '#/components/schemas/programInfo'
+  /programTorokuKoshinBFF:
+    post:
+      tags:
+        - programInfoBFF
+      operationId: postProgramTorokuKoshinBFF
+      summary: 番組情報を登録または更新するBFF
+      description: 番組情報を登録または更新するBFF
+      requestBody:
+        description: 番組情報を登録または更新するBFF
+        content:
+          application/json:
+            schema:
+              $ref: "../../TalentSearchCommon/Tables/mProgram.yaml#/components/schemas/mProgram"
+      responses:
+        '200':
+          description: 登録または更新した番組マスタ情報
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/programTorokuKoshinBFF'
 components:
   schemas:
     programInfo:
@@ -62,3 +83,9 @@ components:
           type: string
           maxLength: 30
           description: ジャンル名
+    programTorokuKoshinBFF:
+      description: 登録または更新した番組マスタ情報
+      type: object
+      properties:
+          items:
+            $ref: "../../TalentSearchCommon/Tables/mProgram.yaml#/components/schemas/mProgram"

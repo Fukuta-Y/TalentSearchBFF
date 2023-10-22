@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.model.ProgramInfo;
+import com.model.TalentInfo;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -24,36 +24,37 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.annotation.Generated;
 import jakarta.validation.constraints.Size;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-22T19:26:05.280387+09:00[Asia/Tokyo]")
+
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-22T19:36:04.635850+09:00[Asia/Tokyo]")
 @Validated
-@Tag(name = "programInfoBFF", description = "the programInfoBFF API")
+@Tag(name = "talentInfoBFF", description = "the talentInfoBFF API")
 @RequestMapping("${openapi.bFF.base-path:}")
-public interface ProgramInfoBFFApi {
+public interface TalentInfoBFFApi {
 
     /**
-     * GET /programInfoBFF/{programId} : 番組情報を番組IDによって取得するBFF
-     * 番組情報を番組IDによって取得するBFF
+     * GET /talentInfoBFF/{talentId} : タレント情報をタレントIDによって取得するBFF
+     * タレント情報をタレントIDによって取得するBFF
      *
-     * @param programId  (required)
-     * @return 番組情報を正常取得 (status code 200)
+     * @param talentId  (required)
+     * @return タレント情報を正常取得 (status code 200)
      */
     @Operation(
-        operationId = "getProgramInfoBFF",
-        summary = "番組情報を番組IDによって取得するBFF",
-        tags = { "programInfoBFF" },
+        operationId = "getTalentInfoBFF",
+        summary = "タレント情報をタレントIDによって取得するBFF",
+        tags = { "talentInfoBFF" },
         responses = {
-            @ApiResponse(responseCode = "200", description = "番組情報を正常取得", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = ProgramInfo.class))
+            @ApiResponse(responseCode = "200", description = "タレント情報を正常取得", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = TalentInfo.class))
             })
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/programInfoBFF/{programId}",
+        value = "/talentInfoBFF/{talentId}",
         produces = { "application/json" }
     )
-    ResponseEntity<List<ProgramInfo>> getProgramInfoBFF(
-        @Size(max = 8) @Parameter(name = "programId", description = "", required = true) @PathVariable("programId") String programId
+    ResponseEntity<List<TalentInfo>> getTalentInfoBFF(
+        @Size(max = 8) @Parameter(name = "talentId", description = "", required = true) @PathVariable("talentId") String talentId
     );
 
 }

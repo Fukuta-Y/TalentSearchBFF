@@ -8,20 +8,19 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
-
 /**
- * 登録または更新した番組マスタ情報
+ * 登録または更新した年月週管理マスタDTOの情報
  */
 
-@Schema(name = "programTorokuKoshinBFF", description = "登録または更新した番組マスタ情報")
-@JsonTypeName("programTorokuKoshinBFF")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-22T19:26:05.280387+09:00[Asia/Tokyo]")
-public class ProgramTorokuKoshinBFF {
+@Schema(name = "nentsukiShuKanriBFF", description = "登録または更新した年月週管理マスタDTOの情報")
+@JsonTypeName("nentsukiShuKanriBFF")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-22T19:55:15.998116+09:00[Asia/Tokyo]")
+public class NentsukiShuKanriBFF {
 
   @JsonProperty("items")
-  private MProgram items;
+  private MNentsukiShuKanri items;
 
-  public ProgramTorokuKoshinBFF items(MProgram items) {
+  public NentsukiShuKanriBFF items(MNentsukiShuKanri items) {
     this.items = items;
     return this;
   }
@@ -32,11 +31,11 @@ public class ProgramTorokuKoshinBFF {
   */
   @Valid 
   @Schema(name = "items", required = false)
-  public MProgram getItems() {
+  public MNentsukiShuKanri getItems() {
     return items;
   }
 
-  public void setItems(MProgram items) {
+  public void setItems(MNentsukiShuKanri items) {
     this.items = items;
   }
 
@@ -48,8 +47,8 @@ public class ProgramTorokuKoshinBFF {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ProgramTorokuKoshinBFF programTorokuKoshinBFF = (ProgramTorokuKoshinBFF) o;
-    return Objects.equals(this.items, programTorokuKoshinBFF.items);
+    NentsukiShuKanriBFF nentsukiShuKanriBFF = (NentsukiShuKanriBFF) o;
+    return Objects.equals(this.items, nentsukiShuKanriBFF.items);
   }
 
   @Override
@@ -60,7 +59,7 @@ public class ProgramTorokuKoshinBFF {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ProgramTorokuKoshinBFF {\n");
+    sb.append("class NentsukiShuKanriBFF {\n");
     sb.append("    items: ").append(toIndentedString(items)).append("\n");
     sb.append("}");
     return sb.toString();
