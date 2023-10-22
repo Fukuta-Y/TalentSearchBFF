@@ -1,8 +1,6 @@
 README.md
 pom.xml
 src/main/java/com/api/ApiUtil.java
-src/main/java/com/api/TalentInfoBFFApi.java
-src/main/java/com/api/TalentTorokuKoshinBFFApi.java
-src/main/java/com/model/MTalent.java
-src/main/java/com/model/TalentInfo.java
-src/main/java/com/model/TalentTorokuKoshinBFF.java
+src/main/java/com/api/KbnMasterBFFApi.java
+src/main/java/com/model/KbnMasterInfo.java
+src/main/java/com/model/MKbnGenre.java

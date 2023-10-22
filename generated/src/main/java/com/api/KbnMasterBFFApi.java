@@ -7,8 +7,6 @@ package com.api;
 
 import java.util.List;
 
-import javax.annotation.processing.Generated;
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,19 +21,20 @@ import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.annotation.Generated;
 import jakarta.validation.constraints.Size;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-17T10:46:29.498877+09:00[Asia/Tokyo]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-22T19:39:46.248812+09:00[Asia/Tokyo]")
 @Validated
 @Tag(name = "kbnMasterBFF", description = "the kbnMasterBFF API")
 @RequestMapping("${openapi.bFF.base-path:}")
 public interface KbnMasterBFFApi {
 
     /**
-     * GET /kbnMasterBFF/{genreId} : 区分マスタ情報を取得するBFF
+     * GET /kbnMasterBFF/{genreIds} : 区分マスタ情報を取得するBFF
      * 区分マスタ情報を取得するBFF
      *
-     * @param genreId  (required)
+     * @param genreIds  (required)
      * @return 区分マスタ情報を正常取得 (status code 200)
      */
     @Operation(
@@ -50,11 +49,11 @@ public interface KbnMasterBFFApi {
     )
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/kbnMasterBFF/{genreId}",
+        value = "/kbnMasterBFF/{genreIds}",
         produces = { "application/json" }
     )
     ResponseEntity<List<KbnMasterInfo>> getKbnMasterBFF(
-        @Size(max = 1) @Parameter(name = "genreId", description = "", required = true) @PathVariable("genreId") String genreId
+        @Size(max = 8) @Parameter(name = "genreIds", description = "", required = true) @PathVariable("genreIds") String genreIds
     );
 
 }
