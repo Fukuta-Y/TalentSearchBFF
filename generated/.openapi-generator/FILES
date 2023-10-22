@@ -1,8 +1,8 @@
 README.md
 pom.xml
 src/main/java/com/api/ApiUtil.java
-src/main/java/com/api/ProgramInfoBFFApi.java
-src/main/java/com/api/ProgramTorokuKoshinBFFApi.java
-src/main/java/com/model/MProgram.java
-src/main/java/com/model/ProgramInfo.java
-src/main/java/com/model/ProgramTorokuKoshinBFF.java
+src/main/java/com/api/TalentInfoBFFApi.java
+src/main/java/com/api/TalentTorokuKoshinBFFApi.java
+src/main/java/com/model/MTalent.java
+src/main/java/com/model/TalentInfo.java
+src/main/java/com/model/TalentTorokuKoshinBFF.java

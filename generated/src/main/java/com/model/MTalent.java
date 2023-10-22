@@ -18,7 +18,7 @@ import jakarta.validation.constraints.Size;
 
 @Schema(name = "mTalent", description = "タレントマスタ情報（全列）")
 @JsonTypeName("mTalent")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-06-12T21:30:49.581521+09:00[Asia/Tokyo]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-22T19:36:04.635850+09:00[Asia/Tokyo]")
 public class MTalent {
 
   @JsonProperty("talentId")
