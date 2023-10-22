@@ -1,7 +1,5 @@
 package com.model;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -17,38 +15,29 @@ import jakarta.validation.Valid;
 
 @Schema(name = "programTorokuKoshinBFF", description = "登録または更新した番組マスタ情報")
 @JsonTypeName("programTorokuKoshinBFF")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-17T11:21:51.486368+09:00[Asia/Tokyo]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-22T19:26:05.280387+09:00[Asia/Tokyo]")
 public class ProgramTorokuKoshinBFF {
 
-  @JsonProperty("mProgram")
-  @Valid
-  private List<MProgram> mProgram = null;
+  @JsonProperty("items")
+  private MProgram items;
 
-  public ProgramTorokuKoshinBFF mProgram(List<MProgram> mProgram) {
-    this.mProgram = mProgram;
-    return this;
-  }
-
-  public ProgramTorokuKoshinBFF addMProgramItem(MProgram mProgramItem) {
-    if (this.mProgram == null) {
-      this.mProgram = new ArrayList<>();
-    }
-    this.mProgram.add(mProgramItem);
+  public ProgramTorokuKoshinBFF items(MProgram items) {
+    this.items = items;
     return this;
   }
 
   /**
-   * 番組マスタDTO
-   * @return mProgram
+   * Get items
+   * @return items
   */
   @Valid 
-  @Schema(name = "mProgram", description = "番組マスタDTO", required = false)
-  public List<MProgram> getmProgram() {
-    return mProgram;
+  @Schema(name = "items", required = false)
+  public MProgram getItems() {
+    return items;
   }
 
-  public void setmProgram(List<MProgram> mProgram) {
-    this.mProgram = mProgram;
+  public void setItems(MProgram items) {
+    this.items = items;
   }
 
   @Override
@@ -60,19 +49,19 @@ public class ProgramTorokuKoshinBFF {
       return false;
     }
     ProgramTorokuKoshinBFF programTorokuKoshinBFF = (ProgramTorokuKoshinBFF) o;
-    return Objects.equals(this.mProgram, programTorokuKoshinBFF.mProgram);
+    return Objects.equals(this.items, programTorokuKoshinBFF.items);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(mProgram);
+    return Objects.hash(items);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ProgramTorokuKoshinBFF {\n");
-    sb.append("    mProgram: ").append(toIndentedString(mProgram)).append("\n");
+    sb.append("    items: ").append(toIndentedString(items)).append("\n");
     sb.append("}");
     return sb.toString();
   }

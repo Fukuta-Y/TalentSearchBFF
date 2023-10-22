@@ -25,7 +25,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-17T11:21:51.486368+09:00[Asia/Tokyo]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-22T19:26:05.280387+09:00[Asia/Tokyo]")
 @Validated
 @Tag(name = "programTorokuKoshinBFF", description = "the programTorokuKoshinBFF API")
 @RequestMapping("${openapi.bFF.base-path:}")
@@ -41,7 +41,7 @@ public interface ProgramTorokuKoshinBFFApi {
     @Operation(
         operationId = "postProgramTorokuKoshinBFF",
         summary = "番組情報を登録または更新するBFF",
-        tags = { "programTorokuKoshinBFF" },
+        tags = { "programInfoBFF" },
         responses = {
             @ApiResponse(responseCode = "200", description = "登録または更新した番組マスタ情報", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = ProgramTorokuKoshinBFF.class))
