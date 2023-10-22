@@ -1,6 +1,6 @@
 README.md
 pom.xml
 src/main/java/com/api/ApiUtil.java
-src/main/java/com/api/KbnMasterBFFApi.java
-src/main/java/com/model/KbnMasterInfo.java
-src/main/java/com/model/MKbnGenre.java
+src/main/java/com/api/NentsukiShuKanriBFFApi.java
+src/main/java/com/model/MNentsukiShuKanri.java
+src/main/java/com/model/NentsukiShuKanriBFF.java
