@@ -5,39 +5,49 @@ info:
   version: 1.0.0
 servers:
   - url: https://localhost:8081
-    description: 番組情報BFF
+    description: オンエア管理情報BFF
 paths:
-  /onAirKanriInfoBFF/{id}:
+  /onAirKanriInfoBFF:
     get:
       tags:
-        - programInfoBFF
-      operationId: getProgramInfoBFF
-      summary: 番組情報を番組IDによって取得するBFF
-      description: 番組情報を番組IDによって取得するBFF
-      parameters:
-        - in: path
-          name: id
-          required: true
-          schema:
-            type: string
-            maxLength: 8
+        - onAirKanriInfoBFF
+      operationId: getOnAirKanriInfoBFF
+      summary: オンエア管理情報を取得するBFF
+      description: オンエア管理情報を取得するBFF
       responses:
         '200':
-          description: 番組情報を正常取得
+          description: オンエア管理情報を正常取得
           content:
             application/json:
               schema:
                 type: object
                 items:
-                  $ref: '#/components/schemas/tOnAirKanriInfo'      
+                  $ref: '#/components/schemas/tOnAirKanriInfo'
+    post:
+      tags:
+        - onAirKanriInfoBFF
+      operationId: postOnAirKanriInfoBFF
+      summary: オンエア管理情報を登録または更新するBFF
+      description: オンエア管理情報を登録または更新するBFF
+      requestBody:
+        description: オンエア管理情報を登録または更新するBFF
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/tOnAirKanriInfo'
+      responses:
+        '200':
+          description: 登録または更新したオンエア管理情報
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/tOnAirKanriInfo'
 components:
   schemas:
     tOnAirKanriInfo:
       description: オンエア管理テーブル情報
       type: object
       properties:
-        tOnAirKanri:
-          description: オンエア管理テーブルDTO
-          type: object
-          items:
-            $ref: "../../TalentSearchCommon/Tables/tOnAirKanri.yaml#/components/schemas/tOnAirKanri"
+        items:
+          $ref: "../../TalentSearchCommon/Tables/tOnAirKanri.yaml#/components/schemas/tOnAirKanri"
