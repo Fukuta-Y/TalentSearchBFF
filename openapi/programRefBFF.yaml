@@ -1,0 +1,48 @@
+openapi: 3.0.0
+info:
+  title: 番組参照検索BFF
+  description: 番組ID、番組名によって番組情報を返すBFF
+  version: 1.0.0
+servers:
+  - url: https://localhost:8081
+    description: 番組参照検索BFF
+paths:
+  /programRefBFF:
+    get:
+      tags:
+        - programRefBFF
+      operationId: getProgramRefBFF
+      summary: 番組ID、番組名によって番組情報を返すBFF
+      description: 番組ID、番組名によって番組情報を返すBFF
+      parameters:
+        - in: query
+          name: programId
+          required: false
+          description: 番組ID
+          schema:
+            type: string
+            maxLength: 8
+        - in: query
+          name: programName
+          required: false
+          description: 番組名
+          schema:
+            type: string
+            maxLength: 30
+      responses:
+        '200':
+          description: 番組情報を正常取得
+          content:
+            application/json:
+              schema:
+                type: object
+                items:
+                  $ref: '#/components/schemas/programInfo'
+components:
+  schemas:
+    programInfo:
+      description: 番組マスタ情報DTO
+      type: object
+      properties:
+        items:
+          $ref: "../../TalentSearchCommon/Tables/mProgram.yaml#/components/schemas/mProgram"
