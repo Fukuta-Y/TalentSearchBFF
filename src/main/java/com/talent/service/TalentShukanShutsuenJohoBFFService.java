@@ -141,16 +141,16 @@ public class TalentShukanShutsuenJohoBFFService {
 	
 	    		// 対象週(FROM)へ、年月週管理マスタDTO .週の開始日（日曜日）を設定
 	    		// 対象週(TO)へ、年月週管理マスタDTO .週の終了日（土曜日）を設定
-	            bffModel.setShuFrom(yearMonthJoho.getmNentsukiShuKanri().getShuFrom());
-	            bffModel.setShuTo(yearMonthJoho.getmNentsukiShuKanri().getShuTo());
+	            bffModel.setShuFrom(yearMonthJoho.getmNentsukiShuKanri().getItems().getShuFrom());
+	            bffModel.setShuTo(yearMonthJoho.getmNentsukiShuKanri().getItems().getShuTo());
 	            // responseへ追加
 			    response.add(bffModel);
 			}
         } else {
 			// 対象週(FROM)へ、年月週管理マスタDTO .週の開始日（日曜日）を設定
 			// 対象週(TO)へ、年月週管理マスタDTO .週の終了日（土曜日）を設定
-	        bffModel.setShuFrom(yearMonthJoho.getmNentsukiShuKanri().getShuFrom());
-	        bffModel.setShuTo(yearMonthJoho.getmNentsukiShuKanri().getShuTo());
+	        bffModel.setShuFrom(yearMonthJoho.getmNentsukiShuKanri().getItems().getShuFrom());
+	        bffModel.setShuTo(yearMonthJoho.getmNentsukiShuKanri().getItems().getShuTo());
 	        // responseへ追加
 	        response.add(bffModel);
         }
