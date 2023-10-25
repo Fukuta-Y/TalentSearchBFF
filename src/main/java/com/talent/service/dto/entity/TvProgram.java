@@ -11,5 +11,5 @@ import lombok.Data;
 public class TvProgram implements Serializable {
     private String id;
     private String name;
-    private String onairDay;
+    private String onAirDay;
 }

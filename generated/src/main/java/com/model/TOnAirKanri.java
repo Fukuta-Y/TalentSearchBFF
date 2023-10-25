@@ -1,9 +1,6 @@
 package com.model;
 
-import java.time.OffsetDateTime;
 import java.util.Objects;
-
-import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -29,8 +26,7 @@ public class TOnAirKanri {
   private String id;
 
   @JsonProperty("onAirDay")
-  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-  private OffsetDateTime onAirDay;
+  private String onAirDay;
 
   @JsonProperty("programId")
   private String programId;
@@ -72,7 +68,7 @@ public class TOnAirKanri {
     this.id = id;
   }
 
-  public TOnAirKanri onAirDay(OffsetDateTime onAirDay) {
+  public TOnAirKanri onAirDay(String onAirDay) {
     this.onAirDay = onAirDay;
     return this;
   }
@@ -83,11 +79,11 @@ public class TOnAirKanri {
   */
   @Valid 
   @Schema(name = "onAirDay", description = "オンエア日", required = false)
-  public OffsetDateTime getOnAirDay() {
+  public String getOnAirDay() {
     return onAirDay;
   }
 
-  public void setOnAirDay(OffsetDateTime onAirDay) {
+  public void setOnAirDay(String onAirDay) {
     this.onAirDay = onAirDay;
   }
 

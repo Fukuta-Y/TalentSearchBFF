@@ -72,7 +72,7 @@ public class TalentShukanShutsuenJohoBFFService {
 				 // (1) BE「タレント週間出演情報検索」より取得したレスポンスで以下の条件でデータを絞る。
 				 // 取得項目：
 				 // オンエア管理テーブルDTO.オンエア日 → YYYY/MM/DDの形式で【レスポンス.オンエア日】
-				 String onAirDayTime = onAir.getOnAirDay().toString();
+				 String onAirDayTime = onAir.getOnAirDay();
 				 String onAirDay = onAirDayTime.substring(0, 10);
 				 bffModel.setOnAirDay(onAirDay);
 				
