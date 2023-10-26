@@ -1,9 +1,6 @@
 package com.model;
 
-import java.time.OffsetDateTime;
 import java.util.Objects;
-
-import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -22,15 +19,14 @@ import jakarta.validation.constraints.Size;
 
 @Schema(name = "tOnAirKanri", description = "オンエア管理テーブル情報（全列）")
 @JsonTypeName("tOnAirKanri")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-22T19:49:56.617209+09:00[Asia/Tokyo]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-24T18:08:56.954362+09:00[Asia/Tokyo]")
 public class TOnAirKanri {
 
   @JsonProperty("id")
   private String id;
 
   @JsonProperty("onAirDay")
-  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-  private OffsetDateTime onAirDay;
+  private String onAirDay;
 
   @JsonProperty("programId")
   private String programId;
@@ -72,7 +68,7 @@ public class TOnAirKanri {
     this.id = id;
   }
 
-  public TOnAirKanri onAirDay(OffsetDateTime onAirDay) {
+  public TOnAirKanri onAirDay(String onAirDay) {
     this.onAirDay = onAirDay;
     return this;
   }
@@ -83,11 +79,11 @@ public class TOnAirKanri {
   */
   @Valid 
   @Schema(name = "onAirDay", description = "オンエア日", required = false)
-  public OffsetDateTime getOnAirDay() {
+  public String getOnAirDay() {
     return onAirDay;
   }
 
-  public void setOnAirDay(OffsetDateTime onAirDay) {
+  public void setOnAirDay(String onAirDay) {
     this.onAirDay = onAirDay;
   }
 

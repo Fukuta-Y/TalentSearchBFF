@@ -23,8 +23,8 @@ public class OnAirComparator implements Comparator<OnAirKanriInfoDto> {
         Date date1 = null;
         Date date2 = null;
         try {
-            date1 = sdFormat.parse(data1.getTvProgram().getOnairDay());
-            date2 = sdFormat.parse(data2.getTvProgram().getOnairDay());
+            date1 = sdFormat.parse(data1.getTvProgram().getOnAirDay());
+            date2 = sdFormat.parse(data2.getTvProgram().getOnAirDay());
         } catch (ParseException e) {
             // TODO 自動生成された catch ブロック
             e.printStackTrace();
