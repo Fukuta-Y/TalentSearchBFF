@@ -109,9 +109,10 @@ public class TalentShukanShutsuenJohoBFFService {
 	            // (2) (1)で取得した番組マスタDTO.チェンネルIDを軸として、キーを突き合わせる。
 	    		//   取得項目：
 	    		//  ・チャンネル局マスタDTO. チャンネル局ID → 【レスポンス.放送局（チャンネル）】
+				System.out.println("mChanelKyokuList:" + mChanelKyokuList);
 	            for (MChanelKyoku chanelKyoku : mChanelKyokuList) {
 					// ① 番組マスタDTO.チェンネルID =チャンネル局マスタDTO.チェンネルID 
-					if(chanelKyoku.getChanelId() == chanelId) {
+					if(chanelKyoku.getChanelId().compareTo(chanelId) == 0 ) {
 						// →　①を結合時に、チャンネル局マスタDTO. チャンネル局IDを取得する。
 						chanelKyokuId = chanelKyoku.getChanelKyokuId();
 						break;
@@ -124,17 +125,20 @@ public class TalentShukanShutsuenJohoBFFService {
 	        		//     区分ジャンルマスタDTO.ジャンルIDはそれぞれ固定で、区分ジャンルマスタDTO.順序と結合し、ジャンルを取得する。
 	        		//  （①ジャンルID＝１、区分ジャンルマスタDTO.順序 ＝ 番組マスタDTO. ジャンルIDで取得したジャンル
 	        		//   →【レスポンス.番組ジャンル】
-	            	if(kbnGenre.getGenreId() == 1 && kbnGenre.getJyunjyo() == programGenreId) {
+	            	if(kbnGenre.getGenreId().compareTo(1) == 0 && 
+	            			kbnGenre.getJyunjyo().compareTo(programGenreId) == 0) {
 	            		bffModel.setProgramGenre(kbnGenre.getGenre());
 	            	}
 	        		// ②ジャンルID＝２、区分ジャンルマスタDTO.順序 ＝ タレントマスタDTO. ジャンルIDで取得したジャンル
 	        		//   →【レスポンス.出演者ジャンル】
-	            	if(kbnGenre.getGenreId() == 2 && kbnGenre.getJyunjyo() == talentGenreId ) {
+	            	if(kbnGenre.getGenreId().compareTo(2) == 0 && 
+	            			kbnGenre.getJyunjyo().compareTo(programGenreId) == 0) {
 	            		bffModel.setShutsuenshaGenre(kbnGenre.getGenre());
 	            	}
 	           		// ③ジャンルID＝３、区分ジャンルマスタDTO.順序 ＝ 番組マスタDTO. チャンネルIDで取得したジャンル
 	        		//   →【レスポンス.放送局（チャンネル）】の前半に結合（既にチャンネル局IDが設定済みのため）
-	            	if(kbnGenre.getGenreId() == 3 && kbnGenre.getJyunjyo() == chanelId ) {
+		            if(kbnGenre.getGenreId().compareTo(3) == 0 && 
+		            		kbnGenre.getJyunjyo().compareTo(programGenreId) == 0) {
 	            		bffModel.setHosokyokuChannel(kbnGenre.getGenre() + "(" + chanelKyokuId +")");
 	            	}
 	            }

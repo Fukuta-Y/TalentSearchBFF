@@ -43,7 +43,7 @@ public class TalentGroupShori {
         List<OnAirKanriInfoDto> response = new ArrayList<OnAirKanriInfoDto>();
         for (TOnAirKanri e : OnAionarKanriInfoList) {
             // OnairKanriInfoDtoへ変換して設定
-            response.add(helper.toOnairKanriInfoDto(e,
+            response.add(helper.toOnAirKanriInfoDto(e,
                     utils.fetchTalentName(e, modelTalentList),
                     utils.fetchProgramName(e, modelProgramList)));
         }
