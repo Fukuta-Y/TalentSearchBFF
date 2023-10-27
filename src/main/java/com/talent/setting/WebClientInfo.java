@@ -3,6 +3,8 @@ package com.talent.setting;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
+import com.model.MKbnGenre;
+import com.model.MProgram;
 import com.model.ProgramShutsuenList;
 import com.model.ShukanTalentJoho;
 import com.model.TalentShukanShutsuenJoho;
@@ -92,4 +94,36 @@ public class WebClientInfo {
                 .retrieve()
                 .bodyToMono(ProgramShutsuenList.class).block();
     }
+    
+    /**
+     * BE「番組マスタ検索」へ接続の設定
+     *
+     * @param programId　番組ID
+     * @return　遷移情報を設定したWebClientの内容を返す
+     */
+    public MProgram getProgramInfo(String programId) {
+        return this.webClient.get()
+                .uri(uriBuilder -> uriBuilder
+                        .path("/programInfo/{programId}")
+                        .build())
+                .retrieve()
+                .bodyToMono(MProgram.class).block();
+    }
+    
+    /**
+     * BE「区分マスタ検索」へ接続の設定
+     *
+     * @param nentsuki　ジャンルID 【複数】
+     * @return　遷移情報を設定したWebClientの内容を返す
+     */
+    public MKbnGenre getKbnMaster(String genreIds) {
+        return this.webClient.get()
+                .uri(uriBuilder -> uriBuilder
+                        .path("/kbnMaster/genreIds")
+                        .build())
+                .retrieve()
+                .bodyToMono(MKbnGenre.class).block();
+    }
+    
+    
 }

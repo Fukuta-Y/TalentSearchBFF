@@ -37,7 +37,6 @@ paths:
           content:
             application/json:
               schema:
-                type: object
                 items:
                   $ref: '#/components/schemas/mNentsukiShuKanri'
 components:
