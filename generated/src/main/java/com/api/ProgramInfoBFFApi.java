@@ -5,8 +5,6 @@
  */
 package com.api;
 
-import java.util.List;
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,7 +25,7 @@ import jakarta.validation.constraints.Size;
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-27T22:11:23.328546+09:00[Asia/Tokyo]")
 @Validated
 @Tag(name = "programInfoBFF", description = "the programInfoBFF API")
-@RequestMapping("${openapi.bFF.base-path:}")
+@RequestMapping("api")
 public interface ProgramInfoBFFApi {
 
     /**
@@ -47,9 +45,8 @@ public interface ProgramInfoBFFApi {
             })
         }
     )
-    @GetMapping("/programInfoBFF/programId")
-    ResponseEntity<List<ProgramInfo>> getProgramInfoBFF(
+    @GetMapping("/programInfoBFF/{programId}")
+    ResponseEntity<ProgramInfo> getProgramInfoBFF(
         @Size(max = 8) @Parameter(name = "programId", description = "", required = true) @PathVariable("programId") String programId
     );
-
 }

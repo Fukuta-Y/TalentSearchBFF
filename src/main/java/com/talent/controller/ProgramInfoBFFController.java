@@ -1,6 +1,4 @@
 package com.talent.controller;
-import java.util.List;
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 
@@ -21,13 +19,13 @@ public class ProgramInfoBFFController implements ProgramInfoBFFApi{
 	  * 番組情報BFFController
 	  *
 	  * @param programId 番組ID
-	  * @return List<ProgramInfo>
+	  * @return ProgramInfo
 	  * 
 	 */
 	@Override
-	public ResponseEntity<List<ProgramInfo>> getProgramInfoBFF(String programId) {
+	public ResponseEntity<ProgramInfo> getProgramInfoBFF(String programId) {
 		// ProgramShutsuenBFFServiceより取得
-		List<ProgramInfo> response  = service.select(programId);
+		ProgramInfo response  = service.select(programId);
 		return ResponseEntity.ok(response);
 	}
 

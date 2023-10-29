@@ -4,7 +4,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
 import com.model.MKbnGenre;
-import com.model.MProgram;
+import com.model.ProgramInfo;
 import com.model.ProgramShutsuenList;
 import com.model.ShukanTalentJoho;
 import com.model.TalentShukanShutsuenJoho;
@@ -101,13 +101,13 @@ public class WebClientInfo {
      * @param programId　番組ID
      * @return　遷移情報を設定したWebClientの内容を返す
      */
-    public MProgram getProgramInfo(String programId) {
+    public ProgramInfo getProgramInfo(String programId) {
         return this.webClient.get()
                 .uri(uriBuilder -> uriBuilder
                         .path("/programInfo/{programId}")
-                        .build())
+                        .build(programId))
                 .retrieve()
-                .bodyToMono(MProgram.class).block();
+                .bodyToMono(ProgramInfo.class).block();
     }
     
     /**
@@ -119,8 +119,8 @@ public class WebClientInfo {
     public MKbnGenre getKbnMaster(String genreIds) {
         return this.webClient.get()
                 .uri(uriBuilder -> uriBuilder
-                        .path("/kbnMaster/genreIds")
-                        .build())
+                        .path("/kbnMaster/{genreIds}")
+                        .build(genreIds))
                 .retrieve()
                 .bodyToMono(MKbnGenre.class).block();
     }
