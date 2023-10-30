@@ -30,9 +30,17 @@ public class ProgramInfoBFFService {
 
     	// (1) パラメータの番組IDをキーとして、BE「番組マスタ検索」へ検索して、
     	// 取得した番組マスタDTOのうち、レスポンス「番組ID」、「番組名」、「チャンネルID」、「ジャンルID」を設定する。
-    	ProgramInfo programInfo = this.webClient.getProgramInfo(programId);
+
+    	System.out.println("programId:" + programId);
+    	
+    	System.out.println("this.webClient.getProgramInfo(programId):" + this.webClient.getProgramInfo(programId));
     	
     	// (2) BE「区分マスタ検索」に対して、ジャンルIDには「1、3」をパラメータにして、区分マスタDTOを取得する。
+    	String genreId = "1,3";
+    	System.out.println("kbn:" + genreId);
+    	
+    	
+       	System.out.println("this.webClient.getKbnMaster(genreId):" + this.webClient.getKbnMaster(genreId));
 
     	// (3) チャンネル名を取x得
     	//⇒ ジャンルIDには「1」と(1)で取得した「チャンネルID」を順序として、紐づけて、列「ジャンル」を取得して、レスポンス「チャンネル名」へ設定する。
@@ -41,19 +49,15 @@ public class ProgramInfoBFFService {
     	//⇒ジャンルIDには「3」と(1)で取得した「ジャンルID」を順序として、紐づけて、列「ジャンル」を取得して、レスポンス「ジャンル名」へ設定する。
     	
     	
-    	
-    	
+    	//response.setProgramId(mProgram.getProgramId());
+    	//response.setProgramName(mProgram.getProgramName());
     	
     	
 
     	
     	
     	
-    	// TODO：インスタンスの中身
-    	response.setProgramId(programInfo.getProgramId());
-    	response.setProgramName(programInfo.getProgramName());
-    	
-    	
+
     	
         // Responseへ設定
         return response;
