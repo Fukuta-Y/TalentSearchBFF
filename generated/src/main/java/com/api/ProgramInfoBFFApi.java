@@ -22,7 +22,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.annotation.Generated;
 import jakarta.validation.constraints.Size;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-27T22:11:23.328546+09:00[Asia/Tokyo]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-30T23:19:53.687173+09:00[Asia/Tokyo]")
 @Validated
 @Tag(name = "programInfoBFF", description = "the programInfoBFF API")
 @RequestMapping("api")
@@ -49,4 +49,5 @@ public interface ProgramInfoBFFApi {
     ResponseEntity<ProgramInfo> getProgramInfoBFF(
         @Size(max = 8) @Parameter(name = "programId", description = "", required = true) @PathVariable("programId") String programId
     );
+
 }
