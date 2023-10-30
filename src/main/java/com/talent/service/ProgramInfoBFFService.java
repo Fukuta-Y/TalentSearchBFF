@@ -33,28 +33,31 @@ public class ProgramInfoBFFService {
 
     	System.out.println("programId:" + programId);
     	
-    	System.out.println("this.webClient.getProgramInfo(programId):" + this.webClient.getProgramInfo(programId));
+    	ProgramInfo programInfo = this.webClient.getProgramInfo(programId);
     	
-    	// (2) BE「区分マスタ検索」に対して、ジャンルIDには「1、3」をパラメータにして、区分マスタDTOを取得する。
-    	String genreId = "1,3";
-    	System.out.println("kbn:" + genreId);
+    	System.out.println("ProgramInfo:" + programInfo);
     	
+    	response.setProgramId(programInfo.getProgramId());
+    	response.setProgramName(programInfo.getProgramName());
     	
-       	System.out.println("this.webClient.getKbnMaster(genreId):" + this.webClient.getKbnMaster(genreId));
-
+//    	// (2) BE「区分マスタ検索」に対して、ジャンルIDには「1、3」をパラメータにして、区分マスタDTOを取得する。
+//    	String genreId = "1,3";
+//    	System.out.println("kbn:" + genreId);
+//    	
+//    	KbnMasterInfo kbnMasterInfo = this.webClient.getKbnMaster(genreId);
+//       	
+//       	response.setGenreId(kbnMasterInfo.getmKbnGenre().get(0).getGenreId());
+       	
+       	
+       	
     	// (3) チャンネル名を取x得
     	//⇒ ジャンルIDには「1」と(1)で取得した「チャンネルID」を順序として、紐づけて、列「ジャンル」を取得して、レスポンス「チャンネル名」へ設定する。
 
     	// (4) ジャンル名を取得
     	//⇒ジャンルIDには「3」と(1)で取得した「ジャンルID」を順序として、紐づけて、列「ジャンル」を取得して、レスポンス「ジャンル名」へ設定する。
-    	
-    	
-    	//response.setProgramId(mProgram.getProgramId());
-    	//response.setProgramName(mProgram.getProgramName());
-    	
-    	
 
-    	
+
+ 
     	
     	
 

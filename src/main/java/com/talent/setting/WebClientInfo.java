@@ -3,8 +3,8 @@ package com.talent.setting;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
-import com.model.MKbnGenre;
-import com.model.MProgram;
+import com.model.KbnMasterInfo;
+import com.model.ProgramInfo;
 import com.model.ProgramShutsuenList;
 import com.model.ShukanTalentJoho;
 import com.model.TalentShukanShutsuenJoho;
@@ -101,13 +101,13 @@ public class WebClientInfo {
      * @param programId　番組ID
      * @return　遷移情報を設定したWebClientの内容を返す
      */
-    public MProgram getProgramInfo(String programId) {
-        return this.webClient.get()
-                .uri(uriBuilder -> uriBuilder
-                        .path("/programInfo/{programId}")
-                        .build(programId))
-                .retrieve()
-                .bodyToMono(MProgram.class).block();
+    public ProgramInfo getProgramInfo(String programId) {
+       return webClient.get()
+               .uri(uriBuilder -> uriBuilder
+                       .path("/programInfo/{programId}")
+                       .build(programId))
+               .retrieve()
+               .bodyToMono(ProgramInfo.class).block();
     }
     
     /**
@@ -116,12 +116,12 @@ public class WebClientInfo {
      * @param nentsuki　ジャンルID 【複数】
      * @return　遷移情報を設定したWebClientの内容を返す
      */
-    public MKbnGenre getKbnMaster(String genreIds) {
+    public KbnMasterInfo getKbnMaster(String genreIds) {
         return this.webClient.get()
                 .uri(uriBuilder -> uriBuilder
                         .path("/kbnMaster/{genreIds}")
                         .build(genreIds))
                 .retrieve()
-                .bodyToMono(MKbnGenre.class).block();
+                .bodyToMono(KbnMasterInfo.class).block();
     }
 }
