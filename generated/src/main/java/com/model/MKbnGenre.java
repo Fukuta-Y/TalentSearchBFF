@@ -18,7 +18,7 @@ import jakarta.validation.constraints.Size;
 
 @Schema(name = "mKbnGenre", description = "区分ジャンルマスタ情報（全列）")
 @JsonTypeName("mKbnGenre")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-22T19:39:46.248812+09:00[Asia/Tokyo]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-30T23:19:53.687173+09:00[Asia/Tokyo]")
 public class MKbnGenre {
 
   @JsonProperty("genreId")

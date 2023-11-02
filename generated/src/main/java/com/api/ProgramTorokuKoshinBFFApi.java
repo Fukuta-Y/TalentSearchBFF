@@ -25,7 +25,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-22T19:26:05.280387+09:00[Asia/Tokyo]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-30T23:19:53.687173+09:00[Asia/Tokyo]")
 @Validated
 @Tag(name = "programTorokuKoshinBFF", description = "the programTorokuKoshinBFF API")
 @RequestMapping("${openapi.bFF.base-path:}")
