@@ -3,6 +3,7 @@ package com.talent.setting;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
+import com.model.ChanelKyoku;
 import com.model.KbnMasterInfos;
 import com.model.ProgramInfos;
 import com.model.ProgramShutsuenList;
@@ -123,5 +124,19 @@ public class WebClientInfo {
                         .build(genreIds))
                 .retrieve()
                 .bodyToMono(KbnMasterInfos.class).block();
+    }
+    /**
+     * BE「チャンネル局マスタ検索」へ接続の設定
+     *
+     * @param chanelIds　チャンネルID 【複数】
+     * @return　遷移情報を設定したWebClientの内容を返す
+     */
+    public ChanelKyoku getMChanelKyoku(String chanelIds) {
+        return this.webClient.get()
+                .uri(uriBuilder -> uriBuilder
+                        .path("/chanelKyoku/{chanelIds}")
+                        .build(chanelIds))
+                .retrieve()
+                .bodyToMono(ChanelKyoku.class).block();
     }
 }

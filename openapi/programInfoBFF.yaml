@@ -106,4 +106,13 @@ components:
           type: array
           items:
             $ref: "../../TalentSearchCommon/Tables/mKbnGenre.yaml#/components/schemas/mKbnGenre"
+    chanelKyoku:
+      description: チャンネル局マスタ
+      type: object
+      properties:
+        mChanelKyoku:
+          description: チャンネル局マスタDTO
+          type: array
+          items:
+            $ref: "../../TalentSearchCommon/Tables/mChanelKyoku.yaml#/components/schemas/mChanelKyoku"
  
