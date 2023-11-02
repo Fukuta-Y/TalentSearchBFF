@@ -48,7 +48,6 @@ public class ChanelInfoBFFService {
 		}
 		// ジャンルIDを宣言
 		String GenreIds = StringUtils.join(chanelList, ',');
-		GenreIds ="1,2,3,4";
 		ChanelKyoku chanelKyoku = this.webClient.getMChanelKyoku(GenreIds);
     	
     	// (3) 以下の内容で(1)で取得できた行数分内容を設定する。
