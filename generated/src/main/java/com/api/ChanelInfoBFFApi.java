@@ -9,8 +9,8 @@ import java.util.List;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.model.ChanelInfo;
 
@@ -24,7 +24,7 @@ import jakarta.annotation.Generated;
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-17T10:39:41.992579+09:00[Asia/Tokyo]")
 @Validated
 @Tag(name = "chanelInfoBFF", description = "the chanelInfoBFF API")
-@RequestMapping("${openapi.bFF.base-path:}")
+@RequestMapping("api")
 public interface ChanelInfoBFFApi {
 
     /**
@@ -43,13 +43,7 @@ public interface ChanelInfoBFFApi {
             })
         }
     )
-    @RequestMapping(
-        method = RequestMethod.GET,
-        value = "/chanelInfoBFF",
-        produces = { "application/json" }
-    )
+    @GetMapping("/chanelInfoBFF")
     ResponseEntity<List<ChanelInfo>> getChanelInfoBFF(
-        
     );
-
 }
