@@ -7,107 +7,37 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.annotation.Generated;
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.Valid;
 
 /**
- * タレント情報を正常取得
+ * タレントマスタ情報DTO
  */
 
-@Schema(name = "talentInfo", description = "タレント情報を正常取得")
+@Schema(name = "talentInfo", description = "タレントマスタ情報DTO")
 @JsonTypeName("talentInfo")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-22T19:36:04.635850+09:00[Asia/Tokyo]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-24T18:06:47.007705+09:00[Asia/Tokyo]")
 public class TalentInfo {
 
-  @JsonProperty("talentId")
-  private String talentId;
+  @JsonProperty("items")
+  private MTalent items;
 
-  @JsonProperty("talentName")
-  private String talentName;
-
-  @JsonProperty("genreId")
-  private Integer genreId;
-
-  @JsonProperty("genre")
-  private String genre;
-
-  public TalentInfo talentId(String talentId) {
-    this.talentId = talentId;
+  public TalentInfo items(MTalent items) {
+    this.items = items;
     return this;
   }
 
   /**
-   * タレントID
-   * @return talentId
+   * Get items
+   * @return items
   */
-  @Size(max = 8) 
-  @Schema(name = "talentId", description = "タレントID", required = false)
-  public String getTalentId() {
-    return talentId;
+  @Valid 
+  @Schema(name = "items", required = false)
+  public MTalent getItems() {
+    return items;
   }
 
-  public void setTalentId(String talentId) {
-    this.talentId = talentId;
-  }
-
-  public TalentInfo talentName(String talentName) {
-    this.talentName = talentName;
-    return this;
-  }
-
-  /**
-   * タレント名
-   * @return talentName
-  */
-  @Size(max = 30) 
-  @Schema(name = "talentName", description = "タレント名", required = false)
-  public String getTalentName() {
-    return talentName;
-  }
-
-  public void setTalentName(String talentName) {
-    this.talentName = talentName;
-  }
-
-  public TalentInfo genreId(Integer genreId) {
-    this.genreId = genreId;
-    return this;
-  }
-
-  /**
-   * ジャンルID
-   * minimum: 999
-   * maximum: 0
-   * @return genreId
-  */
-  @Min(999) @Max(0) 
-  @Schema(name = "genreId", description = "ジャンルID", required = false)
-  public Integer getGenreId() {
-    return genreId;
-  }
-
-  public void setGenreId(Integer genreId) {
-    this.genreId = genreId;
-  }
-
-  public TalentInfo genre(String genre) {
-    this.genre = genre;
-    return this;
-  }
-
-  /**
-   * ジャンル名
-   * @return genre
-  */
-  @Size(max = 30) 
-  @Schema(name = "genre", description = "ジャンル名", required = false)
-  public String getGenre() {
-    return genre;
-  }
-
-  public void setGenre(String genre) {
-    this.genre = genre;
+  public void setItems(MTalent items) {
+    this.items = items;
   }
 
   @Override
@@ -119,25 +49,19 @@ public class TalentInfo {
       return false;
     }
     TalentInfo talentInfo = (TalentInfo) o;
-    return Objects.equals(this.talentId, talentInfo.talentId) &&
-        Objects.equals(this.talentName, talentInfo.talentName) &&
-        Objects.equals(this.genreId, talentInfo.genreId) &&
-        Objects.equals(this.genre, talentInfo.genre);
+    return Objects.equals(this.items, talentInfo.items);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(talentId, talentName, genreId, genre);
+    return Objects.hash(items);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TalentInfo {\n");
-    sb.append("    talentId: ").append(toIndentedString(talentId)).append("\n");
-    sb.append("    talentName: ").append(toIndentedString(talentName)).append("\n");
-    sb.append("    genreId: ").append(toIndentedString(genreId)).append("\n");
-    sb.append("    genre: ").append(toIndentedString(genre)).append("\n");
+    sb.append("    items: ").append(toIndentedString(items)).append("\n");
     sb.append("}");
     return sb.toString();
   }
