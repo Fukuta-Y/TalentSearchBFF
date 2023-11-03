@@ -7,6 +7,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
 import com.model.ChanelInfo;
+import com.model.ChanelInfoList;
 import com.model.ChanelKyoku;
 import com.model.KbnMasterInfo;
 import com.model.MChanelKyoku;
@@ -31,10 +32,12 @@ public class ChanelInfoBFFService {
      * @param 
      * @return List<ChanelInfo>
      */
-    public List<ChanelInfo> select() {
+    public ChanelInfoList select() {
 
     	// Responseを宣言
-    	List<ChanelInfo> response = new ArrayList<ChanelInfo>();
+    	ChanelInfoList response = new ChanelInfoList();
+    	// Responseに設定するListを宣言
+    	List<ChanelInfo> infoList = new ArrayList<ChanelInfo>();
     	
     	// (1) BE「区分マスタ検索」に対して、ジャンルIDにはパラメータのジャンルID=3を設定して、区分マスタDTOを取得する。
     	String genreId = "3";
@@ -61,9 +64,10 @@ public class ChanelInfoBFFService {
 				}
 			}
 			info.setChanelName(m.getGenre());
-			response.add(info);
+			infoList.add(info);
 		}
         // Responseへ設定
+		response.setChanelInfo(infoList);
         return response;
     }
 }

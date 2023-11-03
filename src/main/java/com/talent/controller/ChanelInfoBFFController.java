@@ -1,11 +1,9 @@
 package com.talent.controller;
-import java.util.List;
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 
 import com.api.ChanelInfoBFFApi;
-import com.model.ChanelInfo;
+import com.model.ChanelInfoList;
 import com.talent.service.ChanelInfoBFFService;
 
 import lombok.RequiredArgsConstructor;
@@ -24,8 +22,8 @@ public class ChanelInfoBFFController implements ChanelInfoBFFApi{
 	  * @return List<ChanelInfo>
 	  * 
 	 */
-	public ResponseEntity<List<ChanelInfo>> getChanelInfoBFF() {
-		List<ChanelInfo> response  = service.select();
+	public ResponseEntity<ChanelInfoList> getChanelInfoBFF() {
+		ChanelInfoList response  = service.select();
 		return ResponseEntity.ok(response);
 	}
 }
