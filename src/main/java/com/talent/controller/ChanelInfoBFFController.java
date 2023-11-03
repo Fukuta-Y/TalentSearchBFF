@@ -20,7 +20,7 @@ public class ChanelInfoBFFController implements ChanelInfoBFFApi{
 	 /**
 	  * チャンネル情報BFFController
 	  *
-	  * @param 
+	  * @param 無
 	  * @return List<ChanelInfo>
 	  * 
 	 */

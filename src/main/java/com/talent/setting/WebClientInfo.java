@@ -5,7 +5,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 
 import com.model.ChanelKyoku;
 import com.model.KbnMasterInfo;
-import com.model.ProgramInfos;
+import com.model.MProgramList;
 import com.model.ProgramShutsuenList;
 import com.model.ShukanTalentJoho;
 import com.model.TalentShukanShutsuenJoho;
@@ -102,13 +102,13 @@ public class WebClientInfo {
      * @param programId　番組ID
      * @return　遷移情報を設定したWebClientの内容を返す
      */
-    public ProgramInfos getProgramInfo(String programId) {
+    public MProgramList getProgramInfo(String programId) {
        return webClient.get()
                .uri(uriBuilder -> uriBuilder
                        .path("/programInfo/{programId}")
                        .build(programId))
                .retrieve()
-               .bodyToMono(ProgramInfos.class).block();
+               .bodyToMono(MProgramList.class).block();
     }
     
     /**

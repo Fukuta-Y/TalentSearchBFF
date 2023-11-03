@@ -27,8 +27,7 @@ paths:
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/programInfo'
+                $ref: '#/components/schemas/programInfo'
   /programTorokuKoshinBFF:
     post:
       tags:
@@ -88,7 +87,7 @@ components:
       properties:
           items:
             $ref: "../../TalentSearchCommon/Tables/mProgram.yaml#/components/schemas/mProgram"
-    programInfos:
+    mProgramList:
       description: 番組マスタ情報DTO
       type: object
       properties:
@@ -97,15 +96,6 @@ components:
           type: array
           items:
             $ref: "../../TalentSearchCommon/Tables/mProgram.yaml#/components/schemas/mProgram"
-    kbnMasterInfos:
-      description:  区分マスタDTO
-      type: object
-      properties:
-        mKbnGenre:
-          description: 区分マスタDTO
-          type: array
-          items:
-            $ref: "../../TalentSearchCommon/Tables/mKbnGenre.yaml#/components/schemas/mKbnGenre"
     chanelKyoku:
       description: チャンネル局マスタ
       type: object
