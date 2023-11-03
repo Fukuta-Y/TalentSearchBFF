@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.model.ChanelInfo;
 import com.model.ChanelKyoku;
-import com.model.KbnMasterInfos;
+import com.model.KbnMasterInfo;
 import com.model.MChanelKyoku;
 import com.model.MKbnGenre;
 import com.talent.setting.WebClientInfo;
@@ -38,7 +38,7 @@ public class ChanelInfoBFFService {
     	
     	// (1) BE「区分マスタ検索」に対して、ジャンルIDにはパラメータのジャンルID=3を設定して、区分マスタDTOを取得する。
     	String genreId = "3";
-    	KbnMasterInfos kbnMasterInfo = this.webClient.getKbnMaster(genreId);
+    	KbnMasterInfo kbnMasterInfo = this.webClient.getKbnMaster(genreId);
     	List<MKbnGenre> mKbnGenreList = kbnMasterInfo.getmKbnGenre();
     	
     	List<String> chanelList = new ArrayList<String>();

@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.model.ChanelKyoku;
-import com.model.KbnMasterInfos;
+import com.model.KbnMasterInfo;
 import com.model.MKbnGenre;
 import com.model.ProgramInfo;
 import com.model.ProgramInfos;
@@ -44,7 +44,7 @@ public class ProgramInfoBFFService {
     	
     	// (2) BE「区分マスタ検索」に対して、ジャンルIDには「1、3」をパラメータにして、区分マスタDTOを取得する。
     	String genreId = "1,3";
-    	KbnMasterInfos kbnMasterInfo = this.webClient.getKbnMaster(genreId);
+    	KbnMasterInfo kbnMasterInfo = this.webClient.getKbnMaster(genreId);
     	List<MKbnGenre> mKbnGenreList = kbnMasterInfo.getmKbnGenre();
     	
         //　区分マスタDTOのリストをチェックする
