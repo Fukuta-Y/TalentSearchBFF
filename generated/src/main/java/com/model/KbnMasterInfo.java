@@ -17,7 +17,7 @@ import jakarta.validation.Valid;
 
 @Schema(name = "kbnMasterInfo", description = "区分マスタ情報")
 @JsonTypeName("kbnMasterInfo")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-22T19:39:46.248812+09:00[Asia/Tokyo]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-03T16:21:52.907860+09:00[Asia/Tokyo]")
 public class KbnMasterInfo {
 
   @JsonProperty("mKbnGenre")

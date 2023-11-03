@@ -15,7 +15,7 @@ import jakarta.validation.Valid;
 
 @Schema(name = "programTorokuKoshinBFF", description = "登録または更新した番組マスタ情報")
 @JsonTypeName("programTorokuKoshinBFF")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-30T23:19:53.687173+09:00[Asia/Tokyo]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-03T16:38:17.040026+09:00[Asia/Tokyo]")
 public class ProgramTorokuKoshinBFF {
 
   @JsonProperty("items")

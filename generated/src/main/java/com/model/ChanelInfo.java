@@ -17,7 +17,7 @@ import jakarta.validation.constraints.Size;
 
 @Schema(name = "chanelInfo", description = "チャンネル情報")
 @JsonTypeName("chanelInfo")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-17T10:39:41.992579+09:00[Asia/Tokyo]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-03T16:53:51.944573+09:00[Asia/Tokyo]")
 public class ChanelInfo {
 
   @JsonProperty("chanelId")

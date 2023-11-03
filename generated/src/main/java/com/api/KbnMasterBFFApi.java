@@ -5,13 +5,11 @@
  */
 package com.api;
 
-import java.util.List;
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.model.KbnMasterInfo;
 
@@ -24,10 +22,10 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.annotation.Generated;
 import jakarta.validation.constraints.Size;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-22T19:39:46.248812+09:00[Asia/Tokyo]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-03T16:21:52.907860+09:00[Asia/Tokyo]")
 @Validated
 @Tag(name = "kbnMasterBFF", description = "the kbnMasterBFF API")
-@RequestMapping("${openapi.bFF.base-path:}")
+@RequestMapping("api")
 public interface KbnMasterBFFApi {
 
     /**
@@ -47,12 +45,8 @@ public interface KbnMasterBFFApi {
             })
         }
     )
-    @RequestMapping(
-        method = RequestMethod.GET,
-        value = "/kbnMasterBFF/{genreIds}",
-        produces = { "application/json" }
-    )
-    ResponseEntity<List<KbnMasterInfo>> getKbnMasterBFF(
+    @GetMapping("/kbnMasterBFF/{genreIds}")
+    ResponseEntity<KbnMasterInfo> getKbnMasterBFF(
         @Size(max = 8) @Parameter(name = "genreIds", description = "", required = true) @PathVariable("genreIds") String genreIds
     );
 

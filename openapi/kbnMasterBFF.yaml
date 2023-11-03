@@ -27,8 +27,7 @@ paths:
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/kbnMasterInfo'      
+                $ref: '#/components/schemas/kbnMasterInfo' 
 components:
   schemas:
     kbnMasterInfo:

@@ -4,8 +4,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
 import com.model.ChanelKyoku;
-import com.model.KbnMasterInfos;
-import com.model.ProgramInfos;
+import com.model.KbnMasterInfo;
+import com.model.MProgramList;
 import com.model.ProgramShutsuenList;
 import com.model.ShukanTalentJoho;
 import com.model.TalentShukanShutsuenJoho;
@@ -102,13 +102,13 @@ public class WebClientInfo {
      * @param programId　番組ID
      * @return　遷移情報を設定したWebClientの内容を返す
      */
-    public ProgramInfos getProgramInfo(String programId) {
+    public MProgramList getProgramInfo(String programId) {
        return webClient.get()
                .uri(uriBuilder -> uriBuilder
                        .path("/programInfo/{programId}")
                        .build(programId))
                .retrieve()
-               .bodyToMono(ProgramInfos.class).block();
+               .bodyToMono(MProgramList.class).block();
     }
     
     /**
@@ -117,13 +117,13 @@ public class WebClientInfo {
      * @param nentsuki　ジャンルID 【複数】
      * @return　遷移情報を設定したWebClientの内容を返す
      */
-    public KbnMasterInfos getKbnMaster(String genreIds) {
+    public KbnMasterInfo getKbnMaster(String genreIds) {
         return this.webClient.get()
                 .uri(uriBuilder -> uriBuilder
                         .path("/kbnMaster/{genreIds}")
                         .build(genreIds))
                 .retrieve()
-                .bodyToMono(KbnMasterInfos.class).block();
+                .bodyToMono(KbnMasterInfo.class).block();
     }
     /**
      * BE「チャンネル局マスタ検索」へ接続の設定

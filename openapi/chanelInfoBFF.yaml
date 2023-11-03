@@ -20,10 +20,18 @@ paths:
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/chanelInfo'      
+                  $ref: '#/components/schemas/chanelInfoList'      
 components:
   schemas:
+    chanelInfoList:
+      description: チャンネル情報
+      type: object
+      properties:
+        chanelInfo:
+          description: チャンネル情報リスト
+          type: array
+          items:
+            $ref: '#/components/schemas/chanelInfo'
     chanelInfo:
       description: チャンネル情報
       type: object

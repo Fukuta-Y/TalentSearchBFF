@@ -5,14 +5,12 @@
  */
 package com.api;
 
-import java.util.List;
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.model.ChanelInfo;
+import com.model.ChanelInfoList;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -21,7 +19,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.annotation.Generated;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-17T10:39:41.992579+09:00[Asia/Tokyo]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-03T16:53:51.944573+09:00[Asia/Tokyo]")
 @Validated
 @Tag(name = "chanelInfoBFF", description = "the chanelInfoBFF API")
 @RequestMapping("api")
@@ -39,11 +37,13 @@ public interface ChanelInfoBFFApi {
         tags = { "chanelInfoBFF" },
         responses = {
             @ApiResponse(responseCode = "200", description = "チャンネル情報を正常取得", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = ChanelInfo.class))
+                @Content(mediaType = "application/json", schema = @Schema(implementation = ChanelInfoList.class))
             })
         }
     )
     @GetMapping("/chanelInfoBFF")
-    ResponseEntity<List<ChanelInfo>> getChanelInfoBFF(
+    ResponseEntity<ChanelInfoList> getChanelInfoBFF(
+        
     );
+
 }
