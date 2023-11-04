@@ -1,5 +1,6 @@
 package com.talent.setting;
 
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
@@ -13,6 +14,8 @@ import com.model.ShukanTalentJoho;
 import com.model.TalentList;
 import com.model.TalentShukanShutsuenJoho;
 import com.model.YearMonthWeekStartEndJoho;
+
+import reactor.core.publisher.Mono;
 
 @Service
 public class WebClientInfo {
@@ -151,9 +154,10 @@ public class WebClientInfo {
     public ProgramTorokuKoshinBFF postProgramTorokuKoshin(MProgram mProgram) {
         return this.webClient.post()
 	    		.uri("/programTorokuKoshin")
-	    		.body(mProgram, MProgram.class)
-	    		.retrieve()
-	    		.bodyToMono(ProgramTorokuKoshinBFF.class).block();
+	    	    .body(Mono.just(mProgram), MProgram.class)
+	    	    .accept(MediaType.APPLICATION_JSON)
+	    	    .retrieve()
+	    	    .bodyToMono(ProgramTorokuKoshinBFF.class).block();
     }
     /**
      * BE「タレントマスタ検索」へ接続の設定

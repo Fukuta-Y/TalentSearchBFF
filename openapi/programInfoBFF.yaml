@@ -47,8 +47,7 @@ paths:
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/programTorokuKoshinBFF'
+               $ref: '#/components/schemas/programTorokuKoshinBFF'
 components:
   schemas:
     programInfo:
