@@ -27,8 +27,6 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                items:
                   $ref: '#/components/schemas/talentInfo'
   /talentTorokuKoshinBFF:
     post:
@@ -74,6 +72,15 @@ components:
           type: string
           maxLength: 30
           description: ジャンル名
+    TalentList:
+      description: タレントマスタDTOの情報
+      type: object
+      properties:
+        mTalent:
+          description: タレントマスタDTO
+          type: array
+          items:
+           $ref: "../../TalentSearchCommon/Tables/mTalent.yaml#/components/schemas/mTalent"
     talentTorokuKoshinBFF:
       description: 登録または更新したタレントマスタ情報
       type: object
