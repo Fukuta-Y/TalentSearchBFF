@@ -144,15 +144,14 @@ public class WebClientInfo {
     /**
      * BE「番組登録・更新」へ接続の設定
      *
-     * @param chanelIds　チャンネルID 【複数】
+     * @param mProgram　番組マスタDTO
      * @return　遷移情報を設定したWebClientの内容を返す
      */
     public ProgramTorokuKoshinBFF postProgramTorokuKoshin(MProgram mProgram) {
-        return this.webClient.get()
-                .uri(uriBuilder -> uriBuilder
-                        .path("/programTorokuKoshin")
-                        .build(mProgram))
-                .retrieve()
-                .bodyToMono(ProgramTorokuKoshinBFF.class).block();
+        return this.webClient.post()
+	    		.uri("/programTorokuKoshin")
+	    		.body(mProgram, MProgram.class)
+	    		.retrieve()
+	    		.bodyToMono(ProgramTorokuKoshinBFF.class).block();
     }
 }

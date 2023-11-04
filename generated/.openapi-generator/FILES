@@ -1,6 +1,11 @@
 README.md
 pom.xml
 src/main/java/com/api/ApiUtil.java
-src/main/java/com/api/ChanelInfoBFFApi.java
-src/main/java/com/model/ChanelInfo.java
-src/main/java/com/model/ChanelInfoList.java
+src/main/java/com/api/ProgramInfoBFFApi.java
+src/main/java/com/api/ProgramTorokuKoshinBFFApi.java
+src/main/java/com/model/ChanelKyoku.java
+src/main/java/com/model/MChanelKyoku.java
+src/main/java/com/model/MProgram.java
+src/main/java/com/model/MProgramList.java
+src/main/java/com/model/ProgramInfo.java
+src/main/java/com/model/ProgramTorokuKoshinBFF.java

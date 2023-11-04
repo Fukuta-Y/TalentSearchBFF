@@ -5,6 +5,8 @@
  */
 package com.api;
 
+import java.util.List;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,7 +25,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-03T16:38:17.040026+09:00[Asia/Tokyo]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-04T16:43:16.584348+09:00[Asia/Tokyo]")
 @Validated
 @Tag(name = "programTorokuKoshinBFF", description = "the programTorokuKoshinBFF API")
 @RequestMapping("api")
@@ -51,8 +53,8 @@ public interface ProgramTorokuKoshinBFFApi {
         value = "/programTorokuKoshinBFF",
         produces = { "application/json" },
         consumes = { "application/json" }
-        )
-    ResponseEntity<ProgramTorokuKoshinBFF> postProgramTorokuKoshinBFF(
+    )
+    ResponseEntity<List<ProgramTorokuKoshinBFF>> postProgramTorokuKoshinBFF(
         @Parameter(name = "MProgram", description = "番組情報を登録または更新するBFF") @Valid @RequestBody(required = false) MProgram mprogram
     );
 
