@@ -85,6 +85,9 @@ components:
       description: 登録または更新した番組マスタ情報
       type: object
       properties:
+        mProgram:
+          description: 番組マスタDTO
+          type: array
           items:
             $ref: "../../TalentSearchCommon/Tables/mProgram.yaml#/components/schemas/mProgram"
     mProgramList:

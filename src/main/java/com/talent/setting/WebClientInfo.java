@@ -5,9 +5,12 @@ import org.springframework.web.reactive.function.client.WebClient;
 
 import com.model.ChanelKyoku;
 import com.model.KbnMasterInfo;
+import com.model.MProgram;
 import com.model.MProgramList;
 import com.model.ProgramShutsuenList;
+import com.model.ProgramTorokuKoshinBFF;
 import com.model.ShukanTalentJoho;
+import com.model.TalentList;
 import com.model.TalentShukanShutsuenJoho;
 import com.model.YearMonthWeekStartEndJoho;
 
@@ -138,5 +141,32 @@ public class WebClientInfo {
                         .build(chanelIds))
                 .retrieve()
                 .bodyToMono(ChanelKyoku.class).block();
+    }
+    /**
+     * BE「番組登録・更新」へ接続の設定
+     *
+     * @param mProgram　番組マスタDTO
+     * @return　遷移情報を設定したWebClientの内容を返す
+     */
+    public ProgramTorokuKoshinBFF postProgramTorokuKoshin(MProgram mProgram) {
+        return this.webClient.post()
+	    		.uri("/programTorokuKoshin")
+	    		.body(mProgram, MProgram.class)
+	    		.retrieve()
+	    		.bodyToMono(ProgramTorokuKoshinBFF.class).block();
+    }
+    /**
+     * BE「タレントマスタ検索」へ接続の設定
+     *
+     * @param talentId　タレントID
+     * @return　遷移情報を設定したWebClientの内容を返す
+     */
+    public TalentList getTalentMaster(String talentId) {
+        return this.webClient.get()
+                .uri(uriBuilder -> uriBuilder
+                        .path("/talentMaster/{talentId}")
+                        .build(talentId))
+                .retrieve()
+                .bodyToMono(TalentList.class).block();
     }
 }

@@ -2,6 +2,7 @@ package com.talent.service;
 
 import java.util.List;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
 import com.model.ChanelKyoku;
@@ -51,13 +52,13 @@ public class ProgramInfoBFFService {
 		for (MKbnGenre e : mKbnGenreList) {
 			// (3) ジャンル名を取得
 			//⇒　ジャンルIDには「1」と(1)で取得した「ジャンルID」を「順序」として紐づけて、レスポンス「ジャンル名」へ、列「ジャンル」を取得して、設定する。
-			if(e.getGenreId() == 1 && e.getJyunjyo().compareTo(prmList.getmProgram().get(0).getGenreId()) == 0 ) {
+			if(StringUtils.equals(e.getGenreId().toString(), "1") && e.getJyunjyo().compareTo(prmList.getmProgram().get(0).getGenreId()) == 0 ) {
 				// ジャンル名
 				response.setGenre(e.getGenre());
 			}
 			// (4) チャンネル名を取得（チャンネル局IDも取得する）
 			//⇒　ジャンルIDには「3」と(1)で取得した「チャンネルID」を「順序」として紐づけて、レスポンス「ジャンル名」へ、列「ジャンル」を取得して、設定する。
-			if(e.getGenreId() == 3 && e.getJyunjyo().compareTo(prmList.getmProgram().get(0).getChanelId()) == 0 ) {
+			if(StringUtils.equals(e.getGenreId().toString(), "3") && e.getJyunjyo().compareTo(prmList.getmProgram().get(0).getChanelId()) == 0 ) {
 				// チャンネル名
 				response.setChanelName(e.getGenre());
 				//　順序をキーとして、BE「チャンネル局マスタ検索」よりチャンネル局IDを取得する。
