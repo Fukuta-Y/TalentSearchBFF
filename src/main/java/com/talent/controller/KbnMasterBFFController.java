@@ -15,13 +15,13 @@ public class KbnMasterBFFController implements KbnMasterBFFApi{
 	// KbnMasterBFFServiceを宣言
 	private final KbnMasterBFFService service;
 	
-	 /**
-	  * 区分マスタBFFController
-	  *
-	  * @param genreIds ジャンルID
-	  * @return KbnMasterInfo
-	  * 
-	 */
+	/**
+	 * 区分マスタBFFController
+	 *
+	 * @param genreIds ジャンルID
+	 * @return KbnMasterInfo
+	 * 
+	*/
 	public ResponseEntity<KbnMasterInfo> getKbnMasterBFF(String genreIds) {
 		return ResponseEntity.ok(service.select(genreIds));
 	}

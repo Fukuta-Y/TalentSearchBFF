@@ -47,8 +47,7 @@ paths:
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/talentTorokuKoshinBFF'
+                $ref: '#/components/schemas/talentTorokuKoshinBFF'
 components:
   schemas:
     talentInfo:
@@ -85,5 +84,8 @@ components:
       description: 登録または更新したタレントマスタ情報
       type: object
       properties:
-        items:
-          $ref: "../../TalentSearchCommon/Tables/mTalent.yaml#/components/schemas/mTalent"
+        mTalent:
+          description: タレントマスタDTO
+          type: array
+          items:
+            $ref: "../../TalentSearchCommon/Tables/mTalent.yaml#/components/schemas/mTalent"

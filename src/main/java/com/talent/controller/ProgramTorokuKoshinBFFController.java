@@ -16,13 +16,13 @@ public class ProgramTorokuKoshinBFFController implements ProgramTorokuKoshinBFFA
 	// ProgramTorokuKoshinBFFServiceを宣言
 	private final ProgramTorokuKoshinBFFService service;
 
-	 /**
-	  * 番組登録・更新BFFController
-	  *
-	  * @param mprogram 番組マスタDTO
-	  * @return ProgramTorokuKoshinBFF
-	  * 
-	 */
+	/**
+	 * 番組登録・更新BFFController
+	 *
+	 * @param mProgram 番組マスタDTO
+	 * @return ProgramTorokuKoshinBFF
+	 * 
+	*/
 	@Override
 	public ResponseEntity<ProgramTorokuKoshinBFF> postProgramTorokuKoshinBFF(MProgram mProgram) {
 		ProgramTorokuKoshinBFF response  = service.post(mProgram);

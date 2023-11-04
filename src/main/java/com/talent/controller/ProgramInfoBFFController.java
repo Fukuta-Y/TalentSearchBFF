@@ -15,13 +15,13 @@ public class ProgramInfoBFFController implements ProgramInfoBFFApi{
 	// ProgramInfoBFFServiceを宣言
     private final ProgramInfoBFFService service;
 
-	 /**
-	  * 番組情報BFFController
-	  *
-	  * @param programId 番組ID
-	  * @return ProgramInfo
-	  * 
-	 */
+	/**
+	 * 番組情報BFFController
+	 *
+	 * @param programId 番組ID
+	 * @return ProgramInfo
+	 * 
+	*/
 	@Override
 	public ResponseEntity<ProgramInfo> getProgramInfoBFF(String programId) {
 		ProgramInfo response  = service.select(programId);
