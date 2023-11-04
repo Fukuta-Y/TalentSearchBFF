@@ -5,8 +5,6 @@
  */
 package com.api;
 
-import java.util.List;
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -54,7 +52,7 @@ public interface ProgramTorokuKoshinBFFApi {
         produces = { "application/json" },
         consumes = { "application/json" }
     )
-    ResponseEntity<List<ProgramTorokuKoshinBFF>> postProgramTorokuKoshinBFF(
+    ResponseEntity<ProgramTorokuKoshinBFF> postProgramTorokuKoshinBFF(
         @Parameter(name = "MProgram", description = "番組情報を登録または更新するBFF") @Valid @RequestBody(required = false) MProgram mprogram
     );
 

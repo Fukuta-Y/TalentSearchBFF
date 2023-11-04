@@ -1,5 +1,7 @@
 package com.model;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -15,29 +17,38 @@ import jakarta.validation.Valid;
 
 @Schema(name = "talentTorokuKoshinBFF", description = "登録または更新したタレントマスタ情報")
 @JsonTypeName("talentTorokuKoshinBFF")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-22T19:36:04.635850+09:00[Asia/Tokyo]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-04T23:34:19.826482+09:00[Asia/Tokyo]")
 public class TalentTorokuKoshinBFF {
 
-  @JsonProperty("items")
-  private MTalent items;
+  @JsonProperty("mTalent")
+  @Valid
+  private List<MTalent> mTalent = null;
 
-  public TalentTorokuKoshinBFF items(MTalent items) {
-    this.items = items;
+  public TalentTorokuKoshinBFF mTalent(List<MTalent> mTalent) {
+    this.mTalent = mTalent;
+    return this;
+  }
+
+  public TalentTorokuKoshinBFF addMTalentItem(MTalent mTalentItem) {
+    if (this.mTalent == null) {
+      this.mTalent = new ArrayList<>();
+    }
+    this.mTalent.add(mTalentItem);
     return this;
   }
 
   /**
-   * Get items
-   * @return items
+   * タレントマスタDTO
+   * @return mTalent
   */
   @Valid 
-  @Schema(name = "items", required = false)
-  public MTalent getItems() {
-    return items;
+  @Schema(name = "mTalent", description = "タレントマスタDTO", required = false)
+  public List<MTalent> getmTalent() {
+    return mTalent;
   }
 
-  public void setItems(MTalent items) {
-    this.items = items;
+  public void setmTalent(List<MTalent> mTalent) {
+    this.mTalent = mTalent;
   }
 
   @Override
@@ -49,19 +60,19 @@ public class TalentTorokuKoshinBFF {
       return false;
     }
     TalentTorokuKoshinBFF talentTorokuKoshinBFF = (TalentTorokuKoshinBFF) o;
-    return Objects.equals(this.items, talentTorokuKoshinBFF.items);
+    return Objects.equals(this.mTalent, talentTorokuKoshinBFF.mTalent);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(items);
+    return Objects.hash(mTalent);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TalentTorokuKoshinBFF {\n");
-    sb.append("    items: ").append(toIndentedString(items)).append("\n");
+    sb.append("    mTalent: ").append(toIndentedString(mTalent)).append("\n");
     sb.append("}");
     return sb.toString();
   }

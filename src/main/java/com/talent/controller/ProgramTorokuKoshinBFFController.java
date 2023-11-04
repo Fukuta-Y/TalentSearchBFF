@@ -1,6 +1,4 @@
 package com.talent.controller;
-import java.util.List;
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 
@@ -18,16 +16,16 @@ public class ProgramTorokuKoshinBFFController implements ProgramTorokuKoshinBFFA
 	// ProgramTorokuKoshinBFFServiceを宣言
 	private final ProgramTorokuKoshinBFFService service;
 
-	 /**
-	  * 番組登録・更新BFFController
-	  *
-	  * @param mprogram 番組マスタDTO
-	  * @return ProgramTorokuKoshinBFF
-	  * 
-	 */
+	/**
+	 * 番組登録・更新BFFController
+	 *
+	 * @param mProgram 番組マスタDTO
+	 * @return ProgramTorokuKoshinBFF
+	 * 
+	*/
 	@Override
-	public ResponseEntity<List<ProgramTorokuKoshinBFF>> postProgramTorokuKoshinBFF(MProgram mprogram) {
-		List<ProgramTorokuKoshinBFF> response  = service.post(mprogram);
+	public ResponseEntity<ProgramTorokuKoshinBFF> postProgramTorokuKoshinBFF(MProgram mProgram) {
+		ProgramTorokuKoshinBFF response  = service.post(mProgram);
 		return ResponseEntity.ok(response);
 	}
 }

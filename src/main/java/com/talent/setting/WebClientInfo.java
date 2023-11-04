@@ -1,5 +1,6 @@
 package com.talent.setting;
 
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
@@ -7,12 +8,16 @@ import com.model.ChanelKyoku;
 import com.model.KbnMasterInfo;
 import com.model.MProgram;
 import com.model.MProgramList;
+import com.model.MTalent;
 import com.model.ProgramShutsuenList;
 import com.model.ProgramTorokuKoshinBFF;
 import com.model.ShukanTalentJoho;
 import com.model.TalentList;
 import com.model.TalentShukanShutsuenJoho;
+import com.model.TalentTorokuKoshinBFF;
 import com.model.YearMonthWeekStartEndJoho;
+
+import reactor.core.publisher.Mono;
 
 @Service
 public class WebClientInfo {
@@ -151,9 +156,10 @@ public class WebClientInfo {
     public ProgramTorokuKoshinBFF postProgramTorokuKoshin(MProgram mProgram) {
         return this.webClient.post()
 	    		.uri("/programTorokuKoshin")
-	    		.body(mProgram, MProgram.class)
-	    		.retrieve()
-	    		.bodyToMono(ProgramTorokuKoshinBFF.class).block();
+	    	    .body(Mono.just(mProgram), MProgram.class)
+	    	    .accept(MediaType.APPLICATION_JSON)
+	    	    .retrieve()
+	    	    .bodyToMono(ProgramTorokuKoshinBFF.class).block();
     }
     /**
      * BE「タレントマスタ検索」へ接続の設定
@@ -168,5 +174,19 @@ public class WebClientInfo {
                         .build(talentId))
                 .retrieve()
                 .bodyToMono(TalentList.class).block();
+    }
+    /**
+     * BE「タレント登録・更新」へ接続の設定
+     *
+     * @param mTalent タレントマスタDTO
+     * @return　遷移情報を設定したWebClientの内容を返す
+     */
+    public TalentTorokuKoshinBFF postTalentTorokuKoshin(MTalent mTalent) {
+        return this.webClient.post()
+	    		.uri("/talentTorokuKoshin")
+	    	    .body(Mono.just(mTalent), MTalent.class)
+	    	    .accept(MediaType.APPLICATION_JSON)
+	    	    .retrieve()
+	    	    .bodyToMono(TalentTorokuKoshinBFF.class).block();
     }
 }

@@ -1,8 +1,5 @@
 package com.talent.service;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.springframework.stereotype.Service;
 
 import com.model.MProgram;
@@ -24,19 +21,12 @@ public class ProgramTorokuKoshinBFFService {
     /**
      * 番組登録・更新BFF Service
      *
-     * @param programId 番組ID
-     * @return List<ProgramShutsuenBFF>
+     * @param mProgram　番組マスタDTO
+     * @return ProgramTorokuKoshinBFF
      */
-    public List<ProgramTorokuKoshinBFF> post(MProgram mProgram) {
-
-    	// reponseを宣言
-    	List<ProgramTorokuKoshinBFF> response = new ArrayList<ProgramTorokuKoshinBFF>();
-    	
+    public ProgramTorokuKoshinBFF post(MProgram mProgram) {
     	// (1) BE「番組登録・更新」を呼び出す。
-    	System.err.println("実行前");
-    	ProgramTorokuKoshinBFF parameter = this.webClient.postProgramTorokuKoshin(mProgram);
-    	response.add(parameter);
-
+    	ProgramTorokuKoshinBFF response = this.webClient.postProgramTorokuKoshin(mProgram);
         // Responseへ設定
         return response;
     }
