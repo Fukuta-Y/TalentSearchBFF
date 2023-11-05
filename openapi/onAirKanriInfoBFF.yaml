@@ -7,22 +7,28 @@ servers:
   - url: https://localhost:8081
     description: オンエア管理情報BFF
 paths:
-  /onAirKanriInfoBFF:
+  /onAirKanriInfoBFF/{id}:
     get:
       tags:
         - onAirKanriInfoBFF
       operationId: getOnAirKanriInfoBFF
       summary: オンエア管理情報を取得するBFF
       description: オンエア管理情報を取得するBFF
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+            maxLength: 8
       responses:
         '200':
           description: オンエア管理情報を正常取得
           content:
             application/json:
               schema:
-                type: object
-                items:
-                  $ref: '#/components/schemas/tOnAirKanriInfo'
+                $ref: '#/components/schemas/onAirKanriList'
+  /onAirKanriInfoBFF:
     post:
       tags:
         - onAirKanriInfoBFF
@@ -34,20 +40,22 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/tOnAirKanriInfo'
+              $ref: "../../TalentSearchCommon/Tables/tOnAirKanri.yaml#/components/schemas/tOnAirKanri"
       responses:
         '200':
           description: 登録または更新したオンエア管理情報
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/tOnAirKanriInfo'
+                $ref: '#/components/schemas/onAirKanriList'
 components:
   schemas:
-    tOnAirKanriInfo:
-      description: オンエア管理テーブル情報
+     onAirKanriList:
+      description: オンエア管理テーブルDTOの情報
       type: object
       properties:
-        items:
-          $ref: "../../TalentSearchCommon/Tables/tOnAirKanri.yaml#/components/schemas/tOnAirKanri"
+        tOnAirKanri:
+          description: オンエア管理テーブルDTO
+          type: array
+          items:
+            $ref: "../../TalentSearchCommon/Tables/tOnAirKanri.yaml#/components/schemas/tOnAirKanri"

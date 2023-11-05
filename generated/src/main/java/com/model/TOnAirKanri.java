@@ -19,7 +19,7 @@ import jakarta.validation.constraints.Size;
 
 @Schema(name = "tOnAirKanri", description = "オンエア管理テーブル情報（全列）")
 @JsonTypeName("tOnAirKanri")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-24T18:08:56.954362+09:00[Asia/Tokyo]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-05T15:27:12.034337+09:00[Asia/Tokyo]")
 public class TOnAirKanri {
 
   @JsonProperty("id")
@@ -34,11 +34,11 @@ public class TOnAirKanri {
   @JsonProperty("talentId")
   private String talentId;
 
-  @JsonProperty("targetNentsuki")
-  private Integer targetNentsuki;
+  @JsonProperty("nentsuki")
+  private Integer nentsuki;
 
-  @JsonProperty("targetShu")
-  private Integer targetShu;
+  @JsonProperty("shu")
+  private Integer shu;
 
   @JsonProperty("deleteFlg")
   private Integer deleteFlg;
@@ -125,8 +125,8 @@ public class TOnAirKanri {
     this.talentId = talentId;
   }
 
-  public TOnAirKanri targetNentsuki(Integer targetNentsuki) {
-    this.targetNentsuki = targetNentsuki;
+  public TOnAirKanri nentsuki(Integer nentsuki) {
+    this.nentsuki = nentsuki;
     return this;
   }
 
@@ -134,20 +134,20 @@ public class TOnAirKanri {
    * 対象年月
    * minimum: 1990
    * maximum: 2100
-   * @return targetNentsuki
+   * @return nentsuki
   */
   @Min(1990) @Max(2100) 
-  @Schema(name = "targetNentsuki", description = "対象年月", required = false)
-  public Integer getTargetNentsuki() {
-    return targetNentsuki;
+  @Schema(name = "nentsuki", description = "対象年月", required = false)
+  public Integer getNentsuki() {
+    return nentsuki;
   }
 
-  public void setTargetNentsuki(Integer targetNentsuki) {
-    this.targetNentsuki = targetNentsuki;
+  public void setNentsuki(Integer nentsuki) {
+    this.nentsuki = nentsuki;
   }
 
-  public TOnAirKanri targetShu(Integer targetShu) {
-    this.targetShu = targetShu;
+  public TOnAirKanri shu(Integer shu) {
+    this.shu = shu;
     return this;
   }
 
@@ -155,16 +155,16 @@ public class TOnAirKanri {
    * 対象週
    * minimum: 1
    * maximum: 5
-   * @return targetShu
+   * @return shu
   */
   @Min(1) @Max(5) 
-  @Schema(name = "targetShu", description = "対象週", required = false)
-  public Integer getTargetShu() {
-    return targetShu;
+  @Schema(name = "shu", description = "対象週", required = false)
+  public Integer getShu() {
+    return shu;
   }
 
-  public void setTargetShu(Integer targetShu) {
-    this.targetShu = targetShu;
+  public void setShu(Integer shu) {
+    this.shu = shu;
   }
 
   public TOnAirKanri deleteFlg(Integer deleteFlg) {
@@ -239,8 +239,8 @@ public class TOnAirKanri {
         Objects.equals(this.onAirDay, tOnAirKanri.onAirDay) &&
         Objects.equals(this.programId, tOnAirKanri.programId) &&
         Objects.equals(this.talentId, tOnAirKanri.talentId) &&
-        Objects.equals(this.targetNentsuki, tOnAirKanri.targetNentsuki) &&
-        Objects.equals(this.targetShu, tOnAirKanri.targetShu) &&
+        Objects.equals(this.nentsuki, tOnAirKanri.nentsuki) &&
+        Objects.equals(this.shu, tOnAirKanri.shu) &&
         Objects.equals(this.deleteFlg, tOnAirKanri.deleteFlg) &&
         Objects.equals(this.torokuDay, tOnAirKanri.torokuDay) &&
         Objects.equals(this.koushinDay, tOnAirKanri.koushinDay);
@@ -248,7 +248,7 @@ public class TOnAirKanri {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, onAirDay, programId, talentId, targetNentsuki, targetShu, deleteFlg, torokuDay, koushinDay);
+    return Objects.hash(id, onAirDay, programId, talentId, nentsuki, shu, deleteFlg, torokuDay, koushinDay);
   }
 
   @Override
@@ -259,8 +259,8 @@ public class TOnAirKanri {
     sb.append("    onAirDay: ").append(toIndentedString(onAirDay)).append("\n");
     sb.append("    programId: ").append(toIndentedString(programId)).append("\n");
     sb.append("    talentId: ").append(toIndentedString(talentId)).append("\n");
-    sb.append("    targetNentsuki: ").append(toIndentedString(targetNentsuki)).append("\n");
-    sb.append("    targetShu: ").append(toIndentedString(targetShu)).append("\n");
+    sb.append("    nentsuki: ").append(toIndentedString(nentsuki)).append("\n");
+    sb.append("    shu: ").append(toIndentedString(shu)).append("\n");
     sb.append("    deleteFlg: ").append(toIndentedString(deleteFlg)).append("\n");
     sb.append("    torokuDay: ").append(toIndentedString(torokuDay)).append("\n");
     sb.append("    koushinDay: ").append(toIndentedString(koushinDay)).append("\n");
