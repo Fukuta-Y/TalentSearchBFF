@@ -24,7 +24,8 @@ public class ProgramInfoBFFController implements ProgramInfoBFFApi{
 	*/
 	@Override
 	public ResponseEntity<ProgramInfo> getProgramInfoBFF(String programId) {
-		ProgramInfo response  = service.select(programId);
+		// ProgramInfoBFFServiceより取得
+		ProgramInfo response  = service.getProgramInfo(programId);
 		return ResponseEntity.ok(response);
 	}
 }

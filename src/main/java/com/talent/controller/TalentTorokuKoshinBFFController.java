@@ -25,7 +25,8 @@ public class TalentTorokuKoshinBFFController implements TalentTorokuKoshinBFFApi
 	 */
 	@Override
 	public ResponseEntity<TalentTorokuKoshinBFF> postTalentTorokuKoshinBFF(MTalent mTalent) {
-		TalentTorokuKoshinBFF response  = service.post(mTalent);
+		// TalentTorokuKoshinBFFServiceより取得
+		TalentTorokuKoshinBFF response  = service.postTalentTorokuKoshinBFF(mTalent);
 		return ResponseEntity.ok(response);
 	}
 }

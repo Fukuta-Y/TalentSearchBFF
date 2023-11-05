@@ -132,11 +132,11 @@ public class TOnAirKanri {
 
   /**
    * 対象年月
-   * minimum: 1990
-   * maximum: 2100
+   * minimum: 199001
+   * maximum: 210012
    * @return nentsuki
   */
-  @Min(1990) @Max(2100) 
+  @Min(199001) @Max(210012) 
   @Schema(name = "nentsuki", description = "対象年月", required = false)
   public Integer getNentsuki() {
     return nentsuki;

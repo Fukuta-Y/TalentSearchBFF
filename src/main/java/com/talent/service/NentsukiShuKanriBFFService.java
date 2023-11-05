@@ -24,7 +24,7 @@ public class NentsukiShuKanriBFFService {
      * @param MNentsukiShuKanri　年月週管理マスタDTO
      * @return NentsukiShuKanriBFF
      */
-    public NentsukiShuKanriBFF post(MNentsukiShuKanri mNentsukiShuKanri) {
+    public NentsukiShuKanriBFF postNentsukiShuKanriBFF(MNentsukiShuKanri mNentsukiShuKanri) {
     	// (1) BE「年月週管理登録・更新」を呼び出す。
     	NentsukiShuKanriBFF response = this.webClient.postNentsukiShuKanri(mNentsukiShuKanri);
         // Responseへ設定
@@ -37,7 +37,7 @@ public class NentsukiShuKanriBFFService {
      * @param　無
      * @return NentsukiShuKanriBFF
      */
-    public NentsukiShuKanriBFF select() {
+    public NentsukiShuKanriBFF getNentsukiShuKanriBFF() {
     	// (1) BE「年月週管理登録・更新」を呼び出す。
     	NentsukiShuKanriBFF response = this.webClient.getNentsukiShuKanri();
         // Responseへ設定
