@@ -6,9 +6,12 @@ import org.springframework.web.reactive.function.client.WebClient;
 
 import com.model.ChanelKyoku;
 import com.model.KbnMasterInfo;
+import com.model.MNentsukiShuKanri;
 import com.model.MProgram;
 import com.model.MProgramList;
 import com.model.MTalent;
+import com.model.NentsukiShuKanriBFF;
+import com.model.OnAirKanriList;
 import com.model.ProgramShutsuenList;
 import com.model.ProgramTorokuKoshinBFF;
 import com.model.ShukanTalentJoho;
@@ -188,5 +191,47 @@ public class WebClientInfo {
 	    	    .accept(MediaType.APPLICATION_JSON)
 	    	    .retrieve()
 	    	    .bodyToMono(TalentTorokuKoshinBFF.class).block();
+    }
+    /**
+     * BE「年月週管理登録・更新」へ接続の設定
+     *
+     * @param mNentsukiShuKanri 年月週管理マスタDTO
+     * @return　遷移情報を設定したWebClientの内容を返す
+     */
+    public NentsukiShuKanriBFF postNentsukiShuKanri(MNentsukiShuKanri mNentsukiShuKanri) {
+        return this.webClient.post()
+	    		.uri("/nentsukiShuKanri")
+	    	    .body(Mono.just(mNentsukiShuKanri), MNentsukiShuKanri.class)
+	    	    .accept(MediaType.APPLICATION_JSON)
+	    	    .retrieve()
+	    	    .bodyToMono(NentsukiShuKanriBFF.class).block();
+    }
+    /**
+     * BE「オンエア管理テーブル検索」へ接続の設定
+     *
+     * @param id ID
+     * @return　遷移情報を設定したWebClientの内容を返す
+     */
+    public OnAirKanriList getOnAirKanri(String id) {
+        return this.webClient.get()
+                .uri(uriBuilder -> uriBuilder
+                        .path("/onAirKanri/{id}")
+                        .build(id))
+                .retrieve()
+                .bodyToMono(OnAirKanriList.class).block();
+    }
+    /**
+     * BE「年月週管理マスタ検索」へ接続の設定
+     *
+     * @param 無
+     * @return　遷移情報を設定したWebClientの内容を返す
+     */
+    public NentsukiShuKanriBFF getNentsukiShuKanri() {
+        return this.webClient.get()
+                .uri(uriBuilder -> uriBuilder
+                        .path("/nentsukiShuKanri")
+                        .build())
+                .retrieve()
+                .bodyToMono(NentsukiShuKanriBFF.class).block();
     }
 }

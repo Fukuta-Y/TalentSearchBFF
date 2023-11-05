@@ -1,13 +1,26 @@
 openapi: 3.0.0
 info:
   title: 年月週管理登録・更新BFF
-  description: 年月週管理マスタ情報を登録または更新するBFF
+  description: 年月週管理マスタ情報を検索または登録または更新するBFF
   version: 1.0.0
 servers:
   - url: https://localhost:8081
-    description: 年月週管理マスタ情報を登録または更新するBFF
+    description: 年月週管理マスタ情報を検索または登録または更新するBFF
 paths:
   /nentsukiShuKanriBFF:
+    get:
+      tags:
+        - nentsukiShuKanriBFF
+      operationId: getNentsukiShuKanriBFF
+      summary: 年月週管理マスタを返すBFF
+      description: 年月週管理マスタ情報を返すBFF
+      responses:
+        '200':
+          description: 年月週管理マスタDTOの情報
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/nentsukiShuKanriBFF'
     post:
       tags:
         - nentsukiShuKanriBFF
@@ -26,13 +39,15 @@ paths:
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/nentsukiShuKanriBFF'
+                $ref: '#/components/schemas/nentsukiShuKanriBFF'
 components:
   schemas:
     nentsukiShuKanriBFF:
       description: 登録または更新した年月週管理マスタDTOの情報
       type: object
       properties:
+        mNentsukiShuKanri:
+          description: 年月週管理マスタDTO
+          type: array
           items:
             $ref: "../../TalentSearchCommon/Tables/mNentsukiShuKanri.yaml#/components/schemas/mNentsukiShuKanri"

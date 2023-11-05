@@ -13,7 +13,7 @@ import com.talent.setting.WebClientInfo;
 import lombok.RequiredArgsConstructor;
 
 /**
- * 番組出演者検索BFF Service
+ * 番組出演者検索BFFService
  */
 @Service
 @RequiredArgsConstructor

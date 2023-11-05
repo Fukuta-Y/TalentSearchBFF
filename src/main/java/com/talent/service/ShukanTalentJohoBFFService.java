@@ -26,7 +26,7 @@ import com.talent.setting.WebClientInfo;
 import lombok.RequiredArgsConstructor;
 
 /**
- * 週間タレント別情報検索 Service
+ * 週間タレント別情報検索Service
  */
 @Service
 @RequiredArgsConstructor

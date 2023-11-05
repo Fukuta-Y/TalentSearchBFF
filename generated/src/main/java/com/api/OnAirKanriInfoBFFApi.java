@@ -5,15 +5,16 @@
  */
 package com.api;
 
-import java.util.List;
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.model.TOnAirKanriInfo;
+import com.model.OnAirKanriList;
+import com.model.TOnAirKanri;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -23,17 +24,19 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.Size;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-22T19:49:56.617209+09:00[Asia/Tokyo]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-05T15:27:12.034337+09:00[Asia/Tokyo]")
 @Validated
 @Tag(name = "onAirKanriInfoBFF", description = "the onAirKanriInfoBFF API")
-@RequestMapping("${openapi.bFF.base-path:}")
+@RequestMapping("api")
 public interface OnAirKanriInfoBFFApi {
 
     /**
-     * GET /onAirKanriInfoBFF : オンエア管理情報を取得するBFF
+     * GET /onAirKanriInfoBFF/{id} : オンエア管理情報を取得するBFF
      * オンエア管理情報を取得するBFF
      *
+     * @param id  (required)
      * @return オンエア管理情報を正常取得 (status code 200)
      */
     @Operation(
@@ -42,17 +45,13 @@ public interface OnAirKanriInfoBFFApi {
         tags = { "onAirKanriInfoBFF" },
         responses = {
             @ApiResponse(responseCode = "200", description = "オンエア管理情報を正常取得", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = TOnAirKanriInfo.class))
+                @Content(mediaType = "application/json", schema = @Schema(implementation = OnAirKanriList.class))
             })
         }
     )
-    @RequestMapping(
-        method = RequestMethod.GET,
-        value = "/onAirKanriInfoBFF",
-        produces = { "application/json" }
-    )
-    ResponseEntity<List<TOnAirKanriInfo>> getOnAirKanriInfoBFF(
-        
+    @GetMapping("/onAirKanriInfoBFF/{id}")
+    ResponseEntity<OnAirKanriList> getOnAirKanriInfoBFF(
+        @Size(max = 8) @Parameter(name = "id", description = "", required = true) @PathVariable("id") String id
     );
 
 
@@ -60,7 +59,7 @@ public interface OnAirKanriInfoBFFApi {
      * POST /onAirKanriInfoBFF : オンエア管理情報を登録または更新するBFF
      * オンエア管理情報を登録または更新するBFF
      *
-     * @param tonAirKanriInfo オンエア管理情報を登録または更新するBFF (optional)
+     * @param tonAirKanri オンエア管理情報を登録または更新するBFF (optional)
      * @return 登録または更新したオンエア管理情報 (status code 200)
      */
     @Operation(
@@ -69,7 +68,7 @@ public interface OnAirKanriInfoBFFApi {
         tags = { "onAirKanriInfoBFF" },
         responses = {
             @ApiResponse(responseCode = "200", description = "登録または更新したオンエア管理情報", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = TOnAirKanriInfo.class))
+                @Content(mediaType = "application/json", schema = @Schema(implementation = OnAirKanriList.class))
             })
         }
     )
@@ -79,8 +78,8 @@ public interface OnAirKanriInfoBFFApi {
         produces = { "application/json" },
         consumes = { "application/json" }
     )
-    ResponseEntity<List<TOnAirKanriInfo>> postOnAirKanriInfoBFF(
-        @Parameter(name = "TOnAirKanriInfo", description = "オンエア管理情報を登録または更新するBFF") @Valid @RequestBody(required = false) TOnAirKanriInfo tonAirKanriInfo
+    ResponseEntity<OnAirKanriList> postOnAirKanriInfoBFF(
+        @Parameter(name = "TOnAirKanri", description = "オンエア管理情報を登録または更新するBFF") @Valid @RequestBody(required = false) TOnAirKanri tonAirKanri
     );
 
 }

@@ -11,7 +11,7 @@ import com.talent.setting.WebClientInfo;
 import lombok.RequiredArgsConstructor;
 
 /**
- * 区分マスタBFF Service
+ * 区分マスタBFFService
  */
 @Service
 @RequiredArgsConstructor

@@ -9,7 +9,7 @@ import com.talent.setting.WebClientInfo;
 import lombok.RequiredArgsConstructor;
 
 /**
- * 番組登録・更新BFF Service
+ * 番組登録・更新BFFService
  */
 @Service
 @RequiredArgsConstructor
@@ -19,7 +19,7 @@ public class ProgramTorokuKoshinBFFService {
     private final WebClientInfo webClient;
 
     /**
-     * 番組登録・更新BFF Service
+     * 番組登録・更新BFFService
      *
      * @param mProgram　番組マスタDTO
      * @return ProgramTorokuKoshinBFF
