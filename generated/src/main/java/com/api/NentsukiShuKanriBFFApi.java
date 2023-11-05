@@ -5,8 +5,6 @@
  */
 package com.api;
 
-import java.util.List;
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -25,7 +23,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-22T19:55:15.998116+09:00[Asia/Tokyo]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-05T13:58:17.544014+09:00[Asia/Tokyo]")
 @Validated
 @Tag(name = "nentsukiShuKanriBFF", description = "the nentsukiShuKanriBFF API")
 @RequestMapping("${openapi.bFF.base-path:}")
@@ -54,7 +52,7 @@ public interface NentsukiShuKanriBFFApi {
         produces = { "application/json" },
         consumes = { "application/json" }
     )
-    ResponseEntity<List<NentsukiShuKanriBFF>> postProgramTorokuKoshinBFF(
+    ResponseEntity<NentsukiShuKanriBFF> postProgramTorokuKoshinBFF(
         @Parameter(name = "MNentsukiShuKanri", description = "年月週管理マスタ情報を登録または更新するBFF") @Valid @RequestBody(required = false) MNentsukiShuKanri mnentsukiShuKanri
     );
 

@@ -43,8 +43,8 @@ public interface ShukanTalentJohoBffHelper {
     @Mapping(source = "honsu", target = "shukanShutsuenProgramHonsu")
     @Mapping(source = "talentInfoDto.tvProgram.name", target = "shutsuenProgramChokin")
     @Mapping(source = "talentInfoDto.tvProgram.onAirDay", target = "onAirDayChokin")
-    @Mapping(source = "netsuki.items.shuFrom", target = "shuFrom")
-    @Mapping(source = "netsuki.items.shuTo", target = "shuTo")
+    @Mapping(source = "netsuki.shuFrom", target = "shuFrom")
+    @Mapping(source = "netsuki.shuTo", target = "shuTo")
     ShukanTalentJohoBFF toShukanTalentJohoBFF(TalentInfoDto talentInfoDto, Integer honsu, MNentsukiShuKanri netsuki);
 
 }

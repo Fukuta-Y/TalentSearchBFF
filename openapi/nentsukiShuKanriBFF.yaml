@@ -26,13 +26,15 @@ paths:
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/nentsukiShuKanriBFF'
+                $ref: '#/components/schemas/nentsukiShuKanriBFF'
 components:
   schemas:
     nentsukiShuKanriBFF:
       description: 登録または更新した年月週管理マスタDTOの情報
       type: object
       properties:
+        mNentsukiShuKanri:
+          description: 年月週管理マスタDTO
+          type: array
           items:
             $ref: "../../TalentSearchCommon/Tables/mNentsukiShuKanri.yaml#/components/schemas/mNentsukiShuKanri"
