@@ -19,7 +19,7 @@ import com.talent.setting.WebClientInfo;
 import lombok.RequiredArgsConstructor;
 
 /**
- * タレント週間出演情報検索 Service
+ * タレント週間出演情報検索Service
  */
 @Service
 @RequiredArgsConstructor

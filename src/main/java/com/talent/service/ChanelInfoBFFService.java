@@ -17,7 +17,7 @@ import com.talent.setting.WebClientInfo;
 import lombok.RequiredArgsConstructor;
 
 /**
- * チャンネル情報BFF Service
+ * チャンネル情報BFFService
  */
 @Service
 @RequiredArgsConstructor

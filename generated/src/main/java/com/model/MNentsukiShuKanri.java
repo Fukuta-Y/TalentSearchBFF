@@ -17,7 +17,7 @@ import jakarta.validation.constraints.NotNull;
 
 @Schema(name = "mNentsukiShuKanri", description = "年月週管理マスタ情報（全列）")
 @JsonTypeName("mNentsukiShuKanri")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-05T13:58:17.544014+09:00[Asia/Tokyo]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-05T16:06:49.061275+09:00[Asia/Tokyo]")
 public class MNentsukiShuKanri {
 
   @JsonProperty("nentsuki")

@@ -8,7 +8,7 @@ import com.talent.setting.WebClientInfo;
 import lombok.RequiredArgsConstructor;
 
 /**
- * オンエア管理情報BFF Service
+ * オンエア管理情報BFFService
  */
 @Service
 @RequiredArgsConstructor

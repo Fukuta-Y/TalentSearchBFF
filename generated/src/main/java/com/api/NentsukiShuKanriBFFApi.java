@@ -7,6 +7,7 @@ package com.api;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -23,11 +24,33 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-05T13:58:17.544014+09:00[Asia/Tokyo]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-05T16:06:49.061275+09:00[Asia/Tokyo]")
 @Validated
 @Tag(name = "nentsukiShuKanriBFF", description = "the nentsukiShuKanriBFF API")
 @RequestMapping("api")
 public interface NentsukiShuKanriBFFApi {
+
+    /**
+     * GET /nentsukiShuKanriBFF : 年月週管理マスタを返すBFF
+     * 年月週管理マスタ情報を返すBFF
+     *
+     * @return 年月週管理マスタDTOの情報 (status code 200)
+     */
+    @Operation(
+        operationId = "getNentsukiShuKanriBFF",
+        summary = "年月週管理マスタを返すBFF",
+        tags = { "nentsukiShuKanriBFF" },
+        responses = {
+            @ApiResponse(responseCode = "200", description = "年月週管理マスタDTOの情報", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = NentsukiShuKanriBFF.class))
+            })
+        }
+    )
+    @GetMapping("/nentsukiShuKanriBFF")
+    ResponseEntity<NentsukiShuKanriBFF> getNentsukiShuKanriBFF(
+        
+    );
+
 
     /**
      * POST /nentsukiShuKanriBFF : 年月週管理マスタ情報を登録または更新するBFF

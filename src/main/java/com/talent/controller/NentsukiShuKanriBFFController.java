@@ -28,4 +28,17 @@ public class NentsukiShuKanriBFFController implements NentsukiShuKanriBFFApi{
 		NentsukiShuKanriBFF response = service.post(mNentsukiShuKanri);
 		return ResponseEntity.ok(response);
 	}
+
+	/**
+	 * 年月週管理マスタ検索BFFController
+	 *
+	 * @param 
+	 * @return NentsukiShuKanriBFF
+	 * 
+	*/
+	@Override
+	public ResponseEntity<NentsukiShuKanriBFF> getNentsukiShuKanriBFF() {
+		NentsukiShuKanriBFF response = service.select();
+		return ResponseEntity.ok(response);
+	}
 }

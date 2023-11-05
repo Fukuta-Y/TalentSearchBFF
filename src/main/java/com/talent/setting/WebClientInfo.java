@@ -220,4 +220,18 @@ public class WebClientInfo {
                 .retrieve()
                 .bodyToMono(OnAirKanriList.class).block();
     }
+    /**
+     * BE「年月週管理マスタ検索」へ接続の設定
+     *
+     * @param 無
+     * @return　遷移情報を設定したWebClientの内容を返す
+     */
+    public NentsukiShuKanriBFF getNentsukiShuKanri() {
+        return this.webClient.get()
+                .uri(uriBuilder -> uriBuilder
+                        .path("/nentsukiShuKanri")
+                        .build())
+                .retrieve()
+                .bodyToMono(NentsukiShuKanriBFF.class).block();
+    }
 }

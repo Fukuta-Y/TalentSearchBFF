@@ -9,7 +9,7 @@ import com.talent.setting.WebClientInfo;
 import lombok.RequiredArgsConstructor;
 
 /**
- * 年月週管理登録・更新BFF Service
+ * 年月週管理登録・更新BFFService
  */
 @Service
 @RequiredArgsConstructor
@@ -19,7 +19,7 @@ public class NentsukiShuKanriBFFService {
     private final WebClientInfo webClient;
 
     /**
-     * 年月週管理登録・更新BFF Service
+     * 年月週管理登録・更新BFFService
      *
      * @param MNentsukiShuKanri　年月週管理マスタDTO
      * @return NentsukiShuKanriBFF
@@ -27,6 +27,19 @@ public class NentsukiShuKanriBFFService {
     public NentsukiShuKanriBFF post(MNentsukiShuKanri mNentsukiShuKanri) {
     	// (1) BE「年月週管理登録・更新」を呼び出す。
     	NentsukiShuKanriBFF response = this.webClient.postNentsukiShuKanri(mNentsukiShuKanri);
+        // Responseへ設定
+        return response;
+    }
+    
+    /**
+     * 年月週管理マスタ検索BFFService
+     *
+     * @param　無
+     * @return NentsukiShuKanriBFF
+     */
+    public NentsukiShuKanriBFF select() {
+    	// (1) BE「年月週管理登録・更新」を呼び出す。
+    	NentsukiShuKanriBFF response = this.webClient.getNentsukiShuKanri();
         // Responseへ設定
         return response;
     }
