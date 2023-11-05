@@ -26,7 +26,7 @@ import jakarta.validation.Valid;
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-05T13:58:17.544014+09:00[Asia/Tokyo]")
 @Validated
 @Tag(name = "nentsukiShuKanriBFF", description = "the nentsukiShuKanriBFF API")
-@RequestMapping("${openapi.bFF.base-path:}")
+@RequestMapping("api")
 public interface NentsukiShuKanriBFFApi {
 
     /**
