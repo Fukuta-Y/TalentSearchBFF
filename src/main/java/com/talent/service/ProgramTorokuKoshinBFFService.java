@@ -24,7 +24,7 @@ public class ProgramTorokuKoshinBFFService {
      * @param mProgram　番組マスタDTO
      * @return ProgramTorokuKoshinBFF
      */
-    public ProgramTorokuKoshinBFF post(MProgram mProgram) {
+    public ProgramTorokuKoshinBFF postProgramTorokuKoshinBFF(MProgram mProgram) {
     	// (1) BE「番組登録・更新」を呼び出す。
     	ProgramTorokuKoshinBFF response = this.webClient.postProgramTorokuKoshin(mProgram);
         // Responseへ設定

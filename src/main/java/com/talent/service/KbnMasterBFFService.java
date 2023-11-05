@@ -23,10 +23,10 @@ public class KbnMasterBFFService {
     /**
      * 区分マスタBFFService
      *
-     * @param 
-     * @return List<ChanelInfo>
+     * @param 無
+     * @return KbnMasterInfo
      */
-    public KbnMasterInfo select(String genreIds) {
+    public KbnMasterInfo getKbnMasterInfo(String genreIds) {
 
     	// Responseを宣言
     	KbnMasterInfo response = new KbnMasterInfo();

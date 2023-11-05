@@ -25,7 +25,8 @@ public class ProgramTorokuKoshinBFFController implements ProgramTorokuKoshinBFFA
 	*/
 	@Override
 	public ResponseEntity<ProgramTorokuKoshinBFF> postProgramTorokuKoshinBFF(MProgram mProgram) {
-		ProgramTorokuKoshinBFF response  = service.post(mProgram);
+		// ProgramTorokuKoshinBFFServiceより取得
+		ProgramTorokuKoshinBFF response  = service.postProgramTorokuKoshinBFF(mProgram);
 		return ResponseEntity.ok(response);
 	}
 }

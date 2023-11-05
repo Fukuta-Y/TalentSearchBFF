@@ -49,7 +49,7 @@ public class ShukanTalentJohoBFFService {
      * @param talentName タレント名
      * @return List<ShukanTalentJohoBFF>
      */
-    public List<ShukanTalentJohoBFF> select(Integer nentsuki, Integer shu, String talentName) {
+    public List<ShukanTalentJohoBFF> getShukanTalentJohoBFF(Integer nentsuki, Integer shu, String talentName) {
 
     	// reponseを宣言
         List<ShukanTalentJohoBFF> response = new ArrayList<ShukanTalentJohoBFF>();

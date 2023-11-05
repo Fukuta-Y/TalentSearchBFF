@@ -15,6 +15,7 @@ import com.model.OnAirKanriList;
 import com.model.ProgramShutsuenList;
 import com.model.ProgramTorokuKoshinBFF;
 import com.model.ShukanTalentJoho;
+import com.model.TOnAirKanri;
 import com.model.TalentList;
 import com.model.TalentShukanShutsuenJoho;
 import com.model.TalentTorokuKoshinBFF;
@@ -233,5 +234,19 @@ public class WebClientInfo {
                         .build())
                 .retrieve()
                 .bodyToMono(NentsukiShuKanriBFF.class).block();
+    }
+    /**
+     * BE「オンエア管理登録・更新」へ接続の設定
+     *
+     * @param tOnAirKanri オンエア管理テーブルDTO
+     * @return　遷移情報を設定したWebClientの内容を返す
+     */
+    public OnAirKanriList postOnAirKanri(TOnAirKanri tOnAirKanri) {
+        return this.webClient.post()
+	    		.uri("/onAirKanri")
+	    	    .body(Mono.just(tOnAirKanri), TOnAirKanri.class)
+	    	    .accept(MediaType.APPLICATION_JSON)
+	    	    .retrieve()
+	    	    .bodyToMono(OnAirKanriList.class).block();
     }
 }

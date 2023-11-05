@@ -31,7 +31,7 @@ public class ProgramShutsuenBFFService {
      * @param shu     　週
      * @return List<ProgramShutsuenBFF>
      */
-    public List<ProgramShutsuenBFF> select(String programId, String onairDay, Integer nentsuki, Integer shu) {
+    public List<ProgramShutsuenBFF> getProgramShutsuenBFF(String programId, String onairDay, Integer nentsuki, Integer shu) {
 
     	// reponseを宣言
         List<ProgramShutsuenBFF> response = new ArrayList<ProgramShutsuenBFF>();

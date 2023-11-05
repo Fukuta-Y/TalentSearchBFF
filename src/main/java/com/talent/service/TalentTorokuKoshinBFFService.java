@@ -24,7 +24,7 @@ public class TalentTorokuKoshinBFFService {
      * @param mTalent　タレントマスタDTO
      * @return TalentTorokuKoshinBFF
      */
-    public TalentTorokuKoshinBFF post(MTalent mTalent) {
+    public TalentTorokuKoshinBFF postTalentTorokuKoshinBFF(MTalent mTalent) {
     	// (1) BE「タレント登録・更新」を呼び出す。
     	TalentTorokuKoshinBFF response = this.webClient.postTalentTorokuKoshin(mTalent);
         // Responseへ設定

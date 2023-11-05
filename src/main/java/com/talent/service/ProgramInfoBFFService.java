@@ -30,7 +30,7 @@ public class ProgramInfoBFFService {
      * @param programId 番組ID
      * @return List<ProgramShutsuenBFF>
      */
-    public ProgramInfo select(String programId) {
+    public ProgramInfo getProgramInfo(String programId) {
 
     	// reponseを宣言
     	ProgramInfo response = new ProgramInfo();

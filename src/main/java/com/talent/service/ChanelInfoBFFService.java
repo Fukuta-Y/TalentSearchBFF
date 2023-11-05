@@ -29,10 +29,10 @@ public class ChanelInfoBFFService {
     /**
      * チャンネル情報BFFService
      *
-     * @param 
-     * @return List<ChanelInfo>
+     * @param 無
+     * @return ChanelInfoList
      */
-    public ChanelInfoList select() {
+    public ChanelInfoList getChanelInfoList() {
 
     	// Responseを宣言
     	ChanelInfoList response = new ChanelInfoList();

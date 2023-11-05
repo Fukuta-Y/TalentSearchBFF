@@ -25,7 +25,8 @@ public class NentsukiShuKanriBFFController implements NentsukiShuKanriBFFApi{
 	*/
 	@Override
 	public ResponseEntity<NentsukiShuKanriBFF> postProgramTorokuKoshinBFF(MNentsukiShuKanri mNentsukiShuKanri) {
-		NentsukiShuKanriBFF response = service.post(mNentsukiShuKanri);
+		// NentsukiShuKanriBFFServiceより取得
+		NentsukiShuKanriBFF response = service.postNentsukiShuKanriBFF(mNentsukiShuKanri);
 		return ResponseEntity.ok(response);
 	}
 
@@ -38,7 +39,8 @@ public class NentsukiShuKanriBFFController implements NentsukiShuKanriBFFApi{
 	*/
 	@Override
 	public ResponseEntity<NentsukiShuKanriBFF> getNentsukiShuKanriBFF() {
-		NentsukiShuKanriBFF response = service.select();
+		// NentsukiShuKanriBFFServiceより取得
+		NentsukiShuKanriBFF response = service.getNentsukiShuKanriBFF();
 		return ResponseEntity.ok(response);
 	}
 }

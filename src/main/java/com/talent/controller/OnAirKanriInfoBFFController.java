@@ -13,6 +13,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class OnAirKanriInfoBFFController implements OnAirKanriInfoBFFApi{
 	
+	// OnAirKanriInfoBFFServiceを宣言
 	private final OnAirKanriInfoBFFService service;
 	
 	/**
@@ -22,34 +23,24 @@ public class OnAirKanriInfoBFFController implements OnAirKanriInfoBFFApi{
 	 * @return OnAirKanriList
 	 * 
 	*/
-	
 	@Override
 	public ResponseEntity<OnAirKanriList> getOnAirKanriInfoBFF(String id) {
-		OnAirKanriList response = service.select(id);
+		// OnAirKanriInfoBFFServiceより取得
+		OnAirKanriList response = service.getOnAirKanriList(id);
 		return ResponseEntity.ok(response);
 	}
 
+	/**
+	 * オンエア管理登録・更新BFFController
+	 *
+	 * @param tOnAirKanri オンエア管理テーブルDTO
+	 * @return OnAirKanriList
+	 * 
+	*/
 	@Override
-	public ResponseEntity<OnAirKanriList> postOnAirKanriInfoBFF(TOnAirKanri tonAirKanri) {
-		// TODO 自動生成されたメソッド・スタブ
-		return null;
+	public ResponseEntity<OnAirKanriList> postOnAirKanriInfoBFF(TOnAirKanri tOnAirKanri) {
+		// OnAirKanriInfoBFFServiceより取得
+		OnAirKanriList response  = service.postOnAirKanriList(tOnAirKanri);
+		return ResponseEntity.ok(response);
 	}
-	
-
-//	// TalentMasterBFFServiceを宣言
-//	private final TalentMasterBFFService service;
-//	
-//	 /**
-//	  * タレント情報BFFController
-//	  *
-//	  * @param talentId タレントID
-//	  * @return TalentInfo
-//	  * 
-//	 */
-//	@Override
-//	public ResponseEntity<TalentInfo> getTalentInfoBFF(String talentId) {
-//		TalentInfo response = service.select(talentId);
-//		return ResponseEntity.ok(response);
-//	}
-
 }

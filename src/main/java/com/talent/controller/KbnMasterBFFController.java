@@ -22,7 +22,10 @@ public class KbnMasterBFFController implements KbnMasterBFFApi{
 	 * @return KbnMasterInfo
 	 * 
 	*/
+	@Override
 	public ResponseEntity<KbnMasterInfo> getKbnMasterBFF(String genreIds) {
-		return ResponseEntity.ok(service.select(genreIds));
+		// KbnMasterBFFServiceより取得
+		KbnMasterInfo response = service.getKbnMasterInfo(genreIds);
+		return ResponseEntity.ok(response);
 	}
 }

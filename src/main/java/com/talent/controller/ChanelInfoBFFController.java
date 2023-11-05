@@ -22,8 +22,10 @@ public class ChanelInfoBFFController implements ChanelInfoBFFApi{
 	 * @return List<ChanelInfo>
 	 * 
 	*/
+	@Override
 	public ResponseEntity<ChanelInfoList> getChanelInfoBFF() {
-		ChanelInfoList response  = service.select();
+		// ChanelInfoBFFServiceより取得
+		ChanelInfoList response  = service.getChanelInfoList();
 		return ResponseEntity.ok(response);
 	}
 }

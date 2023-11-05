@@ -36,7 +36,7 @@ public class TalentShukanShutsuenJohoBFFService {
      * @param talentId タレントID
      * @return List<TalentShukanShutsuenJohoBFF>
      */
-    public List<TalentShukanShutsuenJohoBFF> select(Integer nentsuki, Integer shu, String talentId) {
+    public List<TalentShukanShutsuenJohoBFF> getTalentShukanShutsuenJohoBFF(Integer nentsuki, Integer shu, String talentId) {
     	
     	// reponseを宣言
         List<TalentShukanShutsuenJohoBFF> response = new ArrayList<TalentShukanShutsuenJohoBFF>();

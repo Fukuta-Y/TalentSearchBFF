@@ -24,7 +24,8 @@ public class TalentInfoBFFController implements TalentInfoBFFApi{
 	 */
 	@Override
 	public ResponseEntity<TalentInfo> getTalentInfoBFF(String talentId) {
-		TalentInfo response = service.select(talentId);
+		// TalentMasterBFFServiceより取得
+		TalentInfo response = service.getTalentInfo(talentId);
 		return ResponseEntity.ok(response);
 	}
 

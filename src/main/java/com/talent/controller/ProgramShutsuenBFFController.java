@@ -29,7 +29,7 @@ public class ProgramShutsuenBFFController implements ProgramShutsuenBFFApi{
 	@Override
 	public ResponseEntity<List<ProgramShutsuenBFF>> getProgramShutsuenBFF(String programId, String onairDay, Integer nentsuki, Integer shu) {
 		// ProgramShutsuenBFFServiceより取得
-		List<ProgramShutsuenBFF> response  = service.select(programId, onairDay, nentsuki, shu);
+		List<ProgramShutsuenBFF> response  = service.getProgramShutsuenBFF(programId, onairDay, nentsuki, shu);
 		return ResponseEntity.ok(response);
 	}
 }

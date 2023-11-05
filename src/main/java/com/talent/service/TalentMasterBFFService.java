@@ -29,7 +29,7 @@ public class TalentMasterBFFService {
      * @param talentId タレントID
      * @return TalentInfo
      */
-    public TalentInfo select(String talentId) {
+    public TalentInfo getTalentInfo(String talentId) {
 
     	// Responseを宣言
     	TalentInfo response = new TalentInfo();
