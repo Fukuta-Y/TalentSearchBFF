@@ -41,12 +41,19 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/shukanTalentJohoBFF'
+                $ref: '#/components/schemas/shukanTalentJohoBFF'
 components:
   schemas:
     shukanTalentJohoBFF:
+      description: １週間においてのタレントごとの情報のリスト
+      type: object
+      properties:
+        shukanTalentJoho:
+          description: １週間においてのタレントごとの情報
+          type: array
+          items:
+           $ref: '#/components/schemas/shukanTalentJoho'
+    shukanTalentJoho:
       description: １週間においてのタレントごとの情報
       type: object
       properties:

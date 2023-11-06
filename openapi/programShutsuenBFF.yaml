@@ -46,11 +46,19 @@ paths:
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/programShutsuenBFF'      
+                $ref: '#/components/schemas/programShutsuenBFF'      
 components:
   schemas:
     programShutsuenBFF:
+      description: 番組においての対象週の出演者を情報のリスト
+      type: object
+      properties:
+        programShutsuen:
+          description: 番組においての対象週の出演者を情報
+          type: array
+          items:
+           $ref: '#/components/schemas/programShutsuen'
+    programShutsuen:
       description: 番組においての対象週の出演者を情報
       type: object
       properties:
