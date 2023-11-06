@@ -11,6 +11,7 @@ import com.model.MKbnGenre;
 import com.model.MProgram;
 import com.model.MTalent;
 import com.model.TOnAirKanri;
+import com.model.TalentShukanShutsuen;
 import com.model.TalentShukanShutsuenJoho;
 import com.model.TalentShukanShutsuenJohoBFF;
 import com.model.YearMonthWeekStartEndJoho;
@@ -34,15 +35,16 @@ public class TalentShukanShutsuenJohoBFFService {
      * @param nentsuki  年月
      * @param shu       週
      * @param talentId タレントID
-     * @return List<TalentShukanShutsuenJohoBFF>
+     * @return TalentShukanShutsuenJohoBFF
      */
-    public List<TalentShukanShutsuenJohoBFF> getTalentShukanShutsuenJohoBFF(Integer nentsuki, Integer shu, String talentId) {
+    public TalentShukanShutsuenJohoBFF getTalentShukanShutsuenJohoBFF(Integer nentsuki, Integer shu, String talentId) {
     	
     	// reponseを宣言
-        List<TalentShukanShutsuenJohoBFF> response = new ArrayList<TalentShukanShutsuenJohoBFF>();
+    	TalentShukanShutsuenJohoBFF response = new TalentShukanShutsuenJohoBFF();
+    	List<TalentShukanShutsuen> listTalentShukanShutsuen = new ArrayList<TalentShukanShutsuen>();
 
         // Listに設定するModelの宣言
-        TalentShukanShutsuenJohoBFF bffModel = new TalentShukanShutsuenJohoBFF();
+    	TalentShukanShutsuen bffModel = new TalentShukanShutsuen();
         
         // BE「タレント週間出演情報検索」より取得処理
         TalentShukanShutsuenJoho talentJoho = this.webClient.getTalentShukanShutsuenJoho(nentsuki, shu, talentId);
@@ -62,7 +64,7 @@ public class TalentShukanShutsuenJohoBFFService {
 			// オンエア管理テーブルを繰り返し
 			for (TOnAirKanri onAir : onAirList) {
 				 // Modelを初期化
-				 bffModel = new TalentShukanShutsuenJohoBFF();
+				 bffModel = new TalentShukanShutsuen();
 				 // 一時保存用の変数を初期化
 				 Integer talentGenreId = null;
 				 Integer chanelId = null;
@@ -133,13 +135,14 @@ public class TalentShukanShutsuenJohoBFFService {
 	        		//   →【レスポンス.出演者ジャンル】
 	            	if(kbnGenre.getGenreId().compareTo(2) == 0 && 
 	            			kbnGenre.getJyunjyo().compareTo(programGenreId) == 0) {
-	            		bffModel.setShutsuenshaGenre(kbnGenre.getGenre());
+	            		bffModel.setShutsuenProgram(kbnGenre.getGenre());
 	            	}
 	           		// ③ジャンルID＝３、区分ジャンルマスタDTO.順序 ＝ 番組マスタDTO. チャンネルIDで取得したジャンル
 	        		//   →【レスポンス.放送局（チャンネル）】の前半に結合（既にチャンネル局IDが設定済みのため）
 		            if(kbnGenre.getGenreId().compareTo(3) == 0 && 
 		            		kbnGenre.getJyunjyo().compareTo(programGenreId) == 0) {
-	            		bffModel.setHosokyokuChannel(kbnGenre.getGenre() + "(" + chanelKyokuId +")");
+		            	String hosokyokuChannel = kbnGenre.getGenre() + "(" + chanelKyokuId +")";
+	            		bffModel.setHosokyokuChannel(hosokyokuChannel);
 	            	}
 	            }
 	
@@ -147,19 +150,18 @@ public class TalentShukanShutsuenJohoBFFService {
 	    		// 対象週(TO)へ、年月週管理マスタDTO .週の終了日（土曜日）を設定
 	            bffModel.setShuFrom(yearMonthJoho.getmNentsukiShuKanri().getShuFrom());
 	            bffModel.setShuTo(yearMonthJoho.getmNentsukiShuKanri().getShuTo());
-	            // responseへ追加
-			    response.add(bffModel);
+	            listTalentShukanShutsuen.add(bffModel);
 			}
         } else {
 			// 対象週(FROM)へ、年月週管理マスタDTO .週の開始日（日曜日）を設定
 			// 対象週(TO)へ、年月週管理マスタDTO .週の終了日（土曜日）を設定
 	        bffModel.setShuFrom(yearMonthJoho.getmNentsukiShuKanri().getShuFrom());
 	        bffModel.setShuTo(yearMonthJoho.getmNentsukiShuKanri().getShuTo());
-	        // responseへ追加
-	        response.add(bffModel);
+	        listTalentShukanShutsuen.add(bffModel);
         }
         
         // Responseへ設定
+        response.setTalentShukanShutsuen(listTalentShukanShutsuen);
         return response;
     }
 }

@@ -1,6 +1,4 @@
 package com.talent.controller;
-import java.util.List;
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 
@@ -23,12 +21,12 @@ public class TalentShukanShutsuenJohoBFFController implements TalentShukanShutsu
      * @param nentsuki  年月
      * @param shu       週
      * @param talentId タレントID
-     * @return ResponseEntity<List<TalentShukanShutsuenJohoBFF>>
+     * @return TalentShukanShutsuenJohoBFF
      */
 	@Override
-	public ResponseEntity<List<TalentShukanShutsuenJohoBFF>> getTalentShukanShutsuenJohoBFF(Integer nentsuki, Integer shu,String talentId) {
+	public ResponseEntity<TalentShukanShutsuenJohoBFF> getTalentShukanShutsuenJohoBFF(Integer nentsuki, Integer shu,String talentId) {
 		// TalentShukanShutsuenJohoBFFServiceより取得
-		List<TalentShukanShutsuenJohoBFF> response  = service.getTalentShukanShutsuenJohoBFF(nentsuki, shu, talentId);
+		TalentShukanShutsuenJohoBFF response  = service.getTalentShukanShutsuenJohoBFF(nentsuki, shu, talentId);
 		return ResponseEntity.ok(response);
 	}
 }

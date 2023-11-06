@@ -1,6 +1,12 @@
 README.md
 pom.xml
 src/main/java/com/api/ApiUtil.java
-src/main/java/com/api/ProgramShutsuenBFFApi.java
-src/main/java/com/model/ProgramShutsuen.java
-src/main/java/com/model/ProgramShutsuenBFF.java
+src/main/java/com/api/TalentShukanShutsuenJohoBFFApi.java
+src/main/java/com/model/MChanelKyoku.java
+src/main/java/com/model/MKbnGenre.java
+src/main/java/com/model/MProgram.java
+src/main/java/com/model/MTalent.java
+src/main/java/com/model/TOnAirKanri.java
+src/main/java/com/model/TalentShukanShutsuen.java
+src/main/java/com/model/TalentShukanShutsuenJoho.java
+src/main/java/com/model/TalentShukanShutsuenJohoBFF.java
