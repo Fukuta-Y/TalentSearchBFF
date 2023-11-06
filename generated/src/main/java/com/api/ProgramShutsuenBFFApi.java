@@ -5,8 +5,6 @@
  */
 package com.api;
 
-import java.util.List;
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,7 +26,7 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-07-17T23:54:24.316484+09:00[Asia/Tokyo]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-06T11:38:00.011657+09:00[Asia/Tokyo]")
 @Validated
 @Tag(name = "programShutsuenBFF", description = "the programShutsuenBFF API")
 @RequestMapping("api")
@@ -55,7 +53,7 @@ public interface ProgramShutsuenBFFApi {
         }
     )
     @GetMapping("/programShutsuenBFF")
-    ResponseEntity<List<ProgramShutsuenBFF>> getProgramShutsuenBFF(
+    ResponseEntity<ProgramShutsuenBFF> getProgramShutsuenBFF(
         @NotNull @Size(max = 8) @Parameter(name = "programId", description = "", required = true) @Valid @RequestParam(value = "programId", required = true) String programId,
         @NotNull @Parameter(name = "onairDay", description = "", required = true) @Valid @RequestParam(value = "onairDay", required = true) String onairDay,
         @NotNull @Min(199001) @Max(210012) @Parameter(name = "nentsuki", description = "", required = true) @Valid @RequestParam(value = "nentsuki", required = true) Integer nentsuki,

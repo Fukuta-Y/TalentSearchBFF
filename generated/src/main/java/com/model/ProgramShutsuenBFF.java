@@ -1,5 +1,7 @@
 package com.model;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -7,103 +9,46 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.annotation.Generated;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.Valid;
 
 /**
- * 番組においての対象週の出演者を情報
+ * 番組においての対象週の出演者を情報のリスト
  */
 
-@Schema(name = "programShutsuenBFF", description = "番組においての対象週の出演者を情報")
+@Schema(name = "programShutsuenBFF", description = "番組においての対象週の出演者を情報のリスト")
 @JsonTypeName("programShutsuenBFF")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-07-21T16:09:37.990858+09:00[Asia/Tokyo]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-06T11:38:00.011657+09:00[Asia/Tokyo]")
 public class ProgramShutsuenBFF {
 
-  @JsonProperty("programName")
-  private String programName;
+  @JsonProperty("programShutsuen")
+  @Valid
+  private List<ProgramShutsuen> programShutsuen = null;
 
-  @JsonProperty("programGenre")
-  private String programGenre;
+  public ProgramShutsuenBFF programShutsuen(List<ProgramShutsuen> programShutsuen) {
+    this.programShutsuen = programShutsuen;
+    return this;
+  }
 
-  @JsonProperty("talentId")
-  private String talentId;
-
-  @JsonProperty("talentName")
-  private String talentName;
-
-  public ProgramShutsuenBFF programName(String programName) {
-    this.programName = programName;
+  public ProgramShutsuenBFF addProgramShutsuenItem(ProgramShutsuen programShutsuenItem) {
+    if (this.programShutsuen == null) {
+      this.programShutsuen = new ArrayList<>();
+    }
+    this.programShutsuen.add(programShutsuenItem);
     return this;
   }
 
   /**
-   * 番組名
-   * @return programName
+   * 番組においての対象週の出演者を情報
+   * @return programShutsuen
   */
-  @Size(max = 30) 
-  @Schema(name = "programName", description = "番組名", required = false)
-  public String getProgramName() {
-    return programName;
+  @Valid 
+  @Schema(name = "programShutsuen", description = "番組においての対象週の出演者を情報", required = false)
+  public List<ProgramShutsuen> getProgramShutsuen() {
+    return programShutsuen;
   }
 
-  public void setProgramName(String programName) {
-    this.programName = programName;
-  }
-
-  public ProgramShutsuenBFF programGenre(String programGenre) {
-    this.programGenre = programGenre;
-    return this;
-  }
-
-  /**
-   * 番組ジャンル
-   * @return programGenre
-  */
-  @Size(max = 30) 
-  @Schema(name = "programGenre", description = "番組ジャンル", required = false)
-  public String getProgramGenre() {
-    return programGenre;
-  }
-
-  public void setProgramGenre(String programGenre) {
-    this.programGenre = programGenre;
-  }
-
-  public ProgramShutsuenBFF talentId(String talentId) {
-    this.talentId = talentId;
-    return this;
-  }
-
-  /**
-   * タレントID
-   * @return talentId
-  */
-  @Size(max = 8) 
-  @Schema(name = "talentId", description = "タレントID", required = false)
-  public String getTalentId() {
-    return talentId;
-  }
-
-  public void setTalentId(String talentId) {
-    this.talentId = talentId;
-  }
-
-  public ProgramShutsuenBFF talentName(String talentName) {
-    this.talentName = talentName;
-    return this;
-  }
-
-  /**
-   * タレント名
-   * @return talentName
-  */
-  @Size(max = 30) 
-  @Schema(name = "talentName", description = "タレント名", required = false)
-  public String getTalentName() {
-    return talentName;
-  }
-
-  public void setTalentName(String talentName) {
-    this.talentName = talentName;
+  public void setProgramShutsuen(List<ProgramShutsuen> programShutsuen) {
+    this.programShutsuen = programShutsuen;
   }
 
   @Override
@@ -115,25 +60,19 @@ public class ProgramShutsuenBFF {
       return false;
     }
     ProgramShutsuenBFF programShutsuenBFF = (ProgramShutsuenBFF) o;
-    return Objects.equals(this.programName, programShutsuenBFF.programName) &&
-        Objects.equals(this.programGenre, programShutsuenBFF.programGenre) &&
-        Objects.equals(this.talentId, programShutsuenBFF.talentId) &&
-        Objects.equals(this.talentName, programShutsuenBFF.talentName);
+    return Objects.equals(this.programShutsuen, programShutsuenBFF.programShutsuen);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(programName, programGenre, talentId, talentName);
+    return Objects.hash(programShutsuen);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ProgramShutsuenBFF {\n");
-    sb.append("    programName: ").append(toIndentedString(programName)).append("\n");
-    sb.append("    programGenre: ").append(toIndentedString(programGenre)).append("\n");
-    sb.append("    talentId: ").append(toIndentedString(talentId)).append("\n");
-    sb.append("    talentName: ").append(toIndentedString(talentName)).append("\n");
+    sb.append("    programShutsuen: ").append(toIndentedString(programShutsuen)).append("\n");
     sb.append("}");
     return sb.toString();
   }
