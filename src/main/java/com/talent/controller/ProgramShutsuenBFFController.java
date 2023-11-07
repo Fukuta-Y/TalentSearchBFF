@@ -1,6 +1,4 @@
 package com.talent.controller;
-import java.util.List;
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 
@@ -24,12 +22,12 @@ public class ProgramShutsuenBFFController implements ProgramShutsuenBFFApi{
      * @param onairDay  オンエア日
      * @param nentsuki  年月
      * @param shu     　週
-     * @return ResponseEntity<List<ProgramShutsuenBFF>> 
+     * @return ProgramShutsuenBFF
      */
 	@Override
-	public ResponseEntity<List<ProgramShutsuenBFF>> getProgramShutsuenBFF(String programId, String onairDay, Integer nentsuki, Integer shu) {
+	public ResponseEntity<ProgramShutsuenBFF> getProgramShutsuenBFF(String programId, String onairDay, Integer nentsuki, Integer shu) {
 		// ProgramShutsuenBFFServiceより取得
-		List<ProgramShutsuenBFF> response  = service.getProgramShutsuenBFF(programId, onairDay, nentsuki, shu);
+		ProgramShutsuenBFF response  = service.getProgramShutsuenBFF(programId, onairDay, nentsuki, shu);
 		return ResponseEntity.ok(response);
 	}
 }

@@ -5,8 +5,6 @@
  */
 package com.api;
 
-import java.util.List;
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -54,7 +52,7 @@ public interface TalentShukanShutsuenJohoBFFApi {
         }
     )
     @GetMapping("/talentShukanShutsuenJohoBFF")
-    ResponseEntity<List<TalentShukanShutsuenJohoBFF>> getTalentShukanShutsuenJohoBFF(
+    ResponseEntity<TalentShukanShutsuenJohoBFF> getTalentShukanShutsuenJohoBFF(
         @NotNull @Min(199001) @Max(210012) @Parameter(name = "nentsuki", description = "", required = true) @Valid @RequestParam(value = "nentsuki", required = true) Integer nentsuki,
         @NotNull @Min(1) @Max(5) @Parameter(name = "shu", description = "", required = true) @Valid @RequestParam(value = "shu", required = true) Integer shu,
         @NotNull @Size(max = 8) @Parameter(name = "talentId", description = "", required = true) @Valid @RequestParam(value = "talentId", required = true) String talentId

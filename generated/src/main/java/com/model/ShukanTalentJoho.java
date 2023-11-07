@@ -5,17 +5,19 @@ import java.util.List;
 import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 
 /**
- * 年月に対応する週の開始終了日付の情報
+ * １週間においてのタレントごとの情報
  */
 
-@Schema(name = "ShukanTalentJoho", description = "年月に対応する週の開始終了日付の情報")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-06-13T16:01:11.890061+09:00[Asia/Tokyo]")
+@Schema(name = "shukanTalentJoho", description = "１週間においてのタレントごとの情報")
+@JsonTypeName("shukanTalentJoho")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-06T12:44:09.196542+09:00[Asia/Tokyo]")
 public class ShukanTalentJoho {
 
   @JsonProperty("mTalent")
@@ -119,10 +121,10 @@ public class ShukanTalentJoho {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ShukanTalentJoho ShukanTalentJoho = (ShukanTalentJoho) o;
-    return Objects.equals(this.mTalent, ShukanTalentJoho.mTalent) &&
-        Objects.equals(this.tOnAirKanri, ShukanTalentJoho.tOnAirKanri) &&
-        Objects.equals(this.mProgram, ShukanTalentJoho.mProgram);
+    ShukanTalentJoho shukanTalentJoho = (ShukanTalentJoho) o;
+    return Objects.equals(this.mTalent, shukanTalentJoho.mTalent) &&
+        Objects.equals(this.tOnAirKanri, shukanTalentJoho.tOnAirKanri) &&
+        Objects.equals(this.mProgram, shukanTalentJoho.mProgram);
   }
 
   @Override

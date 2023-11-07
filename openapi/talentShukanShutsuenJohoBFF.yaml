@@ -41,12 +41,19 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/talentShukanShutsuenJohoBFF'      
+                $ref: '#/components/schemas/talentShukanShutsuenJohoBFF'
 components:
   schemas:
     talentShukanShutsuenJohoBFF:
+      description: タレントにおいての１週間ごとの情報のリスト
+      type: object
+      properties:
+        talentShukanShutsuen:
+          description: タレントにおいての１週間ごとの情報
+          type: array
+          items:
+           $ref: '#/components/schemas/talentShukanShutsuen'
+    talentShukanShutsuen:
       description: タレントにおいての１週間ごとの情報
       type: object
       properties:
@@ -89,3 +96,32 @@ components:
           type: string
           format: yyyy/MM/dd
           description: 対象週(TO)
+    talentShukanShutsuenJoho:
+      description: タレントにおいての１週間ごとの情報
+      type: object
+      properties:
+        tOnAirKanri:
+          description: オンエア管理テーブルDTO
+          type: array
+          items:
+            $ref: "../../TalentSearchCommon/Tables/tOnAirKanri.yaml#/components/schemas/tOnAirKanri"
+        mTalent:
+          description: タレントマスタDTO
+          type: array
+          items:
+            $ref: "../../TalentSearchCommon/Tables/mTalent.yaml#/components/schemas/mTalent"
+        mProgram:
+          description: 番組マスタDTO
+          type: array
+          items:
+            $ref: "../../TalentSearchCommon/Tables/mProgram.yaml#/components/schemas/mProgram"
+        mChanelKyoku:
+          description: チャンネル局マスタDTO
+          type: array
+          items:
+            $ref: "../../TalentSearchCommon/Tables/mChanelKyoku.yaml#/components/schemas/mChanelKyoku"
+        mKbnGenre:
+          description: 区分ジャンルマスタDTO
+          type: array
+          items:
+            $ref: "../../TalentSearchCommon/Tables/mKbnGenre.yaml#/components/schemas/mKbnGenre"

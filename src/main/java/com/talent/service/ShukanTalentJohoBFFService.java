@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.model.MProgram;
 import com.model.MTalent;
+import com.model.ShukanTalent;
 import com.model.ShukanTalentJoho;
 import com.model.ShukanTalentJohoBFF;
 import com.model.TOnAirKanri;
@@ -49,12 +50,13 @@ public class ShukanTalentJohoBFFService {
      * @param talentName タレント名
      * @return List<ShukanTalentJohoBFF>
      */
-    public List<ShukanTalentJohoBFF> getShukanTalentJohoBFF(Integer nentsuki, Integer shu, String talentName) {
+    public ShukanTalentJohoBFF getShukanTalentJohoBFF(Integer nentsuki, Integer shu, String talentName) {
 
     	// reponseを宣言
-        List<ShukanTalentJohoBFF> response = new ArrayList<ShukanTalentJohoBFF>();
+    	ShukanTalentJohoBFF response = new ShukanTalentJohoBFF();
         // Listに設定するModelの宣言
-        ShukanTalentJohoBFF bffModel = new ShukanTalentJohoBFF();
+    	List<ShukanTalent> listShukanTalentJoho = new ArrayList<ShukanTalent>();
+    	ShukanTalent shukanTalent = new ShukanTalent();
 
         // BE「週間タレント別情報検索より取得処理
         ShukanTalentJoho talentJoho = this.webClient.getShukanTalentJoho(nentsuki, shu, talentName);
@@ -67,7 +69,7 @@ public class ShukanTalentJohoBFFService {
         // （別シート_タレント出演情報検索の結合イメージ　参照）
         // 以下はオンエア管理が設定されている場合のみ対応
         if (CollectionUtils.isEmpty(modelOnAirKanriList)) {
-            response.add(bffModel);
+        	response.addShukanTalentItem(shukanTalent);
             return response;
         }
         List<OnAirKanriInfoDto> OnairKanriInfoList = groupShori.setOnairKanriInfoList(modelTalentList, modelProgramList, modelOnAirKanriList);
@@ -120,11 +122,15 @@ public class ShukanTalentJohoBFFService {
 
         // (6) (4) + (5)を組み合わせて、レスポンスの形にする。
         for (TalentInfoDto e : talentInfoDtoList) {
-            response.add(helper.toShukanTalentJohoBFF(e, Math.toIntExact(e.getShukanShutsuenHonsu()), yearMonthJoho.getmNentsukiShuKanri()));
+        	int honsu = Math.toIntExact(e.getShukanShutsuenHonsu());
+        	shukanTalent = helper.toShukanTalentJoho(e, honsu, yearMonthJoho.getmNentsukiShuKanri());
+        	listShukanTalentJoho.add(shukanTalent);
         }
 
-        // responseをIDの順にソート
-        response.sort(new TalentIdComparator());
+        // List<ShukanTalent>をIDの順にソート
+        listShukanTalentJoho.sort(new TalentIdComparator());
+        // responseに設定
+        response.setShukanTalent(listShukanTalentJoho);
 
         // Responseへ設定
         return response;
