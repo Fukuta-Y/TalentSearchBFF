@@ -1,6 +1,4 @@
 package com.talent.controller;
-import java.util.List;
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 
@@ -23,12 +21,12 @@ public class ShukanTalentJohoBFFController implements ShukanTalentJohoBFFApi{
      * @param nentsuki   年月
      * @param shu        週
      * @param talentName タレント名
-     * @return ResponseEntity<List<ShukanTalentJohoBFF>>
+     * @return ShukanTalentJohoBFF
      */
 	@Override
-	public ResponseEntity<List<ShukanTalentJohoBFF>> getShukanTalentJohoBFF(Integer nentsuki, Integer shu, String talentName) {
+	public ResponseEntity<ShukanTalentJohoBFF> getShukanTalentJohoBFF(Integer nentsuki, Integer shu, String talentName) {
 		// ShukanTalentJohoBFFServiceより取得
-		List<ShukanTalentJohoBFF> response  = service.getShukanTalentJohoBFF(nentsuki, shu, talentName);
+		ShukanTalentJohoBFF response  = service.getShukanTalentJohoBFF(nentsuki, shu, talentName);
 		return ResponseEntity.ok(response);
 	}
 }

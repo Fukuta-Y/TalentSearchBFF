@@ -1,5 +1,7 @@
 package com.model;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -7,173 +9,46 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.annotation.Generated;
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.Valid;
 
 /**
- * １週間においてのタレントごとの情報
+ * １週間においてのタレントごとの情報のリスト
  */
 
-@Schema(name = "shukanTalentJohoBFF", description = "１週間においてのタレントごとの情報")
+@Schema(name = "shukanTalentJohoBFF", description = "１週間においてのタレントごとの情報のリスト")
 @JsonTypeName("shukanTalentJohoBFF")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-07-02T11:51:40.206221+09:00[Asia/Tokyo]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-06T12:44:09.196542+09:00[Asia/Tokyo]")
 public class ShukanTalentJohoBFF {
 
-  @JsonProperty("talentId")
-  private String talentId;
+  @JsonProperty("shukanTalent")
+  @Valid
+  private List<ShukanTalent> shukanTalent = null;
 
-  @JsonProperty("talentName")
-  private String talentName;
+  public ShukanTalentJohoBFF shukanTalent(List<ShukanTalent> shukanTalent) {
+    this.shukanTalent = shukanTalent;
+    return this;
+  }
 
-  @JsonProperty("shukanShutsuenProgramHonsu")
-  private Integer shukanShutsuenProgramHonsu;
-
-  @JsonProperty("shutsuenProgramChokin")
-  private String shutsuenProgramChokin;
-
-  @JsonProperty("onAirDayChokin")
-  private String onAirDayChokin;
-
-  @JsonProperty("shuFrom")
-  private String shuFrom;
-
-  @JsonProperty("shuTo")
-  private String shuTo;
-
-  public ShukanTalentJohoBFF talentId(String talentId) {
-    this.talentId = talentId;
+  public ShukanTalentJohoBFF addShukanTalentItem(ShukanTalent shukanTalentItem) {
+    if (this.shukanTalent == null) {
+      this.shukanTalent = new ArrayList<>();
+    }
+    this.shukanTalent.add(shukanTalentItem);
     return this;
   }
 
   /**
-   * タレントID
-   * @return talentId
+   * １週間においてのタレントごとの情報
+   * @return shukanTalent
   */
-  @Size(max = 8) 
-  @Schema(name = "talentId", description = "タレントID", required = false)
-  public String getTalentId() {
-    return talentId;
+  @Valid 
+  @Schema(name = "shukanTalent", description = "１週間においてのタレントごとの情報", required = false)
+  public List<ShukanTalent> getShukanTalent() {
+    return shukanTalent;
   }
 
-  public void setTalentId(String talentId) {
-    this.talentId = talentId;
-  }
-
-  public ShukanTalentJohoBFF talentName(String talentName) {
-    this.talentName = talentName;
-    return this;
-  }
-
-  /**
-   * タレント名
-   * @return talentName
-  */
-  @Size(max = 30) 
-  @Schema(name = "talentName", description = "タレント名", required = false)
-  public String getTalentName() {
-    return talentName;
-  }
-
-  public void setTalentName(String talentName) {
-    this.talentName = talentName;
-  }
-
-  public ShukanTalentJohoBFF shukanShutsuenProgramHonsu(Integer shukanShutsuenProgramHonsu) {
-    this.shukanShutsuenProgramHonsu = shukanShutsuenProgramHonsu;
-    return this;
-  }
-
-  /**
-   * 週間出演番組本数
-   * minimum: 0
-   * maximum: 999
-   * @return shukanShutsuenProgramHonsu
-  */
-  @Min(0) @Max(999) 
-  @Schema(name = "shukanShutsuenProgramHonsu", description = "週間出演番組本数", required = false)
-  public Integer getShukanShutsuenProgramHonsu() {
-    return shukanShutsuenProgramHonsu;
-  }
-
-  public void setShukanShutsuenProgramHonsu(Integer shukanShutsuenProgramHonsu) {
-    this.shukanShutsuenProgramHonsu = shukanShutsuenProgramHonsu;
-  }
-
-  public ShukanTalentJohoBFF shutsuenProgramChokin(String shutsuenProgramChokin) {
-    this.shutsuenProgramChokin = shutsuenProgramChokin;
-    return this;
-  }
-
-  /**
-   * 出演番組（直近）
-   * @return shutsuenProgramChokin
-  */
-  @Size(max = 30) 
-  @Schema(name = "shutsuenProgramChokin", description = "出演番組（直近）", required = false)
-  public String getShutsuenProgramChokin() {
-    return shutsuenProgramChokin;
-  }
-
-  public void setShutsuenProgramChokin(String shutsuenProgramChokin) {
-    this.shutsuenProgramChokin = shutsuenProgramChokin;
-  }
-
-  public ShukanTalentJohoBFF onAirDayChokin(String onAirDayChokin) {
-    this.onAirDayChokin = onAirDayChokin;
-    return this;
-  }
-
-  /**
-   * オンエア日（直近）
-   * @return onAirDayChokin
-  */
-  
-  @Schema(name = "onAirDayChokin", description = "オンエア日（直近）", required = false)
-  public String getOnAirDayChokin() {
-    return onAirDayChokin;
-  }
-
-  public void setOnAirDayChokin(String onAirDayChokin) {
-    this.onAirDayChokin = onAirDayChokin;
-  }
-
-  public ShukanTalentJohoBFF shuFrom(String shuFrom) {
-    this.shuFrom = shuFrom;
-    return this;
-  }
-
-  /**
-   * 対象週(FROM)
-   * @return shuFrom
-  */
-  
-  @Schema(name = "shuFrom", description = "対象週(FROM)", required = false)
-  public String getShuFrom() {
-    return shuFrom;
-  }
-
-  public void setShuFrom(String shuFrom) {
-    this.shuFrom = shuFrom;
-  }
-
-  public ShukanTalentJohoBFF shuTo(String shuTo) {
-    this.shuTo = shuTo;
-    return this;
-  }
-
-  /**
-   * 対象週(TO)
-   * @return shuTo
-  */
-  
-  @Schema(name = "shuTo", description = "対象週(TO)", required = false)
-  public String getShuTo() {
-    return shuTo;
-  }
-
-  public void setShuTo(String shuTo) {
-    this.shuTo = shuTo;
+  public void setShukanTalent(List<ShukanTalent> shukanTalent) {
+    this.shukanTalent = shukanTalent;
   }
 
   @Override
@@ -185,31 +60,19 @@ public class ShukanTalentJohoBFF {
       return false;
     }
     ShukanTalentJohoBFF shukanTalentJohoBFF = (ShukanTalentJohoBFF) o;
-    return Objects.equals(this.talentId, shukanTalentJohoBFF.talentId) &&
-        Objects.equals(this.talentName, shukanTalentJohoBFF.talentName) &&
-        Objects.equals(this.shukanShutsuenProgramHonsu, shukanTalentJohoBFF.shukanShutsuenProgramHonsu) &&
-        Objects.equals(this.shutsuenProgramChokin, shukanTalentJohoBFF.shutsuenProgramChokin) &&
-        Objects.equals(this.onAirDayChokin, shukanTalentJohoBFF.onAirDayChokin) &&
-        Objects.equals(this.shuFrom, shukanTalentJohoBFF.shuFrom) &&
-        Objects.equals(this.shuTo, shukanTalentJohoBFF.shuTo);
+    return Objects.equals(this.shukanTalent, shukanTalentJohoBFF.shukanTalent);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(talentId, talentName, shukanShutsuenProgramHonsu, shutsuenProgramChokin, onAirDayChokin, shuFrom, shuTo);
+    return Objects.hash(shukanTalent);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ShukanTalentJohoBFF {\n");
-    sb.append("    talentId: ").append(toIndentedString(talentId)).append("\n");
-    sb.append("    talentName: ").append(toIndentedString(talentName)).append("\n");
-    sb.append("    shukanShutsuenProgramHonsu: ").append(toIndentedString(shukanShutsuenProgramHonsu)).append("\n");
-    sb.append("    shutsuenProgramChokin: ").append(toIndentedString(shutsuenProgramChokin)).append("\n");
-    sb.append("    onAirDayChokin: ").append(toIndentedString(onAirDayChokin)).append("\n");
-    sb.append("    shuFrom: ").append(toIndentedString(shuFrom)).append("\n");
-    sb.append("    shuTo: ").append(toIndentedString(shuTo)).append("\n");
+    sb.append("    shukanTalent: ").append(toIndentedString(shukanTalent)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -4,7 +4,7 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
 import com.model.MNentsukiShuKanri;
-import com.model.ShukanTalentJohoBFF;
+import com.model.ShukanTalent;
 import com.model.TOnAirKanri;
 import com.talent.service.dto.OnAirKanriInfoDto;
 import com.talent.service.dto.TalentInfoDto;
@@ -45,6 +45,6 @@ public interface ShukanTalentJohoBffHelper {
     @Mapping(source = "talentInfoDto.tvProgram.onAirDay", target = "onAirDayChokin")
     @Mapping(source = "netsuki.shuFrom", target = "shuFrom")
     @Mapping(source = "netsuki.shuTo", target = "shuTo")
-    ShukanTalentJohoBFF toShukanTalentJohoBFF(TalentInfoDto talentInfoDto, Integer honsu, MNentsukiShuKanri netsuki);
+    ShukanTalent toShukanTalentJoho(TalentInfoDto talentInfoDto, Integer honsu, MNentsukiShuKanri netsuki);
 
 }

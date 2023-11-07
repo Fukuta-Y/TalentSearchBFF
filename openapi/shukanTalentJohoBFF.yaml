@@ -44,16 +44,16 @@ paths:
                 $ref: '#/components/schemas/shukanTalentJohoBFF'
 components:
   schemas:
-    shukanTalentJohoBFF:
+     shukanTalentJohoBFF:
       description: １週間においてのタレントごとの情報のリスト
       type: object
       properties:
-        shukanTalentJoho:
+        shukanTalent:
           description: １週間においてのタレントごとの情報
           type: array
           items:
-           $ref: '#/components/schemas/shukanTalentJoho'
-    shukanTalentJoho:
+           $ref: '#/components/schemas/shukanTalent'
+     shukanTalent:
       description: １週間においてのタレントごとの情報
       type: object
       properties:
@@ -86,3 +86,22 @@ components:
           type: string
           format: yyyy/MM/dd
           description: 対象週(TO)
+     shukanTalentJoho:
+      description: １週間においてのタレントごとの情報
+      type: object
+      properties:
+        mTalent:
+          description: タレントマスタDTO
+          type: array
+          items:
+           $ref: "../../TalentSearchCommon/Tables/mTalent.yaml#/components/schemas/mTalent"
+        tOnAirKanri:
+          description: オンエア管理テーブルDTO
+          type: array
+          items:
+           $ref: "../../TalentSearchCommon/Tables/tOnAirKanri.yaml#/components/schemas/tOnAirKanri"
+        mProgram:
+          description: 番組マスタDTO
+          type: array
+          items:
+           $ref: "../../TalentSearchCommon/Tables/mProgram.yaml#/components/schemas/mProgram"
