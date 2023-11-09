@@ -7,7 +7,6 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.annotation.Generated;
-import jakarta.validation.Valid;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
@@ -19,7 +18,7 @@ import jakarta.validation.constraints.Size;
 
 @Schema(name = "tOnAirKanri", description = "オンエア管理テーブル情報（全列）")
 @JsonTypeName("tOnAirKanri")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-06T12:16:11.803169+09:00[Asia/Tokyo]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-09T23:30:43.856747+09:00[Asia/Tokyo]")
 public class TOnAirKanri {
 
   @JsonProperty("id")
@@ -77,7 +76,7 @@ public class TOnAirKanri {
    * オンエア日
    * @return onAirDay
   */
-  @Valid 
+  
   @Schema(name = "onAirDay", description = "オンエア日", required = false)
   public String getOnAirDay() {
     return onAirDay;
@@ -132,11 +131,11 @@ public class TOnAirKanri {
 
   /**
    * 対象年月
-   * minimum: 1990
-   * maximum: 2100
+   * minimum: 199001
+   * maximum: 210012
    * @return nentsuki
   */
-  @Min(1990) @Max(2100) 
+  @Min(199001) @Max(210012) 
   @Schema(name = "nentsuki", description = "対象年月", required = false)
   public Integer getNentsuki() {
     return nentsuki;
