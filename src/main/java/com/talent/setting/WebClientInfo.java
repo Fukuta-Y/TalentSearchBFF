@@ -249,4 +249,21 @@ public class WebClientInfo {
 	    	    .retrieve()
 	    	    .bodyToMono(OnAirKanriList.class).block();
     }
+    /**
+     * BE「オンエア管理参照検索」へ接続の設定
+     *
+	 * @param id　ID
+	 * @param onAirDay オンエア日
+     * @return　遷移情報を設定したWebClientの内容を返す
+     */
+    public OnAirKanriList getOnAirKanriRef(String id, String onAirDay) {
+        return this.webClient.get()
+                .uri(uriBuilder -> uriBuilder
+		                .path("/onAirKanriRef")
+                        .queryParam("id", id)
+                        .queryParam("onAirDay", onAirDay)
+                        .build())
+                .retrieve()
+                .bodyToMono(OnAirKanriList.class).block();
+    }
 }
