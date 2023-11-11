@@ -11,7 +11,6 @@ import lombok.RequiredArgsConstructor;
 @Controller
 @RequiredArgsConstructor
 public class OnAirKanriRefBFFController implements OnAirKanriRefBFFApi{
-
 	// OnAirKanriRefBFFServiceを宣言
 	private final OnAirKanriRefBFFService service;
 
@@ -20,6 +19,7 @@ public class OnAirKanriRefBFFController implements OnAirKanriRefBFFApi{
 	 *
 	 * @param id　ID
 	 * @param onAirDay オンエア日
+	 * @return OnAirKanriList
 	 * 
 	*/
 	@Override

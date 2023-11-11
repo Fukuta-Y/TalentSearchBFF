@@ -1,8 +1,13 @@
 package com.talent.service;
 
 import org.springframework.stereotype.Service;
+import com.model.OnAirKanriList;
+import java.util.List;
+
+import org.springframework.stereotype.Service;
 
 import com.model.OnAirKanriList;
+import com.model.TOnAirKanri;
 import com.talent.setting.WebClientInfo;
 
 import lombok.RequiredArgsConstructor;
