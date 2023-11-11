@@ -5,8 +5,6 @@
  */
 package com.api;
 
-import java.util.List;
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.model.TalentInfo;
+import com.model.TalentList;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -28,7 +27,7 @@ import jakarta.validation.constraints.Size;
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-24T18:06:47.007705+09:00[Asia/Tokyo]")
 @Validated
 @Tag(name = "talentRefBFF", description = "the talentRefBFF API")
-@RequestMapping("${openapi.bFF.base-path:}")
+@RequestMapping("api")
 public interface TalentRefBFFApi {
 
     /**
@@ -50,7 +49,7 @@ public interface TalentRefBFFApi {
         }
     )
     @GetMapping("/talentRefBFF")
-    ResponseEntity<List<TalentInfo>> getTalentRefBFF(
+    ResponseEntity<TalentList> getTalentRefBFF(
         @Size(max = 8) @Parameter(name = "talentId", description = "タレントID") @Valid @RequestParam(value = "talentId", required = false) String talentId,
         @Size(max = 30) @Parameter(name = "talentName", description = "タレント名") @Valid @RequestParam(value = "talentName", required = false) String talentName
     );

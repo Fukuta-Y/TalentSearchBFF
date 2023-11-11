@@ -26,7 +26,7 @@ import jakarta.validation.constraints.Size;
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-11T20:02:26.212775+09:00[Asia/Tokyo]")
 @Validated
 @Tag(name = "programRefBFF", description = "the programRefBFF API")
-@RequestMapping("${openapi.bFF.base-path:}")
+@RequestMapping("api")
 public interface ProgramRefBFFApi {
 
     /**

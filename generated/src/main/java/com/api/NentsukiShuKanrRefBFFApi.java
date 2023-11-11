@@ -28,7 +28,7 @@ import jakarta.validation.constraints.NotNull;
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-11T20:02:31.294707+09:00[Asia/Tokyo]")
 @Validated
 @Tag(name = "nentsukiShuKanrRefBFF", description = "the nentsukiShuKanrRefBFF API")
-@RequestMapping("${openapi.bFF.base-path:}")
+@RequestMapping("api")
 public interface NentsukiShuKanrRefBFFApi {
 
     /**

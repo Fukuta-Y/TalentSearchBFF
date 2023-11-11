@@ -4,37 +4,28 @@ import org.springframework.stereotype.Controller;
 
 import com.api.OnAirKanriRefBFFApi;
 import com.model.OnAirKanriList;
+import com.talent.service.OnAirKanriRefBFFService;
 
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.Size;
 import lombok.RequiredArgsConstructor;
 
 @Controller
 @RequiredArgsConstructor
 public class OnAirKanriRefBFFController implements OnAirKanriRefBFFApi{
-	
-	
 
-//	// KbnMasterBFFServiceを宣言
-//	private final KbnMasterBFFService service;
-//	
-//	/**
-//	 * 区分マスタBFFController
-//	 *
-//	 * @param genreIds ジャンルID
-//	 * @return KbnMasterInfo
-//	 * 
-//	*/
-//	@Override
-//	public ResponseEntity<KbnMasterInfo> getKbnMasterBFF(String genreIds) {
-//		// KbnMasterBFFServiceより取得
-//		KbnMasterInfo response = service.getKbnMasterInfo(genreIds);
-//		return ResponseEntity.ok(response);
-//	}
+	// OnAirKanriRefBFFServiceを宣言
+	private final OnAirKanriRefBFFService service;
 
-
+	/**
+	 * オンエア管理参照検索BFFController
+	 *
+	 * @param id　ID
+	 * @param onAirDay オンエア日
+	 * 
+	*/
 	@Override
-	public ResponseEntity<OnAirKanriList> getOnAirKanriRefBFF(@Size(max = 8) @Valid String id, @Valid String onAirDay) {
-		// TODO 自動生成されたメソッド・スタブ
-		return null;
-	}}
+	public ResponseEntity<OnAirKanriList> getOnAirKanriRefBFF(String id, String onAirDay) {
+		// OnAirKanriRefBFFServiceより取得
+		OnAirKanriList response = service.getOnAirKanriRefBFF(id, onAirDay);
+		return ResponseEntity.ok(response);
+	}
+}
