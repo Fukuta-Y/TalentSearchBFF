@@ -1,6 +1,12 @@
 README.md
 pom.xml
 src/main/java/com/api/ApiUtil.java
+<<<<<<< HEAD
 src/main/java/com/api/NentsukiShuKanrRefBFFApi.java
 src/main/java/com/model/MNentsukiShuKanri.java
 src/main/java/com/model/NentsukiShuKanri.java
+=======
+src/main/java/com/api/ProgramRefBFFApi.java
+src/main/java/com/model/MProgram.java
+src/main/java/com/model/MProgramList.java
+>>>>>>> 9d3789c (番組参照ダイアログ、タレント参照ダイアログ、オンエア管理参照ダイアログ、年月週管理参照ダイアログ、の自動生成の準備)

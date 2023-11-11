@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.model.ProgramInfoList;
+import com.model.MProgramList;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -23,7 +24,7 @@ import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Size;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-11T20:02:26.212775+09:00[Asia/Tokyo]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-11T19:40:58.522894+09:00[Asia/Tokyo]")
 @Validated
 @Tag(name = "programRefBFF", description = "the programRefBFF API")
 @RequestMapping("api")
@@ -43,12 +44,17 @@ public interface ProgramRefBFFApi {
         tags = { "programRefBFF" },
         responses = {
             @ApiResponse(responseCode = "200", description = "番組情報を正常取得", content = {
+<<<<<<< HEAD
                 @Content(mediaType = "application/json", schema = @Schema(implementation = ProgramInfoList.class))
+=======
+                @Content(mediaType = "application/json", schema = @Schema(implementation = MProgramList.class))
+>>>>>>> 9d3789c (番組参照ダイアログ、タレント参照ダイアログ、オンエア管理参照ダイアログ、年月週管理参照ダイアログ、の自動生成の準備)
             })
         }
     )
     @GetMapping("/programRefBFF")
-    ResponseEntity<ProgramInfoList> getProgramRefBFF(
+    ResponseEntity<MProgramList> getProgramRefBFF(
+>>>>>>> 9d3789c (番組参照ダイアログ、タレント参照ダイアログ、オンエア管理参照ダイアログ、年月週管理参照ダイアログ、の自動生成の準備)
         @Size(max = 8) @Parameter(name = "programId", description = "番組ID") @Valid @RequestParam(value = "programId", required = false) String programId,
         @Size(max = 30) @Parameter(name = "programName", description = "番組名") @Valid @RequestParam(value = "programName", required = false) String programName
     );

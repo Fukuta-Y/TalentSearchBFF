@@ -62,7 +62,11 @@ tasks.named('test') {
 // openApiの設定を追加
 openApiGenerate {
     generatorName = 'spring'
+<<<<<<< HEAD
     inputSpec = "$rootDir/openapi/nentsukiShuKanrRefBFF.yaml"
+=======
+    inputSpec = "$rootDir/openapi/programRefBFF.yaml"
+>>>>>>> 9d3789c (番組参照ダイアログ、タレント参照ダイアログ、オンエア管理参照ダイアログ、年月週管理参照ダイアログ、の自動生成の準備)
     outputDir = "$openApiOutputDir"
     apiPackage = 'com.api'
     modelPackage = 'com.model'
