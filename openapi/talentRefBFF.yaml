@@ -36,12 +36,15 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: '#/components/schemas/talentInfo'
+                  $ref: '#/components/schemas/TalentList'
 components:
   schemas:
-    talentInfo:
-      description: タレントマスタ情報DTO
+    TalentList:
+      description: タレントマスタDTOの情報
       type: object
       properties:
-        items:
-          $ref: "../../TalentSearchCommon/Tables/mTalent.yaml#/components/schemas/mTalent"
+        mTalent:
+          description: タレントマスタDTO
+          type: array
+          items:
+           $ref: "../../TalentSearchCommon/Tables/mTalent.yaml#/components/schemas/mTalent"
