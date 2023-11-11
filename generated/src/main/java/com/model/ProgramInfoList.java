@@ -12,24 +12,24 @@ import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 
 /**
- * オンエア管理テーブルDTO
+ * 番組マスタ情報DTO
  */
 
-@Schema(name = "onAirKanriList", description = "オンエア管理テーブルDTO")
-@JsonTypeName("onAirKanriList")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-11T20:10:32.597804+09:00[Asia/Tokyo]")
-public class OnAirKanriList {
+@Schema(name = "programInfoList", description = "番組マスタ情報DTO")
+@JsonTypeName("programInfoList")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-11T20:02:26.212775+09:00[Asia/Tokyo]")
+public class ProgramInfoList {
 
   @JsonProperty("mProgram")
   @Valid
-  private List<TOnAirKanri> mProgram = null;
+  private List<MProgram> mProgram = null;
 
-  public OnAirKanriList mProgram(List<TOnAirKanri> mProgram) {
+  public ProgramInfoList mProgram(List<MProgram> mProgram) {
     this.mProgram = mProgram;
     return this;
   }
 
-  public OnAirKanriList addMProgramItem(TOnAirKanri mProgramItem) {
+  public ProgramInfoList addMProgramItem(MProgram mProgramItem) {
     if (this.mProgram == null) {
       this.mProgram = new ArrayList<>();
     }
@@ -38,16 +38,16 @@ public class OnAirKanriList {
   }
 
   /**
-   * オンエア管理テーブルDTO
+   * 番組マスタDTO
    * @return mProgram
   */
   @Valid 
-  @Schema(name = "mProgram", description = "オンエア管理テーブルDTO", required = false)
-  public List<TOnAirKanri> getmProgram() {
+  @Schema(name = "mProgram", description = "番組マスタDTO", required = false)
+  public List<MProgram> getmProgram() {
     return mProgram;
   }
 
-  public void setmProgram(List<TOnAirKanri> mProgram) {
+  public void setmProgram(List<MProgram> mProgram) {
     this.mProgram = mProgram;
   }
 
@@ -59,8 +59,8 @@ public class OnAirKanriList {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    OnAirKanriList onAirKanriList = (OnAirKanriList) o;
-    return Objects.equals(this.mProgram, onAirKanriList.mProgram);
+    ProgramInfoList programInfoList = (ProgramInfoList) o;
+    return Objects.equals(this.mProgram, programInfoList.mProgram);
   }
 
   @Override
@@ -71,7 +71,7 @@ public class OnAirKanriList {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class OnAirKanriList {\n");
+    sb.append("class ProgramInfoList {\n");
     sb.append("    mProgram: ").append(toIndentedString(mProgram)).append("\n");
     sb.append("}");
     return sb.toString();

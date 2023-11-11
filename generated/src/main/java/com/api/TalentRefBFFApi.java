@@ -9,8 +9,8 @@ import java.util.List;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.model.TalentInfo;
@@ -49,11 +49,7 @@ public interface TalentRefBFFApi {
             })
         }
     )
-    @RequestMapping(
-        method = RequestMethod.GET,
-        value = "/talentRefBFF",
-        produces = { "application/json" }
-    )
+    @GetMapping("/talentRefBFF")
     ResponseEntity<List<TalentInfo>> getTalentRefBFF(
         @Size(max = 8) @Parameter(name = "talentId", description = "タレントID") @Valid @RequestParam(value = "talentId", required = false) String talentId,
         @Size(max = 30) @Parameter(name = "talentName", description = "タレント名") @Valid @RequestParam(value = "talentName", required = false) String talentName

@@ -5,15 +5,13 @@
  */
 package com.api;
 
-import java.util.List;
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.model.TOnAirKanriInfo;
+import com.model.OnAirKanriList;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -25,7 +23,7 @@ import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Size;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-10-24T18:08:56.954362+09:00[Asia/Tokyo]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-11T20:10:32.597804+09:00[Asia/Tokyo]")
 @Validated
 @Tag(name = "onAirKanriRefBFF", description = "the onAirKanriRefBFF API")
 @RequestMapping("${openapi.bFF.base-path:}")
@@ -45,12 +43,12 @@ public interface OnAirKanriRefBFFApi {
         tags = { "onAirKanriRefBFF" },
         responses = {
             @ApiResponse(responseCode = "200", description = "オンエア管理情報を正常取得", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = TOnAirKanriInfo.class))
+                @Content(mediaType = "application/json", schema = @Schema(implementation = OnAirKanriList.class))
             })
         }
     )
     @GetMapping("/onAirKanriRefBFF")
-    ResponseEntity<List<TOnAirKanriInfo>> getOnAirKanriRefBFF(
+    ResponseEntity<OnAirKanriList> getOnAirKanriRefBFF(
         @Size(max = 8) @Parameter(name = "id", description = "ID") @Valid @RequestParam(value = "id", required = false) String id,
         @Parameter(name = "onAirDay", description = "オンエア日") @Valid @RequestParam(value = "onAirDay", required = false) String onAirDay
     );

@@ -15,21 +15,21 @@ import jakarta.validation.Valid;
  * 登録または更新した年月週管理マスタDTOの情報
  */
 
-@Schema(name = "nentsukiShuKanriBFF", description = "登録または更新した年月週管理マスタDTOの情報")
-@JsonTypeName("nentsukiShuKanriBFF")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-05T16:06:49.061275+09:00[Asia/Tokyo]")
-public class NentsukiShuKanriBFF {
+@Schema(name = "nentsukiShuKanri", description = "登録または更新した年月週管理マスタDTOの情報")
+@JsonTypeName("nentsukiShuKanri")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-11T20:02:59.841945+09:00[Asia/Tokyo]")
+public class NentsukiShuKanri {
 
   @JsonProperty("mNentsukiShuKanri")
   @Valid
   private List<MNentsukiShuKanri> mNentsukiShuKanri = null;
 
-  public NentsukiShuKanriBFF mNentsukiShuKanri(List<MNentsukiShuKanri> mNentsukiShuKanri) {
+  public NentsukiShuKanri mNentsukiShuKanri(List<MNentsukiShuKanri> mNentsukiShuKanri) {
     this.mNentsukiShuKanri = mNentsukiShuKanri;
     return this;
   }
 
-  public NentsukiShuKanriBFF addMNentsukiShuKanriItem(MNentsukiShuKanri mNentsukiShuKanriItem) {
+  public NentsukiShuKanri addMNentsukiShuKanriItem(MNentsukiShuKanri mNentsukiShuKanriItem) {
     if (this.mNentsukiShuKanri == null) {
       this.mNentsukiShuKanri = new ArrayList<>();
     }
@@ -59,8 +59,8 @@ public class NentsukiShuKanriBFF {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    NentsukiShuKanriBFF nentsukiShuKanriBFF = (NentsukiShuKanriBFF) o;
-    return Objects.equals(this.mNentsukiShuKanri, nentsukiShuKanriBFF.mNentsukiShuKanri);
+    NentsukiShuKanri nentsukiShuKanri = (NentsukiShuKanri) o;
+    return Objects.equals(this.mNentsukiShuKanri, nentsukiShuKanri.mNentsukiShuKanri);
   }
 
   @Override
@@ -71,7 +71,7 @@ public class NentsukiShuKanriBFF {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class NentsukiShuKanriBFF {\n");
+    sb.append("class NentsukiShuKanri {\n");
     sb.append("    mNentsukiShuKanri: ").append(toIndentedString(mNentsukiShuKanri)).append("\n");
     sb.append("}");
     return sb.toString();

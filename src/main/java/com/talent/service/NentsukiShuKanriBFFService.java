@@ -3,7 +3,7 @@ package com.talent.service;
 import org.springframework.stereotype.Service;
 
 import com.model.MNentsukiShuKanri;
-import com.model.NentsukiShuKanriBFF;
+import com.model.NentsukiShuKanri;
 import com.talent.setting.WebClientInfo;
 
 import lombok.RequiredArgsConstructor;
@@ -22,11 +22,11 @@ public class NentsukiShuKanriBFFService {
      * 年月週管理登録・更新BFFService
      *
      * @param MNentsukiShuKanri　年月週管理マスタDTO
-     * @return NentsukiShuKanriBFF
+     * @return NentsukiShuKanri
      */
-    public NentsukiShuKanriBFF postNentsukiShuKanriBFF(MNentsukiShuKanri mNentsukiShuKanri) {
+    public NentsukiShuKanri postNentsukiShuKanriBFF(MNentsukiShuKanri mNentsukiShuKanri) {
     	// (1) BE「年月週管理登録・更新」を呼び出す。
-    	NentsukiShuKanriBFF response = this.webClient.postNentsukiShuKanri(mNentsukiShuKanri);
+    	NentsukiShuKanri response = this.webClient.postNentsukiShuKanri(mNentsukiShuKanri);
         // Responseへ設定
         return response;
     }
@@ -37,9 +37,9 @@ public class NentsukiShuKanriBFFService {
      * @param　無
      * @return NentsukiShuKanriBFF
      */
-    public NentsukiShuKanriBFF getNentsukiShuKanriBFF() {
+    public NentsukiShuKanri getNentsukiShuKanriBFF() {
     	// (1) BE「年月週管理登録・更新」を呼び出す。
-    	NentsukiShuKanriBFF response = this.webClient.getNentsukiShuKanri();
+    	NentsukiShuKanri response = this.webClient.getNentsukiShuKanri();
         // Responseへ設定
         return response;
     }
