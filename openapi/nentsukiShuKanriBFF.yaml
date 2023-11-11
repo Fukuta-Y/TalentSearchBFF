@@ -24,7 +24,7 @@ paths:
     post:
       tags:
         - nentsukiShuKanriBFF
-      operationId: postProgramTorokuKoshinBFF
+      operationId: postNentsukiShuKanriBFF
       summary: 年月週管理マスタ情報を登録または更新するBFF
       description: 年月週管理マスタ情報を登録または更新するBFF
       requestBody:
