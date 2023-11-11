@@ -23,7 +23,7 @@ import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Size;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-09T22:44:51.959140+09:00[Asia/Tokyo]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-11T20:10:32.597804+09:00[Asia/Tokyo]")
 @Validated
 @Tag(name = "onAirKanriRefBFF", description = "the onAirKanriRefBFF API")
 @RequestMapping("api")

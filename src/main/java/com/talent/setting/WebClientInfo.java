@@ -10,8 +10,9 @@ import com.model.MNentsukiShuKanri;
 import com.model.MProgram;
 import com.model.MProgramList;
 import com.model.MTalent;
-import com.model.NentsukiShuKanriBFF;
+import com.model.NentsukiShuKanri;
 import com.model.OnAirKanriList;
+import com.model.ProgramInfoList;
 import com.model.ProgramShutsuenList;
 import com.model.ProgramTorokuKoshinBFF;
 import com.model.ShukanTalentJoho;
@@ -199,13 +200,13 @@ public class WebClientInfo {
      * @param mNentsukiShuKanri 年月週管理マスタDTO
      * @return　遷移情報を設定したWebClientの内容を返す
      */
-    public NentsukiShuKanriBFF postNentsukiShuKanri(MNentsukiShuKanri mNentsukiShuKanri) {
+    public NentsukiShuKanri postNentsukiShuKanri(MNentsukiShuKanri mNentsukiShuKanri) {
         return this.webClient.post()
 	    		.uri("/nentsukiShuKanri")
 	    	    .body(Mono.just(mNentsukiShuKanri), MNentsukiShuKanri.class)
 	    	    .accept(MediaType.APPLICATION_JSON)
 	    	    .retrieve()
-	    	    .bodyToMono(NentsukiShuKanriBFF.class).block();
+	    	    .bodyToMono(NentsukiShuKanri.class).block();
     }
     /**
      * BE「オンエア管理テーブル検索」へ接続の設定
@@ -227,13 +228,13 @@ public class WebClientInfo {
      * @param 無
      * @return　遷移情報を設定したWebClientの内容を返す
      */
-    public NentsukiShuKanriBFF getNentsukiShuKanri() {
+    public NentsukiShuKanri getNentsukiShuKanri() {
         return this.webClient.get()
                 .uri(uriBuilder -> uriBuilder
                         .path("/nentsukiShuKanri")
                         .build())
                 .retrieve()
-                .bodyToMono(NentsukiShuKanriBFF.class).block();
+                .bodyToMono(NentsukiShuKanri.class).block();
     }
     /**
      * BE「オンエア管理登録・更新」へ接続の設定
@@ -265,5 +266,56 @@ public class WebClientInfo {
                         .build())
                 .retrieve()
                 .bodyToMono(OnAirKanriList.class).block();
+    }
+    /**
+     * BE「年月週管理参照検索」へ接続の設定
+     *
+	 * @param nentsuki 年月
+	 * @param shu 週
+     * @return　遷移情報を設定したWebClientの内容を返す
+     */
+    public NentsukiShuKanri getNentsukiShuKanrRef(Integer nentsuki, Integer shu) {
+        return this.webClient.get()
+                .uri(uriBuilder -> uriBuilder
+		                .path("/nentsukiShuKanrRef")
+                        .queryParam("nentsuki", nentsuki)
+                        .queryParam("shu", shu)
+                        .build())
+                .retrieve()
+                .bodyToMono(NentsukiShuKanri.class).block();
+    }
+    /**
+     * BE「番組参照検索」へ接続の設定
+     *
+	 * @param nentsuki 年月
+	 * @param shu 週
+     * @return　遷移情報を設定したWebClientの内容を返す
+     */
+    public ProgramInfoList getProgramRef(String programId, String programName) {
+        return this.webClient.get()
+                .uri(uriBuilder -> uriBuilder
+		                .path("/programRef")
+                        .queryParam("programId", programId)
+                        .queryParam("programName", programName)
+                        .build())
+                .retrieve()
+                .bodyToMono(ProgramInfoList.class).block();
+    }
+    /**
+     * BE「タレント参照検索」へ接続の設定
+     *
+	 * @param talentId タレントID
+	 * @param talentName タレント名
+     * @return　遷移情報を設定したWebClientの内容を返す
+     */
+    public TalentList getTalentRef(String talentId, String talentName) {
+        return this.webClient.get()
+                .uri(uriBuilder -> uriBuilder
+		                .path("/talentRef")
+                        .queryParam("talentId", talentId)
+                        .queryParam("talentName", talentName)
+                        .build())
+                .retrieve()
+                .bodyToMono(TalentList.class).block();
     }
 }

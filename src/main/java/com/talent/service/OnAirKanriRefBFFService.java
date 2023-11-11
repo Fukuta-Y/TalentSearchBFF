@@ -1,5 +1,7 @@
 package com.talent.service;
 
+import org.springframework.stereotype.Service;
+import com.model.OnAirKanriList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -33,11 +35,7 @@ public class OnAirKanriRefBFFService {
     	OnAirKanriList response = new OnAirKanriList();
 
     	// (1) BE「オンエア管理参照検索」を呼び出す。
-    	OnAirKanriList onAirKanriList = this.webClient.getOnAirKanriRef(id, onAirDay);
-    	List<TOnAirKanri> tOnAirKanriList = onAirKanriList.gettOnAirKanri();
-    	
-    	// responseへ設定
-    	response.settOnAirKanri(tOnAirKanriList);
+    	response = this.webClient.getOnAirKanriRef(id, onAirDay);
 
     	// responseの返却
         return response;

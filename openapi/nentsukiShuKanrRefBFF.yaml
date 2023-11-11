@@ -17,7 +17,7 @@ paths:
       parameters:
         - in: query
           name: nentsuki
-          required: true
+          required: false
           description: 年月
           schema:
             type: integer
@@ -25,7 +25,7 @@ paths:
             minimum: 199001
         - in: query
           name: shu
-          required: true
+          required: false
           description: 週
           schema:
             type: integer
@@ -37,13 +37,15 @@ paths:
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/mNentsukiShuKanri'
+                $ref: '#/components/schemas/nentsukiShuKanri'
 components:
   schemas:
-    mNentsukiShuKanri:
-      description: 年月週管理マスタDTO
+    nentsukiShuKanri:
+      description: 登録または更新した年月週管理マスタDTOの情報
       type: object
       properties:
-        items:
-          $ref: "../../TalentSearchCommon/Tables/mNentsukiShuKanri.yaml#/components/schemas/mNentsukiShuKanri"
+        mNentsukiShuKanri:
+          description: 年月週管理マスタDTO
+          type: array
+          items:
+            $ref: "../../TalentSearchCommon/Tables/mNentsukiShuKanri.yaml#/components/schemas/mNentsukiShuKanri"

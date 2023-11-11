@@ -39,7 +39,7 @@ paths:
 components:
   schemas:
     onAirKanriList:
-      description: オンエア管理テーブルDTOの情報
+      description: オンエア管理テーブルDTO
       type: object
       properties:
         tOnAirKanri:
@@ -47,4 +47,3 @@ components:
           type: array
           items:
             $ref: "../../TalentSearchCommon/Tables/tOnAirKanri.yaml#/components/schemas/tOnAirKanri"
- 

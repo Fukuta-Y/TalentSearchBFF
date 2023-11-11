@@ -15,21 +15,21 @@ import jakarta.validation.Valid;
  * 番組マスタ情報DTO
  */
 
-@Schema(name = "mProgramList", description = "番組マスタ情報DTO")
-@JsonTypeName("mProgramList")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-11T19:40:58.522894+09:00[Asia/Tokyo]")
-public class MProgramList {
+@Schema(name = "programInfoList", description = "番組マスタ情報DTO")
+@JsonTypeName("programInfoList")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-11T20:02:26.212775+09:00[Asia/Tokyo]")
+public class ProgramInfoList {
 
   @JsonProperty("mProgram")
   @Valid
   private List<MProgram> mProgram = null;
 
-  public MProgramList mProgram(List<MProgram> mProgram) {
+  public ProgramInfoList mProgram(List<MProgram> mProgram) {
     this.mProgram = mProgram;
     return this;
   }
 
-  public MProgramList addMProgramItem(MProgram mProgramItem) {
+  public ProgramInfoList addMProgramItem(MProgram mProgramItem) {
     if (this.mProgram == null) {
       this.mProgram = new ArrayList<>();
     }
@@ -59,8 +59,8 @@ public class MProgramList {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    MProgramList mProgramList = (MProgramList) o;
-    return Objects.equals(this.mProgram, mProgramList.mProgram);
+    ProgramInfoList programInfoList = (ProgramInfoList) o;
+    return Objects.equals(this.mProgram, programInfoList.mProgram);
   }
 
   @Override
@@ -71,7 +71,7 @@ public class MProgramList {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class MProgramList {\n");
+    sb.append("class ProgramInfoList {\n");
     sb.append("    mProgram: ").append(toIndentedString(mProgram)).append("\n");
     sb.append("}");
     return sb.toString();

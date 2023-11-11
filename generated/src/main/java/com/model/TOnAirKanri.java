@@ -18,7 +18,7 @@ import jakarta.validation.constraints.Size;
 
 @Schema(name = "tOnAirKanri", description = "オンエア管理テーブル情報（全列）")
 @JsonTypeName("tOnAirKanri")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-09T23:30:43.856747+09:00[Asia/Tokyo]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-11T20:10:32.597804+09:00[Asia/Tokyo]")
 public class TOnAirKanri {
 
   @JsonProperty("id")

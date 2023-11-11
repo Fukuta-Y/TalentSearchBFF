@@ -12,12 +12,12 @@ import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 
 /**
- * オンエア管理テーブルDTOの情報
+ * オンエア管理テーブルDTO
  */
 
-@Schema(name = "onAirKanriList", description = "オンエア管理テーブルDTOの情報")
+@Schema(name = "onAirKanriList", description = "オンエア管理テーブルDTO")
 @JsonTypeName("onAirKanriList")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-05T15:27:12.034337+09:00[Asia/Tokyo]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-11T20:25:49.717295+09:00[Asia/Tokyo]")
 public class OnAirKanriList {
 
   @JsonProperty("tOnAirKanri")

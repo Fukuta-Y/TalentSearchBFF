@@ -4,7 +4,7 @@ import org.springframework.stereotype.Controller;
 
 import com.api.NentsukiShuKanriBFFApi;
 import com.model.MNentsukiShuKanri;
-import com.model.NentsukiShuKanriBFF;
+import com.model.NentsukiShuKanri;
 import com.talent.service.NentsukiShuKanriBFFService;
 
 import lombok.RequiredArgsConstructor;
@@ -24,9 +24,9 @@ public class NentsukiShuKanriBFFController implements NentsukiShuKanriBFFApi{
 	 * 
 	*/
 	@Override
-	public ResponseEntity<NentsukiShuKanriBFF> postProgramTorokuKoshinBFF(MNentsukiShuKanri mNentsukiShuKanri) {
+	public ResponseEntity<NentsukiShuKanri> postNentsukiShuKanriBFF(MNentsukiShuKanri mNentsukiShuKanri) {
 		// NentsukiShuKanriBFFServiceより取得
-		NentsukiShuKanriBFF response = service.postNentsukiShuKanriBFF(mNentsukiShuKanri);
+		NentsukiShuKanri response = service.postNentsukiShuKanriBFF(mNentsukiShuKanri);
 		return ResponseEntity.ok(response);
 	}
 
@@ -38,9 +38,10 @@ public class NentsukiShuKanriBFFController implements NentsukiShuKanriBFFApi{
 	 * 
 	*/
 	@Override
-	public ResponseEntity<NentsukiShuKanriBFF> getNentsukiShuKanriBFF() {
+	public ResponseEntity<NentsukiShuKanri> getNentsukiShuKanriBFF() {
 		// NentsukiShuKanriBFFServiceより取得
-		NentsukiShuKanriBFF response = service.getNentsukiShuKanriBFF();
+		NentsukiShuKanri response = service.getNentsukiShuKanriBFF();
 		return ResponseEntity.ok(response);
 	}
+
 }

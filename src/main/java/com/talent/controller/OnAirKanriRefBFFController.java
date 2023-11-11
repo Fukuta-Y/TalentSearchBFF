@@ -11,7 +11,6 @@ import lombok.RequiredArgsConstructor;
 @Controller
 @RequiredArgsConstructor
 public class OnAirKanriRefBFFController implements OnAirKanriRefBFFApi{
-	
 	// OnAirKanriRefBFFServiceを宣言
 	private final OnAirKanriRefBFFService service;
 
