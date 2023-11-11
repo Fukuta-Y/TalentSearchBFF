@@ -17,38 +17,38 @@ import jakarta.validation.Valid;
 
 @Schema(name = "onAirKanriList", description = "オンエア管理テーブルDTO")
 @JsonTypeName("onAirKanriList")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-11T20:10:32.597804+09:00[Asia/Tokyo]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-11T20:25:49.717295+09:00[Asia/Tokyo]")
 public class OnAirKanriList {
 
-  @JsonProperty("mProgram")
+  @JsonProperty("tOnAirKanri")
   @Valid
-  private List<TOnAirKanri> mProgram = null;
+  private List<TOnAirKanri> tOnAirKanri = null;
 
-  public OnAirKanriList mProgram(List<TOnAirKanri> mProgram) {
-    this.mProgram = mProgram;
+  public OnAirKanriList tOnAirKanri(List<TOnAirKanri> tOnAirKanri) {
+    this.tOnAirKanri = tOnAirKanri;
     return this;
   }
 
-  public OnAirKanriList addMProgramItem(TOnAirKanri mProgramItem) {
-    if (this.mProgram == null) {
-      this.mProgram = new ArrayList<>();
+  public OnAirKanriList addTOnAirKanriItem(TOnAirKanri tOnAirKanriItem) {
+    if (this.tOnAirKanri == null) {
+      this.tOnAirKanri = new ArrayList<>();
     }
-    this.mProgram.add(mProgramItem);
+    this.tOnAirKanri.add(tOnAirKanriItem);
     return this;
   }
 
   /**
    * オンエア管理テーブルDTO
-   * @return mProgram
+   * @return tOnAirKanri
   */
   @Valid 
-  @Schema(name = "mProgram", description = "オンエア管理テーブルDTO", required = false)
-  public List<TOnAirKanri> getmProgram() {
-    return mProgram;
+  @Schema(name = "tOnAirKanri", description = "オンエア管理テーブルDTO", required = false)
+  public List<TOnAirKanri> gettOnAirKanri() {
+    return tOnAirKanri;
   }
 
-  public void setmProgram(List<TOnAirKanri> mProgram) {
-    this.mProgram = mProgram;
+  public void settOnAirKanri(List<TOnAirKanri> tOnAirKanri) {
+    this.tOnAirKanri = tOnAirKanri;
   }
 
   @Override
@@ -60,19 +60,19 @@ public class OnAirKanriList {
       return false;
     }
     OnAirKanriList onAirKanriList = (OnAirKanriList) o;
-    return Objects.equals(this.mProgram, onAirKanriList.mProgram);
+    return Objects.equals(this.tOnAirKanri, onAirKanriList.tOnAirKanri);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(mProgram);
+    return Objects.hash(tOnAirKanri);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class OnAirKanriList {\n");
-    sb.append("    mProgram: ").append(toIndentedString(mProgram)).append("\n");
+    sb.append("    tOnAirKanri: ").append(toIndentedString(tOnAirKanri)).append("\n");
     sb.append("}");
     return sb.toString();
   }

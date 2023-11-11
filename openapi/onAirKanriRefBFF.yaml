@@ -42,7 +42,7 @@ components:
       description: オンエア管理テーブルDTO
       type: object
       properties:
-        mProgram:
+        tOnAirKanri:
           description: オンエア管理テーブルDTO
           type: array
           items:
