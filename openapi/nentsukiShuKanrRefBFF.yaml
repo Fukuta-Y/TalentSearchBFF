@@ -37,13 +37,15 @@ paths:
           content:
             application/json:
               schema:
-                items:
-                  $ref: '#/components/schemas/mNentsukiShuKanri'
+                $ref: '#/components/schemas/nentsukiShuKanri'
 components:
   schemas:
-    mNentsukiShuKanri:
-      description: 年月週管理マスタDTO
+    nentsukiShuKanri:
+      description: 登録または更新した年月週管理マスタDTOの情報
       type: object
       properties:
-        items:
-          $ref: "../../TalentSearchCommon/Tables/mNentsukiShuKanri.yaml#/components/schemas/mNentsukiShuKanri"
+        mNentsukiShuKanri:
+          description: 年月週管理マスタDTO
+          type: array
+          items:
+            $ref: "../../TalentSearchCommon/Tables/mNentsukiShuKanri.yaml#/components/schemas/mNentsukiShuKanri"

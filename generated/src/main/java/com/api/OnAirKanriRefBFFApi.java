@@ -9,8 +9,8 @@ import java.util.List;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.model.TOnAirKanriInfo;
@@ -49,11 +49,7 @@ public interface OnAirKanriRefBFFApi {
             })
         }
     )
-    @RequestMapping(
-        method = RequestMethod.GET,
-        value = "/onAirKanriRefBFF",
-        produces = { "application/json" }
-    )
+    @GetMapping("/onAirKanriRefBFF")
     ResponseEntity<List<TOnAirKanriInfo>> getOnAirKanriRefBFF(
         @Size(max = 8) @Parameter(name = "id", description = "ID") @Valid @RequestParam(value = "id", required = false) String id,
         @Parameter(name = "onAirDay", description = "オンエア日") @Valid @RequestParam(value = "onAirDay", required = false) String onAirDay

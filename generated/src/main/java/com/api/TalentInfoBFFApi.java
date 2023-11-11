@@ -7,9 +7,9 @@ package com.api;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.model.TalentInfo;
 
@@ -45,11 +45,7 @@ public interface TalentInfoBFFApi {
             })
         }
     )
-    @RequestMapping(
-        method = RequestMethod.GET,
-        value = "/talentInfoBFF/{talentId}",
-        produces = { "application/json" }
-    )
+    @GetMapping("/talentInfoBFF/{talentId}")
     ResponseEntity<TalentInfo> getTalentInfoBFF(
         @Size(max = 8) @Parameter(name = "talentId", description = "", required = true) @PathVariable("talentId") String talentId
     );
