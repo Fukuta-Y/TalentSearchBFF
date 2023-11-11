@@ -20,7 +20,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/nentsukiShuKanriBFF'
+                $ref: '#/components/schemas/nentsukiShuKanri'
     post:
       tags:
         - nentsukiShuKanriBFF
@@ -39,10 +39,10 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/nentsukiShuKanriBFF'
+                $ref: '#/components/schemas/nentsukiShuKanri'
 components:
   schemas:
-    nentsukiShuKanriBFF:
+    nentsukiShuKanri:
       description: 登録または更新した年月週管理マスタDTOの情報
       type: object
       properties:

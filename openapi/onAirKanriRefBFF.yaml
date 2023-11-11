@@ -36,12 +36,16 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: '#/components/schemas/tOnAirKanriInfo'
+                  $ref: '#/components/schemas/onAirKanriList'
 components:
   schemas:
-    tOnAirKanriInfo:
-      description: オンエア管理テーブル情報
+    onAirKanriList:
+      description: オンエア管理テーブルDTOの情報
       type: object
       properties:
-        items:
-          $ref: "../../TalentSearchCommon/Tables/tOnAirKanri.yaml#/components/schemas/tOnAirKanri"
+        tOnAirKanri:
+          description: オンエア管理テーブルDTO
+          type: array
+          items:
+            $ref: "../../TalentSearchCommon/Tables/tOnAirKanri.yaml#/components/schemas/tOnAirKanri"
+ 
