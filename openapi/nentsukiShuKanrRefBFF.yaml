@@ -17,7 +17,7 @@ paths:
       parameters:
         - in: query
           name: nentsuki
-          required: true
+          required: false
           description: 年月
           schema:
             type: integer
@@ -25,7 +25,7 @@ paths:
             minimum: 199001
         - in: query
           name: shu
-          required: true
+          required: false
           description: 週
           schema:
             type: integer
