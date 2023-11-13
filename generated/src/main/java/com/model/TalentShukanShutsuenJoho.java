@@ -32,9 +32,9 @@ public class TalentShukanShutsuenJoho {
   @Valid
   private List<MProgram> mProgram = null;
 
-  @JsonProperty("mChanelKyoku")
+  @JsonProperty("mChannelKyoku")
   @Valid
-  private List<MChanelKyoku> mChanelKyoku = null;
+  private List<MChannelKyoku> mChannelKyoku = null;
 
   @JsonProperty("mKbnGenre")
   @Valid
@@ -121,31 +121,31 @@ public class TalentShukanShutsuenJoho {
     this.mProgram = mProgram;
   }
 
-  public TalentShukanShutsuenJoho mChanelKyoku(List<MChanelKyoku> mChanelKyoku) {
-    this.mChanelKyoku = mChanelKyoku;
+  public TalentShukanShutsuenJoho mChannelKyoku(List<MChannelKyoku> mChannelKyoku) {
+    this.mChannelKyoku = mChannelKyoku;
     return this;
   }
 
-  public TalentShukanShutsuenJoho addMChanelKyokuItem(MChanelKyoku mChanelKyokuItem) {
-    if (this.mChanelKyoku == null) {
-      this.mChanelKyoku = new ArrayList<>();
+  public TalentShukanShutsuenJoho addMChannelKyokuItem(MChannelKyoku mChannelKyokuItem) {
+    if (this.mChannelKyoku == null) {
+      this.mChannelKyoku = new ArrayList<>();
     }
-    this.mChanelKyoku.add(mChanelKyokuItem);
+    this.mChannelKyoku.add(mChannelKyokuItem);
     return this;
   }
 
   /**
    * チャンネル局マスタDTO
-   * @return mChanelKyoku
+   * @return mChannelKyoku
   */
   @Valid 
-  @Schema(name = "mChanelKyoku", description = "チャンネル局マスタDTO", required = false)
-  public List<MChanelKyoku> getmChanelKyoku() {
-    return mChanelKyoku;
+  @Schema(name = "mChannelKyoku", description = "チャンネル局マスタDTO", required = false)
+  public List<MChannelKyoku> getmChannelKyoku() {
+    return mChannelKyoku;
   }
 
-  public void setmChanelKyoku(List<MChanelKyoku> mChanelKyoku) {
-    this.mChanelKyoku = mChanelKyoku;
+  public void setmChannelKyoku(List<MChannelKyoku> mChannelKyoku) {
+    this.mChannelKyoku = mChannelKyoku;
   }
 
   public TalentShukanShutsuenJoho mKbnGenre(List<MKbnGenre> mKbnGenre) {
@@ -187,13 +187,13 @@ public class TalentShukanShutsuenJoho {
     return Objects.equals(this.tOnAirKanri, talentShukanShutsuenJoho.tOnAirKanri) &&
         Objects.equals(this.mTalent, talentShukanShutsuenJoho.mTalent) &&
         Objects.equals(this.mProgram, talentShukanShutsuenJoho.mProgram) &&
-        Objects.equals(this.mChanelKyoku, talentShukanShutsuenJoho.mChanelKyoku) &&
+        Objects.equals(this.mChannelKyoku, talentShukanShutsuenJoho.mChannelKyoku) &&
         Objects.equals(this.mKbnGenre, talentShukanShutsuenJoho.mKbnGenre);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(tOnAirKanri, mTalent, mProgram, mChanelKyoku, mKbnGenre);
+    return Objects.hash(tOnAirKanri, mTalent, mProgram, mChannelKyoku, mKbnGenre);
   }
 
   @Override
@@ -203,7 +203,7 @@ public class TalentShukanShutsuenJoho {
     sb.append("    tOnAirKanri: ").append(toIndentedString(tOnAirKanri)).append("\n");
     sb.append("    mTalent: ").append(toIndentedString(mTalent)).append("\n");
     sb.append("    mProgram: ").append(toIndentedString(mProgram)).append("\n");
-    sb.append("    mChanelKyoku: ").append(toIndentedString(mChanelKyoku)).append("\n");
+    sb.append("    mChannelKyoku: ").append(toIndentedString(mChannelKyoku)).append("\n");
     sb.append("    mKbnGenre: ").append(toIndentedString(mKbnGenre)).append("\n");
     sb.append("}");
     return sb.toString();

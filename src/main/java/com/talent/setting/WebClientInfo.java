@@ -4,7 +4,7 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
-import com.model.ChanelKyoku;
+import com.model.ChannelKyoku;
 import com.model.KbnMasterInfo;
 import com.model.MNentsukiShuKanri;
 import com.model.MProgram;
@@ -141,16 +141,16 @@ public class WebClientInfo {
     /**
      * BE「チャンネル局マスタ検索」へ接続の設定
      *
-     * @param chanelIds　チャンネルID 【複数】
+     * @param channelIds　チャンネルID 【複数】
      * @return　遷移情報を設定したWebClientの内容を返す
      */
-    public ChanelKyoku getMChanelKyoku(String chanelIds) {
+    public ChannelKyoku getMChannelKyoku(String channelIds) {
         return this.webClient.get()
                 .uri(uriBuilder -> uriBuilder
-                        .path("/chanelKyoku/{chanelIds}")
-                        .build(chanelIds))
+                        .path("/channelKyoku/{channelIds}")
+                        .build(channelIds))
                 .retrieve()
-                .bodyToMono(ChanelKyoku.class).block();
+                .bodyToMono(ChannelKyoku.class).block();
     }
     /**
      * BE「番組登録・更新」へ接続の設定

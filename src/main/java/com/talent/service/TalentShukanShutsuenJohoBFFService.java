@@ -6,7 +6,7 @@ import java.util.List;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
-import com.model.MChanelKyoku;
+import com.model.MChannelKyoku;
 import com.model.MKbnGenre;
 import com.model.MProgram;
 import com.model.MTalent;
@@ -52,7 +52,7 @@ public class TalentShukanShutsuenJohoBFFService {
         List<TOnAirKanri> onAirList = talentJoho.gettOnAirKanri();
         List<MTalent> mTalentList = talentJoho.getmTalent();
         List<MProgram> mProgramList = talentJoho.getmProgram();
-        List<MChanelKyoku> mChanelKyokuList = talentJoho.getmChanelKyoku();
+        List<MChannelKyoku> mChannelKyokuList = talentJoho.getmChannelKyoku();
         List<MKbnGenre>  mKbnGenreList = talentJoho.getmKbnGenre();
 
         // BE「年月週の開始終了日付検索」より取得したレスポンスを以下のように設定する。
@@ -67,9 +67,9 @@ public class TalentShukanShutsuenJohoBFFService {
 				 bffModel = new TalentShukanShutsuen();
 				 // 一時保存用の変数を初期化
 				 Integer talentGenreId = null;
-				 Integer chanelId = null;
+				 Integer channelId = null;
 				 Integer programGenreId = null;
-				 Integer chanelKyokuId = null;
+				 Integer channelKyokuId = null;
 				 
 				 // (1) BE「タレント週間出演情報検索」より取得したレスポンスで以下の条件でデータを絞る。
 				 // 取得項目：
@@ -102,7 +102,7 @@ public class TalentShukanShutsuenJohoBFFService {
 						// 番組マスタDTO.番組名 → 【レスポンス.出演番組】
 						bffModel.setShutsuenProgram(program.getProgramName());
 						// ②を結合時に、番組マスタDTO. 番組名、番組マスタDTO. チャンネルID、番組マスタDTO. ジャンルIDを取得する。
-						chanelId = program.getChanelId();
+						channelId = program.getChannelId();
 						programGenreId = program.getGenreId();
 						break;
 					}
@@ -111,12 +111,12 @@ public class TalentShukanShutsuenJohoBFFService {
 	            // (2) (1)で取得した番組マスタDTO.チェンネルIDを軸として、キーを突き合わせる。
 	    		//   取得項目：
 	    		//  ・チャンネル局マスタDTO. チャンネル局ID → 【レスポンス.放送局（チャンネル）】
-				System.out.println("mChanelKyokuList:" + mChanelKyokuList);
-	            for (MChanelKyoku chanelKyoku : mChanelKyokuList) {
+				System.out.println("mChannelKyokuList:" + mChannelKyokuList);
+	            for (MChannelKyoku channelKyoku : mChannelKyokuList) {
 					// ① 番組マスタDTO.チェンネルID =チャンネル局マスタDTO.チェンネルID 
-					if(chanelKyoku.getChanelId().compareTo(chanelId) == 0 ) {
+					if(channelKyoku.getChannelId().compareTo(channelId) == 0 ) {
 						// →　①を結合時に、チャンネル局マスタDTO. チャンネル局IDを取得する。
-						chanelKyokuId = chanelKyoku.getChanelKyokuId();
+						channelKyokuId = channelKyoku.getChannelKyokuId();
 						break;
 					}
 	            }
@@ -141,7 +141,7 @@ public class TalentShukanShutsuenJohoBFFService {
 	        		//   →【レスポンス.放送局（チャンネル）】の前半に結合（既にチャンネル局IDが設定済みのため）
 		            if(kbnGenre.getGenreId().compareTo(3) == 0 && 
 		            		kbnGenre.getJyunjyo().compareTo(programGenreId) == 0) {
-		            	String hosokyokuChannel = kbnGenre.getGenre() + "(" + chanelKyokuId +")";
+		            	String hosokyokuChannel = kbnGenre.getGenre() + "(" + channelKyokuId +")";
 	            		bffModel.setHosokyokuChannel(hosokyokuChannel);
 	            	}
 	            }

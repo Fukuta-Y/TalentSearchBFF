@@ -10,7 +10,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.model.ChanelInfoList;
+import com.model.ChannelInfoList;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -21,28 +21,28 @@ import jakarta.annotation.Generated;
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-03T16:53:51.944573+09:00[Asia/Tokyo]")
 @Validated
-@Tag(name = "chanelInfoBFF", description = "the chanelInfoBFF API")
+@Tag(name = "channelInfoBFF", description = "the channelInfoBFF API")
 @RequestMapping("api")
-public interface ChanelInfoBFFApi {
+public interface ChannelInfoBFFApi {
 
     /**
-     * GET /chanelInfoBFF : チャンネル情報を取得するBFF
+     * GET /channelInfoBFF : チャンネル情報を取得するBFF
      * チャンネル情報を取得するBFF
      *
      * @return チャンネル情報を正常取得 (status code 200)
      */
     @Operation(
-        operationId = "getChanelInfoBFF",
+        operationId = "getChannelInfoBFF",
         summary = "チャンネル情報を取得するBFF",
-        tags = { "chanelInfoBFF" },
+        tags = { "channelInfoBFF" },
         responses = {
             @ApiResponse(responseCode = "200", description = "チャンネル情報を正常取得", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = ChanelInfoList.class))
+                @Content(mediaType = "application/json", schema = @Schema(implementation = ChannelInfoList.class))
             })
         }
     )
-    @GetMapping("/chanelInfoBFF")
-    ResponseEntity<ChanelInfoList> getChanelInfoBFF(
+    @GetMapping("/channelInfoBFF")
+    ResponseEntity<ChannelInfoList> getChannelInfoBFF(
         
     );
 

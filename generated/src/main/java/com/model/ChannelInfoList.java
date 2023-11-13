@@ -15,40 +15,40 @@ import jakarta.validation.Valid;
  * チャンネル情報
  */
 
-@Schema(name = "chanelInfoList", description = "チャンネル情報")
-@JsonTypeName("chanelInfoList")
+@Schema(name = "channelInfoList", description = "チャンネル情報")
+@JsonTypeName("channelInfoList")
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-03T16:53:51.944573+09:00[Asia/Tokyo]")
-public class ChanelInfoList {
+public class ChannelInfoList {
 
-  @JsonProperty("chanelInfo")
+  @JsonProperty("channelInfo")
   @Valid
-  private List<ChanelInfo> chanelInfo = null;
+  private List<ChannelInfo> channelInfo = null;
 
-  public ChanelInfoList chanelInfo(List<ChanelInfo> chanelInfo) {
-    this.chanelInfo = chanelInfo;
+  public ChannelInfoList channelInfo(List<ChannelInfo> channelInfo) {
+    this.channelInfo = channelInfo;
     return this;
   }
 
-  public ChanelInfoList addChanelInfoItem(ChanelInfo chanelInfoItem) {
-    if (this.chanelInfo == null) {
-      this.chanelInfo = new ArrayList<>();
+  public ChannelInfoList addChannelInfoItem(ChannelInfo channelInfoItem) {
+    if (this.channelInfo == null) {
+      this.channelInfo = new ArrayList<>();
     }
-    this.chanelInfo.add(chanelInfoItem);
+    this.channelInfo.add(channelInfoItem);
     return this;
   }
 
   /**
    * チャンネル情報リスト
-   * @return chanelInfo
+   * @return channelInfo
   */
   @Valid 
-  @Schema(name = "chanelInfo", description = "チャンネル情報リスト", required = false)
-  public List<ChanelInfo> getChanelInfo() {
-    return chanelInfo;
+  @Schema(name = "channelInfo", description = "チャンネル情報リスト", required = false)
+  public List<ChannelInfo> getChannelInfo() {
+    return channelInfo;
   }
 
-  public void setChanelInfo(List<ChanelInfo> chanelInfo) {
-    this.chanelInfo = chanelInfo;
+  public void setChannelInfo(List<ChannelInfo> channelInfo) {
+    this.channelInfo = channelInfo;
   }
 
   @Override
@@ -59,20 +59,20 @@ public class ChanelInfoList {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ChanelInfoList chanelInfoList = (ChanelInfoList) o;
-    return Objects.equals(this.chanelInfo, chanelInfoList.chanelInfo);
+    ChannelInfoList channelInfoList = (ChannelInfoList) o;
+    return Objects.equals(this.channelInfo, channelInfoList.channelInfo);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(chanelInfo);
+    return Objects.hash(channelInfo);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ChanelInfoList {\n");
-    sb.append("    chanelInfo: ").append(toIndentedString(chanelInfo)).append("\n");
+    sb.append("class ChannelInfoList {\n");
+    sb.append("    channelInfo: ").append(toIndentedString(channelInfo)).append("\n");
     sb.append("}");
     return sb.toString();
   }

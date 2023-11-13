@@ -7,11 +7,11 @@ servers:
   - url: https://localhost:8081
     description: チャンネル情報BFF
 paths:
-  /chanelInfoBFF:
+  /channelInfoBFF:
     get:
       tags:
-        - chanelInfoBFF
-      operationId: getChanelInfoBFF
+        - channelInfoBFF
+      operationId: getChannelInfoBFF
       summary: チャンネル情報を取得するBFF
       description: チャンネル情報を取得するBFF
       responses:
@@ -20,28 +20,28 @@ paths:
           content:
             application/json:
               schema:
-                  $ref: '#/components/schemas/chanelInfoList'      
+                  $ref: '#/components/schemas/channelInfoList'      
 components:
   schemas:
-    chanelInfoList:
+    channelInfoList:
       description: チャンネル情報
       type: object
       properties:
-        chanelInfo:
+        channelInfo:
           description: チャンネル情報リスト
           type: array
           items:
-            $ref: '#/components/schemas/chanelInfo'
-    chanelInfo:
+            $ref: '#/components/schemas/channelInfo'
+    channelInfo:
       description: チャンネル情報
       type: object
       properties:
-        chanelId:
+        channelId:
           type: integer
           maximum : 9
           minimum : 0
           description: チャンネルID
-        chanelName:
+        channelName:
           type: string
           maxLength: 30
           description: チャンネル名

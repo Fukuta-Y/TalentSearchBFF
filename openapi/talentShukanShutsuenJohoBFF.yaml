@@ -115,11 +115,11 @@ components:
           type: array
           items:
             $ref: "../../TalentSearchCommon/Tables/mProgram.yaml#/components/schemas/mProgram"
-        mChanelKyoku:
+        mChannelKyoku:
           description: チャンネル局マスタDTO
           type: array
           items:
-            $ref: "../../TalentSearchCommon/Tables/mChanelKyoku.yaml#/components/schemas/mChanelKyoku"
+            $ref: "../../TalentSearchCommon/Tables/mChannelKyoku.yaml#/components/schemas/mChannelKyoku"
         mKbnGenre:
           description: 区分ジャンルマスタDTO
           type: array
