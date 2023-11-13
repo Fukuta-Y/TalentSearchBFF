@@ -62,12 +62,12 @@ components:
           type: string
           maxLength: 30
           description: 番組名
-        chanelId:
+        channelId:
           type: integer
           maximum : 9
           minimum : 0
           description: チャンネルID
-        chanelName:
+        channelName:
           type: string
           maxLength: 30
           description: チャンネル名
@@ -98,13 +98,13 @@ components:
           type: array
           items:
             $ref: "../../TalentSearchCommon/Tables/mProgram.yaml#/components/schemas/mProgram"
-    chanelKyoku:
+    channelKyoku:
       description: チャンネル局マスタ
       type: object
       properties:
-        mChanelKyoku:
+        mChannelKyoku:
           description: チャンネル局マスタDTO
           type: array
           items:
-            $ref: "../../TalentSearchCommon/Tables/mChanelKyoku.yaml#/components/schemas/mChanelKyoku"
+            $ref: "../../TalentSearchCommon/Tables/mChannelKyoku.yaml#/components/schemas/mChannelKyoku"
  

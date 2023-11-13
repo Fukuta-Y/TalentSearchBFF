@@ -26,11 +26,11 @@ public class ProgramInfo {
   @JsonProperty("programName")
   private String programName;
 
-  @JsonProperty("chanelId")
-  private Integer chanelId;
+  @JsonProperty("channelId")
+  private Integer channelId;
 
-  @JsonProperty("chanelName")
-  private String chanelName;
+  @JsonProperty("channelName")
+  private String channelName;
 
   @JsonProperty("genreId")
   private Integer genreId;
@@ -76,8 +76,8 @@ public class ProgramInfo {
     this.programName = programName;
   }
 
-  public ProgramInfo chanelId(Integer chanelId) {
-    this.chanelId = chanelId;
+  public ProgramInfo channelId(Integer channelId) {
+    this.channelId = channelId;
     return this;
   }
 
@@ -85,35 +85,35 @@ public class ProgramInfo {
    * チャンネルID
    * minimum: 0
    * maximum: 9
-   * @return chanelId
+   * @return channelId
   */
   @Min(0) @Max(9) 
-  @Schema(name = "chanelId", description = "チャンネルID", required = false)
-  public Integer getChanelId() {
-    return chanelId;
+  @Schema(name = "channelId", description = "チャンネルID", required = false)
+  public Integer getChannelId() {
+    return channelId;
   }
 
-  public void setChanelId(Integer chanelId) {
-    this.chanelId = chanelId;
+  public void setChannelId(Integer channelId) {
+    this.channelId = channelId;
   }
 
-  public ProgramInfo chanelName(String chanelName) {
-    this.chanelName = chanelName;
+  public ProgramInfo channelName(String channelName) {
+    this.channelName = channelName;
     return this;
   }
 
   /**
    * チャンネル名
-   * @return chanelName
+   * @return channelName
   */
   @Size(max = 30) 
-  @Schema(name = "chanelName", description = "チャンネル名", required = false)
-  public String getChanelName() {
-    return chanelName;
+  @Schema(name = "channelName", description = "チャンネル名", required = false)
+  public String getChannelName() {
+    return channelName;
   }
 
-  public void setChanelName(String chanelName) {
-    this.chanelName = chanelName;
+  public void setChannelName(String channelName) {
+    this.channelName = channelName;
   }
 
   public ProgramInfo genreId(Integer genreId) {
@@ -167,15 +167,15 @@ public class ProgramInfo {
     ProgramInfo programInfo = (ProgramInfo) o;
     return Objects.equals(this.programId, programInfo.programId) &&
         Objects.equals(this.programName, programInfo.programName) &&
-        Objects.equals(this.chanelId, programInfo.chanelId) &&
-        Objects.equals(this.chanelName, programInfo.chanelName) &&
+        Objects.equals(this.channelId, programInfo.channelId) &&
+        Objects.equals(this.channelName, programInfo.channelName) &&
         Objects.equals(this.genreId, programInfo.genreId) &&
         Objects.equals(this.genre, programInfo.genre);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(programId, programName, chanelId, chanelName, genreId, genre);
+    return Objects.hash(programId, programName, channelId, channelName, genreId, genre);
   }
 
   @Override
@@ -184,8 +184,8 @@ public class ProgramInfo {
     sb.append("class ProgramInfo {\n");
     sb.append("    programId: ").append(toIndentedString(programId)).append("\n");
     sb.append("    programName: ").append(toIndentedString(programName)).append("\n");
-    sb.append("    chanelId: ").append(toIndentedString(chanelId)).append("\n");
-    sb.append("    chanelName: ").append(toIndentedString(chanelName)).append("\n");
+    sb.append("    channelId: ").append(toIndentedString(channelId)).append("\n");
+    sb.append("    channelName: ").append(toIndentedString(channelName)).append("\n");
     sb.append("    genreId: ").append(toIndentedString(genreId)).append("\n");
     sb.append("    genre: ").append(toIndentedString(genre)).append("\n");
     sb.append("}");

@@ -5,7 +5,7 @@ import java.util.List;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
-import com.model.ChanelKyoku;
+import com.model.ChannelKyoku;
 import com.model.KbnMasterInfo;
 import com.model.MKbnGenre;
 import com.model.MProgramList;
@@ -58,13 +58,13 @@ public class ProgramInfoBFFService {
 			}
 			// (4) チャンネル名を取得（チャンネル局IDも取得する）
 			//⇒　ジャンルIDには「3」と(1)で取得した「チャンネルID」を「順序」として紐づけて、レスポンス「ジャンル名」へ、列「ジャンル」を取得して、設定する。
-			if(StringUtils.equals(e.getGenreId().toString(), "3") && e.getJyunjyo().compareTo(prmList.getmProgram().get(0).getChanelId()) == 0 ) {
+			if(StringUtils.equals(e.getGenreId().toString(), "3") && e.getJyunjyo().compareTo(prmList.getmProgram().get(0).getChannelId()) == 0 ) {
 				// チャンネル名
-				response.setChanelName(e.getGenre());
+				response.setChannelName(e.getGenre());
 				//　順序をキーとして、BE「チャンネル局マスタ検索」よりチャンネル局IDを取得する。
-				ChanelKyoku chanelKyoku = this.webClient.getMChanelKyoku(e.getJyunjyo().toString());
+				ChannelKyoku channelKyoku = this.webClient.getMChannelKyoku(e.getJyunjyo().toString());
 				// チャンネルID
-				response.setChanelId(chanelKyoku.getmChanelKyoku().get(0).getChanelKyokuId());
+				response.setChannelId(channelKyoku.getmChannelKyoku().get(0).getChannelKyokuId());
 			}
 		 }
 

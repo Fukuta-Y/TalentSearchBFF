@@ -15,40 +15,40 @@ import jakarta.validation.Valid;
  * チャンネル局マスタ
  */
 
-@Schema(name = "chanelKyoku", description = "チャンネル局マスタ")
-@JsonTypeName("chanelKyoku")
+@Schema(name = "channelKyoku", description = "チャンネル局マスタ")
+@JsonTypeName("channelKyoku")
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-03T16:38:17.040026+09:00[Asia/Tokyo]")
-public class ChanelKyoku {
+public class ChannelKyoku {
 
-  @JsonProperty("mChanelKyoku")
+  @JsonProperty("mChannelKyoku")
   @Valid
-  private List<MChanelKyoku> mChanelKyoku = null;
+  private List<MChannelKyoku> mChannelKyoku = null;
 
-  public ChanelKyoku mChanelKyoku(List<MChanelKyoku> mChanelKyoku) {
-    this.mChanelKyoku = mChanelKyoku;
+  public ChannelKyoku mChannelKyoku(List<MChannelKyoku> mChannelKyoku) {
+    this.mChannelKyoku = mChannelKyoku;
     return this;
   }
 
-  public ChanelKyoku addMChanelKyokuItem(MChanelKyoku mChanelKyokuItem) {
-    if (this.mChanelKyoku == null) {
-      this.mChanelKyoku = new ArrayList<>();
+  public ChannelKyoku addMChannelKyokuItem(MChannelKyoku mChannelKyokuItem) {
+    if (this.mChannelKyoku == null) {
+      this.mChannelKyoku = new ArrayList<>();
     }
-    this.mChanelKyoku.add(mChanelKyokuItem);
+    this.mChannelKyoku.add(mChannelKyokuItem);
     return this;
   }
 
   /**
    * チャンネル局マスタDTO
-   * @return mChanelKyoku
+   * @return mChannelKyoku
   */
   @Valid 
-  @Schema(name = "mChanelKyoku", description = "チャンネル局マスタDTO", required = false)
-  public List<MChanelKyoku> getmChanelKyoku() {
-    return mChanelKyoku;
+  @Schema(name = "mChannelKyoku", description = "チャンネル局マスタDTO", required = false)
+  public List<MChannelKyoku> getmChannelKyoku() {
+    return mChannelKyoku;
   }
 
-  public void setmChanelKyoku(List<MChanelKyoku> mChanelKyoku) {
-    this.mChanelKyoku = mChanelKyoku;
+  public void setmChannelKyoku(List<MChannelKyoku> mChannelKyoku) {
+    this.mChannelKyoku = mChannelKyoku;
   }
 
   @Override
@@ -59,20 +59,20 @@ public class ChanelKyoku {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ChanelKyoku chanelKyoku = (ChanelKyoku) o;
-    return Objects.equals(this.mChanelKyoku, chanelKyoku.mChanelKyoku);
+    ChannelKyoku channelKyoku = (ChannelKyoku) o;
+    return Objects.equals(this.mChannelKyoku, channelKyoku.mChannelKyoku);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(mChanelKyoku);
+    return Objects.hash(mChannelKyoku);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ChanelKyoku {\n");
-    sb.append("    mChanelKyoku: ").append(toIndentedString(mChanelKyoku)).append("\n");
+    sb.append("class ChannelKyoku {\n");
+    sb.append("    mChannelKyoku: ").append(toIndentedString(mChannelKyoku)).append("\n");
     sb.append("}");
     return sb.toString();
   }

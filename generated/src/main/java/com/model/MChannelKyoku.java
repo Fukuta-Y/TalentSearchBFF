@@ -15,16 +15,16 @@ import jakarta.validation.constraints.NotNull;
  * チャンネル局マスタ情報（全列）
  */
 
-@Schema(name = "mChanelKyoku", description = "チャンネル局マスタ情報（全列）")
-@JsonTypeName("mChanelKyoku")
+@Schema(name = "mChannelKyoku", description = "チャンネル局マスタ情報（全列）")
+@JsonTypeName("mChannelKyoku")
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-03T16:38:17.040026+09:00[Asia/Tokyo]")
-public class MChanelKyoku {
+public class MChannelKyoku {
 
-  @JsonProperty("chanelId")
-  private Integer chanelId;
+  @JsonProperty("channelId")
+  private Integer channelId;
 
-  @JsonProperty("chanelKyokuId")
-  private Integer chanelKyokuId;
+  @JsonProperty("channelKyokuId")
+  private Integer channelKyokuId;
 
   @JsonProperty("areaId")
   private Integer areaId;
@@ -38,8 +38,8 @@ public class MChanelKyoku {
   @JsonProperty("koushinDay")
   private String koushinDay;
 
-  public MChanelKyoku chanelId(Integer chanelId) {
-    this.chanelId = chanelId;
+  public MChannelKyoku channelId(Integer channelId) {
+    this.channelId = channelId;
     return this;
   }
 
@@ -47,20 +47,20 @@ public class MChanelKyoku {
    * チャンネルID
    * minimum: 0
    * maximum: 99
-   * @return chanelId
+   * @return channelId
   */
   @NotNull @Min(0) @Max(99) 
-  @Schema(name = "chanelId", description = "チャンネルID", required = true)
-  public Integer getChanelId() {
-    return chanelId;
+  @Schema(name = "channelId", description = "チャンネルID", required = true)
+  public Integer getChannelId() {
+    return channelId;
   }
 
-  public void setChanelId(Integer chanelId) {
-    this.chanelId = chanelId;
+  public void setChannelId(Integer channelId) {
+    this.channelId = channelId;
   }
 
-  public MChanelKyoku chanelKyokuId(Integer chanelKyokuId) {
-    this.chanelKyokuId = chanelKyokuId;
+  public MChannelKyoku channelKyokuId(Integer channelKyokuId) {
+    this.channelKyokuId = channelKyokuId;
     return this;
   }
 
@@ -68,19 +68,19 @@ public class MChanelKyoku {
    * チャンネル局ID
    * minimum: 0
    * maximum: 99
-   * @return chanelKyokuId
+   * @return channelKyokuId
   */
   @Min(0) @Max(99) 
-  @Schema(name = "chanelKyokuId", description = "チャンネル局ID", required = false)
-  public Integer getChanelKyokuId() {
-    return chanelKyokuId;
+  @Schema(name = "channelKyokuId", description = "チャンネル局ID", required = false)
+  public Integer getChannelKyokuId() {
+    return channelKyokuId;
   }
 
-  public void setChanelKyokuId(Integer chanelKyokuId) {
-    this.chanelKyokuId = chanelKyokuId;
+  public void setChannelKyokuId(Integer channelKyokuId) {
+    this.channelKyokuId = channelKyokuId;
   }
 
-  public MChanelKyoku areaId(Integer areaId) {
+  public MChannelKyoku areaId(Integer areaId) {
     this.areaId = areaId;
     return this;
   }
@@ -101,7 +101,7 @@ public class MChanelKyoku {
     this.areaId = areaId;
   }
 
-  public MChanelKyoku deleteFlg(Integer deleteFlg) {
+  public MChannelKyoku deleteFlg(Integer deleteFlg) {
     this.deleteFlg = deleteFlg;
     return this;
   }
@@ -122,7 +122,7 @@ public class MChanelKyoku {
     this.deleteFlg = deleteFlg;
   }
 
-  public MChanelKyoku torokuDay(String torokuDay) {
+  public MChannelKyoku torokuDay(String torokuDay) {
     this.torokuDay = torokuDay;
     return this;
   }
@@ -141,7 +141,7 @@ public class MChanelKyoku {
     this.torokuDay = torokuDay;
   }
 
-  public MChanelKyoku koushinDay(String koushinDay) {
+  public MChannelKyoku koushinDay(String koushinDay) {
     this.koushinDay = koushinDay;
     return this;
   }
@@ -168,26 +168,26 @@ public class MChanelKyoku {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    MChanelKyoku mChanelKyoku = (MChanelKyoku) o;
-    return Objects.equals(this.chanelId, mChanelKyoku.chanelId) &&
-        Objects.equals(this.chanelKyokuId, mChanelKyoku.chanelKyokuId) &&
-        Objects.equals(this.areaId, mChanelKyoku.areaId) &&
-        Objects.equals(this.deleteFlg, mChanelKyoku.deleteFlg) &&
-        Objects.equals(this.torokuDay, mChanelKyoku.torokuDay) &&
-        Objects.equals(this.koushinDay, mChanelKyoku.koushinDay);
+    MChannelKyoku mChannelKyoku = (MChannelKyoku) o;
+    return Objects.equals(this.channelId, mChannelKyoku.channelId) &&
+        Objects.equals(this.channelKyokuId, mChannelKyoku.channelKyokuId) &&
+        Objects.equals(this.areaId, mChannelKyoku.areaId) &&
+        Objects.equals(this.deleteFlg, mChannelKyoku.deleteFlg) &&
+        Objects.equals(this.torokuDay, mChannelKyoku.torokuDay) &&
+        Objects.equals(this.koushinDay, mChannelKyoku.koushinDay);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(chanelId, chanelKyokuId, areaId, deleteFlg, torokuDay, koushinDay);
+    return Objects.hash(channelId, channelKyokuId, areaId, deleteFlg, torokuDay, koushinDay);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class MChanelKyoku {\n");
-    sb.append("    chanelId: ").append(toIndentedString(chanelId)).append("\n");
-    sb.append("    chanelKyokuId: ").append(toIndentedString(chanelKyokuId)).append("\n");
+    sb.append("class MChannelKyoku {\n");
+    sb.append("    channelId: ").append(toIndentedString(channelId)).append("\n");
+    sb.append("    channelKyokuId: ").append(toIndentedString(channelKyokuId)).append("\n");
     sb.append("    areaId: ").append(toIndentedString(areaId)).append("\n");
     sb.append("    deleteFlg: ").append(toIndentedString(deleteFlg)).append("\n");
     sb.append("    torokuDay: ").append(toIndentedString(torokuDay)).append("\n");

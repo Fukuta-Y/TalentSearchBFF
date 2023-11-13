@@ -27,8 +27,8 @@ public class MProgram {
   @JsonProperty("programName")
   private String programName;
 
-  @JsonProperty("chanelId")
-  private Integer chanelId;
+  @JsonProperty("channelId")
+  private Integer channelId;
 
   @JsonProperty("genreId")
   private Integer genreId;
@@ -80,8 +80,8 @@ public class MProgram {
     this.programName = programName;
   }
 
-  public MProgram chanelId(Integer chanelId) {
-    this.chanelId = chanelId;
+  public MProgram channelId(Integer channelId) {
+    this.channelId = channelId;
     return this;
   }
 
@@ -89,16 +89,16 @@ public class MProgram {
    * チャンネルID
    * minimum: 0
    * maximum: 9
-   * @return chanelId
+   * @return channelId
   */
   @Min(0) @Max(9) 
-  @Schema(name = "chanelId", description = "チャンネルID", required = false)
-  public Integer getChanelId() {
-    return chanelId;
+  @Schema(name = "channelId", description = "チャンネルID", required = false)
+  public Integer getChannelId() {
+    return channelId;
   }
 
-  public void setChanelId(Integer chanelId) {
-    this.chanelId = chanelId;
+  public void setChannelId(Integer channelId) {
+    this.channelId = channelId;
   }
 
   public MProgram genreId(Integer genreId) {
@@ -192,7 +192,7 @@ public class MProgram {
     MProgram mProgram = (MProgram) o;
     return Objects.equals(this.programId, mProgram.programId) &&
         Objects.equals(this.programName, mProgram.programName) &&
-        Objects.equals(this.chanelId, mProgram.chanelId) &&
+        Objects.equals(this.channelId, mProgram.channelId) &&
         Objects.equals(this.genreId, mProgram.genreId) &&
         Objects.equals(this.deleteFlg, mProgram.deleteFlg) &&
         Objects.equals(this.torokuDay, mProgram.torokuDay) &&
@@ -201,7 +201,7 @@ public class MProgram {
 
   @Override
   public int hashCode() {
-    return Objects.hash(programId, programName, chanelId, genreId, deleteFlg, torokuDay, koushinDay);
+    return Objects.hash(programId, programName, channelId, genreId, deleteFlg, torokuDay, koushinDay);
   }
 
   @Override
@@ -210,7 +210,7 @@ public class MProgram {
     sb.append("class MProgram {\n");
     sb.append("    programId: ").append(toIndentedString(programId)).append("\n");
     sb.append("    programName: ").append(toIndentedString(programName)).append("\n");
-    sb.append("    chanelId: ").append(toIndentedString(chanelId)).append("\n");
+    sb.append("    channelId: ").append(toIndentedString(channelId)).append("\n");
     sb.append("    genreId: ").append(toIndentedString(genreId)).append("\n");
     sb.append("    deleteFlg: ").append(toIndentedString(deleteFlg)).append("\n");
     sb.append("    torokuDay: ").append(toIndentedString(torokuDay)).append("\n");

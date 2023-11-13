@@ -15,19 +15,19 @@ import jakarta.validation.constraints.Size;
  * チャンネル情報
  */
 
-@Schema(name = "chanelInfo", description = "チャンネル情報")
-@JsonTypeName("chanelInfo")
+@Schema(name = "channelInfo", description = "チャンネル情報")
+@JsonTypeName("channelInfo")
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-03T16:53:51.944573+09:00[Asia/Tokyo]")
-public class ChanelInfo {
+public class ChannelInfo {
 
-  @JsonProperty("chanelId")
-  private Integer chanelId;
+  @JsonProperty("channelId")
+  private Integer channelId;
 
-  @JsonProperty("chanelName")
-  private String chanelName;
+  @JsonProperty("channelName")
+  private String channelName;
 
-  public ChanelInfo chanelId(Integer chanelId) {
-    this.chanelId = chanelId;
+  public ChannelInfo channelId(Integer channelId) {
+    this.channelId = channelId;
     return this;
   }
 
@@ -35,35 +35,35 @@ public class ChanelInfo {
    * チャンネルID
    * minimum: 0
    * maximum: 9
-   * @return chanelId
+   * @return channelId
   */
   @Min(0) @Max(9) 
-  @Schema(name = "chanelId", description = "チャンネルID", required = false)
-  public Integer getChanelId() {
-    return chanelId;
+  @Schema(name = "channelId", description = "チャンネルID", required = false)
+  public Integer getChannelId() {
+    return channelId;
   }
 
-  public void setChanelId(Integer chanelId) {
-    this.chanelId = chanelId;
+  public void setChannelId(Integer channelId) {
+    this.channelId = channelId;
   }
 
-  public ChanelInfo chanelName(String chanelName) {
-    this.chanelName = chanelName;
+  public ChannelInfo channelName(String channelName) {
+    this.channelName = channelName;
     return this;
   }
 
   /**
    * チャンネル名
-   * @return chanelName
+   * @return channelName
   */
   @Size(max = 30) 
-  @Schema(name = "chanelName", description = "チャンネル名", required = false)
-  public String getChanelName() {
-    return chanelName;
+  @Schema(name = "channelName", description = "チャンネル名", required = false)
+  public String getChannelName() {
+    return channelName;
   }
 
-  public void setChanelName(String chanelName) {
-    this.chanelName = chanelName;
+  public void setChannelName(String channelName) {
+    this.channelName = channelName;
   }
 
   @Override
@@ -74,22 +74,22 @@ public class ChanelInfo {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ChanelInfo chanelInfo = (ChanelInfo) o;
-    return Objects.equals(this.chanelId, chanelInfo.chanelId) &&
-        Objects.equals(this.chanelName, chanelInfo.chanelName);
+    ChannelInfo channelInfo = (ChannelInfo) o;
+    return Objects.equals(this.channelId, channelInfo.channelId) &&
+        Objects.equals(this.channelName, channelInfo.channelName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(chanelId, chanelName);
+    return Objects.hash(channelId, channelName);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ChanelInfo {\n");
-    sb.append("    chanelId: ").append(toIndentedString(chanelId)).append("\n");
-    sb.append("    chanelName: ").append(toIndentedString(chanelName)).append("\n");
+    sb.append("class ChannelInfo {\n");
+    sb.append("    channelId: ").append(toIndentedString(channelId)).append("\n");
+    sb.append("    channelName: ").append(toIndentedString(channelName)).append("\n");
     sb.append("}");
     return sb.toString();
   }
