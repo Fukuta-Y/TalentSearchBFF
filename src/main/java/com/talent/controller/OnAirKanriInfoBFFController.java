@@ -19,7 +19,7 @@ public class OnAirKanriInfoBFFController implements OnAirKanriInfoBFFApi{
 	/**
 	 * オンエア管理情報BFFController
 	 *
-	 * @param String ID
+	 * @param id ID
 	 * @return OnAirKanriList
 	 * 
 	*/

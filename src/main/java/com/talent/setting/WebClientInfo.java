@@ -95,15 +95,15 @@ public class WebClientInfo {
      * BE「番組出演者検索」へ接続の設定
      *
      * @param programId　プログラムID
-     * @param onairDay　オンエア日
+     * @param onAirDay　オンエア日
      * @return　遷移情報を設定したWebClientの内容を返す
      */
-    public ProgramShutsuenList getProgramShutsuen(String programId, String onairDay) {
+    public ProgramShutsuenList getProgramShutsuen(String programId, String onAirDay) {
         return this.webClient.get()
                 .uri(uriBuilder -> uriBuilder
                         .path("/programShutsuen")
                         .queryParam("programId", programId)
-                        .queryParam("onairDay", onairDay)
+                        .queryParam("onAirDay", onAirDay)
                         .build())
                 .retrieve()
                 .bodyToMono(ProgramShutsuenList.class).block();
@@ -127,7 +127,7 @@ public class WebClientInfo {
     /**
      * BE「区分マスタ検索」へ接続の設定
      *
-     * @param nentsuki　ジャンルID 【複数】
+     * @param genreIds　ジャンルID 【複数】
      * @return　遷移情報を設定したWebClientの内容を返す
      */
     public KbnMasterInfo getKbnMaster(String genreIds) {
@@ -287,8 +287,8 @@ public class WebClientInfo {
     /**
      * BE「番組参照検索」へ接続の設定
      *
-	 * @param nentsuki 年月
-	 * @param shu 週
+	 * @param programId 番組ID
+	 * @param programName 番組名
      * @return　遷移情報を設定したWebClientの内容を返す
      */
     public ProgramInfoList getProgramRef(String programId, String programName) {
