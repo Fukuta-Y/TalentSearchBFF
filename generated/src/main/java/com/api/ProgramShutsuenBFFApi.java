@@ -37,7 +37,7 @@ public interface ProgramShutsuenBFFApi {
      * 番組においての対象週の出演者を情報を返すBFF
      *
      * @param programId  (required)
-     * @param onairDay  (required)
+     * @param onAirDay  (required)
      * @param nentsuki  (required)
      * @param shu  (required)
      * @return 番組においての対象週の出演者を情報を正常取得 (status code 200)
@@ -55,7 +55,7 @@ public interface ProgramShutsuenBFFApi {
     @GetMapping("/programShutsuenBFF")
     ResponseEntity<ProgramShutsuenBFF> getProgramShutsuenBFF(
         @NotNull @Size(max = 8) @Parameter(name = "programId", description = "", required = true) @Valid @RequestParam(value = "programId", required = true) String programId,
-        @NotNull @Parameter(name = "onairDay", description = "", required = true) @Valid @RequestParam(value = "onairDay", required = true) String onairDay,
+        @NotNull @Parameter(name = "onAirDay", description = "", required = true) @Valid @RequestParam(value = "onAirDay", required = true) String onAirDay,
         @NotNull @Min(199001) @Max(210012) @Parameter(name = "nentsuki", description = "", required = true) @Valid @RequestParam(value = "nentsuki", required = true) Integer nentsuki,
         @NotNull @Min(1) @Max(5) @Parameter(name = "shu", description = "", required = true) @Valid @RequestParam(value = "shu", required = true) Integer shu
     );

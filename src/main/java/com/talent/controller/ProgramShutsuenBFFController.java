@@ -19,15 +19,15 @@ public class ProgramShutsuenBFFController implements ProgramShutsuenBFFApi{
      * 番組出演者検索BFFController
      *
      * @param programId 番組ID
-     * @param onairDay  オンエア日
+     * @param onAirDay  オンエア日
      * @param nentsuki  年月
      * @param shu     　週
      * @return ProgramShutsuenBFF
      */
 	@Override
-	public ResponseEntity<ProgramShutsuenBFF> getProgramShutsuenBFF(String programId, String onairDay, Integer nentsuki, Integer shu) {
+	public ResponseEntity<ProgramShutsuenBFF> getProgramShutsuenBFF(String programId, String onAirDay, Integer nentsuki, Integer shu) {
 		// ProgramShutsuenBFFServiceより取得
-		ProgramShutsuenBFF response  = service.getProgramShutsuenBFF(programId, onairDay, nentsuki, shu);
+		ProgramShutsuenBFF response  = service.getProgramShutsuenBFF(programId, onAirDay, nentsuki, shu);
 		return ResponseEntity.ok(response);
 	}
 }

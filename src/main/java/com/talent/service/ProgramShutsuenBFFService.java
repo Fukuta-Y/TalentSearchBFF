@@ -26,12 +26,12 @@ public class ProgramShutsuenBFFService {
      * 番組出演者検索BFFService
      *
      * @param programId 番組ID
-     * @param onairDay  オンエア日
+     * @param onAirDay  オンエア日
      * @param nentsuki  年月
      * @param shu     　週
      * @return ProgramShutsuenBFF
      */
-    public ProgramShutsuenBFF getProgramShutsuenBFF(String programId, String onairDay, Integer nentsuki, Integer shu) {
+    public ProgramShutsuenBFF getProgramShutsuenBFF(String programId, String onAirDay, Integer nentsuki, Integer shu) {
 
     	// reponseを宣言
     	ProgramShutsuenBFF response = new ProgramShutsuenBFF();
@@ -40,7 +40,7 @@ public class ProgramShutsuenBFFService {
     	List<ProgramShutsuen> listProgramShutsuen= new ArrayList<ProgramShutsuen>();
 
 		// (1) BE「番組出演者検索」より取得
-        ProgramShutsuenList talentJoho = this.webClient.getProgramShutsuen(programId, onairDay);
+        ProgramShutsuenList talentJoho = this.webClient.getProgramShutsuen(programId, onAirDay);
         for (ProgramShutsuen e : talentJoho.getProgramShutsuen()) {
         	ProgramShutsuen model = new ProgramShutsuen();
 			// (2)で取得したレスポンスを以下のように設定する。
