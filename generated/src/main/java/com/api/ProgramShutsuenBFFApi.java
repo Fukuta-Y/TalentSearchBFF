@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.model.ProgramShutsuenBFF;
+import com.model.ProgramShutsuenList;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -26,7 +26,7 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-06T11:38:00.011657+09:00[Asia/Tokyo]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-19T13:32:33.237081+09:00[Asia/Tokyo]")
 @Validated
 @Tag(name = "programShutsuenBFF", description = "the programShutsuenBFF API")
 @RequestMapping("api")
@@ -48,12 +48,12 @@ public interface ProgramShutsuenBFFApi {
         tags = { "programShutsuenBFF" },
         responses = {
             @ApiResponse(responseCode = "200", description = "番組においての対象週の出演者を情報を正常取得", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = ProgramShutsuenBFF.class))
+                @Content(mediaType = "application/json", schema = @Schema(implementation = ProgramShutsuenList.class))
             })
         }
     )
     @GetMapping("/programShutsuenBFF")
-    ResponseEntity<ProgramShutsuenBFF> getProgramShutsuenBFF(
+    ResponseEntity<ProgramShutsuenList> getProgramShutsuenBFF(
         @NotNull @Size(max = 8) @Parameter(name = "programId", description = "", required = true) @Valid @RequestParam(value = "programId", required = true) String programId,
         @NotNull @Parameter(name = "onAirDay", description = "", required = true) @Valid @RequestParam(value = "onAirDay", required = true) String onAirDay,
         @NotNull @Min(199001) @Max(210012) @Parameter(name = "nentsuki", description = "", required = true) @Valid @RequestParam(value = "nentsuki", required = true) Integer nentsuki,

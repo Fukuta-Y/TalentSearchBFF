@@ -22,7 +22,7 @@ paths:
             type: string
             maxLength: 8
         - in: query
-          name: onairDay
+          name: onAirDay
           required: true
           schema:
             type: string
@@ -46,10 +46,10 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/programShutsuenBFF'      
+                $ref: '#/components/schemas/programShutsuenList'      
 components:
   schemas:
-    programShutsuenBFF:
+    programShutsuenList:
       description: 番組においての対象週の出演者を情報のリスト
       type: object
       properties:

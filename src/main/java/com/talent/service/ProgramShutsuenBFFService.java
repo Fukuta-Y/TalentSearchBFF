@@ -6,7 +6,6 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.model.ProgramShutsuen;
-import com.model.ProgramShutsuenBFF;
 import com.model.ProgramShutsuenList;
 import com.talent.setting.WebClientInfo;
 
@@ -29,12 +28,12 @@ public class ProgramShutsuenBFFService {
      * @param onAirDay  オンエア日
      * @param nentsuki  年月
      * @param shu     　週
-     * @return ProgramShutsuenBFF
+     * @return ProgramShutsuenList
      */
-    public ProgramShutsuenBFF getProgramShutsuenBFF(String programId, String onAirDay, Integer nentsuki, Integer shu) {
+    public ProgramShutsuenList getProgramShutsuenBFF(String programId, String onAirDay, Integer nentsuki, Integer shu) {
 
     	// reponseを宣言
-    	ProgramShutsuenBFF response = new ProgramShutsuenBFF();
+    	ProgramShutsuenList response = new ProgramShutsuenList();
     	
     	// Listを宣言
     	List<ProgramShutsuen> listProgramShutsuen= new ArrayList<ProgramShutsuen>();
