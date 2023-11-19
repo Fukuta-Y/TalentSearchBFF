@@ -3,7 +3,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 
 import com.api.ProgramShutsuenBFFApi;
-import com.model.ProgramShutsuenBFF;
+import com.model.ProgramShutsuenList;
 import com.talent.service.ProgramShutsuenBFFService;
 
 import lombok.RequiredArgsConstructor;
@@ -22,12 +22,12 @@ public class ProgramShutsuenBFFController implements ProgramShutsuenBFFApi{
      * @param onAirDay  オンエア日
      * @param nentsuki  年月
      * @param shu     　週
-     * @return ProgramShutsuenBFF
+     * @return ProgramShutsuenList
      */
 	@Override
-	public ResponseEntity<ProgramShutsuenBFF> getProgramShutsuenBFF(String programId, String onAirDay, Integer nentsuki, Integer shu) {
+	public ResponseEntity<ProgramShutsuenList> getProgramShutsuenBFF(String programId, String onAirDay, Integer nentsuki, Integer shu) {
 		// ProgramShutsuenBFFServiceより取得
-		ProgramShutsuenBFF response  = service.getProgramShutsuenBFF(programId, onAirDay, nentsuki, shu);
+		ProgramShutsuenList response  = service.getProgramShutsuenBFF(programId, onAirDay, nentsuki, shu);
 		return ResponseEntity.ok(response);
 	}
 }
