@@ -3,7 +3,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 
 import com.api.OnAirKanriRefBFFApi;
-import com.model.OnAirKanriList;
+import com.model.OnAirKanriRefList;
 import com.talent.service.OnAirKanriRefBFFService;
 
 import lombok.RequiredArgsConstructor;
@@ -23,9 +23,9 @@ public class OnAirKanriRefBFFController implements OnAirKanriRefBFFApi{
 	 * 
 	*/
 	@Override
-	public ResponseEntity<OnAirKanriList> getOnAirKanriRefBFF(String id, String onAirDay) {
+	public ResponseEntity<OnAirKanriRefList> getOnAirKanriRefBFF(String id, String onAirDay) {
 		// OnAirKanriRefBFFServiceより取得
-		OnAirKanriList response = service.getOnAirKanriRefBFF(id, onAirDay);
+		OnAirKanriRefList response = service.getOnAirKanriRefBFF(id, onAirDay);
 		return ResponseEntity.ok(response);
 	}
 }

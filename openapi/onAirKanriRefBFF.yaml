@@ -35,15 +35,66 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/onAirKanriList'
+                $ref: '#/components/schemas/onAirKanriRefList'
 components:
   schemas:
-    onAirKanriList:
-      description: オンエア管理テーブルDTO
+    onAirKanriRefList:
+      description: オンエア管理参照DTOの情報
       type: object
       properties:
-        tOnAirKanri:
-          description: オンエア管理テーブルDTO
+        tOnAirKanriRef:
+          description: オンエア管理参照DTO
           type: array
           items:
-            $ref: "../../TalentSearchCommon/Tables/tOnAirKanri.yaml#/components/schemas/tOnAirKanri"
+            $ref: "#/components/schemas/tOnAirKanriRef"
+    tOnAirKanriRef:
+      description: オンエア管理参照DTOの情報
+      type: object
+      properties:
+        id:
+          type: string
+          maxLength: 8
+          description: ID
+        onAirDay:
+          type: string
+          format: yyyy/MM/dd
+          description: オンエア日
+        programId:
+          type: string
+          maxLength: 8
+          description: 番組ID
+        programName:
+          type: string
+          maxLength: 30
+          description: 番組名
+        talentId:
+          type: string
+          maxLength: 8
+          description: タレントID
+        talentName:
+          type: string
+          maxLength: 30
+          description: タレント名
+        nentsuki:
+          type: integer
+          maximum : 210012
+          minimum : 199001
+          description: 対象年月
+        shu:
+          type: integer
+          maximum : 5
+          minimum : 1
+          description: 対象週
+        deleteFlg:
+          type: integer
+          maximum : 9
+          minimum : 0
+          description: 論理削除フラグ
+        torokuDay:
+          type: string
+          format: yyyy/MM/dd
+          description: 登録日
+        koushinDay:
+          type: string
+          format: yyyy/MM/dd
+          description: 更新日
