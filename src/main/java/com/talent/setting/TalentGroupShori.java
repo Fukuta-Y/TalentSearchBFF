@@ -35,7 +35,7 @@ public class TalentGroupShori {
      * @param List<TOnAirKanri> OnAionarKanriInfoList  Model「TOnAirKanri」のリスト
      * @return List<OnAirKanriInfoDto>　オンエア管理情報DTOのリスト
      */
-    public List<OnAirKanriInfoDto> setOnairKanriInfoList(
+    public List<OnAirKanriInfoDto> setOnAirKanriInfoList(
             List<MTalent> modelTalentList, List<MProgram> modelProgramList, List<TOnAirKanri> OnAionarKanriInfoList) {
 
         // タレント名、番号名をレスポンスに設定する。

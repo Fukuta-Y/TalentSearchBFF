@@ -72,10 +72,10 @@ public class ShukanTalentJohoBFFService {
         	response.addShukanTalentItem(shukanTalent);
             return response;
         }
-        List<OnAirKanriInfoDto> OnairKanriInfoList = groupShori.setOnairKanriInfoList(modelTalentList, modelProgramList, modelOnAirKanriList);
+        List<OnAirKanriInfoDto> OnAirKanriInfoList = groupShori.setOnAirKanriInfoList(modelTalentList, modelProgramList, modelOnAirKanriList);
         // (2) 絞った結果をタレントID、タレント名で集約化する。集約時に、タレントID,タレント名、週間出演番組本数のレコードの形にする。
         // （レスポンスのベース）
-        List<TalentShutsuenHonsuDto> talentShutsuenHonsuList = groupShori.setTalentShutsuenHonsuList(OnairKanriInfoList);
+        List<TalentShutsuenHonsuDto> talentShutsuenHonsuList = groupShori.setTalentShutsuenHonsuList(OnAirKanriInfoList);
         List<TalentShutsuenHonsuDto> talentShutsuenHonsuCountList = groupShori.setTalentShutsuenHonsuCountList(talentShutsuenHonsuList);
         // (3)　(1)よりタレントIDをキーとして取得して、オンエア日でソートして、最も近いオンエア日の日付の行だけを取得する。
         // 取得後、タレントID、出演番組（直近）【番組名】、オンエア日（直近）【オンエア日】のレコードの形にする。
@@ -86,20 +86,20 @@ public class ShukanTalentJohoBFFService {
         }
 
         List<TalentOnAirChokinInfoDto> talentOnairChokinInfoDtoList = new ArrayList<TalentOnAirChokinInfoDto>();
-        List<OnAirKanriInfoDto> OnairKanriInfosDto = new ArrayList<OnAirKanriInfoDto>();
+        List<OnAirKanriInfoDto> OnAirKanriInfosDto = new ArrayList<OnAirKanriInfoDto>();
 
         for (String talentID : talentList) {
-            OnairKanriInfosDto = new ArrayList<OnAirKanriInfoDto>();
-            for (OnAirKanriInfoDto e : OnairKanriInfoList) {
+            OnAirKanriInfosDto = new ArrayList<OnAirKanriInfoDto>();
+            for (OnAirKanriInfoDto e : OnAirKanriInfoList) {
                 if (StringUtils.equals(e.getTalent().getId(), talentID)) {
-                    OnairKanriInfosDto.add(e);
+                    OnAirKanriInfosDto.add(e);
                 }
             }
-            if (CollectionUtils.isNotEmpty(OnairKanriInfosDto)) {
+            if (CollectionUtils.isNotEmpty(OnAirKanriInfosDto)) {
                 //オンエア日でソート
-                OnairKanriInfosDto.sort(new OnAirComparator());
+                OnAirKanriInfosDto.sort(new OnAirComparator());
                 // TalentOnairChokinInfoDtoへ変換して設定
-                talentOnairChokinInfoDtoList.add(helper.toTalentOnairChokinInfoDto(OnairKanriInfosDto.get(0)));
+                talentOnairChokinInfoDtoList.add(helper.toTalentOnairChokinInfoDto(OnAirKanriInfosDto.get(0)));
             }
         }
 
