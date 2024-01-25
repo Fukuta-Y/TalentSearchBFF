@@ -12,6 +12,7 @@ import com.model.MProgramList;
 import com.model.MTalent;
 import com.model.NentsukiShuKanri;
 import com.model.OnAirKanriList;
+import com.model.OnAirKanriRefList;
 import com.model.ProgramInfoList;
 import com.model.ProgramShutsuenList;
 import com.model.ProgramTorokuKoshinBFF;
@@ -257,7 +258,7 @@ public class WebClientInfo {
 	 * @param onAirDay オンエア日
      * @return　遷移情報を設定したWebClientの内容を返す
      */
-    public OnAirKanriList getOnAirKanriRef(String id, String onAirDay) {
+    public OnAirKanriRefList getOnAirKanriRef(String id, String onAirDay) {
         return this.webClient.get()
                 .uri(uriBuilder -> uriBuilder
 		                .path("/onAirKanriRef")
@@ -265,7 +266,7 @@ public class WebClientInfo {
                         .queryParam("onAirDay", onAirDay)
                         .build())
                 .retrieve()
-                .bodyToMono(OnAirKanriList.class).block();
+                .bodyToMono(OnAirKanriRefList.class).block();
     }
     /**
      * BE「年月週管理参照検索」へ接続の設定

@@ -7,11 +7,11 @@ package com.api;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.model.OnAirKanriList;
+import com.model.OnAirKanriRefList;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -23,7 +23,7 @@ import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Size;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-11T20:10:32.597804+09:00[Asia/Tokyo]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-01-25T15:21:19.142632+09:00[Asia/Tokyo]")
 @Validated
 @Tag(name = "onAirKanriRefBFF", description = "the onAirKanriRefBFF API")
 @RequestMapping("api")
@@ -43,12 +43,16 @@ public interface OnAirKanriRefBFFApi {
         tags = { "onAirKanriRefBFF" },
         responses = {
             @ApiResponse(responseCode = "200", description = "オンエア管理情報を正常取得", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = OnAirKanriList.class))
+                @Content(mediaType = "application/json", schema = @Schema(implementation = OnAirKanriRefList.class))
             })
         }
     )
-    @GetMapping("/onAirKanriRefBFF")
-    ResponseEntity<OnAirKanriList> getOnAirKanriRefBFF(
+    @RequestMapping(
+        method = RequestMethod.GET,
+        value = "/onAirKanriRefBFF",
+        produces = { "application/json" }
+    )
+    ResponseEntity<OnAirKanriRefList> getOnAirKanriRefBFF(
         @Size(max = 8) @Parameter(name = "id", description = "ID") @Valid @RequestParam(value = "id", required = false) String id,
         @Parameter(name = "onAirDay", description = "オンエア日") @Valid @RequestParam(value = "onAirDay", required = false) String onAirDay
     );
