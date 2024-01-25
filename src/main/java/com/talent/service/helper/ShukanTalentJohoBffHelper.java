@@ -41,6 +41,7 @@ public interface ShukanTalentJohoBffHelper {
     @Mapping(source = "talentInfoDto.talent.id", target = "talentId")
     @Mapping(source = "talentInfoDto.talent.name", target = "talentName")
     @Mapping(source = "honsu", target = "shukanShutsuenProgramHonsu")
+    @Mapping(source = "talentInfoDto.tvProgram.id", target = "shutsuenProgramIdChokin")
     @Mapping(source = "talentInfoDto.tvProgram.name", target = "shutsuenProgramChokin")
     @Mapping(source = "talentInfoDto.tvProgram.onAirDay", target = "onAirDayChokin")
     @Mapping(source = "netsuki.shuFrom", target = "shuFrom")

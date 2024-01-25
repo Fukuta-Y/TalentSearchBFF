@@ -17,7 +17,7 @@ import jakarta.validation.constraints.Size;
 
 @Schema(name = "shukanTalent", description = "１週間においてのタレントごとの情報")
 @JsonTypeName("shukanTalent")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-06T12:44:09.196542+09:00[Asia/Tokyo]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-01-25T18:13:23.780637+09:00[Asia/Tokyo]")
 public class ShukanTalent {
 
   @JsonProperty("talentId")
@@ -28,6 +28,9 @@ public class ShukanTalent {
 
   @JsonProperty("shukanShutsuenProgramHonsu")
   private Integer shukanShutsuenProgramHonsu;
+
+  @JsonProperty("shutsuenProgramIdChokin")
+  private String shutsuenProgramIdChokin;
 
   @JsonProperty("shutsuenProgramChokin")
   private String shutsuenProgramChokin;
@@ -98,6 +101,25 @@ public class ShukanTalent {
 
   public void setShukanShutsuenProgramHonsu(Integer shukanShutsuenProgramHonsu) {
     this.shukanShutsuenProgramHonsu = shukanShutsuenProgramHonsu;
+  }
+
+  public ShukanTalent shutsuenProgramIdChokin(String shutsuenProgramIdChokin) {
+    this.shutsuenProgramIdChokin = shutsuenProgramIdChokin;
+    return this;
+  }
+
+  /**
+   * 出演番組ID（直近）
+   * @return shutsuenProgramIdChokin
+  */
+  @Size(max = 8) 
+  @Schema(name = "shutsuenProgramIdChokin", description = "出演番組ID（直近）", required = false)
+  public String getShutsuenProgramIdChokin() {
+    return shutsuenProgramIdChokin;
+  }
+
+  public void setShutsuenProgramIdChokin(String shutsuenProgramIdChokin) {
+    this.shutsuenProgramIdChokin = shutsuenProgramIdChokin;
   }
 
   public ShukanTalent shutsuenProgramChokin(String shutsuenProgramChokin) {
@@ -188,6 +210,7 @@ public class ShukanTalent {
     return Objects.equals(this.talentId, shukanTalent.talentId) &&
         Objects.equals(this.talentName, shukanTalent.talentName) &&
         Objects.equals(this.shukanShutsuenProgramHonsu, shukanTalent.shukanShutsuenProgramHonsu) &&
+        Objects.equals(this.shutsuenProgramIdChokin, shukanTalent.shutsuenProgramIdChokin) &&
         Objects.equals(this.shutsuenProgramChokin, shukanTalent.shutsuenProgramChokin) &&
         Objects.equals(this.onAirDayChokin, shukanTalent.onAirDayChokin) &&
         Objects.equals(this.shuFrom, shukanTalent.shuFrom) &&
@@ -196,7 +219,7 @@ public class ShukanTalent {
 
   @Override
   public int hashCode() {
-    return Objects.hash(talentId, talentName, shukanShutsuenProgramHonsu, shutsuenProgramChokin, onAirDayChokin, shuFrom, shuTo);
+    return Objects.hash(talentId, talentName, shukanShutsuenProgramHonsu, shutsuenProgramIdChokin, shutsuenProgramChokin, onAirDayChokin, shuFrom, shuTo);
   }
 
   @Override
@@ -206,6 +229,7 @@ public class ShukanTalent {
     sb.append("    talentId: ").append(toIndentedString(talentId)).append("\n");
     sb.append("    talentName: ").append(toIndentedString(talentName)).append("\n");
     sb.append("    shukanShutsuenProgramHonsu: ").append(toIndentedString(shukanShutsuenProgramHonsu)).append("\n");
+    sb.append("    shutsuenProgramIdChokin: ").append(toIndentedString(shutsuenProgramIdChokin)).append("\n");
     sb.append("    shutsuenProgramChokin: ").append(toIndentedString(shutsuenProgramChokin)).append("\n");
     sb.append("    onAirDayChokin: ").append(toIndentedString(onAirDayChokin)).append("\n");
     sb.append("    shuFrom: ").append(toIndentedString(shuFrom)).append("\n");
