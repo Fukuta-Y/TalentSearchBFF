@@ -15,8 +15,11 @@ import jakarta.validation.constraints.Size;
 
 @Schema(name = "talentShukanShutsuen", description = "タレントにおいての１週間ごとの情報")
 @JsonTypeName("talentShukanShutsuen")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-06T12:16:11.803169+09:00[Asia/Tokyo]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-01-26T10:51:45.387512+09:00[Asia/Tokyo]")
 public class TalentShukanShutsuen {
+
+  @JsonProperty("id")
+  private String id;
 
   @JsonProperty("talentName")
   private String talentName;
@@ -47,6 +50,25 @@ public class TalentShukanShutsuen {
 
   @JsonProperty("shuTo")
   private String shuTo;
+
+  public TalentShukanShutsuen id(String id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * ID
+   * @return id
+  */
+  @Size(max = 8) 
+  @Schema(name = "id", description = "ID", required = false)
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
 
   public TalentShukanShutsuen talentName(String talentName) {
     this.talentName = talentName;
@@ -247,7 +269,8 @@ public class TalentShukanShutsuen {
       return false;
     }
     TalentShukanShutsuen talentShukanShutsuen = (TalentShukanShutsuen) o;
-    return Objects.equals(this.talentName, talentShukanShutsuen.talentName) &&
+    return Objects.equals(this.id, talentShukanShutsuen.id) &&
+        Objects.equals(this.talentName, talentShukanShutsuen.talentName) &&
         Objects.equals(this.shutsuenshaGenre, talentShukanShutsuen.shutsuenshaGenre) &&
         Objects.equals(this.programId, talentShukanShutsuen.programId) &&
         Objects.equals(this.shutsuenProgram, talentShukanShutsuen.shutsuenProgram) &&
@@ -261,13 +284,14 @@ public class TalentShukanShutsuen {
 
   @Override
   public int hashCode() {
-    return Objects.hash(talentName, shutsuenshaGenre, programId, shutsuenProgram, hosokyokuChannel, onAirDay, onAirTime, programGenre, shuFrom, shuTo);
+    return Objects.hash(id, talentName, shutsuenshaGenre, programId, shutsuenProgram, hosokyokuChannel, onAirDay, onAirTime, programGenre, shuFrom, shuTo);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TalentShukanShutsuen {\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    talentName: ").append(toIndentedString(talentName)).append("\n");
     sb.append("    shutsuenshaGenre: ").append(toIndentedString(shutsuenshaGenre)).append("\n");
     sb.append("    programId: ").append(toIndentedString(programId)).append("\n");

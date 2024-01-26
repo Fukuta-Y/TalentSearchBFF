@@ -57,6 +57,10 @@ components:
       description: タレントにおいての１週間ごとの情報
       type: object
       properties:
+        id:
+          type: string
+          maxLength: 8
+          description: ID
         talentName:
           type: string
           maxLength: 30
