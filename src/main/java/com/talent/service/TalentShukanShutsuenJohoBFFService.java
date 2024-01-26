@@ -134,7 +134,7 @@ public class TalentShukanShutsuenJohoBFFService {
 	        		// ②ジャンルID＝２、区分ジャンルマスタDTO.順序 ＝ タレントマスタDTO. ジャンルIDで取得したジャンル
 	        		//   →【レスポンス.出演者ジャンル】
 	            	if(kbnGenre.getGenreId().compareTo(2) == 0 && 
-	            			kbnGenre.getJyunjyo().compareTo(programGenreId) == 0) {
+	            			kbnGenre.getJyunjyo().compareTo(talentGenreId) == 0) {
 	            		bffModel.setShutsuenshaGenre(kbnGenre.getGenre());
 	            	}
 	           		// ③ジャンルID＝３、区分ジャンルマスタDTO.順序 ＝ 番組マスタDTO. チャンネルIDで取得したジャンル
