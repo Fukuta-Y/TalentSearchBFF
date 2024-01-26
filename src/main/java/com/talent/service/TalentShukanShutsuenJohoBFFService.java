@@ -73,6 +73,8 @@ public class TalentShukanShutsuenJohoBFFService {
 				 
 				 // (1) BE「タレント週間出演情報検索」より取得したレスポンスで以下の条件でデータを絞る。
 				 // 取得項目：
+				 // オンエア管理テーブルDTO.ID →【レスポンス.ID】
+				 bffModel.setId(onAir.getId());
 				 // オンエア管理テーブルDTO.オンエア日 → YYYY/MM/DDの形式で【レスポンス.オンエア日】
 				 String onAirDayTime = onAir.getOnAirDay().toString();
 				 String onAirDay = onAirDayTime.substring(0, 10);
@@ -134,7 +136,7 @@ public class TalentShukanShutsuenJohoBFFService {
 	        		// ②ジャンルID＝２、区分ジャンルマスタDTO.順序 ＝ タレントマスタDTO. ジャンルIDで取得したジャンル
 	        		//   →【レスポンス.出演者ジャンル】
 	            	if(kbnGenre.getGenreId().compareTo(2) == 0 && 
-	            			kbnGenre.getJyunjyo().compareTo(programGenreId) == 0) {
+	            			kbnGenre.getJyunjyo().compareTo(talentGenreId) == 0) {
 	            		bffModel.setShutsuenshaGenre(kbnGenre.getGenre());
 	            	}
 	           		// ③ジャンルID＝３、区分ジャンルマスタDTO.順序 ＝ 番組マスタDTO. チャンネルIDで取得したジャンル
