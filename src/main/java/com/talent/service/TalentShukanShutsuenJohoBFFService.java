@@ -142,7 +142,7 @@ public class TalentShukanShutsuenJohoBFFService {
 	           		// ③ジャンルID＝３、区分ジャンルマスタDTO.順序 ＝ 番組マスタDTO. チャンネルIDで取得したジャンル
 	        		//   →【レスポンス.放送局（チャンネル）】の前半に結合（既にチャンネル局IDが設定済みのため）
 		            if(kbnGenre.getGenreId().compareTo(3) == 0 && 
-		            		kbnGenre.getJyunjyo().compareTo(programGenreId) == 0) {
+		            		kbnGenre.getJyunjyo().compareTo(channelId) == 0) {
 		            	String hosokyokuChannel = kbnGenre.getGenre() + "(" + channelKyokuId +")";
 	            		bffModel.setHosokyokuChannel(hosokyokuChannel);
 	            	}
