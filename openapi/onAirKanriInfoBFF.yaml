@@ -7,27 +7,6 @@ servers:
   - url: https://localhost:8081
     description: オンエア管理情報BFF
 paths:
-  /onAirKanriInfoBFF/{id}:
-    get:
-      tags:
-        - onAirKanriInfoBFF
-      operationId: getOnAirKanriInfoBFF
-      summary: オンエア管理情報を取得するBFF
-      description: オンエア管理情報を取得するBFF
-      parameters:
-        - in: path
-          name: id
-          required: true
-          schema:
-            type: string
-            maxLength: 8
-      responses:
-        '200':
-          description: オンエア管理情報を正常取得
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/onAirKanriList'
   /onAirKanriInfoBFF:
     post:
       tags:

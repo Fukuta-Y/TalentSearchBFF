@@ -15,20 +15,6 @@ public class OnAirKanriInfoBFFController implements OnAirKanriInfoBFFApi{
 	
 	// OnAirKanriInfoBFFServiceを宣言
 	private final OnAirKanriInfoBFFService service;
-	
-	/**
-	 * オンエア管理情報BFFController
-	 *
-	 * @param id ID
-	 * @return OnAirKanriList
-	 * 
-	*/
-	@Override
-	public ResponseEntity<OnAirKanriList> getOnAirKanriInfoBFF(String id) {
-		// OnAirKanriInfoBFFServiceより取得
-		OnAirKanriList response = service.getOnAirKanriList(id);
-		return ResponseEntity.ok(response);
-	}
 
 	/**
 	 * オンエア管理登録・更新BFFController
