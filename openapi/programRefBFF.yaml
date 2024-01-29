@@ -35,15 +35,55 @@ paths:
           content:
             application/json:
               schema:
-               $ref: '#/components/schemas/programInfoList'
+               $ref: '#/components/schemas/programInfoRefList'
 components:
   schemas:
-    programInfoList:
+    programInfoRefList:
       description: 番組マスタ情報DTO
       type: object
       properties:
-        mProgram:
+        programInfoRef:
           description: 番組マスタDTO
           type: array
           items:
-            $ref: "../../TalentSearchCommon/Tables/mProgram.yaml#/components/schemas/mProgram"
+            $ref: "#/components/schemas/programInfoRef"
+    programInfoRef:
+      description: 番組マスタ情報DTOの情報
+      type: object
+      properties:
+        programId:
+          type: string
+          maxLength: 8
+          description: 番組ID
+        programName:
+          type: string
+          maxLength: 30
+          description: 番組名
+        channelId:
+          type: integer
+          maximum : 9
+          minimum : 0
+          description: チャンネルID
+        channelKyokuId:
+          type: integer
+          maximum : 9
+          minimum : 0
+          description: チャンネル局ID
+        genreId:
+          type: integer
+          maximum : 99
+          minimum : 0
+          description: ジャンルID
+        deleteFlg:
+          type: integer
+          maximum : 9
+          minimum : 0
+          description: 論理削除フラグ
+        torokuDay:
+          type: string
+          format: yyyy/MM/dd
+          description: 登録日
+        koushinDay:
+          type: string
+          format: yyyy/MM/dd
+          description: 更新日

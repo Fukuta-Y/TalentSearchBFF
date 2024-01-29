@@ -1,10 +1,6 @@
 README.md
 pom.xml
 src/main/java/com/api/ApiUtil.java
-src/main/java/com/api/ShukanTalentJohoBFFApi.java
-src/main/java/com/model/MProgram.java
-src/main/java/com/model/MTalent.java
-src/main/java/com/model/ShukanTalent.java
-src/main/java/com/model/ShukanTalentJoho.java
-src/main/java/com/model/ShukanTalentJohoBFF.java
-src/main/java/com/model/TOnAirKanri.java
+src/main/java/com/api/ProgramRefBFFApi.java
+src/main/java/com/model/ProgramInfoRef.java
+src/main/java/com/model/ProgramInfoRefList.java

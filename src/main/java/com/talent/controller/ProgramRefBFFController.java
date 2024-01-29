@@ -3,7 +3,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 
 import com.api.ProgramRefBFFApi;
-import com.model.ProgramInfoList;
+import com.model.ProgramInfoRefList;
 import com.talent.service.ProgramRefBFFService;
 
 import lombok.RequiredArgsConstructor;
@@ -20,13 +20,13 @@ public class ProgramRefBFFController implements ProgramRefBFFApi{
 	 *
 	 * @param programId 番組ID
 	 * @param programName 番組名
-	 * @return ProgramInfoList
+	 * @return ProgramInfoRefList
 	 * 
 	*/
 	@Override
-	public ResponseEntity<ProgramInfoList> getProgramRefBFF(String programId, String programName) {
+	public ResponseEntity<ProgramInfoRefList> getProgramRefBFF(String programId, String programName) {
 		// ProgramRefBFFServiceより取得
-		ProgramInfoList response = service.getProgramRefBFF(programId, programName);
+		ProgramInfoRefList response = service.getProgramRefBFF(programId, programName);
 		return ResponseEntity.ok(response);
 	}
 }
