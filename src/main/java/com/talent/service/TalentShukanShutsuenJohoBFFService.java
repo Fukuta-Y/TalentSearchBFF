@@ -43,11 +43,14 @@ public class TalentShukanShutsuenJohoBFFService {
     	TalentShukanShutsuenJohoBFF response = new TalentShukanShutsuenJohoBFF();
     	List<TalentShukanShutsuen> listTalentShukanShutsuen = new ArrayList<TalentShukanShutsuen>();
 
-        // Listに設定するModelの宣言
     	TalentShukanShutsuen bffModel = new TalentShukanShutsuen();
         
         // BE「タレント週間出演情報検索」より取得処理
         TalentShukanShutsuenJoho talentJoho = this.webClient.getTalentShukanShutsuenJoho(nentsuki, shu, talentId);
+        // 戻りの内容が設定されていなかった場合
+        if (talentJoho.gettOnAirKanri() == null) {
+        	return response;
+        }
         // 各テーブルごとの内容を取得
         List<TOnAirKanri> onAirList = talentJoho.gettOnAirKanri();
         List<MTalent> mTalentList = talentJoho.getmTalent();
