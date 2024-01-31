@@ -275,7 +275,7 @@ public class WebClientInfo {
 	 * @param shu 週
      * @return　遷移情報を設定したWebClientの内容を返す
      */
-    public NentsukiShuKanri getNentsukiShuKanrRef(Integer nentsuki, Integer shu) {
+    public NentsukiShuKanri getNentsukiShuKanriRef(Integer nentsuki, Integer shu) {
         return this.webClient.get()
                 .uri(uriBuilder -> uriBuilder
 		                .path("/nentsukiShuKanrRef")
