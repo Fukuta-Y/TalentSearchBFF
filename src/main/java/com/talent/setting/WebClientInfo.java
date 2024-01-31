@@ -278,7 +278,7 @@ public class WebClientInfo {
     public NentsukiShuKanri getNentsukiShuKanriRef(Integer nentsuki, Integer shu) {
         return this.webClient.get()
                 .uri(uriBuilder -> uriBuilder
-		                .path("/nentsukiShuKanrRef")
+		                .path("/nentsukiShuKanriRef")
                         .queryParam("nentsuki", nentsuki)
                         .queryParam("shu", shu)
                         .build())
