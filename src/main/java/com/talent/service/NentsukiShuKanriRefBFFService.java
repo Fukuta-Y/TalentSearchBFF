@@ -12,7 +12,7 @@ import lombok.RequiredArgsConstructor;
  */
 @Service
 @RequiredArgsConstructor
-public class NentsukiShuKanrRefBFFService {
+public class NentsukiShuKanriRefBFFService {
 
 	// WebClientInfoを宣言
     private final WebClientInfo webClient;
@@ -25,13 +25,13 @@ public class NentsukiShuKanrRefBFFService {
 	 * @return NentsukiShuKanri
 	 * 
 	*/
-    public NentsukiShuKanri getNentsukiShuKanrRefBFF(Integer nentsuki, Integer shu) {
+    public NentsukiShuKanri getNentsukiShuKanriRefBFF(Integer nentsuki, Integer shu) {
 
     	// responseを宣言
     	NentsukiShuKanri response = new NentsukiShuKanri();
 
     	// (1) BE「年月週管理参照検索」を呼び出す。
-    	response = this.webClient.getNentsukiShuKanrRef(nentsuki, shu);
+    	response = this.webClient.getNentsukiShuKanriRef(nentsuki, shu);
 
     	// responseの返却
         return response;

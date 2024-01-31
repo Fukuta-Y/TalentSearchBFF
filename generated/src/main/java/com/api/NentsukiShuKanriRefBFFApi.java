@@ -26,12 +26,12 @@ import jakarta.validation.constraints.Min;
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-11T21:51:26.841831+09:00[Asia/Tokyo]")
 @Validated
-@Tag(name = "nentsukiShuKanrRefBFF", description = "the nentsukiShuKanrRefBFF API")
+@Tag(name = "nentsukiShuKanriRefBFF", description = "the nentsukiShuKanriRefBFF API")
 @RequestMapping("api")
-public interface NentsukiShuKanrRefBFFApi {
+public interface NentsukiShuKanriRefBFFApi {
 
     /**
-     * GET /nentsukiShuKanrRefBFF : 年月、週によって年月週管理情報を返すBFF
+     * GET /nentsukiShuKanriRefBFF : 年月、週によって年月週管理情報を返すBFF
      * 年月、週によって年月週管理情報を返すBFF
      *
      * @param nentsuki 年月 (optional)
@@ -39,17 +39,17 @@ public interface NentsukiShuKanrRefBFFApi {
      * @return 年月週管理情報を正常取得 (status code 200)
      */
     @Operation(
-        operationId = "getNentsukiShuKanrRefBFF",
+        operationId = "getNentsukiShuKanriRefBFF",
         summary = "年月、週によって年月週管理情報を返すBFF",
-        tags = { "nentsukiShuKanrRefBFF" },
+        tags = { "nentsukiShuKanriRefBFF" },
         responses = {
             @ApiResponse(responseCode = "200", description = "年月週管理情報を正常取得", content = {
                 @Content(mediaType = "application/json", schema = @Schema(implementation = NentsukiShuKanri.class))
             })
         }
     )
-    @GetMapping("/nentsukiShuKanrRefBFF")
-    ResponseEntity<NentsukiShuKanri> getNentsukiShuKanrRefBFF(
+    @GetMapping("/nentsukiShuKanriRefBFF")
+    ResponseEntity<NentsukiShuKanri> getNentsukiShuKanriRefBFF(
         @Min(199001) @Max(210012) @Parameter(name = "nentsuki", description = "年月") @Valid @RequestParam(value = "nentsuki", required = false) Integer nentsuki,
         @Min(1) @Max(5) @Parameter(name = "shu", description = "週") @Valid @RequestParam(value = "shu", required = false) Integer shu
     );

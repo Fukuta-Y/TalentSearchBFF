@@ -1,6 +1,6 @@
 README.md
 pom.xml
 src/main/java/com/api/ApiUtil.java
-src/main/java/com/api/ProgramRefBFFApi.java
-src/main/java/com/model/ProgramInfoRef.java
-src/main/java/com/model/ProgramInfoRefList.java
+src/main/java/com/api/NentsukiShuKanriRefBFFApi.java
+src/main/java/com/model/MNentsukiShuKanri.java
+src/main/java/com/model/NentsukiShuKanri.java

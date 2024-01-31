@@ -7,11 +7,11 @@ servers:
   - url: https://localhost:8081
     description: 年月週管理参照検索BFF
 paths:
-  /nentsukiShuKanrRefBFF:
+  /nentsukiShuKanriRefBFF:
     get:
       tags:
-        - nentsukiShuKanrRefBFF
-      operationId: getNentsukiShuKanrRefBFF
+        - nentsukiShuKanriRefBFF
+      operationId: getNentsukiShuKanriRefBFF
       summary: 年月、週によって年月週管理情報を返すBFF
       description: 年月、週によって年月週管理情報を返すBFF
       parameters:
