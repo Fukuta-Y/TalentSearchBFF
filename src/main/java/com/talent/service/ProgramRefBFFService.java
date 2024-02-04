@@ -46,6 +46,11 @@ public class ProgramRefBFFService {
 
     	// (1) BE「番組参照検索」を呼び出す。
     	ProgramInfoList programInfo = this.webClient.getProgramRef(programId, programName);
+    	
+    	// 取得できなかったらそのまま返す
+    	if (programInfo.getmProgram().size() == 0) {
+    		return response;
+    	}
 
     	// (2) BE「チャンネル局マスタ検索」のパラメータ「チャンネルID」に対して、
     	//     (1)で取得した番組マスタDTO.チャンネルIDを全てパラメータとして 【複数】を設定して、チャンネル局マスタDTOを取得する。
