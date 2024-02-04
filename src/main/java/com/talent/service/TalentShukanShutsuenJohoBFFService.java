@@ -115,8 +115,7 @@ public class TalentShukanShutsuenJohoBFFService {
 	       		// チャンネル局マスタDTOを繰り返し
 	            // (2) (1)で取得した番組マスタDTO.チェンネルIDを軸として、キーを突き合わせる。
 	    		//   取得項目：
-	    		//  ・チャンネル局マスタDTO. チャンネル局ID → 【レスポンス.放送局（チャンネル）】
-				System.out.println("mChannelKyokuList:" + mChannelKyokuList);
+	    		//  ・チャンネル局マスタDTO. チャンネル局ID → 【レスポンス.放送局（チャンネル）】S
 	            for (MChannelKyoku channelKyoku : mChannelKyokuList) {
 					// ① 番組マスタDTO.チェンネルID =チャンネル局マスタDTO.チェンネルID 
 					if(channelKyoku.getChannelId().compareTo(channelId) == 0 ) {
