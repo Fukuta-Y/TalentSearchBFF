@@ -34,7 +34,6 @@ dependencies {
 
     // DB接続をしないBFFなので、MyBatis関連の依存関係は引き続き削除したまま
     // implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.3.0' // ★この行は削除したまま
-
     compileOnly 'io.swagger:swagger-annotations:1.6.2' // Swaggerアノテーション (OpenAPI Generator用)
     compileOnly 'org.projectlombok:lombok'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
