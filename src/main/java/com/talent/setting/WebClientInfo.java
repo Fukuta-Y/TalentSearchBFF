@@ -31,6 +31,7 @@ public class WebClientInfo {
     public WebClient webClient;
 
     public WebClientInfo(WebClient.Builder webClientBuilder) {
+        // this.webClient = webClientBuilder.baseUrl("http://localhost:8082").build();
         this.webClient = webClientBuilder.baseUrl("https://talentsearchbe.onrender.com/").build();
     }
 
