@@ -5,13 +5,6 @@
      
 <generatorConfiguration>
   <context id="demoTables" targetRuntime="MyBatis3">
-    <!-- DB接続設定 -->
-     <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
-      connectionURL="jdbc:mysql://localhost/kadaiDB_202305"
-      userId="fukuta"
-      password="yuki1008">
-      <property name="nullCatalogMeansCurrent" value="true" />
-    </jdbcConnection>
  
     <!-- Select結果がマッピングされる、Javaモデルの出力設定 -->
     <javaModelGenerator targetPackage="com.talent.infrastructure.repository.model.generated" targetProject="TalentSearch/src/main/java">
