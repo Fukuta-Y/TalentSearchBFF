@@ -10,7 +10,8 @@ import lombok.Data;
  * タレント出演本数DTO
  */
 @Data
-public class TalentShutsuenHonsuDto implements Serializable {
+public class TalentShutsuenHonsuDto implements Serializable
+{
     private Talent talent;
     private Long shukanShutsuenHonsu;
     private Integer nentsuki;

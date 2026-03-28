@@ -16,44 +16,45 @@ import lombok.RequiredArgsConstructor;
  */
 @Service
 @RequiredArgsConstructor
-public class ProgramShutsuenBFFService {
-
-	// WebClientInfoを宣言
+public class ProgramShutsuenBFFService
+{
+    // WebClientInfoを宣言
     private final WebClientInfo webClient;
 
     /**
      * 番組出演者検索BFFService
      *
      * @param programId 番組ID
-     * @param onAirDay  オンエア日
-     * @param nentsuki  年月
-     * @param shu     　週
+     * @param onAirDay オンエア日
+     * @param nentsuki 年月
+     * @param shu 週
      * @return ProgramShutsuenList
      */
-    public ProgramShutsuenList getProgramShutsuenBFF(String programId, String onAirDay, Integer nentsuki, Integer shu) {
+    public ProgramShutsuenList getProgramShutsuenBFF(String programId, String onAirDay, Integer nentsuki, Integer shu)
+    {
+        // reponseを宣言
+        ProgramShutsuenList response = new ProgramShutsuenList();
 
-    	// reponseを宣言
-    	ProgramShutsuenList response = new ProgramShutsuenList();
-    	
-    	// Listを宣言
-    	List<ProgramShutsuen> listProgramShutsuen= new ArrayList<ProgramShutsuen>();
+        // Listを宣言
+        List<ProgramShutsuen> listProgramShutsuen = new ArrayList<ProgramShutsuen>();
 
-		// (1) BE「番組出演者検索」より取得
+        // (1) BE「番組出演者検索」より取得
         ProgramShutsuenList talentJoho = this.webClient.getProgramShutsuen(programId, onAirDay);
-        for (ProgramShutsuen e : talentJoho.getProgramShutsuen()) {
-        	ProgramShutsuen model = new ProgramShutsuen();
-			// (2)で取得したレスポンスを以下のように設定する。
-			// ・番組名⇒　レスポンス.番組名
-			// ・番組ジャンル名 ⇒　レスポンス.番組ジャンル名 
-			// ・タレントID⇒　レスポンス.タレントID
-			// ・タレント名⇒　レスポンス.タレント名
-	    	model.setProgramName(e.getProgramName());
-	    	model.setProgramGenre(e.getProgramGenre());
-	    	model.setTalentId(e.getTalentId());
-	    	model.setTalentName(e.getTalentName());
-	    	listProgramShutsuen.add(model);
+        for (ProgramShutsuen e : talentJoho.getProgramShutsuen())
+        {
+            ProgramShutsuen model = new ProgramShutsuen();
+            // (2)で取得したレスポンスを以下のように設定する。
+            // ・番組名⇒　レスポンス.番組名
+            // ・番組ジャンル名 ⇒　レスポンス.番組ジャンル名
+            // ・タレントID⇒　レスポンス.タレントID
+            // ・タレント名⇒　レスポンス.タレント名
+            model.setProgramName(e.getProgramName());
+            model.setProgramGenre(e.getProgramGenre());
+            model.setTalentId(e.getTalentId());
+            model.setTalentName(e.getTalentName());
+            listProgramShutsuen.add(model);
         }
-        
+
         // Responseへ設定
         response.setProgramShutsuen(listProgramShutsuen);
         return response;

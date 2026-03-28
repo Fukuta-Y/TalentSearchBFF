@@ -11,7 +11,8 @@ import lombok.Data;
  * タレント情報DTO
  */
 @Data
-public class TalentInfoDto implements Serializable {
+public class TalentInfoDto implements Serializable
+{
     private Talent talent;
     private TvProgram tvProgram;
     private Long shukanShutsuenHonsu;

@@ -19,11 +19,14 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.annotation.Generated;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-03T16:53:51.944573+09:00[Asia/Tokyo]")
+@Generated(
+    value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-03T16:53:51.944573+09:00[Asia/Tokyo]"
+)
 @Validated
 @Tag(name = "channelInfoBFF", description = "the channelInfoBFF API")
 @RequestMapping("api")
-public interface ChannelInfoBFFApi {
+public interface ChannelInfoBFFApi
+{
 
     /**
      * GET /channelInfoBFF : チャンネル情報を取得するBFF
@@ -34,16 +37,17 @@ public interface ChannelInfoBFFApi {
     @Operation(
         operationId = "getChannelInfoBFF",
         summary = "チャンネル情報を取得するBFF",
-        tags = { "channelInfoBFF" },
+        tags = {"channelInfoBFF"},
         responses = {
-            @ApiResponse(responseCode = "200", description = "チャンネル情報を正常取得", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = ChannelInfoList.class))
-            })
+            @ApiResponse(
+                responseCode = "200", description = "チャンネル情報を正常取得", content = {
+                    @Content(mediaType = "application/json", schema = @Schema(implementation = ChannelInfoList.class))
+                }
+            )
         }
     )
     @GetMapping("/channelInfoBFF")
     ResponseEntity<ChannelInfoList> getChannelInfoBFF(
-        
-    );
 
+    );
 }

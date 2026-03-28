@@ -11,7 +11,8 @@ import lombok.Data;
  * オンエア管理情報DTO
  */
 @Data
-public class OnAirKanriInfoDto implements Serializable {
+public class OnAirKanriInfoDto implements Serializable
+{
     private String id;
     private Talent talent;
     private TvProgram tvProgram;

@@ -23,12 +23,14 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-04T23:34:19.826482+09:00[Asia/Tokyo]")
+@Generated(
+    value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-04T23:34:19.826482+09:00[Asia/Tokyo]"
+)
 @Validated
 @Tag(name = "talentTorokuKoshinBFF", description = "the talentTorokuKoshinBFF API")
 @RequestMapping("api")
-public interface TalentTorokuKoshinBFFApi {
-
+public interface TalentTorokuKoshinBFFApi
+{
     /**
      * POST /talentTorokuKoshinBFF : タレント情報を登録または更新するBFF
      * タレント情報を登録または更新するBFF
@@ -39,21 +41,26 @@ public interface TalentTorokuKoshinBFFApi {
     @Operation(
         operationId = "postTalentTorokuKoshinBFF",
         summary = "タレント情報を登録または更新するBFF",
-        tags = { "talentTorokuKoshinBFF" },
+        tags = {"talentTorokuKoshinBFF"},
         responses = {
-            @ApiResponse(responseCode = "200", description = "登録または更新したタレントマスタ情報", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = TalentTorokuKoshinBFF.class))
-            })
+            @ApiResponse(
+                responseCode = "200", description = "登録または更新したタレントマスタ情報", content = {
+                    @Content(
+                        mediaType = "application/json", schema = @Schema(implementation = TalentTorokuKoshinBFF.class)
+                    )
+                }
+            )
         }
     )
     @RequestMapping(
         method = RequestMethod.POST,
         value = "/talentTorokuKoshinBFF",
-        produces = { "application/json" },
-        consumes = { "application/json" }
+        produces = {"application/json"},
+        consumes = {"application/json"}
     )
     ResponseEntity<TalentTorokuKoshinBFF> postTalentTorokuKoshinBFF(
-        @Parameter(name = "MTalent", description = "タレント情報を登録または更新するBFF") @Valid @RequestBody(required = false) MTalent mtalent
+        @Parameter(name = "MTalent", description = "タレント情報を登録または更新するBFF") @Valid @RequestBody(
+            required = false
+        ) MTalent mtalent
     );
-
 }

@@ -1,4 +1,5 @@
 package com.talent.controller;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 
@@ -10,23 +11,26 @@ import lombok.RequiredArgsConstructor;
 
 @Controller
 @RequiredArgsConstructor
-public class TalentShukanShutsuenJohoBFFController implements TalentShukanShutsuenJohoBFFApi{
-	
-	// TalentShukanShutsuenJohoBFFServiceを宣言
+public class TalentShukanShutsuenJohoBFFController implements TalentShukanShutsuenJohoBFFApi
+{
+    // TalentShukanShutsuenJohoBFFServiceを宣言
     private final TalentShukanShutsuenJohoBFFService service;
-    
+
     /**
      * タレント週間出演情報検索Controller
      *
-     * @param nentsuki  年月
-     * @param shu       週
+     * @param nentsuki 年月
+     * @param shu 週
      * @param talentId タレントID
      * @return TalentShukanShutsuenJohoBFF
      */
-	@Override
-	public ResponseEntity<TalentShukanShutsuenJohoBFF> getTalentShukanShutsuenJohoBFF(Integer nentsuki, Integer shu,String talentId) {
-		// TalentShukanShutsuenJohoBFFServiceより取得
-		TalentShukanShutsuenJohoBFF response  = service.getTalentShukanShutsuenJohoBFF(nentsuki, shu, talentId);
-		return ResponseEntity.ok(response);
-	}
+    @Override
+    public ResponseEntity<TalentShukanShutsuenJohoBFF> getTalentShukanShutsuenJohoBFF(
+        Integer nentsuki, Integer shu, String talentId
+    )
+    {
+        // TalentShukanShutsuenJohoBFFServiceより取得
+        TalentShukanShutsuenJohoBFF response = service.getTalentShukanShutsuenJohoBFF(nentsuki, shu, talentId);
+        return ResponseEntity.ok(response);
+    }
 }

@@ -24,12 +24,14 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-11T20:20:08.575223+09:00[Asia/Tokyo]")
+@Generated(
+    value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-11T20:20:08.575223+09:00[Asia/Tokyo]"
+)
 @Validated
 @Tag(name = "nentsukiShuKanriBFF", description = "the nentsukiShuKanriBFF API")
 @RequestMapping("api")
-public interface NentsukiShuKanriBFFApi {
-
+public interface NentsukiShuKanriBFFApi
+{
     /**
      * GET /nentsukiShuKanriBFF : 年月週管理マスタを返すBFF
      * 年月週管理マスタ情報を返すBFF
@@ -39,18 +41,19 @@ public interface NentsukiShuKanriBFFApi {
     @Operation(
         operationId = "getNentsukiShuKanriBFF",
         summary = "年月週管理マスタを返すBFF",
-        tags = { "nentsukiShuKanriBFF" },
+        tags = {"nentsukiShuKanriBFF"},
         responses = {
-            @ApiResponse(responseCode = "200", description = "年月週管理マスタDTOの情報", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = NentsukiShuKanri.class))
-            })
+            @ApiResponse(
+                responseCode = "200", description = "年月週管理マスタDTOの情報", content = {
+                    @Content(mediaType = "application/json", schema = @Schema(implementation = NentsukiShuKanri.class))
+                }
+            )
         }
     )
     @GetMapping("/nentsukiShuKanriBFF")
     ResponseEntity<NentsukiShuKanri> getNentsukiShuKanriBFF(
-        
-    );
 
+    );
 
     /**
      * POST /nentsukiShuKanriBFF : 年月週管理マスタ情報を登録または更新するBFF
@@ -62,21 +65,24 @@ public interface NentsukiShuKanriBFFApi {
     @Operation(
         operationId = "postNentsukiShuKanriBFF",
         summary = "年月週管理マスタ情報を登録または更新するBFF",
-        tags = { "nentsukiShuKanriBFF" },
+        tags = {"nentsukiShuKanriBFF"},
         responses = {
-            @ApiResponse(responseCode = "200", description = "登録または更新した年月週管理マスタDTOの情報", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = NentsukiShuKanri.class))
-            })
+            @ApiResponse(
+                responseCode = "200", description = "登録または更新した年月週管理マスタDTOの情報", content = {
+                    @Content(mediaType = "application/json", schema = @Schema(implementation = NentsukiShuKanri.class))
+                }
+            )
         }
     )
     @RequestMapping(
         method = RequestMethod.POST,
         value = "/nentsukiShuKanriBFF",
-        produces = { "application/json" },
-        consumes = { "application/json" }
+        produces = {"application/json"},
+        consumes = {"application/json"}
     )
     ResponseEntity<NentsukiShuKanri> postNentsukiShuKanriBFF(
-        @Parameter(name = "MNentsukiShuKanri", description = "年月週管理マスタ情報を登録または更新するBFF") @Valid @RequestBody(required = false) MNentsukiShuKanri mnentsukiShuKanri
+        @Parameter(name = "MNentsukiShuKanri", description = "年月週管理マスタ情報を登録または更新するBFF") @Valid @RequestBody(
+            required = false
+        ) MNentsukiShuKanri mnentsukiShuKanri
     );
-
 }

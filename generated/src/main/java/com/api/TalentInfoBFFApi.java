@@ -22,32 +22,37 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.annotation.Generated;
 import jakarta.validation.constraints.Size;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-04T23:34:19.826482+09:00[Asia/Tokyo]")
+@Generated(
+    value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-04T23:34:19.826482+09:00[Asia/Tokyo]"
+)
 @Validated
 @Tag(name = "talentInfoBFF", description = "the talentInfoBFF API")
 @RequestMapping("api")
-public interface TalentInfoBFFApi {
-
+public interface TalentInfoBFFApi
+{
     /**
      * GET /talentInfoBFF/{talentId} : タレント情報をタレントIDによって取得するBFF
      * タレント情報をタレントIDによって取得するBFF
      *
-     * @param talentId  (required)
+     * @param talentId (required)
      * @return タレント情報を正常取得 (status code 200)
      */
     @Operation(
         operationId = "getTalentInfoBFF",
         summary = "タレント情報をタレントIDによって取得するBFF",
-        tags = { "talentInfoBFF" },
+        tags = {"talentInfoBFF"},
         responses = {
-            @ApiResponse(responseCode = "200", description = "タレント情報を正常取得", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = TalentInfo.class))
-            })
+            @ApiResponse(
+                responseCode = "200", description = "タレント情報を正常取得", content = {
+                    @Content(mediaType = "application/json", schema = @Schema(implementation = TalentInfo.class))
+                }
+            )
         }
     )
     @GetMapping("/talentInfoBFF/{talentId}")
     ResponseEntity<TalentInfo> getTalentInfoBFF(
-        @Size(max = 8) @Parameter(name = "talentId", description = "", required = true) @PathVariable("talentId") String talentId
+        @Size(max = 8) @Parameter(name = "talentId", description = "", required = true) @PathVariable(
+            "talentId"
+        ) String talentId
     );
-
 }

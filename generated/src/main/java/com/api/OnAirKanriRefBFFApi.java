@@ -23,12 +23,14 @@ import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Size;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-01-25T15:21:19.142632+09:00[Asia/Tokyo]")
+@Generated(
+    value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-01-25T15:21:19.142632+09:00[Asia/Tokyo]"
+)
 @Validated
 @Tag(name = "onAirKanriRefBFF", description = "the onAirKanriRefBFF API")
 @RequestMapping("api")
-public interface OnAirKanriRefBFFApi {
-
+public interface OnAirKanriRefBFFApi
+{
     /**
      * GET /onAirKanriRefBFF : ID、オンエア日によってオンエア管理情報を返すBFF
      * ID、オンエア日によってオンエア管理情報を返すBFF
@@ -40,21 +42,26 @@ public interface OnAirKanriRefBFFApi {
     @Operation(
         operationId = "getOnAirKanriRefBFF",
         summary = "ID、オンエア日によってオンエア管理情報を返すBFF",
-        tags = { "onAirKanriRefBFF" },
+        tags = {"onAirKanriRefBFF"},
         responses = {
-            @ApiResponse(responseCode = "200", description = "オンエア管理情報を正常取得", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = OnAirKanriRefList.class))
-            })
+            @ApiResponse(
+                responseCode = "200", description = "オンエア管理情報を正常取得", content = {
+                    @Content(mediaType = "application/json", schema = @Schema(implementation = OnAirKanriRefList.class))
+                }
+            )
         }
     )
     @RequestMapping(
         method = RequestMethod.GET,
         value = "/onAirKanriRefBFF",
-        produces = { "application/json" }
+        produces = {"application/json"}
     )
     ResponseEntity<OnAirKanriRefList> getOnAirKanriRefBFF(
-        @Size(max = 8) @Parameter(name = "id", description = "ID") @Valid @RequestParam(value = "id", required = false) String id,
-        @Parameter(name = "onAirDay", description = "オンエア日") @Valid @RequestParam(value = "onAirDay", required = false) String onAirDay
+        @Size(max = 8) @Parameter(name = "id", description = "ID") @Valid @RequestParam(
+            value = "id", required = false
+        ) String id,
+        @Parameter(name = "onAirDay", description = "オンエア日") @Valid @RequestParam(
+            value = "onAirDay", required = false
+        ) String onAirDay
     );
-
 }

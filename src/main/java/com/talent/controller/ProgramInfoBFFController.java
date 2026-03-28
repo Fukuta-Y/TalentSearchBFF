@@ -1,4 +1,5 @@
 package com.talent.controller;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 
@@ -10,22 +11,22 @@ import lombok.RequiredArgsConstructor;
 
 @Controller
 @RequiredArgsConstructor
-public class ProgramInfoBFFController implements ProgramInfoBFFApi{
-	
-	// ProgramInfoBFFServiceを宣言
+public class ProgramInfoBFFController implements ProgramInfoBFFApi
+{
+    // ProgramInfoBFFServiceを宣言
     private final ProgramInfoBFFService service;
 
-	/**
-	 * 番組情報BFFController
-	 *
-	 * @param programId 番組ID
-	 * @return ProgramInfo
-	 * 
-	*/
-	@Override
-	public ResponseEntity<ProgramInfo> getProgramInfoBFF(String programId) {
-		// ProgramInfoBFFServiceより取得
-		ProgramInfo response  = service.getProgramInfo(programId);
-		return ResponseEntity.ok(response);
-	}
+    /**
+     * 番組情報BFFController
+     *
+     * @param programId 番組ID
+     * @return ProgramInfo
+     */
+    @Override
+    public ResponseEntity<ProgramInfo> getProgramInfoBFF(String programId)
+    {
+        // ProgramInfoBFFServiceより取得
+        ProgramInfo response = service.getProgramInfo(programId);
+        return ResponseEntity.ok(response);
+    }
 }

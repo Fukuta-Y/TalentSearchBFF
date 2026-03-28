@@ -13,20 +13,21 @@ import lombok.RequiredArgsConstructor;
  */
 @Service
 @RequiredArgsConstructor
-public class ProgramTorokuKoshinBFFService {
-
-	// WebClientInfoを宣言
+public class ProgramTorokuKoshinBFFService
+{
+    // WebClientInfoを宣言
     private final WebClientInfo webClient;
 
     /**
      * 番組登録・更新BFFService
      *
-     * @param mProgram　番組マスタDTO
+     * @param mProgram 番組マスタDTO
      * @return ProgramTorokuKoshinBFF
      */
-    public ProgramTorokuKoshinBFF postProgramTorokuKoshinBFF(MProgram mProgram) {
-    	// (1) BE「番組登録・更新」を呼び出す。
-    	ProgramTorokuKoshinBFF response = this.webClient.postProgramTorokuKoshin(mProgram);
+    public ProgramTorokuKoshinBFF postProgramTorokuKoshinBFF(MProgram mProgram)
+    {
+        // (1) BE「番組登録・更新」を呼び出す。
+        ProgramTorokuKoshinBFF response = this.webClient.postProgramTorokuKoshin(mProgram);
         // Responseへ設定
         return response;
     }

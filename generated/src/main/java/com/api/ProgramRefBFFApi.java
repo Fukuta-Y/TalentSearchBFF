@@ -23,12 +23,14 @@ import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Size;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-01-29T15:14:26.917324+09:00[Asia/Tokyo]")
+@Generated(
+    value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-01-29T15:14:26.917324+09:00[Asia/Tokyo]"
+)
 @Validated
 @Tag(name = "programRefBFF", description = "the programRefBFF API")
 @RequestMapping("api")
-public interface ProgramRefBFFApi {
-
+public interface ProgramRefBFFApi
+{
     /**
      * GET /programRefBFF : 番組ID、番組名によって番組情報を返すBFF
      * 番組ID、番組名によって番組情報を返すBFF
@@ -40,17 +42,24 @@ public interface ProgramRefBFFApi {
     @Operation(
         operationId = "getProgramRefBFF",
         summary = "番組ID、番組名によって番組情報を返すBFF",
-        tags = { "programRefBFF" },
+        tags = {"programRefBFF"},
         responses = {
-            @ApiResponse(responseCode = "200", description = "番組情報を正常取得", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = ProgramInfoRefList.class))
-            })
+            @ApiResponse(
+                responseCode = "200", description = "番組情報を正常取得", content = {
+                    @Content(
+                        mediaType = "application/json", schema = @Schema(implementation = ProgramInfoRefList.class)
+                    )
+                }
+            )
         }
     )
     @GetMapping("/programRefBFF")
     ResponseEntity<ProgramInfoRefList> getProgramRefBFF(
-        @Size(max = 8) @Parameter(name = "programId", description = "番組ID") @Valid @RequestParam(value = "programId", required = false) String programId,
-        @Size(max = 30) @Parameter(name = "programName", description = "番組名") @Valid @RequestParam(value = "programName", required = false) String programName
+        @Size(max = 8) @Parameter(name = "programId", description = "番組ID") @Valid @RequestParam(
+            value = "programId", required = false
+        ) String programId,
+        @Size(max = 30) @Parameter(name = "programName", description = "番組名") @Valid @RequestParam(
+            value = "programName", required = false
+        ) String programName
     );
-
 }

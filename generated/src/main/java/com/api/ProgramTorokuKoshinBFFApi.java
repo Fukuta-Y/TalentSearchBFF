@@ -23,12 +23,14 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.annotation.Generated;
 import jakarta.validation.Valid;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-04T16:43:16.584348+09:00[Asia/Tokyo]")
+@Generated(
+    value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-04T16:43:16.584348+09:00[Asia/Tokyo]"
+)
 @Validated
 @Tag(name = "programTorokuKoshinBFF", description = "the programTorokuKoshinBFF API")
 @RequestMapping("api")
-public interface ProgramTorokuKoshinBFFApi {
-
+public interface ProgramTorokuKoshinBFFApi
+{
     /**
      * POST /programTorokuKoshinBFF : 番組情報を登録または更新するBFF
      * 番組情報を登録または更新するBFF
@@ -39,21 +41,26 @@ public interface ProgramTorokuKoshinBFFApi {
     @Operation(
         operationId = "postProgramTorokuKoshinBFF",
         summary = "番組情報を登録または更新するBFF",
-        tags = { "programInfoBFF" },
+        tags = {"programInfoBFF"},
         responses = {
-            @ApiResponse(responseCode = "200", description = "登録または更新した番組マスタ情報", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = ProgramTorokuKoshinBFF.class))
-            })
+            @ApiResponse(
+                responseCode = "200", description = "登録または更新した番組マスタ情報", content = {
+                    @Content(
+                        mediaType = "application/json", schema = @Schema(implementation = ProgramTorokuKoshinBFF.class)
+                    )
+                }
+            )
         }
     )
     @RequestMapping(
         method = RequestMethod.POST,
         value = "/programTorokuKoshinBFF",
-        produces = { "application/json" },
-        consumes = { "application/json" }
+        produces = {"application/json"},
+        consumes = {"application/json"}
     )
     ResponseEntity<ProgramTorokuKoshinBFF> postProgramTorokuKoshinBFF(
-        @Parameter(name = "MProgram", description = "番組情報を登録または更新するBFF") @Valid @RequestBody(required = false) MProgram mprogram
+        @Parameter(name = "MProgram", description = "番組情報を登録または更新するBFF") @Valid @RequestBody(
+            required = false
+        ) MProgram mprogram
     );
-
 }

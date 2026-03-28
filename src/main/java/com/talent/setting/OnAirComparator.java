@@ -10,22 +10,27 @@ import com.talent.service.dto.OnAirKanriInfoDto;
 /**
  * 値の比較用クラス
  */
-public class OnAirComparator implements Comparator<OnAirKanriInfoDto> {
+public class OnAirComparator implements Comparator<OnAirKanriInfoDto>
+{
     /**
      * オンエア日を取得し、比較して返す
      *
-     * @param OnAirKanriInfoDto　data1　オンエア管理情報クラス１
-     * @param OnAirKanriInfoDto  data2　オンエア管理情報クラス２
+     * @param OnAirKanriInfoDto data1 オンエア管理情報クラス１
+     * @param OnAirKanriInfoDto data2 オンエア管理情報クラス２
      * @return 比較結果（-1:以下、0:同値、1:以上）
      */
-    public int compare(OnAirKanriInfoDto data1, OnAirKanriInfoDto data2) {
+    public int compare(OnAirKanriInfoDto data1, OnAirKanriInfoDto data2)
+    {
         SimpleDateFormat sdFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
         Date date1 = null;
         Date date2 = null;
-        try {
+        try
+        {
             date1 = sdFormat.parse(data1.getTvProgram().getOnAirDay());
             date2 = sdFormat.parse(data2.getTvProgram().getOnAirDay());
-        } catch (ParseException e) {
+        }
+        catch (ParseException e)
+        {
             // TODO 自動生成された catch ブロック
             e.printStackTrace();
         }

@@ -1,4 +1,5 @@
 package com.talent.controller;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 
@@ -11,22 +12,22 @@ import lombok.RequiredArgsConstructor;
 
 @Controller
 @RequiredArgsConstructor
-public class TalentTorokuKoshinBFFController implements TalentTorokuKoshinBFFApi{
+public class TalentTorokuKoshinBFFController implements TalentTorokuKoshinBFFApi
+{
+    // TalentTorokuKoshinBFFServiceを宣言
+    private final TalentTorokuKoshinBFFService service;
 
-	// TalentTorokuKoshinBFFServiceを宣言
-	private final TalentTorokuKoshinBFFService service;
-
-	 /**
-	  * タレント登録・更新BFFController
-	  *
-	  * @param mTalent タレントマスタDTO
-	  * @return TalentTorokuKoshinBFF
-	  * 
-	 */
-	@Override
-	public ResponseEntity<TalentTorokuKoshinBFF> postTalentTorokuKoshinBFF(MTalent mTalent) {
-		// TalentTorokuKoshinBFFServiceより取得
-		TalentTorokuKoshinBFF response  = service.postTalentTorokuKoshinBFF(mTalent);
-		return ResponseEntity.ok(response);
-	}
+    /**
+     * タレント登録・更新BFFController
+     *
+     * @param mTalent タレントマスタDTO
+     * @return TalentTorokuKoshinBFF
+     */
+    @Override
+    public ResponseEntity<TalentTorokuKoshinBFF> postTalentTorokuKoshinBFF(MTalent mTalent)
+    {
+        // TalentTorokuKoshinBFFServiceより取得
+        TalentTorokuKoshinBFF response = service.postTalentTorokuKoshinBFF(mTalent);
+        return ResponseEntity.ok(response);
+    }
 }

@@ -26,36 +26,47 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-06T12:44:09.196542+09:00[Asia/Tokyo]")
+@Generated(
+    value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-06T12:44:09.196542+09:00[Asia/Tokyo]"
+)
 @Validated
 @Tag(name = "shukanTalentJohoBFF", description = "the shukanTalentJohoBFF API")
 @RequestMapping("api")
-public interface ShukanTalentJohoBFFApi {
-
+public interface ShukanTalentJohoBFFApi
+{
     /**
      * GET /shukanTalentJohoBFF : １週間においてのタレントごとの情報を返すBFF
      * １週間においてのタレントごとの情報を返すBFF
      *
-     * @param nentsuki  (required)
-     * @param shu  (required)
-     * @param talentName  (optional)
+     * @param nentsuki (required)
+     * @param shu (required)
+     * @param talentName (optional)
      * @return １週間においてのタレントごとの情報を正常取得 (status code 200)
      */
     @Operation(
         operationId = "getShukanTalentJohoBFF",
         summary = "１週間においてのタレントごとの情報を返すBFF",
-        tags = { "shukanTalentJohoBFF" },
+        tags = {"shukanTalentJohoBFF"},
         responses = {
-            @ApiResponse(responseCode = "200", description = "１週間においてのタレントごとの情報を正常取得", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = ShukanTalentJohoBFF.class))
-            })
+            @ApiResponse(
+                responseCode = "200", description = "１週間においてのタレントごとの情報を正常取得", content = {
+                    @Content(
+                        mediaType = "application/json", schema = @Schema(implementation = ShukanTalentJohoBFF.class)
+                    )
+                }
+            )
         }
     )
     @GetMapping("/shukanTalentJohoBFF")
     ResponseEntity<ShukanTalentJohoBFF> getShukanTalentJohoBFF(
-        @NotNull @Min(199001) @Max(210012) @Parameter(name = "nentsuki", description = "", required = true) @Valid @RequestParam(value = "nentsuki", required = true) Integer nentsuki,
-        @NotNull @Min(1) @Max(5) @Parameter(name = "shu", description = "", required = true) @Valid @RequestParam(value = "shu", required = true) Integer shu,
-        @Size(max = 30) @Parameter(name = "talentName", description = "") @Valid @RequestParam(value = "talentName", required = false) String talentName
+        @NotNull @Min(199001) @Max(210012) @Parameter(
+            name = "nentsuki", description = "", required = true
+        ) @Valid @RequestParam(value = "nentsuki", required = true) Integer nentsuki,
+        @NotNull @Min(1) @Max(5) @Parameter(name = "shu", description = "", required = true) @Valid @RequestParam(
+            value = "shu", required = true
+        ) Integer shu,
+        @Size(max = 30) @Parameter(name = "talentName", description = "") @Valid @RequestParam(
+            value = "talentName", required = false
+        ) String talentName
     );
-
 }

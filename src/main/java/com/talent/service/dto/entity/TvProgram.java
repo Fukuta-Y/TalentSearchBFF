@@ -8,7 +8,8 @@ import lombok.Data;
  * 番組情報DTO
  */
 @Data
-public class TvProgram implements Serializable {
+public class TvProgram implements Serializable
+{
     private String id;
     private String name;
     private String onAirDay;

@@ -15,219 +15,258 @@ import jakarta.validation.constraints.Size;
 /**
  * 番組マスタ情報（全列）
  */
-
 @Schema(name = "mProgram", description = "番組マスタ情報（全列）")
 @JsonTypeName("mProgram")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-03T16:38:17.040026+09:00[Asia/Tokyo]")
-public class MProgram {
+@Generated(
+    value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-03T16:38:17.040026+09:00[Asia/Tokyo]"
+)
+public class MProgram
+{
+    @JsonProperty("programId")
+    private String programId;
 
-  @JsonProperty("programId")
-  private String programId;
+    @JsonProperty("programName")
+    private String programName;
 
-  @JsonProperty("programName")
-  private String programName;
+    @JsonProperty("channelId")
+    private Integer channelId;
 
-  @JsonProperty("channelId")
-  private Integer channelId;
+    @JsonProperty("genreId")
+    private Integer genreId;
 
-  @JsonProperty("genreId")
-  private Integer genreId;
+    @JsonProperty("deleteFlg")
+    private Integer deleteFlg;
 
-  @JsonProperty("deleteFlg")
-  private Integer deleteFlg;
+    @JsonProperty("torokuDay")
+    private String torokuDay;
 
-  @JsonProperty("torokuDay")
-  private String torokuDay;
+    @JsonProperty("koushinDay")
+    private String koushinDay;
 
-  @JsonProperty("koushinDay")
-  private String koushinDay;
-
-  public MProgram programId(String programId) {
-    this.programId = programId;
-    return this;
-  }
-
-  /**
-   * 番組ID
-   * @return programId
-  */
-  @NotNull @Size(max = 8) 
-  @Schema(name = "programId", description = "番組ID", required = true)
-  public String getProgramId() {
-    return programId;
-  }
-
-  public void setProgramId(String programId) {
-    this.programId = programId;
-  }
-
-  public MProgram programName(String programName) {
-    this.programName = programName;
-    return this;
-  }
-
-  /**
-   * 番組名
-   * @return programName
-  */
-  @Size(max = 30) 
-  @Schema(name = "programName", description = "番組名", required = false)
-  public String getProgramName() {
-    return programName;
-  }
-
-  public void setProgramName(String programName) {
-    this.programName = programName;
-  }
-
-  public MProgram channelId(Integer channelId) {
-    this.channelId = channelId;
-    return this;
-  }
-
-  /**
-   * チャンネルID
-   * minimum: 0
-   * maximum: 9
-   * @return channelId
-  */
-  @Min(0) @Max(9) 
-  @Schema(name = "channelId", description = "チャンネルID", required = false)
-  public Integer getChannelId() {
-    return channelId;
-  }
-
-  public void setChannelId(Integer channelId) {
-    this.channelId = channelId;
-  }
-
-  public MProgram genreId(Integer genreId) {
-    this.genreId = genreId;
-    return this;
-  }
-
-  /**
-   * ジャンルID
-   * minimum: 0
-   * maximum: 99
-   * @return genreId
-  */
-  @Min(0) @Max(99) 
-  @Schema(name = "genreId", description = "ジャンルID", required = false)
-  public Integer getGenreId() {
-    return genreId;
-  }
-
-  public void setGenreId(Integer genreId) {
-    this.genreId = genreId;
-  }
-
-  public MProgram deleteFlg(Integer deleteFlg) {
-    this.deleteFlg = deleteFlg;
-    return this;
-  }
-
-  /**
-   * 論理削除フラグ
-   * minimum: 0
-   * maximum: 9
-   * @return deleteFlg
-  */
-  @Min(0) @Max(9) 
-  @Schema(name = "deleteFlg", description = "論理削除フラグ", required = false)
-  public Integer getDeleteFlg() {
-    return deleteFlg;
-  }
-
-  public void setDeleteFlg(Integer deleteFlg) {
-    this.deleteFlg = deleteFlg;
-  }
-
-  public MProgram torokuDay(String torokuDay) {
-    this.torokuDay = torokuDay;
-    return this;
-  }
-
-  /**
-   * 登録日
-   * @return torokuDay
-  */
-  
-  @Schema(name = "torokuDay", description = "登録日", required = false)
-  public String getTorokuDay() {
-    return torokuDay;
-  }
-
-  public void setTorokuDay(String torokuDay) {
-    this.torokuDay = torokuDay;
-  }
-
-  public MProgram koushinDay(String koushinDay) {
-    this.koushinDay = koushinDay;
-    return this;
-  }
-
-  /**
-   * 更新日
-   * @return koushinDay
-  */
-  
-  @Schema(name = "koushinDay", description = "更新日", required = false)
-  public String getKoushinDay() {
-    return koushinDay;
-  }
-
-  public void setKoushinDay(String koushinDay) {
-    this.koushinDay = koushinDay;
-  }
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
+    public MProgram programId(String programId)
+    {
+        this.programId = programId;
+        return this;
     }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
+
+    /**
+     * 番組ID
+     *
+     * @return programId
+     */
+    @NotNull
+    @Size(max = 8)
+    @Schema(name = "programId", description = "番組ID", required = true)
+    public String getProgramId()
+    {
+        return programId;
     }
-    MProgram mProgram = (MProgram) o;
-    return Objects.equals(this.programId, mProgram.programId) &&
-        Objects.equals(this.programName, mProgram.programName) &&
-        Objects.equals(this.channelId, mProgram.channelId) &&
-        Objects.equals(this.genreId, mProgram.genreId) &&
-        Objects.equals(this.deleteFlg, mProgram.deleteFlg) &&
-        Objects.equals(this.torokuDay, mProgram.torokuDay) &&
-        Objects.equals(this.koushinDay, mProgram.koushinDay);
-  }
 
-  @Override
-  public int hashCode() {
-    return Objects.hash(programId, programName, channelId, genreId, deleteFlg, torokuDay, koushinDay);
-  }
-
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("class MProgram {\n");
-    sb.append("    programId: ").append(toIndentedString(programId)).append("\n");
-    sb.append("    programName: ").append(toIndentedString(programName)).append("\n");
-    sb.append("    channelId: ").append(toIndentedString(channelId)).append("\n");
-    sb.append("    genreId: ").append(toIndentedString(genreId)).append("\n");
-    sb.append("    deleteFlg: ").append(toIndentedString(deleteFlg)).append("\n");
-    sb.append("    torokuDay: ").append(toIndentedString(torokuDay)).append("\n");
-    sb.append("    koushinDay: ").append(toIndentedString(koushinDay)).append("\n");
-    sb.append("}");
-    return sb.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  private String toIndentedString(Object o) {
-    if (o == null) {
-      return "null";
+    public void setProgramId(String programId)
+    {
+        this.programId = programId;
     }
-    return o.toString().replace("\n", "\n    ");
-  }
+
+    public MProgram programName(String programName)
+    {
+        this.programName = programName;
+        return this;
+    }
+
+    /**
+     * 番組名
+     *
+     * @return programName
+     */
+    @Size(max = 30)
+    @Schema(name = "programName", description = "番組名", required = false)
+    public String getProgramName()
+    {
+        return programName;
+    }
+
+    public void setProgramName(String programName)
+    {
+        this.programName = programName;
+    }
+
+    public MProgram channelId(Integer channelId)
+    {
+        this.channelId = channelId;
+        return this;
+    }
+
+    /**
+     * チャンネルID
+     * minimum: 0
+     * maximum: 9
+     *
+     * @return channelId
+     */
+    @Min(0)
+    @Max(9)
+    @Schema(name = "channelId", description = "チャンネルID", required = false)
+    public Integer getChannelId()
+    {
+        return channelId;
+    }
+
+    public void setChannelId(Integer channelId)
+    {
+        this.channelId = channelId;
+    }
+
+    public MProgram genreId(Integer genreId)
+    {
+        this.genreId = genreId;
+        return this;
+    }
+
+    /**
+     * ジャンルID
+     * minimum: 0
+     * maximum: 99
+     *
+     * @return genreId
+     */
+    @Min(0)
+    @Max(99)
+    @Schema(name = "genreId", description = "ジャンルID", required = false)
+    public Integer getGenreId()
+    {
+        return genreId;
+    }
+
+    public void setGenreId(Integer genreId)
+    {
+        this.genreId = genreId;
+    }
+
+    public MProgram deleteFlg(Integer deleteFlg)
+    {
+        this.deleteFlg = deleteFlg;
+        return this;
+    }
+
+    /**
+     * 論理削除フラグ
+     * minimum: 0
+     * maximum: 9
+     *
+     * @return deleteFlg
+     */
+    @Min(0)
+    @Max(9)
+    @Schema(name = "deleteFlg", description = "論理削除フラグ", required = false)
+    public Integer getDeleteFlg()
+    {
+        return deleteFlg;
+    }
+
+    public void setDeleteFlg(Integer deleteFlg)
+    {
+        this.deleteFlg = deleteFlg;
+    }
+
+    public MProgram torokuDay(String torokuDay)
+    {
+        this.torokuDay = torokuDay;
+        return this;
+    }
+
+    /**
+     * 登録日
+     *
+     * @return torokuDay
+     */
+
+    @Schema(name = "torokuDay", description = "登録日", required = false)
+    public String getTorokuDay()
+    {
+        return torokuDay;
+    }
+
+    public void setTorokuDay(String torokuDay)
+    {
+        this.torokuDay = torokuDay;
+    }
+
+    public MProgram koushinDay(String koushinDay)
+    {
+        this.koushinDay = koushinDay;
+        return this;
+    }
+
+    /**
+     * 更新日
+     *
+     * @return koushinDay
+     */
+
+    @Schema(name = "koushinDay", description = "更新日", required = false)
+    public String getKoushinDay()
+    {
+        return koushinDay;
+    }
+
+    public void setKoushinDay(String koushinDay)
+    {
+        this.koushinDay = koushinDay;
+    }
+
+    @Override
+    public boolean equals(Object o)
+    {
+        if (this == o)
+        {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass())
+        {
+            return false;
+        }
+        MProgram mProgram = (MProgram) o;
+        return Objects.equals(this.programId, mProgram.programId) &&
+            Objects.equals(this.programName, mProgram.programName) &&
+            Objects.equals(this.channelId, mProgram.channelId) &&
+            Objects.equals(this.genreId, mProgram.genreId) &&
+            Objects.equals(this.deleteFlg, mProgram.deleteFlg) &&
+            Objects.equals(this.torokuDay, mProgram.torokuDay) &&
+            Objects.equals(this.koushinDay, mProgram.koushinDay);
+    }
+
+    @Override
+    public int hashCode()
+    {
+        return Objects.hash(programId, programName, channelId, genreId, deleteFlg, torokuDay, koushinDay);
+    }
+
+    @Override
+    public String toString()
+    {
+        StringBuilder sb = new StringBuilder();
+        sb.append("class MProgram {\n");
+        sb.append("    programId: ").append(toIndentedString(programId)).append("\n");
+        sb.append("    programName: ").append(toIndentedString(programName)).append("\n");
+        sb.append("    channelId: ").append(toIndentedString(channelId)).append("\n");
+        sb.append("    genreId: ").append(toIndentedString(genreId)).append("\n");
+        sb.append("    deleteFlg: ").append(toIndentedString(deleteFlg)).append("\n");
+        sb.append("    torokuDay: ").append(toIndentedString(torokuDay)).append("\n");
+        sb.append("    koushinDay: ").append(toIndentedString(koushinDay)).append("\n");
+        sb.append("}");
+        return sb.toString();
+    }
+
+    /**
+     * Convert the given object to string with each line indented by 4 spaces
+     * (except the first line).
+     */
+    private String toIndentedString(Object o)
+    {
+        if (o == null)
+        {
+            return "null";
+        }
+        return o.toString().replace("\n", "\n    ");
+    }
 }
-

@@ -13,20 +13,21 @@ import lombok.RequiredArgsConstructor;
  */
 @Service
 @RequiredArgsConstructor
-public class TalentTorokuKoshinBFFService {
-
-	// WebClientInfoを宣言
+public class TalentTorokuKoshinBFFService
+{
+    // WebClientInfoを宣言
     private final WebClientInfo webClient;
 
     /**
      * タレント登録・更新BFFService
      *
-     * @param mTalent　タレントマスタDTO
+     * @param mTalent タレントマスタDTO
      * @return TalentTorokuKoshinBFF
      */
-    public TalentTorokuKoshinBFF postTalentTorokuKoshinBFF(MTalent mTalent) {
-    	// (1) BE「タレント登録・更新」を呼び出す。
-    	TalentTorokuKoshinBFF response = this.webClient.postTalentTorokuKoshin(mTalent);
+    public TalentTorokuKoshinBFF postTalentTorokuKoshinBFF(MTalent mTalent)
+    {
+        // (1) BE「タレント登録・更新」を呼び出す。
+        TalentTorokuKoshinBFF response = this.webClient.postTalentTorokuKoshin(mTalent);
         // Responseへ設定
         return response;
     }

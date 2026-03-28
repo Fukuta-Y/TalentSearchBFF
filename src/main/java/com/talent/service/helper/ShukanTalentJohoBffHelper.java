@@ -13,8 +13,8 @@ import com.talent.service.dto.TalentShutsuenHonsuDto;
 import com.talent.setting.ConfigMapper;
 
 @Mapper(config = ConfigMapper.class)
-public interface ShukanTalentJohoBffHelper {
-
+public interface ShukanTalentJohoBffHelper
+{
     @Mapping(source = "model.talentId", target = "talent.id")
     @Mapping(source = "talentNm", target = "talent.name")
     @Mapping(source = "model.programId", target = "tvProgram.id")
@@ -47,5 +47,4 @@ public interface ShukanTalentJohoBffHelper {
     @Mapping(source = "netsuki.shuFrom", target = "shuFrom")
     @Mapping(source = "netsuki.shuTo", target = "shuTo")
     ShukanTalent toShukanTalentJoho(TalentInfoDto talentInfoDto, Integer honsu, MNentsukiShuKanri netsuki);
-
 }

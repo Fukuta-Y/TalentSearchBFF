@@ -31,32 +31,32 @@ import lombok.RequiredArgsConstructor;
  */
 @Service
 @RequiredArgsConstructor
-public class ShukanTalentJohoBFFService {
-
-	// WebClientInfoを宣言
+public class ShukanTalentJohoBFFService
+{
+    // WebClientInfoを宣言
     private final WebClientInfo webClient;
-    
-	// ShukanTalentJohoBffHelperを宣言
+
+    // ShukanTalentJohoBffHelperを宣言
     private final ShukanTalentJohoBffHelper helper;
-    
-	// TalentGroupShoriを宣言
+
+    // TalentGroupShoriを宣言
     private final TalentGroupShori groupShori;
 
     /**
      * 週間タレント別情報検索Service
      *
-     * @param nentsuki   年月
-     * @param shu        週
+     * @param nentsuki 年月
+     * @param shu 週
      * @param talentName タレント名
      * @return List<ShukanTalentJohoBFF>
      */
-    public ShukanTalentJohoBFF getShukanTalentJohoBFF(Integer nentsuki, Integer shu, String talentName) {
-
-    	// reponseを宣言
-    	ShukanTalentJohoBFF response = new ShukanTalentJohoBFF();
+    public ShukanTalentJohoBFF getShukanTalentJohoBFF(Integer nentsuki, Integer shu, String talentName)
+    {
+        // reponseを宣言
+        ShukanTalentJohoBFF response = new ShukanTalentJohoBFF();
         // Listに設定するModelの宣言
-    	List<ShukanTalent> listShukanTalentJoho = new ArrayList<ShukanTalent>();
-    	ShukanTalent shukanTalent = new ShukanTalent();
+        List<ShukanTalent> listShukanTalentJoho = new ArrayList<ShukanTalent>();
+        ShukanTalent shukanTalent = new ShukanTalent();
 
         // BE「週間タレント別情報検索より取得処理
         ShukanTalentJoho talentJoho = this.webClient.getShukanTalentJoho(nentsuki, shu, talentName);
@@ -68,34 +68,43 @@ public class ShukanTalentJohoBFFService {
         // (1) BE「週間タレント別情報検索」より取得したレスポンスで以下の条件でデータを絞る。
         // （別シート_タレント出演情報検索の結合イメージ　参照）
         // 以下はオンエア管理が設定されている場合のみ対応
-        if (CollectionUtils.isEmpty(modelOnAirKanriList)) {
-        	response.addShukanTalentItem(shukanTalent);
+        if (CollectionUtils.isEmpty(modelOnAirKanriList))
+        {
+            response.addShukanTalentItem(shukanTalent);
             return response;
         }
-        List<OnAirKanriInfoDto> OnAirKanriInfoList = groupShori.setOnAirKanriInfoList(modelTalentList, modelProgramList, modelOnAirKanriList);
+        List<OnAirKanriInfoDto> OnAirKanriInfoList = groupShori
+            .setOnAirKanriInfoList(modelTalentList, modelProgramList, modelOnAirKanriList);
         // (2) 絞った結果をタレントID、タレント名で集約化する。集約時に、タレントID,タレント名、週間出演番組本数のレコードの形にする。
         // （レスポンスのベース）
-        List<TalentShutsuenHonsuDto> talentShutsuenHonsuList = groupShori.setTalentShutsuenHonsuList(OnAirKanriInfoList);
-        List<TalentShutsuenHonsuDto> talentShutsuenHonsuCountList = groupShori.setTalentShutsuenHonsuCountList(talentShutsuenHonsuList);
+        List<TalentShutsuenHonsuDto> talentShutsuenHonsuList = groupShori
+            .setTalentShutsuenHonsuList(OnAirKanriInfoList);
+        List<TalentShutsuenHonsuDto> talentShutsuenHonsuCountList = groupShori
+            .setTalentShutsuenHonsuCountList(talentShutsuenHonsuList);
         // (3)　(1)よりタレントIDをキーとして取得して、オンエア日でソートして、最も近いオンエア日の日付の行だけを取得する。
         // 取得後、タレントID、出演番組（直近）【番組名】、オンエア日（直近）【オンエア日】のレコードの形にする。
         List<String> talentList = new ArrayList<String>();
         // タレントIDの一覧のリスト
-        for (TalentShutsuenHonsuDto e : talentShutsuenHonsuCountList) {
+        for (TalentShutsuenHonsuDto e : talentShutsuenHonsuCountList)
+        {
             talentList.add(e.getTalent().getId());
         }
 
         List<TalentOnAirChokinInfoDto> talentOnairChokinInfoDtoList = new ArrayList<TalentOnAirChokinInfoDto>();
         List<OnAirKanriInfoDto> OnAirKanriInfosDto = new ArrayList<OnAirKanriInfoDto>();
 
-        for (String talentID : talentList) {
+        for (String talentID : talentList)
+        {
             OnAirKanriInfosDto = new ArrayList<OnAirKanriInfoDto>();
-            for (OnAirKanriInfoDto e : OnAirKanriInfoList) {
-                if (StringUtils.equals(e.getTalent().getId(), talentID)) {
+            for (OnAirKanriInfoDto e : OnAirKanriInfoList)
+            {
+                if (StringUtils.equals(e.getTalent().getId(), talentID))
+                {
                     OnAirKanriInfosDto.add(e);
                 }
             }
-            if (CollectionUtils.isNotEmpty(OnAirKanriInfosDto)) {
+            if (CollectionUtils.isNotEmpty(OnAirKanriInfosDto))
+            {
                 //オンエア日でソート
                 OnAirKanriInfosDto.sort(new OnAirComparator());
                 // TalentOnairChokinInfoDtoへ変換して設定
@@ -106,10 +115,13 @@ public class ShukanTalentJohoBFFService {
         // (4) (2)に対して、(3)を組み合わせて、レスポンスの形にする。
         List<TalentInfoDto> talentInfoDtoList = new ArrayList<TalentInfoDto>();
         // TalentShutsuenHonsuCountListとtalentOnairChokinInfoDtoListをマージ
-        for (TalentShutsuenHonsuDto k : talentShutsuenHonsuCountList) {
-            for (TalentOnAirChokinInfoDto v : talentOnairChokinInfoDtoList) {
-                if (StringUtils.equals(k.getTalent().getId(), v.getTalent().getId())) {
-                	talentInfoDtoList.add(helper.toTalentInfoDto(k, v));
+        for (TalentShutsuenHonsuDto k : talentShutsuenHonsuCountList)
+        {
+            for (TalentOnAirChokinInfoDto v : talentOnairChokinInfoDtoList)
+            {
+                if (StringUtils.equals(k.getTalent().getId(), v.getTalent().getId()))
+                {
+                    talentInfoDtoList.add(helper.toTalentInfoDto(k, v));
                     break;
                 }
             }
@@ -121,10 +133,11 @@ public class ShukanTalentJohoBFFService {
         YearMonthWeekStartEndJoho yearMonthJoho = this.webClient.getYearMonthWeekStartEnd(nentsuki, shu);
 
         // (6) (4) + (5)を組み合わせて、レスポンスの形にする。
-        for (TalentInfoDto e : talentInfoDtoList) {
-        	int honsu = Math.toIntExact(e.getShukanShutsuenHonsu());
-        	shukanTalent = helper.toShukanTalentJoho(e, honsu, yearMonthJoho.getmNentsukiShuKanri());
-        	listShukanTalentJoho.add(shukanTalent);
+        for (TalentInfoDto e : talentInfoDtoList)
+        {
+            int honsu = Math.toIntExact(e.getShukanShutsuenHonsu());
+            shukanTalent = helper.toShukanTalentJoho(e, honsu, yearMonthJoho.getmNentsukiShuKanri());
+            listShukanTalentJoho.add(shukanTalent);
         }
 
         // List<ShukanTalent>をIDの順にソート

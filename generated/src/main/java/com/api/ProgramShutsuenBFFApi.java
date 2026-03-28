@@ -26,38 +26,51 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-19T13:32:33.237081+09:00[Asia/Tokyo]")
+@Generated(
+    value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-11-19T13:32:33.237081+09:00[Asia/Tokyo]"
+)
 @Validated
 @Tag(name = "programShutsuenBFF", description = "the programShutsuenBFF API")
 @RequestMapping("api")
-public interface ProgramShutsuenBFFApi {
-
+public interface ProgramShutsuenBFFApi
+{
     /**
      * GET /programShutsuenBFF : 番組においての対象週の出演者を情報を返すBFF
      * 番組においての対象週の出演者を情報を返すBFF
      *
-     * @param programId  (required)
-     * @param onAirDay  (required)
-     * @param nentsuki  (required)
-     * @param shu  (required)
+     * @param programId (required)
+     * @param onAirDay (required)
+     * @param nentsuki (required)
+     * @param shu (required)
      * @return 番組においての対象週の出演者を情報を正常取得 (status code 200)
      */
     @Operation(
         operationId = "getProgramShutsuenBFF",
         summary = "番組においての対象週の出演者を情報を返すBFF",
-        tags = { "programShutsuenBFF" },
+        tags = {"programShutsuenBFF"},
         responses = {
-            @ApiResponse(responseCode = "200", description = "番組においての対象週の出演者を情報を正常取得", content = {
-                @Content(mediaType = "application/json", schema = @Schema(implementation = ProgramShutsuenList.class))
-            })
+            @ApiResponse(
+                responseCode = "200", description = "番組においての対象週の出演者を情報を正常取得", content = {
+                    @Content(
+                        mediaType = "application/json", schema = @Schema(implementation = ProgramShutsuenList.class)
+                    )
+                }
+            )
         }
     )
     @GetMapping("/programShutsuenBFF")
     ResponseEntity<ProgramShutsuenList> getProgramShutsuenBFF(
-        @NotNull @Size(max = 8) @Parameter(name = "programId", description = "", required = true) @Valid @RequestParam(value = "programId", required = true) String programId,
-        @NotNull @Parameter(name = "onAirDay", description = "", required = true) @Valid @RequestParam(value = "onAirDay", required = true) String onAirDay,
-        @NotNull @Min(199001) @Max(210012) @Parameter(name = "nentsuki", description = "", required = true) @Valid @RequestParam(value = "nentsuki", required = true) Integer nentsuki,
-        @NotNull @Min(1) @Max(5) @Parameter(name = "shu", description = "", required = true) @Valid @RequestParam(value = "shu", required = true) Integer shu
+        @NotNull @Size(max = 8) @Parameter(name = "programId", description = "", required = true) @Valid @RequestParam(
+            value = "programId", required = true
+        ) String programId,
+        @NotNull @Parameter(name = "onAirDay", description = "", required = true) @Valid @RequestParam(
+            value = "onAirDay", required = true
+        ) String onAirDay,
+        @NotNull @Min(199001) @Max(210012) @Parameter(
+            name = "nentsuki", description = "", required = true
+        ) @Valid @RequestParam(value = "nentsuki", required = true) Integer nentsuki,
+        @NotNull @Min(1) @Max(5) @Parameter(name = "shu", description = "", required = true) @Valid @RequestParam(
+            value = "shu", required = true
+        ) Integer shu
     );
-
 }

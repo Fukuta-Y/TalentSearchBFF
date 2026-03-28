@@ -12,27 +12,28 @@ import lombok.RequiredArgsConstructor;
  */
 @Service
 @RequiredArgsConstructor
-public class OnAirKanriRefBFFService {
-
-	// WebClientInfoを宣言
+public class OnAirKanriRefBFFService
+{
+    // WebClientInfoを宣言
     private final WebClientInfo webClient;
 
     /**
      * オンエア管理参照検索Service
      *
-	 * @param id　ID
-	 * @param onAirDay オンエア日
-	 * @return OnAirKanriList
+     * @param id ID
+     * @param onAirDay オンエア日
+     * @return OnAirKanriList
      */
-    public OnAirKanriRefList getOnAirKanriRefBFF(String id, String onAirDay) {
+    public OnAirKanriRefList getOnAirKanriRefBFF(String id, String onAirDay)
+    {
 
-    	// responseを宣言
-    	OnAirKanriRefList response = new OnAirKanriRefList();
+        // responseを宣言
+        OnAirKanriRefList response = new OnAirKanriRefList();
 
-    	// (1) BE「オンエア管理参照検索」を呼び出す。
-    	response = this.webClient.getOnAirKanriRef(id, onAirDay);
+        // (1) BE「オンエア管理参照検索」を呼び出す。
+        response = this.webClient.getOnAirKanriRef(id, onAirDay);
 
-    	// responseの返却
+        // responseの返却
         return response;
     }
 }

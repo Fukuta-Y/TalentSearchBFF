@@ -7,7 +7,7 @@ import com.model.ProgramInfoRef;
 import com.talent.setting.ConfigMapper;
 
 @Mapper(config = ConfigMapper.class)
-public interface ProgramInfoRefHelper {
+public interface ProgramInfoRefHelper
+{
     ProgramInfoRef toProgramInfoRef(MProgram mp);
-
 }
