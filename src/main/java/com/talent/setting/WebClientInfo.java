@@ -32,7 +32,6 @@ public class WebClientInfo
 
     public WebClientInfo(WebClient.Builder webClientBuilder)
     {
-        // this.webClient = webClientBuilder.baseUrl("http://localhost:8082").build();
         this.webClient = webClientBuilder.baseUrl("https://talent-search-be-913300773870.europe-west1.run.app/")
             .build();
     }
